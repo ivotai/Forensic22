@@ -1,4 +1,4 @@
-package com.unicorn.forensic2
+package com.unicorn.forensic2.app
 
 import com.blankj.utilcode.util.ConvertUtils
 

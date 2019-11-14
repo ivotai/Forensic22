@@ -10,8 +10,9 @@ import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 class MainAct : BaseAct() {
 
     override fun initViews() {
-        viewPaper.adapter = MainPagerAdapter(supportFragmentManager)
-        viewPaper.offscreenPageLimit = MainPagerAdapter.size - 1
+        val mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
+        viewPaper.adapter = mainPagerAdapter
+        viewPaper.offscreenPageLimit = mainPagerAdapter.count - 1
 
         fun newItem(drawable: Int, checkedDrawable: Int, text: String) =
             NormalItemView(this).apply {

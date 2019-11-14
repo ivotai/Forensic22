@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.app.di.module
 
-import com.unicorn.forensic2.V1
+import com.unicorn.forensic2.app.V1
 import com.unicorn.forensic2.data.api.V1Api
 import dagger.Module
 import dagger.Provides
