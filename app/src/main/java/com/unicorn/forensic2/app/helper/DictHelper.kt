@@ -6,15 +6,23 @@ import io.reactivex.schedulers.Schedulers
 
 object DictHelper {
 
+    // 所在地
     lateinit var regions: List<Dict>
 
-    fun getDicts() {
-       v1Api.getDictRegion()
+    // 鉴定类别
+    lateinit var jdlb: List<Dict>
+
+    fun getDicts() = with(v1Api) {
+        getDictRegion()
+            .flatMap {
+                regions = it.data
+                v1Api.getDictJdlb()
+            }
             .subscribeOn(Schedulers.io())
             .subscribe {
-                regions = it.data
+                jdlb = it.data
             }
-    }
+    }!!
 
     private val v1Api by lazy { ComponentHolder.appComponent.v1Api() }
 }

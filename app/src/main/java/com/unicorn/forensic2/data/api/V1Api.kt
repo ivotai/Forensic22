@@ -9,6 +9,7 @@ import retrofit2.http.POST
 interface V1Api {
 
     //所在地
+    // 一定要 post {} 才不会报错，不能传 @Body any: Any = Any()
     @POST("Code/DictRegion")
     fun getDictRegion(@Body any: Any = Any()): Observable<Response<List<Dict>>>
 
