@@ -7,5 +7,11 @@ data class UserLoginResult(
     val isAdmin: Boolean,
     val sid: String,
     val uid: String,
+    val userMenu: List<UserMenu>,
     val userName: String
+)
+
+data class UserMenu(
+    val name: String,
+    val url: String
 )

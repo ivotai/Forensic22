@@ -1,0 +1,53 @@
+{
+  "sid": "i11jjh2oht44ozgbid11x044",
+  "uid": "8a3fb6c6-d364-44d2-a712-e0f0c73724dc",
+  "userName": "桂阳",
+  "isAdmin": false,
+  "cntNewlyToDo": 0,
+  "cntUpdatedMyCase": 0,
+  "identityChecked": true,
+  "userMenu": [
+    {
+      "id": 0,
+      "name": "内勤初审",
+      "url": "#main.case.secretaryFirstReview",
+      "icon": null
+    },
+    {
+      "id": 0,
+      "name": "立案审查",
+      "url": "#main.case.leaderConfirm",
+      "icon": null
+    },
+    {
+      "id": 0,
+      "name": "确定主办",
+      "url": "#main.case.division",
+      "icon": null
+    },
+    {
+      "id": 0,
+      "name": "鉴定摇号",
+      "url": "#main.case.rollSingle",
+      "icon": null
+    },
+    {
+      "id": 0,
+      "name": "案件办理",
+      "url": "#main.case.finishRequest",
+      "icon": null
+    },
+    {
+      "id": 0,
+      "name": "结案审核",
+      "url": "#main.case.finishApproval",
+      "icon": null
+    },
+    {
+      "id": 0,
+      "name": "已结案件",
+      "url": "#main.case.finishedCaseByUser",
+      "icon": null
+    }
+  ]
+}
