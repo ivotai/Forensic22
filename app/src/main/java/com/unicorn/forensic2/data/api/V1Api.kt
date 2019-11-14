@@ -1,9 +1,8 @@
 package com.unicorn.forensic2.data.api
 
-import com.unicorn.forensic2.data.model.Dict
-import com.unicorn.forensic2.data.model.KeyParam
-import com.unicorn.forensic2.data.model.Response
+import com.unicorn.forensic2.data.model.*
 import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -28,5 +27,11 @@ interface V1Api {
     // 参数为鉴定类别Id
     @POST("Code/DictZzdj")
     fun getDictZzdj(@Body keyParam: KeyParam): Observable<Response<List<Dict>>>
+
+    @POST("Authorization/UserLogin")
+    fun login(@Body userLogin: UserLogin): Observable<Response<UserLoginResult>>
+
+    @POST("Authorization/UserLogin")
+    fun loginForSession(@Body userLogin: UserLogin): Call<Response<UserLoginResult>>
 
 }
