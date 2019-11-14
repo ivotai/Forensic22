@@ -18,7 +18,8 @@ const val defaultPageSize = 5
 
 val defaultPaddingDp = ConvertUtils.dp2px(16f)
 
-const val originalBaseUrl = "http://renjiawen1988.vicp.cc:33333/JudicialExpertiseV3Public/"
+const val originalBaseUrl = "http://renjiawen1988.vicp.cc:33333/JudicialExpertise" +
+        "V3Public/"
 const val baseUrl = "${originalBaseUrl}api/"
 
 const val baseUrl2 = "http://renjiawen1988.vicp.cc:33333/JudicialExpertiseV3/api/"
