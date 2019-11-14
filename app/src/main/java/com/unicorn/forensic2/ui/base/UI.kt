@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.app.ui.base
+package com.unicorn.forensic2.ui.base
 
 interface UI {
 

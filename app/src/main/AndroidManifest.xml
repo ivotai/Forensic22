@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         tools:replace="android:allowBackup"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.ui.MainAct">
+        <activity android:name="com.unicorn.forensic2.ui.MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

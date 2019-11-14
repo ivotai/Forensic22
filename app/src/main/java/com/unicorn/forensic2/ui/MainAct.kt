@@ -1,9 +1,9 @@
-package com.unicorn.forensic2.app.ui
+package com.unicorn.forensic2.ui
 
 import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.ui.adapter.MainPagerAdapter
-import com.unicorn.forensic2.app.ui.base.BaseAct
+import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
+import com.unicorn.forensic2.ui.base.BaseAct
 import kotlinx.android.synthetic.main.act_main.*
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 

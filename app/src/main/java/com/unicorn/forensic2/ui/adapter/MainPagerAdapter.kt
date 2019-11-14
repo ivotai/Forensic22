@@ -1,9 +1,9 @@
-package com.unicorn.forensic2.app.ui.adapter
+package com.unicorn.forensic2.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.unicorn.forensic2.app.ui.HomeFra
+import com.unicorn.forensic2.ui.HomeFra
 
 @Suppress("DEPRECATION")
 class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {

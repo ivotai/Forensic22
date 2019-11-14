@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.app.ui.base
+package com.unicorn.forensic2.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
