@@ -3,10 +3,13 @@ package com.unicorn.forensic2.ui
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.LoginStateChange
+import com.unicorn.forensic2.data.model.UserMenu
+import com.unicorn.forensic2.ui.adapter.UserMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_home.*
 
@@ -25,7 +28,17 @@ class HomeFra : BaseFra() {
         rtvIdentityChecked.visibility = if (isLogin) View.VISIBLE else View.INVISIBLE
         if (isLogin)
             rtvIdentityChecked.text = if (identityChecked) "已认证" else "未认证"
+
+        fun initRv() {
+            recyclerView.apply {
+                layoutManager = GridLayoutManager(context!!, 3)
+                userMenuAdapter.bindToRecyclerView(this)
+            }
+        }
+        initRv()
     }
+
+    private val userMenuAdapter = UserMenuAdapter()
 
     override fun bindIntent() {
         tvUsername.safeClicks().subscribe {
@@ -34,6 +47,12 @@ class HomeFra : BaseFra() {
                 isLogin = false
                 RxBus.post(LoginStateChange())
             }
+        }
+        val data = ArrayList<UserMenu>()
+        data.addAll(UserMenu.basicMenus)
+        userMenuAdapter.setNewData(data)
+        if (isLogin){
+            userMenuAdapter.addData(userLoginResult.userMenu)
         }
     }
 

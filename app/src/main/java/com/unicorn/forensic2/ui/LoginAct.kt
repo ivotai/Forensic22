@@ -42,7 +42,6 @@ class LoginAct : BaseAct() {
                     LoginInfo.loginStr = etLoginStr.trimText()
                     LoginInfo.pwd = etPwd.trimText()
                     finish()
-//                    AppHelper.saveNecessaryInfo(userLogin, it.data) TODO 记住密码
 //                fakeLogin()
                 },
                 onError = {

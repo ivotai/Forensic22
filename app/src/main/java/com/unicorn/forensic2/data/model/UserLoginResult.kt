@@ -14,4 +14,19 @@ data class UserLoginResult(
 data class UserMenu(
     val name: String,
     val url: String
-)
+) {
+
+    companion object {
+
+        val basicMenus
+            get() = listOf(
+                UserMenu(name = "系统公告", url = "系统公告"),
+                UserMenu(name = "图片新闻", url = "图片新闻"),
+                UserMenu(name = "机构查询", url = "机构查询"),
+                UserMenu(name = "摇号回放", url = "摇号回放"),
+                UserMenu(name = "投诉建议", url = "投诉建议")
+            )
+
+    }
+
+}
