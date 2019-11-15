@@ -6,6 +6,7 @@ import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.data.event.LoginStateChange
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_home.*
 
@@ -29,6 +30,10 @@ class HomeFra : BaseFra() {
     override fun bindIntent() {
         tvUsername.safeClicks().subscribe {
             if (!isLogin) activity?.startAct(LoginAct::class.java)
+            else {
+                isLogin = false
+                RxBus.post(LoginStateChange())
+            }
         }
     }
 
