@@ -5,6 +5,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.event.LoginStateChange
+import com.unicorn.forensic2.data.model.LoginInfo
 import com.unicorn.forensic2.data.model.UserLogin
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -13,8 +14,8 @@ import kotlinx.android.synthetic.main.act_login.*
 class LoginAct : BaseAct() {
 
     override fun initViews() {
-        etLoginStr.setText("guiyang")
-        etPwd.setText("123")
+        etLoginStr.setText(LoginInfo.loginStr)
+        etPwd.setText(LoginInfo.pwd)
     }
 
     override fun bindIntent() {
@@ -38,6 +39,8 @@ class LoginAct : BaseAct() {
                     isLogin = true
                     userLoginResult = it.data
                     RxBus.post(LoginStateChange())
+                    LoginInfo.loginStr = etLoginStr.trimText()
+                    LoginInfo.pwd = etPwd.trimText()
                     finish()
 //                    AppHelper.saveNecessaryInfo(userLogin, it.data) TODO 记住密码
 //                fakeLogin()
