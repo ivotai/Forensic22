@@ -7,6 +7,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.app.username
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_home.*
 
@@ -21,8 +22,10 @@ class HomeFra : BaseFra() {
             setColor(Color.WHITE)
         }
 
-
+        tvUsername.text = if (isLogin) username else "请登录"
     }
+
+
 
     override fun bindIntent() {
         tvUsername.safeClicks().subscribe {

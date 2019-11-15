@@ -2,24 +2,30 @@ package com.unicorn.forensic2.ui
 
 import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.isLogin
+import com.unicorn.forensic2.data.event.LoginStateChange
 import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.act_main.*
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 
 class MainAct : BaseAct() {
 
+    private fun newItem(drawable: Int, checkedDrawable: Int, text: String) =
+        NormalItemView(this).apply {
+            initialize(drawable, checkedDrawable, text)
+            setTextDefaultColor(colorDefault)
+            setTextCheckedColor(colorPrimary)
+        }
+
+
+    lateinit var mainPagerAdapter: MainPagerAdapter
     override fun initViews() {
-        val mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
+        mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
         viewPaper.adapter = mainPagerAdapter
         viewPaper.offscreenPageLimit = mainPagerAdapter.count - 1
-
-        fun newItem(drawable: Int, checkedDrawable: Int, text: String) =
-            NormalItemView(this).apply {
-                initialize(drawable, checkedDrawable, text)
-                setTextDefaultColor(colorDefault)
-                setTextCheckedColor(colorPrimary)
-            }
 
         val navigationController = navigation.custom()
             .addItem(
@@ -27,20 +33,6 @@ class MainAct : BaseAct() {
                     R.drawable.ic__ionicons_svg_ios_home,
                     R.drawable.ic__ionicons_svg_ios_home2,
                     "首页"
-                )
-            )
-            .addItem(
-                newItem(
-                    R.drawable.ic__ionicons_svg_ios_albums,
-                    R.drawable.ic__ionicons_svg_ios_albums2,
-                    "案件"
-                )
-            )
-            .addItem(
-                newItem(
-                    R.drawable.ic__ionicons_svg_ios_contact,
-                    R.drawable.ic__ionicons_svg_ios_contact2,
-                    "我的"
                 )
             )
             .build()
@@ -53,6 +45,38 @@ class MainAct : BaseAct() {
 //            ActivityUtils.finishAllActivities()
 //            startAct(LoginAct::class.java)
 //        })
+
+        RxBus.registerEvent(this, LoginStateChange::class.java, Consumer {
+            mainPagerAdapter.notifyDataSetChanged()
+
+            val customBuilder = navigation.custom()
+            customBuilder.apply {
+                addItem(
+                    newItem(
+                        R.drawable.ic__ionicons_svg_ios_home,
+                        R.drawable.ic__ionicons_svg_ios_home2,
+                        "首页"
+                    )
+                )
+                if (isLogin) {
+                    addItem(
+                        newItem(
+                            R.drawable.ic__ionicons_svg_ios_albums,
+                            R.drawable.ic__ionicons_svg_ios_albums2,
+                            "案件"
+                        )
+                    )
+                    addItem(
+                        newItem(
+                            R.drawable.ic__ionicons_svg_ios_contact,
+                            R.drawable.ic__ionicons_svg_ios_contact2,
+                            "我的"
+                        )
+                    )
+                }
+            }
+            customBuilder.build().setupWithViewPager(viewPaper)
+        })
     }
 
     private val colorPrimary by lazy { ContextCompat.getColor(this@MainAct, R.color.colorPrimary) }

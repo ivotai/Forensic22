@@ -2,11 +2,9 @@ package com.unicorn.forensic2.ui
 
 
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.encrypt
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.trimText
+import com.unicorn.forensic2.data.event.LoginStateChange
 import com.unicorn.forensic2.data.model.UserLogin
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -37,8 +35,11 @@ class LoginAct : BaseAct() {
                 onNext = {
                     mask.dismiss()
                     if (it.failed) return@subscribeBy
+                    isLogin = true
+                    userLoginResult = it.data
+                    RxBus.post(LoginStateChange())
+                    finish()
 //                    AppHelper.saveNecessaryInfo(userLogin, it.data) TODO 记住密码
-//                toActAndFinish(MainAct::class.java)
 //                fakeLogin()
                 },
                 onError = {
