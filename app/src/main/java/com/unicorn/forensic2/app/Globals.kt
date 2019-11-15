@@ -6,6 +6,12 @@ var isLogin = false
 
 lateinit var userLoginResult: UserLoginResult
 
+
+
+
+
 val sid :String get() =  userLoginResult.sid
 
 val username get() =  userLoginResult.userName
+
+val identityChecked get() =  userLoginResult.identityChecked

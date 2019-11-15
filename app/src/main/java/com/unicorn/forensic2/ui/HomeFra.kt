@@ -2,12 +2,10 @@ package com.unicorn.forensic2.ui
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.startAct
-import com.unicorn.forensic2.app.username
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_home.*
 
@@ -22,10 +20,11 @@ class HomeFra : BaseFra() {
             setColor(Color.WHITE)
         }
 
-        tvUsername.text = if (isLogin) username else "请登录"
+        tvUsername.text = if (isLogin) "欢迎您，$username" else "请登录"
+        rtvIdentityChecked.visibility = if (isLogin) View.VISIBLE else View.INVISIBLE
+        if (isLogin)
+            rtvIdentityChecked.text = if (identityChecked) "已认证" else "未认证"
     }
-
-
 
     override fun bindIntent() {
         tvUsername.safeClicks().subscribe {
