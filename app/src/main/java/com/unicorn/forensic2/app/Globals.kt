@@ -15,3 +15,5 @@ val sid :String get() =  userLoginResult.sid
 val username get() =  userLoginResult.userName
 
 val identityChecked get() =  userLoginResult.identityChecked
+
+val userMenu get() =  userLoginResult.userMenu

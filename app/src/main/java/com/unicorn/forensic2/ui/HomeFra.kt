@@ -48,12 +48,9 @@ class HomeFra : BaseFra() {
                 RxBus.post(LoginStateChange())
             }
         }
-        val data = ArrayList<UserMenu>()
-        data.addAll(UserMenu.basicMenus)
-        userMenuAdapter.setNewData(data)
-        if (isLogin){
-            userMenuAdapter.addData(userLoginResult.userMenu)
-        }
+
+        userMenuAdapter.setNewData(ArrayList<UserMenu>().apply { addAll(UserMenu.basicMenus) })
+        if (isLogin) userMenuAdapter.addData(userMenu)
     }
 
 }
