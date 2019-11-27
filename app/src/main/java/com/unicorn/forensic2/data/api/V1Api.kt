@@ -2,6 +2,7 @@ package com.unicorn.forensic2.data.api
 
 import com.unicorn.forensic2.data.model.*
 import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -33,5 +34,10 @@ interface V1Api {
 
     @POST("Authorization/UserLogin")
     fun loginForSession(@Body userLogin: UserLogin): Call<Response<UserLoginResult>>
+
+    // 案件
+    @POST("Case/CaseMyList")
+    fun getCaseList(@Body pageParam: PageParam<SearchParamCase>): Single<PageResponse<Case>>
+
 
 }

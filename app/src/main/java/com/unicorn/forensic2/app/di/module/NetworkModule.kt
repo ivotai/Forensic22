@@ -4,6 +4,7 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.unicorn.forensic2.app.V1
 import com.unicorn.forensic2.app.baseUrl
+import com.unicorn.forensic2.app.helper.NetworkHelper
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -28,7 +29,12 @@ class NetworkModule {
     @Provides
     fun provideOkHttpClient(gson: Gson): OkHttpClient =
         OkHttpClient.Builder()
-//            .addInterceptor { chain -> NetworkHelper.proceedRequestWithSession(chain) }
+            .addInterceptor { chain ->
+                val encodedPathSegments = chain.request().url.encodedPathSegments
+                val r = "Code" in encodedPathSegments || "UserLogin" in encodedPathSegments
+                if (r) chain.proceed(chain.request())
+                else NetworkHelper.proceedRequestWithSession(chain)
+            }
 //            .addInterceptor { chain ->
 //                // 非空检测，虽然不是很必要
 //                val response = chain.proceed(chain.request())

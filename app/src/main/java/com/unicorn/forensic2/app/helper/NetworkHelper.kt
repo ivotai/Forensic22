@@ -1,6 +1,11 @@
 package com.unicorn.forensic2.app.helper
 
+import com.unicorn.forensic2.app.ASP_NET_SessionId
+import com.unicorn.forensic2.app.Cookie
 import com.unicorn.forensic2.app.di.ComponentHolder
+import com.unicorn.forensic2.app.sid
+import okhttp3.Interceptor
+import okhttp3.Response
 
 object NetworkHelper {
 
@@ -9,7 +14,15 @@ object NetworkHelper {
 //        api.loginSilently().execute().body().let { Globals.loginResponse = it!! }
 //        return proceedRequestWithSession(chain)
 //    }
-//
+
+    fun proceedRequestWithSession(chain: Interceptor.Chain): Response {
+        return chain.request().newBuilder()
+            .removeHeader(Cookie)
+            .addHeader(Cookie, "${ASP_NET_SessionId}=${sid}")
+            .build()
+            .let { chain.proceed(it) }
+    }
+
 //    fun proceedRequestWithSession(chain: Interceptor.Chain): Response {
 //        return chain.request().newBuilder()
 //            .removeHeader(Cookie)

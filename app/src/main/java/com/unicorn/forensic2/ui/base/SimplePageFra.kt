@@ -1,0 +1,85 @@
+package com.unicorn.forensic2.ui.base
+
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
+import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.defaultPageSize
+import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.data.model.PageResponse
+import io.reactivex.Single
+import io.reactivex.rxkotlin.subscribeBy
+import kotlinx.android.synthetic.main.ui_swipe_recycler.*
+
+abstract class SimplePageFra<Model, K : BaseViewHolder> : BaseFra() {
+
+    abstract val simpleAdapter: BaseQuickAdapter<Model, K>
+
+    abstract fun loadPage(pageNo: Int): Single<PageResponse<Model>>
+
+    private val total
+        get() = simpleAdapter.data.size
+
+    private val pageNo
+        get() = total / defaultPageSize + 1
+
+    protected open val mRecyclerView: RecyclerView get() = recyclerView
+
+    protected open val mSwipeRefreshLayout: SwipeRefreshLayout get() = swipeRefreshLayout
+
+    override fun initViews() {
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary)
+        mRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            simpleAdapter.bindToRecyclerView(this)
+            simpleAdapter.setEnableLoadMore(true)
+        }
+    }
+
+    override fun bindIntent() {
+        mSwipeRefreshLayout.setOnRefreshListener { loadFirstPage() }
+        simpleAdapter.setOnLoadMoreListener({ loadNextPage() }, mRecyclerView)
+        loadFirstPage()
+    }
+
+    private fun loadFirstPage() {
+        mSwipeRefreshLayout.isRefreshing = true
+        loadPage(1)
+            .observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    mSwipeRefreshLayout.isRefreshing = false
+                    simpleAdapter.setNewData(it.items)
+                    checkIsLoadAll(it)
+                },
+                onError = {
+                    mSwipeRefreshLayout.isRefreshing = false
+                }
+            )
+    }
+
+    private fun loadNextPage() {
+        loadPage(pageNo)
+            .observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    simpleAdapter.loadMoreComplete()
+                    simpleAdapter.addData(it.items)
+                    checkIsLoadAll(it)
+                },
+                onError = {
+                    simpleAdapter.loadMoreComplete()
+                }
+            )
+    }
+
+    private fun checkIsLoadAll(pageResponse: PageResponse<Model>) {
+        val isLoadAll = total >= pageResponse.total // more safe but not exact
+        if (isLoadAll) simpleAdapter.loadMoreEnd(true)
+    }
+
+    override val layoutId = R.layout.ui_swipe_recycler
+
+}
