@@ -6,7 +6,7 @@ const val Tpxw = "Tpxw"
 const val Xtgg = "Xtgg"
 const val SearchParamJdjg = "SearchParamJdjg"
 const val Cookie = "Cookie"
-const val ASP_NET_SessionId= "ASP.NET_SessionId"
+const val ASP_NET_SessionId = "ASP.NET_SessionId"
 const val CaseId = "CaseId"
 const val V1 = "V1"
 const val V2 = "V2"
@@ -18,11 +18,11 @@ const val defaultPageSize = 5
 
 val defaultPaddingDp = ConvertUtils.dp2px(16f)
 
-const val originalBaseUrl = "http://renjiawen1988.vicp.cc:33333/JudicialExpertise" +
-        "V3Public/"
-const val baseUrl = "${originalBaseUrl}api/"
+//const val originalBaseUrl = "http://renjiawen1988.vicp.cc:33333/JudicialExpertise" +
+//        "V3Public/"
+const val baseUrl = "http://192.168.7.69:8088/sfjdwww/"
 
-const val baseUrl2 = "http://renjiawen1988.vicp.cc:33333/JudicialExpertiseV3/api/"
+//const val baseUrl2 = "http://renjiawen1988.vicp.cc:33333/JudicialExpertiseV3/api/"
 
 const val displayDateFormat = "yyyy-MM-dd"
 

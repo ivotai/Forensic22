@@ -11,22 +11,22 @@ interface V1Api {
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()
-    @POST("Code/DictRegion")
+    @POST("category/region")
     fun getDictRegion(@Body any: Any = Any()): Observable<Response<List<Dict>>>
 
     // 鉴定类别
     // 一定要 post {} 才不会报错
-    @POST("Code/DictJdlb")
+    @POST("category/jdlb")
     fun getDictJdlb(@Body any: Any = Any()): Observable<Response<List<Dict>>>
 
     // 机构性质
     // 机构性质不需要 post {}，莫名其妙
-    @POST("Code/DictJgxz")
+    @POST("category/jgxz")
     fun getDictJgxz(): Observable<Response<List<Dict>>>
 
     // 资质等级
     // 参数为鉴定类别Id
-    @POST("Code/DictZzdj")
+    @POST("category/DictZzdj")
     fun getDictZzdj(@Body keyParam: KeyParam): Observable<Response<List<Dict>>>
 
     @POST("Authorization/UserLogin")
