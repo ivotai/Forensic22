@@ -4,7 +4,7 @@ import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.data.event.LoginStateChange
+import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -29,7 +29,7 @@ class MainAct : BaseAct() {
 //            startAct(LoginAct::class.java)
 //        })
 
-        RxBus.registerEvent(this, LoginStateChange::class.java, Consumer {
+        RxBus.registerEvent(this, LoginStateChangeEvent::class.java, Consumer {
             mainPagerAdapter.notifyDataSetChanged()
             displayTab()
         })
@@ -71,11 +71,6 @@ class MainAct : BaseAct() {
             }
         }
         customBuilder.build().setupWithViewPager(viewPaper)
-    }
-    
-    override fun onBackPressed() {
-        // todo 如果有任何意外情况，可以考虑在这里杀死进程
-        super.onBackPressed()
     }
 
     private val colorPrimary by lazy { ContextCompat.getColor(this@MainAct, R.color.colorPrimary) }

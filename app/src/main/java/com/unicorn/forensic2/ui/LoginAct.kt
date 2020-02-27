@@ -4,7 +4,7 @@ package com.unicorn.forensic2.ui
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.data.event.LoginStateChange
+import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.LoginInfo
 import com.unicorn.forensic2.data.model.UserLogin
 import com.unicorn.forensic2.ui.base.BaseAct
@@ -38,7 +38,7 @@ class LoginAct : BaseAct() {
                     if (it.failed) return@subscribeBy
                     isLogin = true
                     userLoginResult = it.data
-                    RxBus.post(LoginStateChange())
+                    RxBus.post(LoginStateChangeEvent())
                     LoginInfo.loginStr = etLoginStr.trimText()
                     LoginInfo.pwd = etPwd.trimText()
                     finish()

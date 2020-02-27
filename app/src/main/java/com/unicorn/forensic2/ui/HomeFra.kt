@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
-import com.unicorn.forensic2.data.event.LoginStateChange
+import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.UserMenu
 import com.unicorn.forensic2.ui.adapter.UserMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
@@ -45,7 +45,7 @@ class HomeFra : BaseFra() {
             if (!isLogin) activity?.startAct(LoginAct::class.java)
             else {
                 isLogin = false
-                RxBus.post(LoginStateChange())
+                RxBus.post(LoginStateChangeEvent())
             }
         }
 

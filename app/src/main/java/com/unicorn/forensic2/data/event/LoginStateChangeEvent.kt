@@ -1,3 +1,3 @@
 package com.unicorn.forensic2.data.event
 
-class LoginStateChange
+class LoginStateChangeEvent
