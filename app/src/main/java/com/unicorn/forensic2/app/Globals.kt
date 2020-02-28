@@ -1,18 +1,19 @@
 package com.unicorn.forensic2.app
 
-import com.unicorn.forensic2.data.model.UserLoginResult
+import com.unicorn.forensic2.data.model.LoginResult
 
 var isLogin = false
 
-lateinit var userLoginResult: UserLoginResult
+lateinit var loginResult: LoginResult
 
+val session :String get()= loginResult.session
 
-val userId: String get() = userLoginResult.uid
+//val userId: String get() = loginResult.uid
 
-val sid: String get() = userLoginResult.sid
+//val sid: String get() = loginResult.sid
 
-val username get() = userLoginResult.userName
+//val username get() = loginResult.userName
 
-val identityChecked get() = userLoginResult.identityChecked
+//val identityChecked get() = loginResult.identityChecked
 
-val userMenu get() = userLoginResult.userMenu
+//val userMenu get() = loginResult.userMenu

@@ -5,9 +5,16 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface V1Api {
+
+    // 登录接口要这么写，不理解其中奥妙
+    @FormUrlEncoded
+    @POST("login/account")
+    fun login(@Field("username") username: String, @Field("password") password: String): Observable<LoginResult>
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()
@@ -29,11 +36,9 @@ interface V1Api {
     @POST("category/DictZzdj")
     fun getDictZzdj(@Body keyParam: KeyParam): Observable<Response<List<Dict>>>
 
-    @POST("Authorization/UserLogin")
-    fun login(@Body userLogin: UserLogin): Observable<Response<UserLoginResult>>
 
     @POST("Authorization/UserLogin")
-    fun loginForSession(@Body userLogin: UserLogin): Call<Response<UserLoginResult>>
+    fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>
 
     // 案件
     @POST("Case/CaseMyList")

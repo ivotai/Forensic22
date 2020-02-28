@@ -73,7 +73,7 @@
             app:srcCompat="@mipmap/pwd" />
 
         <EditText
-            android:id="@+id/etPwd"
+            android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_marginStart="8dp"
@@ -94,7 +94,7 @@
             android:layout_height="1px"
             android:layout_marginBottom="36dp"
             android:background="@color/md_white"
-            app:layout_constraintBottom_toTopOf="@+id/etPwd"
+            app:layout_constraintBottom_toTopOf="@+id/etPassword"
             tools:layout_editor_absoluteX="16dp" />
 
 
@@ -110,7 +110,7 @@
             app:srcCompat="@mipmap/user" />
 
         <EditText
-            android:id="@+id/etLoginStr"
+            android:id="@+id/etUsername"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_marginStart="8dp"
