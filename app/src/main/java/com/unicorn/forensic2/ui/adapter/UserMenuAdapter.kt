@@ -8,7 +8,7 @@ class UserMenuAdapter : BaseQuickAdapter<Any, KVHolder>(R.layout.item_user_menu)
 
     override fun convert(helper: KVHolder, item: Any) {
         helper.apply {
-//            tvName.text = item.name
+//            tvName.text = item.namez
 //            Glide.with(mContext).load(R.mipmap.menu0).into(ivIcon)
         }
     }

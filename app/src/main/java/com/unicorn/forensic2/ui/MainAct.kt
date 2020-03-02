@@ -19,7 +19,7 @@ class MainAct : BaseAct() {
         mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
         viewPaper.adapter = mainPagerAdapter
         viewPaper.offscreenPageLimit = mainPagerAdapter.count - 1
-        displayTab()
+        notifyTabs()
     }
 
     override fun registerEvent() {
@@ -31,11 +31,11 @@ class MainAct : BaseAct() {
 
         RxBus.registerEvent(this, LoginStateChangeEvent::class.java, Consumer {
             mainPagerAdapter.notifyDataSetChanged()
-            displayTab()
+            notifyTabs()
         })
     }
 
-    private fun displayTab() {
+    private fun notifyTabs() {
 
         fun newItem(drawable: Int, checkedDrawable: Int, text: String) =
             NormalItemView(this).apply {
