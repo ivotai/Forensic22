@@ -1,7 +1,7 @@
 package com.unicorn.forensic2.app.helper
 
-import com.unicorn.forensic2.app.ASP_NET_SessionId
 import com.unicorn.forensic2.app.Cookie
+import com.unicorn.forensic2.app.SESSION
 import com.unicorn.forensic2.app.di.ComponentHolder
 import com.unicorn.forensic2.app.session
 import okhttp3.Interceptor
@@ -18,7 +18,7 @@ object NetworkHelper {
     fun proceedRequestWithSession(chain: Interceptor.Chain): Response {
         return chain.request().newBuilder()
             .removeHeader(Cookie)
-            .addHeader(Cookie, "${ASP_NET_SessionId}=${session}")
+            .addHeader(Cookie, "${SESSION}=${session}")
             .build()
             .let { chain.proceed(it) }
     }
@@ -26,7 +26,7 @@ object NetworkHelper {
 //    fun proceedRequestWithSession(chain: Interceptor.Chain): Response {
 //        return chain.request().newBuilder()
 //            .removeHeader(Cookie)
-//            .addHeader(Cookie, "${ASP_NET_SessionId}=${Globals.session}")
+//            .addHeader(Cookie, "${SESSION}=${Globals.session}")
 //            .build()
 //            .let { chain.proceed(it) }
 //    }

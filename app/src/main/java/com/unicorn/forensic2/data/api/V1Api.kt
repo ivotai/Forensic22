@@ -1,13 +1,11 @@
 package com.unicorn.forensic2.data.api
 
+import com.unicorn.forensic2.app.defaultPageSize
 import com.unicorn.forensic2.data.model.*
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface V1Api {
 
@@ -15,6 +13,12 @@ interface V1Api {
     @FormUrlEncoded
     @POST("login/account")
     fun login(@Field("username") username: String, @Field("password") password: String): Observable<LoginResult>
+
+    // 案件
+    // 机构案件
+    @GET("api/v1/jdLottery/djdList")
+    fun getDjdList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<PageResponse<Case>>
+
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()
@@ -39,10 +43,6 @@ interface V1Api {
 
     @POST("Authorization/UserLogin")
     fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>
-
-    // 案件
-    @POST("Case/CaseMyList")
-    fun getCaseList(@Body pageParam: PageParam<SearchParamCase>): Single<PageResponse<Case>>
 
 
 }

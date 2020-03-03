@@ -25,7 +25,7 @@ data class User(
     val Pszj: Boolean,
     val Root: Boolean,
     val Sfjd: Boolean,
-    val id: Int,
+    val id: Long,
     val realName: Boolean,
     val roleTag: String,
     val roles: List<String>,

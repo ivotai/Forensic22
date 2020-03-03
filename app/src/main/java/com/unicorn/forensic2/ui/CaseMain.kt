@@ -6,13 +6,11 @@ import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.ui.adapter.CaseTypeAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
-import kotlinx.android.synthetic.main.fra_case.*
+import kotlinx.android.synthetic.main.fra_case_main.*
 
-class CaseFra : BaseFra() {
+class CaseMain : BaseFra() {
 
-    override val layoutId = R.layout.fra_case
-
-   private val caseTypeAdapter = CaseTypeAdapter()
+    private val caseTypeAdapter = CaseTypeAdapter()
 
     override fun initViews() {
         recyclerView.apply {
@@ -23,7 +21,9 @@ class CaseFra : BaseFra() {
     }
 
     override fun bindIntent() {
-        caseTypeAdapter.setNewData(listOf(CaseType.djdList,CaseType.dpsList,CaseType.myCase))
+        caseTypeAdapter.setNewData(CaseType.all)
     }
+
+    override val layoutId = R.layout.fra_case_main
 
 }

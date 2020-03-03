@@ -1,7 +1,11 @@
 package com.unicorn.forensic2.data.model
 
 enum class CaseType(val namez: String) {
-    djdList("机构"),
-    dpsList("专家"),
-    myCase("当事人")
+    DjdList("机构"),
+    DpsList("专家"),
+    MyCase("当事人");
+
+    companion object {
+        val all get() = listOf(DjdList, DpsList, MyCase)
+    }
 }

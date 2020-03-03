@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.ui.CaseFra
+import com.unicorn.forensic2.ui.CaseMain
 import com.unicorn.forensic2.ui.HomeFra
 
 @Suppress("DEPRECATION")
@@ -17,7 +17,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment = when (position) {
         0 -> HomeFra()
-        1 -> CaseFra()
+        1 -> CaseMain()
         else -> HomeFra()
     }
 
