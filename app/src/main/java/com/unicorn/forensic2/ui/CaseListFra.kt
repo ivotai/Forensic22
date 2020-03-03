@@ -6,7 +6,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
-import com.unicorn.forensic2.data.model.PageResponse
+import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.CaseAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageFra
@@ -19,9 +19,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
     override val simpleAdapter = CaseAdapter()
 
-    override fun loadPage(pageNo: Int): Single<PageResponse<Case>> {
-        return api.getDjdList(page = pageNo)
-    }
+    override fun loadPage(page: Int): Single<Page<Case>> = api.getDjdList(page = page)
 
     override fun initViews() {
         super.initViews()

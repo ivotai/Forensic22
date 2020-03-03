@@ -13,7 +13,7 @@ import io.reactivex.Single
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.ui_swipe_recycler.*
 
-abstract class SimplePageFra<Model, K : BaseViewHolder> : BaseFra() {
+abstract class SimplePageAct<Model, K : BaseViewHolder> : BaseAct() {
 
     abstract val simpleAdapter: BaseQuickAdapter<Model, K>
 

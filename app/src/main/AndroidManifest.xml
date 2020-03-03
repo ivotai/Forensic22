@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.LoginAct" />
+        <activity android:name=".ui.act.JdjgListAct" />
     </application>
 
 </manifest>

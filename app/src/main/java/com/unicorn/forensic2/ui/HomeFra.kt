@@ -6,10 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.HomeMenu
 import com.unicorn.forensic2.ui.adapter.HomeMenuAdapter
@@ -53,6 +50,7 @@ class HomeFra : BaseFra() {
         }
         homeMenuAdapter.setNewData(HomeMenu.all)
 
+        api.getJdjgList(page = 5).observeOnMain(this).subscribe()
 //        homeMenuAdapter.setNewData(ArrayList<UserMenu>().apply { addAll(UserMenu.basicMenus) })
 //        if (isLogin) homeMenuAdapter.addData(userMenu)
     }
