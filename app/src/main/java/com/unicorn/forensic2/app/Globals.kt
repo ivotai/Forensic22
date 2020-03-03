@@ -1,14 +1,14 @@
 package com.unicorn.forensic2.app
 
 import com.unicorn.forensic2.data.model.LoginResult
+import com.unicorn.forensic2.data.model.User
 
 var isLogin = false
 
 lateinit var loginResult: LoginResult
 
 val session :String get()= loginResult.session
-
-//val userId: String get() = loginResult.uid
+val user :User get() = loginResult.user
 
 //val sid: String get() = loginResult.sid
 

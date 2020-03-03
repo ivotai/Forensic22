@@ -19,7 +19,6 @@ interface V1Api {
     @GET("api/v1/jdLottery/djdList")
     fun getDjdList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<PageResponse<Case>>
 
-
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()
     @POST("category/region")

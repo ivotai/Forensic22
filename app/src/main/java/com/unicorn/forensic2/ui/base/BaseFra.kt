@@ -31,6 +31,6 @@ abstract class BaseFra : Fragment(), UI {
     override fun registerEvent() {
     }
 
-    protected val v1Api by lazy { ComponentHolder.appComponent.v1Api() }
+    protected val api by lazy { ComponentHolder.appComponent.v1Api() }
 
 }

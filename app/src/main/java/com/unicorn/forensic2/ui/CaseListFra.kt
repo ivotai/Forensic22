@@ -20,7 +20,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     override val simpleAdapter = CaseAdapter()
 
     override fun loadPage(pageNo: Int): Single<PageResponse<Case>> {
-        return v1Api.getDjdList(page = pageNo)
+        return api.getDjdList(page = pageNo)
     }
 
     override fun initViews() {

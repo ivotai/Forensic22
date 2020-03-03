@@ -11,7 +11,8 @@ import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
-import com.unicorn.forensic2.ui.adapter.UserMenuAdapter
+import com.unicorn.forensic2.data.model.HomeMenu
+import com.unicorn.forensic2.ui.adapter.HomeMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_home.*
 
@@ -34,13 +35,13 @@ class HomeFra : BaseFra() {
         fun initRv() {
             recyclerView.apply {
                 layoutManager = GridLayoutManager(context!!, 3)
-                userMenuAdapter.bindToRecyclerView(this)
+                homeMenuAdapter.bindToRecyclerView(this)
             }
         }
         initRv()
     }
 
-    private val userMenuAdapter = UserMenuAdapter()
+    private val homeMenuAdapter = HomeMenuAdapter()
 
     override fun bindIntent() {
         tvUsername.safeClicks().subscribe {
@@ -50,9 +51,10 @@ class HomeFra : BaseFra() {
                 RxBus.post(LoginStateChangeEvent())
             }
         }
+        homeMenuAdapter.setNewData(HomeMenu.all)
 
-//        userMenuAdapter.setNewData(ArrayList<UserMenu>().apply { addAll(UserMenu.basicMenus) })
-//        if (isLogin) userMenuAdapter.addData(userMenu)
+//        homeMenuAdapter.setNewData(ArrayList<UserMenu>().apply { addAll(UserMenu.basicMenus) })
+//        if (isLogin) homeMenuAdapter.addData(userMenu)
     }
 
 }
