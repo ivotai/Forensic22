@@ -16,7 +16,7 @@ const val receiveDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
 const val defaultPageSize = 5
 
-val defaultPaddingDp = ConvertUtils.dp2px(16f)
+val defaultPadding = ConvertUtils.dp2px(16f)
 
 //const val originalBaseUrl = "http://renjiawen1988.vicp.cc:33333/JudicialExpertise" +
 //        "V3Public/"
