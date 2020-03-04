@@ -4,7 +4,7 @@ data class Jdjg(
     val bankaccount: String,
     val bankname: String,
     val bgdz: String,
-    val clsj: Int,
+    val clsj: Long,
     val fddb: String,
     val fddbSfzh: String,
     val fidbacl: String,
