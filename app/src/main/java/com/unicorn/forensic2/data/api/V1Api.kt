@@ -19,9 +19,14 @@ interface V1Api {
     @GET("api/v1/jdLottery/djdList")
     fun getDjdList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
 
+    // 鉴定机构
     // 鉴定机构列表
     @GET("public/jgList")
     fun getJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Jdjg>>
+
+    // 鉴定机构详情
+    @GET("public/jgDetail")
+    fun getJdjgDetail(@Query("jgid") jdjgId: String): Single<Jdjg>
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()

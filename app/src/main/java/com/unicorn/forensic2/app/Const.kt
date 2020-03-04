@@ -7,10 +7,10 @@ const val Xtgg = "Xtgg"
 const val SearchParamJdjg = "SearchParamJdjg"
 const val Cookie = "Cookie"
 const val SESSION = "SESSION"
+const val JdjgId = "JdjgId"
 const val CaseId = "CaseId"
 const val V1 = "V1"
 const val V2 = "V2"
-const val JdjgId = "JdjgId"
 
 const val receiveDateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 

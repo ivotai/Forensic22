@@ -54,6 +54,7 @@ class LoginAct : BaseAct() {
                 },
                 onError = {
                     mask.dismiss()
+                    ToastUtils.showShort("登录失败")
                 }
             )
     }

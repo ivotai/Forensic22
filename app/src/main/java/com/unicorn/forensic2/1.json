@@ -1,206 +1,93 @@
 {
-  "content": [
+  "jgid": "858ffc4c-8313-4426-9092-1da58b1641f4",
+  "jgmc": "交大",
+  "jgszd": "上海市",
+  "jgmc2": "",
+  "jgxz": "法人机构",
+  "zzlb": "司法鉴定资质",
+  "yyzzh": "123456789012345678",
+  "fidyyzz": "ba9cd68c-75d3-4e46-9621-bfad309910e7",
+  "fidxkzs": "330bc38f-c8c0-4467-8095-0b60c67afab2",
+  "fidfrsfz": "66ca0afe-0d20-462b-98b2-4a0fd500a530",
+  "fidbacl": "54fab789-43f9-497c-aab6-1430a0c53aa4",
+  "xkzh": "我们的",
+  "fddb": "法人",
+  "fddbSfzh": "123456789012345678",
+  "fzr": "负责人",
+  "fzrDh": "8888",
+  "fzrSj": "18516200533",
+  "lxr": "联系人",
+  "lxrSj": "18516200533",
+  "lxrDh": "18516200533",
+  "lxrCz": "-",
+  "lxrYx": "-",
+  "bgdz": "上海",
+  "yb": "021021",
+  "clsj": -28800000,
+  "zczj": "88888",
+  "bankname": "招行",
+  "bankaccount": "88888",
+  "zwpj": "评价",
+  "jgszdId": "310100",
+  "jgxzId": "1",
+  "zzlbId": "1",
+  "jgzzList": [
     {
-      "jgid": "56",
-      "jgmc": "陕西正衡房地产土地评估有限责任公司",
-      "jgszd": "西安市",
-      "jgzzList": [
-        {
-          "jdlb": "房地产评估",
-          "zzdj": "一级",
-          "yxrq": 1624204800000,
-          "spjg": "陕西省住房和城乡建设厅",
-          "zzsm": "房地产价格评估一级",
-          "zzzh": "610131100002960",
-          "zzid": "57",
-          "jgid": "56",
-          "jdlbId": "10",
-          "zzdjId": "5",
-          "cylyId": "1",
-          "dataflag": 2,
-          "alert": false
-        },
-        {
-          "jdlb": "土地评估",
-          "zzdj": "A",
-          "yxrq": 1624982400000,
-          "spjg": "中国土地估价师协会",
-          "zzsm": "全国范围内从事土地评估业务",
-          "zzzh": "610131100002960",
-          "zzid": "59",
-          "jgid": "56",
-          "jdlbId": "13",
-          "zzdjId": "7",
-          "cylyId": "1",
-          "dataflag": 1,
-          "alert": false
-        },
-        {
-          "jdlb": "测绘",
-          "zzdj": "乙级",
-          "yxrq": 1577721600000,
-          "spjg": "陕西省测绘地理信息局",
-          "zzsm": "摄影测量与遥感、工程测量、不动产测绘、地理信息系统工程、地图编制",
-          "zzzh": "乙测资字6112369",
-          "zzid": "59ab6195-5e44-4cf8-886d-92a7b9ca7e67",
-          "jgid": "56",
-          "jdlbId": "1",
-          "zzdjId": "2",
-          "cylyId": "1",
-          "dataflag": 8,
-          "alert": true
-        }
-      ],
-      "jdryList": []
-    },
-    {
-      "jgid": "502",
-      "jgmc": "陕西国信勘测规划工程有限公司",
-      "jgszd": "汉中市",
-      "jgzzList": [
-        {
-          "jdlb": "测绘",
-          "zzdj": "丙级",
-          "cyly": "汉中市",
-          "yxrq": 1577721600000,
-          "spjg": "陕西省测绘地理信息局",
-          "zzsm": "丙级",
-          "zzzh": "丙测资字6120408",
-          "zzid": "918",
-          "jgid": "502",
-          "jdlbId": "1",
-          "zzdjId": "3",
-          "cylyId": "610700",
-          "dataflag": 8,
-          "alert": true
-        }
-      ],
-      "jdryList": []
-    },
-    {
-      "jgid": "488",
-      "jgmc": "西安通益房地产评估测绘咨询有限公司",
-      "jgszd": "西安市",
-      "jgzzList": [
-        {
-          "jdlb": "测绘",
-          "zzdj": "乙级",
-          "yxrq": 1577721600000,
-          "spjg": "陕西省测绘地理信息局",
-          "zzsm": "乙级测绘资质，可以从事地理信息工程；地理信息数据采集、地理信息软件开发；测绘航空摄影；无人飞行器航测；摄影测量与遥感；摄影测量与遥感外业、摄影测量与遥感内业；工程测量；控制测量、地形测量、规划测量、建筑工程测量、变形形变与精密测量、市政工程测量、水利工程测量、线路与桥隧测量、地下管线测量、矿山测量；不动产测绘；地籍测绘、房产测绘、行政区域界限测绘。。。",
-          "zzzh": "乙测资字6112530",
-          "zzid": "3fa4f2fe-0ee5-44ea-a94c-a09793c548a2",
-          "jgid": "488",
-          "jdlbId": "1",
-          "zzdjId": "2",
-          "cylyId": "1",
-          "dataflag": 8,
-          "alert": true
-        },
-        {
-          "jdlb": "房地产评估",
-          "zzdj": "一级",
-          "yxrq": 1612972800000,
-          "spjg": "陕西省住房和城乡建设厅",
-          "zzsm": "在全国范围内从事房地产评估业务",
-          "zzzh": "陕房地评（2018）005号",
-          "zzid": "893",
-          "jgid": "488",
-          "jdlbId": "10",
-          "zzdjId": "5",
-          "cylyId": "1",
-          "dataflag": 1,
-          "alert": false
-        }
-      ],
-      "jdryList": []
-    },
-    {
-      "jgid": "435",
-      "jgmc": "陕西建华工程咨询有限公司",
-      "jgszd": "汉中市",
-      "jgzzList": [
-        {
-          "jdlb": "工程造价",
-          "zzdj": "甲级",
-          "yxrq": 1580313600000,
-          "spjg": "中华人民共和国住房和城乡建设部",
-          "zzsm": "",
-          "zzzh": "甲171161001973",
-          "zzid": "761",
-          "jgid": "435",
-          "jdlbId": "23",
-          "zzdjId": "11",
-          "cylyId": "1",
-          "dataflag": 3,
-          "alert": true
-        }
-      ],
-      "jdryList": []
-    },
-    {
-      "jgid": "423",
-      "jgmc": "宝鸡金诚不动产评估咨询有限公司",
-      "jgszd": "宝鸡市",
-      "jgzzList": [
-        {
-          "jdlb": "土地评估",
-          "zzdj": "A",
-          "yxrq": 1624982400000,
-          "spjg": "中国土地估计师与土地登记代理人协会",
-          "zzsm": "全国范围内土地评估与咨询",
-          "zzzh": "A201661014",
-          "zzid": "717",
-          "jgid": "423",
-          "jdlbId": "13",
-          "zzdjId": "7",
-          "cylyId": "1",
-          "dataflag": 1,
-          "alert": false
-        },
-        {
-          "jdlb": "测绘",
-          "zzdj": "丙级",
-          "cyly": "宝鸡市",
-          "yxrq": 1577721600000,
-          "spjg": "陕西省测绘地理信息局",
-          "zzsm": "工程测量、不动产测量",
-          "zzzh": "丙测资字6122491",
-          "zzid": "718",
-          "jgid": "423",
-          "jdlbId": "1",
-          "zzdjId": "3",
-          "cylyId": "610300",
-          "dataflag": 8,
-          "alert": true
-        }
-      ],
-      "jdryList": []
+      "jdlb": "法医病理",
+      "cyly": "陕西省",
+      "yxrq": 1579104000000,
+      "spjg": "手动阀手动阀",
+      "zzsm": "额我热我热我",
+      "zzzh": "12313131311231",
+      "zzid": "366b1c88-0804-4c66-bcf6-226e961304a6",
+      "jgid": "858ffc4c-8313-4426-9092-1da58b1641f4",
+      "jdlbId": "3",
+      "zzdjId": "0",
+      "cylyId": "610000",
+      "dataflag": 1,
+      "fidzzzs": "749bacd9-b325-4617-abd5-13e8cd62b37a",
+      "fidzzzsmc": "资质证书_临.jpg",
+      "alert": true
     }
   ],
-  "pageable": {
-    "sort": {
-      "sorted": true,
-      "unsorted": false,
-      "empty": false
+  "jdryList": [
+    {
+      "xm": "张三",
+      "zjlx": "2",
+      "zjhm": "788",
+      "zczyh": "888",
+      "grzc": "高级",
+      "jdlb": "法医临床",
+      "zyzsyxq": 1610553600000,
+      "mphone": "18516200533",
+      "jdryid": "38bc2481-6255-4346-bd7d-de5831f039b8",
+      "jgid": "858ffc4c-8313-4426-9092-1da58b1641f4",
+      "jdlbId": "4",
+      "fidzyzs": "887fad59-79b7-4e59-abf1-9391b29268d3",
+      "fidzyzsmc": "执业证书_38bc2481-6255-4346-bd7d-de5831f039b8_临.jpg",
+      "fidzczs": "17619187-5635-4c20-8e44-ab1de7d67e10",
+      "fidzczsmc": "职称证书_38bc2481-6255-4346-bd7d-de5831f039b8_临.jpg",
+      "dataflag": 1,
+      "alert": false
     },
-    "offset": "20",
-    "pageSize": 5,
-    "pageNumber": 4,
-    "paged": true,
-    "unpaged": false
-  },
-  "last": false,
-  "totalElements": "481",
-  "totalPages": 97,
-  "number": 4,
-  "size": 5,
-  "sort": {
-    "sorted": true,
-    "unsorted": false,
-    "empty": false
-  },
-  "first": false,
-  "numberOfElements": 5,
-  "empty": false
+    {
+      "xm": "法医病理",
+      "zjlx": "1",
+      "zjhm": "61042419890401357X",
+      "zczyh": "2121344542322",
+      "grzc": "工程师",
+      "jdlb": "法医病理",
+      "zyzsyxq": 1579795200000,
+      "mphone": "11111111111",
+      "jdryid": "6a088d1d-2f3c-4bec-8806-fa660fb7212a",
+      "jgid": "858ffc4c-8313-4426-9092-1da58b1641f4",
+      "jdlbId": "3",
+      "fidzyzs": "d1f93960-f2ae-46a8-af0a-d1984e95f74b",
+      "fidzyzsmc": "执业证书_6a088d1d-2f3c-4bec-8806-fa660fb7212a_临.jpg",
+      "fidzczs": "b06967e3-6261-45e3-947e-44e00424e10b",
+      "fidzczsmc": "职称证书_6a088d1d-2f3c-4bec-8806-fa660fb7212a_临.jpg",
+      "dataflag": 1,
+      "alert": true
+    }
+  ]
 }
