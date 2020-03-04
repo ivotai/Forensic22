@@ -25,7 +25,7 @@ abstract class SimplePageAct<Model, K : BaseViewHolder> : BaseAct() {
     private val pageNo
         get() = total / defaultPageSize + 1
 
-    protected open val mRecyclerView: RecyclerView get() = recyclerView
+    protected open val mRecyclerView: RecyclerView get() = rvHomeMenu
 
     protected open val mSwipeRefreshLayout: SwipeRefreshLayout get() = swipeRefreshLayout
 

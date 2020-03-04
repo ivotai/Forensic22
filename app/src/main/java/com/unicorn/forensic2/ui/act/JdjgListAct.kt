@@ -24,7 +24,7 @@ class JdjgListAct : SimplePageAct<Jdjg, KVHolder>() {
 
     override fun loadPage(page: Int): Single<Page<Jdjg>> = v1Api.getJdjgList(page = page)
 
-    override val mRecyclerView: RecyclerView get() = recyclerView
+    override val mRecyclerView: RecyclerView get() = rvHomeMenu
 
     override val mSwipeRefreshLayout: SwipeRefreshLayout get() = swipeRefreshLayout
 

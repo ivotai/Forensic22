@@ -27,7 +27,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     }
 
     override val mRecyclerView: RecyclerView
-        get() = recyclerView
+        get() = rvHomeMenu
 
     override val mSwipeRefreshLayout: SwipeRefreshLayout
         get() = swipeRefreshLayout

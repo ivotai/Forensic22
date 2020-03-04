@@ -3,65 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/card"
+    <com.unicorn.forensic2.ui.other.TitleBar
+        android:id="@+id/titleBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/banner" />
 
-            <TextView
-                android:id="@+id/tvUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="请登录"
-                android:textColor="@color/md_black"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-            <com.flyco.roundview.RoundTextView
-                android:visibility="invisible"
-                android:id="@+id/rtvIdentityChecked"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:paddingStart="4dp"
-                android:paddingTop="2dp"
-                android:paddingEnd="4dp"
-                android:paddingBottom="2dp"
-                android:text="未认证"
-                android:textColor="@color/colorPrimary"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvUsername"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.506"
-                app:rv_backgroundColor="@color/md_blue_50"
-                app:rv_cornerRadius="5dp"
-                app:rv_strokeColor="@color/colorPrimary"
-                app:rv_strokeWidth="1px" />
+        <ImageView
+            android:layout_marginStart="16dp"
+            android:id="@+id/ivHi"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/hi" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="请登录"
+            android:textColor="@color/md_black"
+            android:textSize="16dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:ignore="NestedWeights" />
+        <com.flyco.roundview.RoundTextView
+            android:id="@+id/rtvIdentity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:paddingStart="4dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="2dp"
+            android:text="已认证"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp"
+            app:rv_backgroundColor="@color/md_blue_50"
+            app:rv_cornerRadius="5dp"
+            app:rv_strokeColor="@color/colorPrimary"
+            app:rv_strokeWidth="1px" />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/md_grey_300" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHomeMenu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

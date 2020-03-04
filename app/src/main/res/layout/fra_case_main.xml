@@ -19,7 +19,7 @@
         android:orientation="horizontal">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/rvHomeMenu"
             android:layout_width="100dp"
             android:layout_height="match_parent" />
 
