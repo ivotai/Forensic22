@@ -3,8 +3,10 @@ package com.unicorn.forensic2.ui.fra
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.*
-import com.unicorn.forensic2.data.event.LoginStateChangeEvent
+import com.unicorn.forensic2.app.isLogin
+import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.model.HomeMenu
 import com.unicorn.forensic2.ui.act.LoginAct
 import com.unicorn.forensic2.ui.adapter.HomeMenuAdapter
@@ -32,15 +34,9 @@ class HomeMainFra : BaseFra() {
     override fun bindIntent() {
         homeMenuAdapter.setNewData(HomeMenu.all)
 
-        tvUsername.safeClicks().subscribe {
-            if (!isLogin) activity?.startAct(LoginAct::class.java)
-            else {
-                isLogin = false
-                RxBus.post(LoginStateChangeEvent())
-            }
-        }
+        tvUsername.safeClicks().subscribe { if (!isLogin) activity?.startAct(LoginAct::class.java) }
 
-        api.getJdjgList(page = 5).observeOnMain(this).subscribe()
+//        api.getJdjgList(page = 5).observeOnMain(this).subscribe()
     }
 
     override val layoutId = R.layout.fra_home_main

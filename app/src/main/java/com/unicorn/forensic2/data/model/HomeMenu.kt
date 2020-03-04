@@ -1,18 +1,19 @@
 package com.unicorn.forensic2.data.model
 
+import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.user
 
-enum class HomeMenu(val namez: String, url: String) {
-    JGCX("机构查询", "mianJGCX"),
-    XTGG("系统公告", "mianXTGG"),
-    TSJY("投诉建议", "mianTSJY"),
-    JDYH("鉴定摇号", "mianJDYH"),
-    JGXX("机构信息", "mianJGXX"),
-    AJXX("案件信息", "mianAJXX"),
-    ZJXX("专家信息", "mianZJXX"),
-    PSXX("评审信息", "mianPSXX"),
-    WDAJ("我的案件", "mianWDAJ"),
+enum class HomeMenu(val namez: String, url: String, val imgRes: Int) {
+    JGCX("机构查询", "mianJGCX", R.mipmap.jgcx),
+    XTGG("系统公告", "mianXTGG", R.mipmap.xtgg),
+    TSJY("投诉建议", "mianTSJY", R.mipmap.tsjy),
+    JDYH("鉴定摇号", "mianJDYH", R.mipmap.jdyh),
+    JGXX("机构信息", "mianJGXX", R.mipmap.jgxx),
+    AJXX("案件信息", "mianAJXX", R.mipmap.ajxx),
+    ZJXX("专家信息", "mianZJXX", R.mipmap.zjxx),
+    PSXX("评审信息", "mianPSXX", R.mipmap.psxx),
+    WDAJ("我的案件", "mianWDAJ", R.mipmap.wdaj),
     ;
 
     companion object {
