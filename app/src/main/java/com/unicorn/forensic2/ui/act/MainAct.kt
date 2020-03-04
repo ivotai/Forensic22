@@ -37,34 +37,35 @@ class MainAct : BaseAct() {
 
     private fun notifyTabs() {
 
-        fun newItem(drawable: Int, checkedDrawable: Int, text: String) =
+        fun newItem(drawableRes: Int, checkedDrawableRes: Int, text: String) =
             NormalItemView(this).apply {
-                initialize(drawable, checkedDrawable, text)
+                initialize(drawableRes, checkedDrawableRes, text)
                 setTextDefaultColor(colorDefault)
                 setTextCheckedColor(colorPrimary)
             }
+
 
         val customBuilder = navigation.custom()
         customBuilder.apply {
             addItem(
                 newItem(
-                    R.drawable.ic__ionicons_svg_ios_home,
-                    R.drawable.ic__ionicons_svg_ios_home2,
+                    R.mipmap.home,
+                    R.mipmap.home_select,
                     "首页"
                 )
             )
             if (isLogin) {
                 addItem(
                     newItem(
-                        R.drawable.ic__ionicons_svg_ios_albums,
-                        R.drawable.ic__ionicons_svg_ios_albums2,
+                        R.mipmap.casez,
+                        R.mipmap.case_select,
                         "案件"
                     )
                 )
                 addItem(
                     newItem(
-                        R.drawable.ic__ionicons_svg_ios_contact,
-                        R.drawable.ic__ionicons_svg_ios_contact2,
+                        R.mipmap.my,
+                        R.mipmap.my_select,
                         "我的"
                     )
                 )
