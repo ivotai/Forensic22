@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui
+package com.unicorn.forensic2.ui.act
 
 import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R

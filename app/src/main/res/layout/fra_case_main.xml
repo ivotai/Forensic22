@@ -25,7 +25,7 @@
 
         <fragment
             android:tag="CaseListFra"
-            android:name="com.unicorn.forensic2.ui.CaseListFra"
+            android:name="com.unicorn.forensic2.ui.fra.CaseListFra"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />

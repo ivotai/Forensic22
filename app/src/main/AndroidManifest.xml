@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name="com.unicorn.forensic2.ui.MainAct">
+        <activity android:name="com.unicorn.forensic2.ui.act.MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LoginAct" />
+        <activity android:name=".ui.act.LoginAct" />
         <activity android:name=".ui.act.JdjgListAct" />
     </application>
 

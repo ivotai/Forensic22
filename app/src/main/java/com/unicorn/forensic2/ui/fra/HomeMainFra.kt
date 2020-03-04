@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui
+package com.unicorn.forensic2.ui.fra
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
@@ -9,13 +9,14 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.HomeMenu
+import com.unicorn.forensic2.ui.act.LoginAct
 import com.unicorn.forensic2.ui.adapter.HomeMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
-import kotlinx.android.synthetic.main.fra_home.*
+import kotlinx.android.synthetic.main.fra_home_main.*
 
-class HomeFra : BaseFra() {
+class HomeMainFra : BaseFra() {
 
-    override val layoutId = R.layout.fra_home
+    override val layoutId = R.layout.fra_home_main
 
     override fun initViews() {
         card.background = GradientDrawable().apply {
@@ -41,6 +42,8 @@ class HomeFra : BaseFra() {
     private val homeMenuAdapter = HomeMenuAdapter()
 
     override fun bindIntent() {
+        homeMenuAdapter.setNewData(HomeMenu.all)
+
         tvUsername.safeClicks().subscribe {
             if (!isLogin) activity?.startAct(LoginAct::class.java)
             else {
@@ -48,11 +51,8 @@ class HomeFra : BaseFra() {
                 RxBus.post(LoginStateChangeEvent())
             }
         }
-        homeMenuAdapter.setNewData(HomeMenu.all)
 
         api.getJdjgList(page = 5).observeOnMain(this).subscribe()
-//        homeMenuAdapter.setNewData(ArrayList<UserMenu>().apply { addAll(UserMenu.basicMenus) })
-//        if (isLogin) homeMenuAdapter.addData(userMenu)
     }
 
 }

@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui
+package com.unicorn.forensic2.ui.fra
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout

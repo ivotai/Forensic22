@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui
+package com.unicorn.forensic2.ui.act
 
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R

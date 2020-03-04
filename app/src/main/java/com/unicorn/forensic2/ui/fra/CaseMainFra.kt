@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui
+package com.unicorn.forensic2.ui.fra
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unicorn.forensic2.R
@@ -8,7 +8,7 @@ import com.unicorn.forensic2.ui.adapter.CaseTypeAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_case_main.*
 
-class CaseMain : BaseFra() {
+class CaseMainFra : BaseFra() {
 
     private val caseTypeAdapter = CaseTypeAdapter()
 
