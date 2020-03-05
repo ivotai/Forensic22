@@ -1,5 +1,7 @@
 package com.unicorn.forensic2.data.model
 
+import java.io.Serializable
+
 data class Xtgg(
     val cntjdjg: Int,
     val dataflag: Int,
@@ -9,4 +11,4 @@ data class Xtgg(
     val html: String,
     val title: String,
     val xtggid: String
-)
+) : Serializable
