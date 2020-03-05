@@ -25,7 +25,7 @@ abstract class SimplePageAct<Model, K : BaseViewHolder> : BaseAct() {
     private val pageNo
         get() = total / defaultPageSize + 1
 
-    protected open val mRecyclerView: RecyclerView get() = rvHomeMenu
+    protected open val mRecyclerView: RecyclerView get() = recyclerView
 
     protected open val mSwipeRefreshLayout: SwipeRefreshLayout get() = swipeRefreshLayout
 
@@ -80,6 +80,6 @@ abstract class SimplePageAct<Model, K : BaseViewHolder> : BaseAct() {
         if (isLoadAll) simpleAdapter.loadMoreEnd(true)
     }
 
-    override val layoutId = R.layout.ui_swipe_recycler
+    override val layoutId = R.layout.ui_title_swipe_recycler
 
 }

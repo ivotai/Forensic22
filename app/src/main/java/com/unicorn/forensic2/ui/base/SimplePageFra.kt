@@ -25,7 +25,7 @@ abstract class SimplePageFra<Model, K : BaseViewHolder> : BaseFra() {
     private val pageNo
         get() = total / defaultPageSize + 1
 
-    protected open val mRecyclerView: RecyclerView get() = rvHomeMenu
+    protected open val mRecyclerView: RecyclerView get() = recyclerView
 
     protected open val mSwipeRefreshLayout: SwipeRefreshLayout get() = swipeRefreshLayout
 

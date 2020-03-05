@@ -22,6 +22,7 @@
         <activity android:name=".ui.act.LoginAct" />
         <activity android:name=".ui.act.JdjgListAct" />
         <activity android:name=".ui.act.JdjgDetailAct" />
+        <activity android:name=".ui.act.XtggListAct" />
     </application>
 
 </manifest>

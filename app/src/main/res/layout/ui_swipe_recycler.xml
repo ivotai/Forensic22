@@ -15,7 +15,7 @@
         app:layout_constraintTop_toBottomOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHomeMenu"
+            android:id="@+id/recyclerView"
             android:background="@color/douYuGrey"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
