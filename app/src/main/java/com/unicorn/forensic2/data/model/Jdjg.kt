@@ -1,5 +1,7 @@
 package com.unicorn.forensic2.data.model
 
+import java.io.Serializable
+
 data class Jdjg(
     val bankaccount: String,
     val bankname: String,
@@ -35,7 +37,7 @@ data class Jdjg(
     val zwpj: String,
     val zzlb: String,
     val zzlbId: String
-)
+): Serializable
 
 data class Jdry(
     val alert: Boolean,
@@ -55,7 +57,7 @@ data class Jdry(
     val zjhm: String,
     val zjlx: String,
     val zyzsyxq: Long
-)
+): Serializable
 
 data class Jgzz(
     val alert: Boolean,
@@ -73,4 +75,4 @@ data class Jgzz(
     val zzid: String,
     val zzsm: String,
     val zzzh: String
-)
+): Serializable

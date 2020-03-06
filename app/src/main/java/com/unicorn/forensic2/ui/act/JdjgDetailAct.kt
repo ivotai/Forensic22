@@ -1,7 +1,10 @@
 package com.unicorn.forensic2.ui.act
 
+import android.content.Intent
 import com.blankj.utilcode.util.ToastUtils
+import com.jakewharton.rxbinding3.view.clicks
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.Jdjg
 import com.unicorn.forensic2.app.JdjgId
 import com.unicorn.forensic2.app.displayDateFormat
 import com.unicorn.forensic2.app.observeOnMain
@@ -23,11 +26,18 @@ class JdjgDetailAct : BaseAct() {
     }
 
     private fun getJdjgDetail() {
+        fun startJdryListAct(){
+            Intent(this, JdryListAct::class.java).apply {
+                putExtra(Jdjg, jdjg)
+            }.let { startActivity(it) }
+        }
         v1Api.getJdjgDetail(jdjgId = jdjgId)
             .observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
-                    displayDetail(it)
+                    jdjg = it
+                    tvJdry.clicks().mergeWith(ivJdry.clicks()).subscribe { startJdryListAct() }
+                    displayDetail()
                 },
                 onError = {
                     ToastUtils.showShort("获取机构详情失败")
@@ -35,7 +45,7 @@ class JdjgDetailAct : BaseAct() {
             )
     }
 
-    private fun displayDetail(jdjg: Jdjg) {
+    private fun displayDetail() {
         with(jdjg) {
             tvJgmc.text = jgmc
             tvJgxz.text = jgxz
@@ -54,6 +64,8 @@ class JdjgDetailAct : BaseAct() {
             tvZczj.text = zczj
         }
     }
+
+    private lateinit var jdjg: Jdjg
 
     private val jdjgId by lazy { intent.getStringExtra(JdjgId) }
 

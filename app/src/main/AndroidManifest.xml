@@ -24,6 +24,7 @@
         <activity android:name=".ui.act.JdjgDetailAct" />
         <activity android:name=".ui.act.XtggListAct" />
         <activity android:name=".ui.act.XtggDetailAct" />
+        <activity android:name=".ui.act.JdryListAct" />
     </application>
 
 </manifest>
