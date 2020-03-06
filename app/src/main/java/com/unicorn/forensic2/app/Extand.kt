@@ -60,8 +60,10 @@ fun String.toast() {
     ToastUtils.showShort(this)
 }
 
+fun Long.toDateTime(): DateTime = DateTime(this)
+
 fun Long.toDateFormat(): String {
-    return DateTime(this).toString(displayDateFormat2)
+    return this.toDateTime().toString(displayDateFormat2)
 }
 
 fun String.encrypt(): String {
