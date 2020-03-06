@@ -17,6 +17,7 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import org.joda.time.DateTime
 import java.util.concurrent.TimeUnit
 
 fun View.safeClicks(): Observable<Unit> = this.clicks()
@@ -59,7 +60,10 @@ fun String.toast() {
     ToastUtils.showShort(this)
 }
 
+fun Long.toDateFormat(): String {
+    return DateTime(this).toString(displayDateFormat2)
+}
 
-fun String.encrypt():String{
+fun String.encrypt(): String {
     return EncryptUtils.encryptMD5ToString(this).toLowerCase()
 }
