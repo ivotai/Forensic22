@@ -71,6 +71,7 @@ data class Jgzz(
     val jgid: String,
     val spjg: String,
     val yxrq: Long,
+    val zzdj:String,
     val zzdjId: String,
     val zzid: String,
     val zzsm: String,

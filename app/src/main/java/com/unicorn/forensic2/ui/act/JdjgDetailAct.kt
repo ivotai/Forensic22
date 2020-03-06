@@ -26,16 +26,24 @@ class JdjgDetailAct : BaseAct() {
     }
 
     private fun getJdjgDetail() {
-        fun startJdryListAct(){
+        fun startJgzzListAct() {
+            Intent(this, JgzzListAct::class.java).apply {
+                putExtra(Jdjg, jdjg)
+            }.let { startActivity(it) }
+        }
+
+        fun startJdryListAct() {
             Intent(this, JdryListAct::class.java).apply {
                 putExtra(Jdjg, jdjg)
             }.let { startActivity(it) }
         }
+
         v1Api.getJdjgDetail(jdjgId = jdjgId)
             .observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
                     jdjg = it
+                    tvJgzz.clicks().mergeWith(ivJgzz.clicks()).subscribe { startJgzzListAct() }
                     tvJdry.clicks().mergeWith(ivJdry.clicks()).subscribe { startJdryListAct() }
                     displayDetail()
                 },
