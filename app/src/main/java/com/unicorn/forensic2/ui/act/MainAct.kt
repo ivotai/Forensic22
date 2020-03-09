@@ -4,7 +4,6 @@ import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
@@ -34,8 +33,6 @@ class MainAct : BaseAct() {
             mainPagerAdapter.notifyDataSetChanged()
             notifyTabs()
         })
-
-        v1Api.getXtggList(1).observeOnMain(this).subscribe()
     }
 
     private fun notifyTabs() {
@@ -46,7 +43,6 @@ class MainAct : BaseAct() {
                 setTextDefaultColor(colorDefault)
                 setTextCheckedColor(colorPrimary)
             }
-
 
         val customBuilder = navigation.custom()
         customBuilder.apply {

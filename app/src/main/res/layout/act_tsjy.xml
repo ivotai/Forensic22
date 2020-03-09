@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.unicorn.forensic2.ui.other.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivYhf"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="64dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/yhf"
+        app:layout_constraintEnd_toStartOf="@+id/ivWhf"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <ImageView
+        android:id="@+id/ivWhf"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/whf"
+        app:layout_constraintBottom_toBottomOf="@+id/ivYhf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivYhf"
+        app:layout_constraintTop_toTopOf="@+id/ivYhf" />
+
+    <TextView
+        android:id="@+id/tvYhf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="已回复"
+        android:textColor="@color/md_black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ivYhf"
+        app:layout_constraintStart_toStartOf="@+id/ivYhf"
+        app:layout_constraintTop_toBottomOf="@+id/ivYhf" />
+
+    <TextView
+        android:id="@+id/tvWhf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未回复"
+        android:textColor="@color/md_black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvYhf"
+        app:layout_constraintEnd_toEndOf="@+id/ivWhf"
+        app:layout_constraintTop_toTopOf="@+id/tvYhf" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
