@@ -2,6 +2,8 @@ package com.unicorn.forensic2.data.api
 
 import com.unicorn.forensic2.app.defaultPageSize
 import com.unicorn.forensic2.data.model.*
+import com.unicorn.forensic2.data.model.param.AddTsjyParam
+import com.unicorn.forensic2.data.model.response.AddTsjyResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Call
@@ -12,7 +14,7 @@ interface V1Api {
     // 登录接口要这么写，不理解其中奥妙
     @FormUrlEncoded
     @POST("login/account")
-    fun login(@Field("username") username: String, @Field("password") password: String): Observable<LoginResult>
+    fun login(@Field("username") username: String, @Field("password") password: String): Single<LoginResult>
 
     // 案件
     // 机构案件
@@ -42,6 +44,9 @@ interface V1Api {
     // 未回复投诉建议列表
     @GET("api/v1/tsjy/noReply")
     fun getTsjyWhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Tsjy>>
+
+    @POST("api/v1/tsjy")
+    fun addTsjy(@Body addTsjyParam: AddTsjyParam): Single<AddTsjyResponse>
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()

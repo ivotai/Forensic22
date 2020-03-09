@@ -38,7 +38,7 @@ class LoginAct : BaseAct() {
             password = etPassword.trimText()
         ).observeOnMain(this)
             .subscribeBy(
-                onNext = {
+                onSuccess = {
                     mask.dismiss()
                     if (!it.success){
                         ToastUtils.showShort("登录失败")

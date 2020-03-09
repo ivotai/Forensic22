@@ -44,7 +44,7 @@ abstract class SimplePageAct<Model, K : BaseViewHolder> : BaseAct() {
         loadFirstPage()
     }
 
-    private fun loadFirstPage() {
+    protected fun loadFirstPage() {
         mSwipeRefreshLayout.isRefreshing = true
         loadPage(1)
             .observeOnMain(this)
