@@ -14,7 +14,7 @@ class TsjyAct : BaseAct() {
 
     override fun bindIntent() {
         ivYhf.clicks().mergeWith(tvYhf.clicks()).subscribe { startAct(TsjyYhfListAct::class.java) }
-//        ivWhf.clicks().mergeWith(tvWhf.clicks()).subscribe { startTsjyListAct(false) }
+        ivWhf.clicks().mergeWith(tvWhf.clicks()).subscribe { startAct(TsjyWhfListAct::class.java) }
     }
 
     override val layoutId = R.layout.act_tsjy
