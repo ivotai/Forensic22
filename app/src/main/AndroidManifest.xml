@@ -27,6 +27,8 @@
         <activity android:name=".ui.act.JdryListAct" />
         <activity android:name=".ui.act.JgzzListAct" />
         <activity android:name=".ui.act.TsjyAct" />
+        <activity android:name=".ui.act.AddTsjyAct" />
+        <activity android:name=".ui.act.TsjyYhfListAct"/>
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@ interface V1Api {
 
     // 鉴定机构列表
     @GET("public/jgList")
-    fun getJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int =10): Single<Page<Jdjg>>
+    fun getJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Jdjg>>
 
     // 鉴定机构详情
     @GET("public/jgDetail")
@@ -33,6 +33,15 @@ interface V1Api {
     @GET("public/xtggList")
     fun getXtggList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Xtgg>>
 
+
+    // 投诉建议
+    // 已回复投诉建议列表
+    @GET("api/v1/tsjy/reply")
+    fun getTsjyYhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Tsjy>>
+
+    // 未回复投诉建议列表
+    @GET("api/v1/tsjy/noReply")
+    fun getTsjyWhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Tsjy>>
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()

@@ -33,6 +33,7 @@ class MainAct : BaseAct() {
             mainPagerAdapter.notifyDataSetChanged()
             notifyTabs()
         })
+
     }
 
     private fun notifyTabs() {

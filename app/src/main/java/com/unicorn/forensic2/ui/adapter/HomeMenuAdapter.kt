@@ -1,8 +1,10 @@
 package com.unicorn.forensic2.ui.adapter
 
+import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.HomeMenu
@@ -24,7 +26,12 @@ class HomeMenuAdapter : BaseQuickAdapter<HomeMenu, KVHolder>(R.layout.item_home_
                 when (item) {
                     HomeMenu.JGCX -> mContext.startAct(JdjgListAct::class.java)
                     HomeMenu.XTGG -> mContext.startAct(XtggListAct::class.java)
-                    HomeMenu.TSJY -> mContext.startAct(TsjyAct::class.java)
+                    HomeMenu.TSJY -> {
+                        if (!isLogin)
+                            ToastUtils.showShort("请登录")
+                        else
+                            mContext.startAct(TsjyAct::class.java)
+                    }
                     else -> {
                     }
                 }
