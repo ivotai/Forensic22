@@ -22,7 +22,7 @@ interface V1Api {
     @GET("api/v1/jdLottery/djdList")
     fun getDjdList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
 
-
+    // 鉴定机构
     // 鉴定机构列表
     @GET("public/jgList")
     fun getJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Jdjg>>
@@ -30,6 +30,9 @@ interface V1Api {
     // 鉴定机构详情
     @GET("public/jgDetail")
     fun getJdjgDetail(@Query("jgid") jdjgId: String): Single<Jdjg>
+
+    @GET("api/v1/jdJdjg/basicInfo")
+    fun getJdjgMyList(): Single<List<Jdjg>>
 
 
     // 系统公告列表

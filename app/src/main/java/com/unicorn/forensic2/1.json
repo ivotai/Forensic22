@@ -1,11 +1,54 @@
 {
-  "@id": "1",
-  "objectId": "666682444937691136",
-  "createdDate": 1578991081000,
-  "lastUpdateDate": 1578991112000,
-  "content": "倒十分士",
-  "reply": "十东方",
-  "idCard": "1",
-  "complainant": "",
-  "replyer": "司法鉴定-管理员"
+  "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
+  "jgmc": "时代大厦",
+  "jgxz": "法人机构",
+  "yyzzh": "121332322321321313",
+  "xkzh": "21312321313",
+  "fddb": "张三",
+  "fddbSfzh": "610424198904013522",
+  "lxr": "史鹤祥",
+  "lxrSj": "12332123332",
+  "bgdz": "放松的地方",
+  "yb": "434234",
+  "jgxzId": "1",
+  "jgzzList": [
+    {
+      "jdlb": "法医病理",
+      "cyly": "西安市",
+      "yxrq": 1579276800000,
+      "spjg": "手动阀手动阀",
+      "zzsm": "额我热我热我",
+      "zzzh": "12313131311231",
+      "zzid": "07cf6fe6-b0d5-48bb-adc8-e557519abbe8",
+      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
+      "jdlbId": "3",
+      "zzdjId": "0",
+      "cylyId": "610100",
+      "dataflag": 1,
+      "fidzzzs": "3a6c027f-04e1-40dd-b2db-05ae499a087f",
+      "fidzzzsmc": "资质证书_临.jpg",
+      "alert": true
+    }
+  ],
+  "jdryList": [
+    {
+      "xm": "微软",
+      "zjlx": "1",
+      "zjhm": "61042419890401357X",
+      "zczyh": "2121344542322",
+      "grzc": "工程师",
+      "jdlb": "法医病理",
+      "zyzsyxq": 1579881600000,
+      "mphone": "11111111111",
+      "jdryid": "bec48978-46a2-4fd3-8b2a-81cd106fb5c9",
+      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
+      "jdlbId": "3",
+      "fidzyzs": "88c94a28-b645-4d6a-9cce-46eb0f847722",
+      "fidzyzsmc": "执业证书_bec48978-46a2-4fd3-8b2a-81cd106fb5c9_临.jpg",
+      "fidzczs": "18b7e83b-12a7-48b5-96f2-70fcfdbc9773",
+      "fidzczsmc": "职称证书_bec48978-46a2-4fd3-8b2a-81cd106fb5c9_临.jpg",
+      "dataflag": 1,
+      "alert": true
+    }
+  ]
 }

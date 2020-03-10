@@ -27,10 +27,11 @@
         <activity android:name=".ui.act.JdryListAct" />
         <activity android:name=".ui.act.JgzzListAct" />
         <activity android:name=".ui.act.TsjyAct" />
-        <activity android:name=".ui.act.AddTsjyAct" />
         <activity android:name=".ui.act.TsjyYhfListAct" />
         <activity android:name=".ui.act.TsjyWhfListAct" />
+        <activity android:name=".ui.act.AddTsjyAct" />
         <activity android:name=".ui.act.AddTsjyReplyAct" />
+        <activity android:name=".ui.act.JdjgMyListAct" />
     </application>
 
 </manifest>

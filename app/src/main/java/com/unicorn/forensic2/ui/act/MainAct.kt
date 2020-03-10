@@ -33,11 +33,9 @@ class MainAct : BaseAct() {
             mainPagerAdapter.notifyDataSetChanged()
             notifyTabs()
         })
-
     }
 
     private fun notifyTabs() {
-
         fun newItem(drawableRes: Int, checkedDrawableRes: Int, text: String) =
             NormalItemView(this).apply {
                 initialize(drawableRes, checkedDrawableRes, text)
