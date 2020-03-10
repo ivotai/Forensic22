@@ -62,7 +62,7 @@ fun String.toast() {
 
 fun Long.toDateTime(): DateTime = DateTime(this)
 
-fun Long.toDateFormat(): String {
+fun Long.toDisplayFormat(): String {
     return this.toDateTime().toString(displayDateFormat2)
 }
 

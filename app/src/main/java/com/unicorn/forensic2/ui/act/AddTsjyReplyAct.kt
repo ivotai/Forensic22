@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
+import com.unicorn.forensic2.data.event.AddTsjyReplySuccessEvent
 import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -42,6 +43,7 @@ class AddTsjyReplyAct : BaseAct() {
                             ToastUtils.showShort("回复建议失败")
                             return@subscribeBy
                         }
+                        RxBus.post(AddTsjyReplySuccessEvent())
                         finish()
                     },
                     onError = {

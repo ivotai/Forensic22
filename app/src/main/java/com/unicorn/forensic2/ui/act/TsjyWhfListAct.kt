@@ -5,6 +5,7 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.data.event.AddTsjyReplySuccessEvent
 import com.unicorn.forensic2.data.event.AddTsjySuccessEvent
 import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.data.model.Tsjy
@@ -30,6 +31,9 @@ class TsjyWhfListAct : SimplePageAct<Tsjy, KVHolder>() {
 
     override fun registerEvent() {
         RxBus.registerEvent(this,AddTsjySuccessEvent::class.java, Consumer {
+            loadFirstPage()
+        })
+        RxBus.registerEvent(this,AddTsjyReplySuccessEvent::class.java, Consumer {
             loadFirstPage()
         })
     }
