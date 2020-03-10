@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.ui.act
 
+import android.view.View
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.helper.DialogHelper
@@ -32,6 +33,7 @@ class MyJdjgAct : BaseAct() {
                     },
                     onError = {
                         mask.dismiss()
+                        root.visibility = View.INVISIBLE
                         ToastUtils.showShort("获取机构信息失败")
                     }
                 )
