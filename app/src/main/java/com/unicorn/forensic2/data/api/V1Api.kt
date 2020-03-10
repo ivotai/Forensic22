@@ -31,8 +31,9 @@ interface V1Api {
     @GET("public/jgDetail")
     fun getJdjgDetail(@Query("jgid") jdjgId: String): Single<Jdjg>
 
+    // 获取已注册的鉴定机构
     @GET("api/v1/jdJdjg/basicInfo")
-    fun getJdjgMyList(): Single<List<Jdjg>>
+    fun getMyJdjg(): Single<Jdjg>
 
 
     // 系统公告列表

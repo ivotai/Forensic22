@@ -9,7 +9,7 @@ import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.HomeMenu
 import com.unicorn.forensic2.ui.act.JdjgListAct
-import com.unicorn.forensic2.ui.act.JdjgMyListAct
+import com.unicorn.forensic2.ui.act.MyJdjgAct
 import com.unicorn.forensic2.ui.act.TsjyAct
 import com.unicorn.forensic2.ui.act.XtggListAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -34,10 +34,7 @@ class HomeMenuAdapter : BaseQuickAdapter<HomeMenu, KVHolder>(R.layout.item_home_
                             mContext.startAct(TsjyAct::class.java)
                     }
                     HomeMenu.JGXX -> {
-                        if (!isLogin)
-                            ToastUtils.showShort("请登录")
-                        else
-                            mContext.startAct(JdjgMyListAct::class.java)
+                        mContext.startAct(MyJdjgAct::class.java)
                     }
                     else -> {
                     }

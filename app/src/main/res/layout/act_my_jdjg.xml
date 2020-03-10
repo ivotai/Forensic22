@@ -1,0 +1,148 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.unicorn.forensic2.ui.other.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivJg"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/jg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <TextView
+        android:id="@+id/tvJgmc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="机构名称"
+        android:textColor="@color/md_black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivJg"
+        app:layout_constraintStart_toEndOf="@+id/ivJg"
+        app:layout_constraintTop_toTopOf="@+id/ivJg" />
+
+    <TextView
+        android:id="@+id/tvJdry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:text="人员信息"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivJg" />
+
+    <ImageView
+        android:id="@+id/ivJdry"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/jdry"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdry"
+        app:layout_constraintEnd_toStartOf="@+id/tvJdry"
+        app:layout_constraintTop_toTopOf="@+id/tvJdry" />
+
+    <TextView
+        android:id="@+id/tvJgzz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="资质信息"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdry"
+        app:layout_constraintEnd_toStartOf="@+id/ivJdry"
+        app:layout_constraintTop_toTopOf="@+id/tvJdry" />
+
+    <ImageView
+        android:id="@+id/ivJgzz"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/jgxx"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdry"
+        app:layout_constraintEnd_toStartOf="@+id/tvJgzz"
+        app:layout_constraintTop_toTopOf="@+id/tvJdry" />
+
+    <TextView
+        android:id="@+id/tvJgxx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="机构信息"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdry"
+        app:layout_constraintEnd_toStartOf="@+id/ivJgzz"
+        app:layout_constraintTop_toTopOf="@+id/tvJdry" />
+
+    <ImageView
+        android:id="@+id/ivJgxx"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/jdjg"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdry"
+        app:layout_constraintEnd_toStartOf="@+id/tvJgxx"
+        app:layout_constraintTop_toTopOf="@+id/tvJdry" />
+
+    <TextView
+        android:id="@+id/tvTjsh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="提交审核"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvJdry"
+        app:layout_constraintTop_toBottomOf="@+id/tvJdry" />
+
+    <ImageView
+        android:id="@+id/ivTjsh"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/tj"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTjsh"
+        app:layout_constraintEnd_toEndOf="@+id/ivJdry"
+        app:layout_constraintTop_toTopOf="@+id/tvTjsh" />
+
+    <TextView
+        android:id="@+id/tvShjl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="审核记录"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTjsh"
+        app:layout_constraintEnd_toEndOf="@+id/tvJgzz"
+        app:layout_constraintTop_toTopOf="@+id/tvTjsh" />
+
+    <ImageView
+        android:id="@+id/ivShjl"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/sh"
+        app:layout_constraintBottom_toBottomOf="@+id/tvShjl"
+        app:layout_constraintEnd_toEndOf="@+id/ivJgzz"
+        app:layout_constraintTop_toTopOf="@+id/tvShjl" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

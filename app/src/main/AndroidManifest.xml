@@ -31,7 +31,7 @@
         <activity android:name=".ui.act.TsjyWhfListAct" />
         <activity android:name=".ui.act.AddTsjyAct" />
         <activity android:name=".ui.act.AddTsjyReplyAct" />
-        <activity android:name=".ui.act.JdjgMyListAct" />
+        <activity android:name=".ui.act.MyJdjgAct" />
     </application>
 
 </manifest>

@@ -1,37 +1,34 @@
 package com.unicorn.forensic2.ui.act
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.ui.adapter.JdjgMyAdapter
+import com.unicorn.forensic2.data.model.Jdjg
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jdjg_my_list.*
+import kotlinx.android.synthetic.main.act_my_jdjg.*
 
-class JdjgMyListAct : BaseAct() {
+class MyJdjgAct : BaseAct() {
 
     override fun initViews() {
         super.initViews()
         titleBar.setTitle("机构信息")
-        recyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            simpleAdapter.bindToRecyclerView(this)
-            addDefaultItemDecoration(1)
-        }
     }
 
     override fun bindIntent() {
-        fun getJdjgMyList() {
+        fun displayJdjg(jdjg: Jdjg) = with(jdjg) {
+            tvJgmc.text = jgmc
+        }
+
+        fun getMyJdjg() {
             val mask = DialogHelper.showMask(this)
-            v1Api.getJdjgMyList()
+            v1Api.getMyJdjg()
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
-                        simpleAdapter.setNewData(it)
+                        displayJdjg(it)
                     },
                     onError = {
                         mask.dismiss()
@@ -39,11 +36,9 @@ class JdjgMyListAct : BaseAct() {
                     }
                 )
         }
-        getJdjgMyList()
+        getMyJdjg()
     }
 
-    private val simpleAdapter = JdjgMyAdapter()
-
-    override val layoutId = R.layout.act_jdjg_my_list
+    override val layoutId = R.layout.act_my_jdjg
 
 }
