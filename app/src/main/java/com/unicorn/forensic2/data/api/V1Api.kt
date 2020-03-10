@@ -3,7 +3,8 @@ package com.unicorn.forensic2.data.api
 import com.unicorn.forensic2.app.defaultPageSize
 import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.AddTsjyParam
-import com.unicorn.forensic2.data.model.response.AddTsjyResponse
+import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
+import com.unicorn.forensic2.data.model.response.GeneralResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Call
@@ -46,7 +47,10 @@ interface V1Api {
     fun getTsjyWhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Tsjy>>
 
     @POST("api/v1/tsjy")
-    fun addTsjy(@Body addTsjyParam: AddTsjyParam): Single<AddTsjyResponse>
+    fun addTsjy(@Body addTsjyParam: AddTsjyParam): Single<GeneralResponse>
+
+    @POST("api/v1/tsjy/{tsjyId}")
+    fun addTsjyReply(@Path("tsjyId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
 
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()

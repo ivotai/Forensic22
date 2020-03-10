@@ -30,6 +30,7 @@
         <activity android:name=".ui.act.AddTsjyAct" />
         <activity android:name=".ui.act.TsjyYhfListAct" />
         <activity android:name=".ui.act.TsjyWhfListAct" />
+        <activity android:name=".ui.act.AddTsjyReplyAct" />
     </application>
 
 </manifest>

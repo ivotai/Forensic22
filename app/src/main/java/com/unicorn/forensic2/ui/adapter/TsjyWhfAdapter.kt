@@ -1,9 +1,13 @@
 package com.unicorn.forensic2.ui.adapter
 
+import android.content.Intent
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.TsjyId
+import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.toDateFormat
 import com.unicorn.forensic2.data.model.Tsjy
+import com.unicorn.forensic2.ui.act.AddTsjyReplyAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_tsjy_whf.*
 
@@ -16,13 +20,13 @@ class TsjyWhfAdapter : BaseQuickAdapter<Tsjy, KVHolder>(R.layout.item_tsjy_whf) 
             tvCreatedDate.text  = item.createdDate.toDateFormat()
             tvContent.text = item.content
         }
-//        helper.apply {
-//            root.safeClicks().subscribe {
-//                Intent(mContext, JdjgDetailAct::class.java).apply {
-//                    putExtra(JdjgId, item.jgid)
-//                }.let { mContext.startActivity(it) }
-//            }
-//        }
+        helper.apply {
+            tvReply.safeClicks().subscribe {
+                Intent(mContext, AddTsjyReplyAct::class.java).apply {
+                    putExtra(TsjyId, item.objectId)
+                }.let { mContext.startActivity(it) }
+            }
+        }
     }
 
 }

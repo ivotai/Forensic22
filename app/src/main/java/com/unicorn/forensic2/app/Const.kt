@@ -9,7 +9,7 @@ const val Cookie = "Cookie"
 const val SESSION = "SESSION"
 const val Jdjg = "Jdjg "
 const val JdjgId = "JdjgId"
-const val IsYhf = "IsYhf"
+const val TsjyId = "TsjyId"
 const val V1 = "V1"
 const val V2 = "V2"
 
