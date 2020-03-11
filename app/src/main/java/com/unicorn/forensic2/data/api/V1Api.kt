@@ -67,7 +67,7 @@ interface V1Api {
     @GET("category/zzdj")
     fun getZzdj(@Query("jdlb") jdlbId: Int): Single<List<Dict>>
 
-    // 机构所在地 todo 只有一个全部？
+    // 机构所在地
     @GET("category/region")
     fun getRegion(@Query("id") id: Int): Single<List<Dict>>
 
