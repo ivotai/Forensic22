@@ -33,7 +33,7 @@ interface V1Api {
 
     // 获取已注册的鉴定机构
     @GET("api/v1/jdJdjg/basicInfo")
-    fun getMyJdjg(): Single<Jdjg>
+    fun getJdjgMy(): Single<Jdjg>
 
     // 获取机构资质列表 jgzzList
 

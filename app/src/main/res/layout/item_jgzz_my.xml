@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:background="@color/md_white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/lJdlb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="o鉴定类别"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvJdlb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="鉴定类别"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lJdlb" />
+
+    <TextView
+        android:id="@+id/lCyly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="o从业地域"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJdlb" />
+
+    <TextView
+        android:id="@+id/tvCyly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="从业地域"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lCyly" />
+
+    <TextView
+        android:id="@+id/lSpjg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="o审批机构"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCyly" />
+
+    <TextView
+        android:id="@+id/tvSpjg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="审批机构"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lSpjg" />
+
+    <TextView
+        android:id="@+id/lZzsm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="o资质证明"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tvZzzh"
+        app:layout_constraintTop_toBottomOf="@+id/tvZzzh" />
+
+    <TextView
+        android:id="@+id/tvZzsm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="资质证明"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lZzsm" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/lZzdj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="o资质等级"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvZzdj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="资质等级"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/lZzdj" />
+
+    <TextView
+        android:id="@+id/lYxrq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="o有效日期"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/tvZzdj" />
+
+    <TextView
+        android:id="@+id/tvYxrq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="有效日期"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/lYxrq" />
+
+    <TextView
+        android:id="@+id/lZzzh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="o资质证号"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSpjg" />
+
+    <TextView
+        android:id="@+id/tvZzzh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="资质证号"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/lZzzh"
+        app:layout_constraintTop_toBottomOf="@+id/lZzzh" />
+
+    <TextView
+        android:id="@+id/tvDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="删除"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvZzsm" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/delete"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDelete"
+        app:layout_constraintEnd_toStartOf="@+id/tvDelete"
+        app:layout_constraintTop_toTopOf="@+id/tvDelete" />
+
+    <TextView
+        android:id="@+id/tvEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="编辑"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivDelete"
+        app:layout_constraintTop_toBottomOf="@+id/tvZzsm" />
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/edit"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDelete"
+        app:layout_constraintEnd_toStartOf="@+id/tvEdit"
+        app:layout_constraintTop_toTopOf="@+id/tvDelete" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
