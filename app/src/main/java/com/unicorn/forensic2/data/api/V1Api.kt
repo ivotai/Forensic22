@@ -22,22 +22,22 @@ interface V1Api {
     @GET("api/v1/jdLottery/djdList")
     fun getDjdList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
 
+
     // 鉴定机构
-    // 鉴定机构列表
+    // 鉴定机构公共列表
     @GET("public/jgList")
     fun getJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Jdjg>>
 
-    // 鉴定机构详情
+    // 鉴定机构公共详情
     @GET("public/jgDetail")
     fun getJdjgDetail(@Query("jgid") jdjgId: String): Single<Jdjg>
 
-    // 获取已注册的鉴定机构
+    // 获取鉴定机构我的
     @GET("api/v1/jdJdjg/basicInfo")
     fun getJdjgMy(): Single<Jdjg>
 
-    // 获取机构资质列表 jgzzList
 
-
+    // 系统公告
     // 系统公告列表
     @GET("public/xtggList")
     fun getXtggList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Xtgg>>
@@ -58,25 +58,28 @@ interface V1Api {
     @POST("api/v1/tsjy/{tsjyId}")
     fun addTsjyReply(@Path("tsjyId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
 
+
+    // 字典
+    // 鉴定类别
+    @GET("category/jdlb")
+    fun getJdlb(): Single<List<Dict>>
+
+    // 资质等级
+    // 参数为鉴定类别Id
+    @GET("category/zzdj")
+    fun getZzdj(): Single<List<Dict>>
+
     //所在地
     // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()
     @POST("category/region")
     fun getDictRegion(@Body any: Any = Any()): Observable<Response<List<Dict>>>
 
-    // 鉴定类别
-    // 一定要 post {} 才不会报错
-    @POST("category/jdlb")
-    fun getDictJdlb(@Body any: Any = Any()): Observable<Response<List<Dict>>>
 
     // 机构性质
     // 机构性质不需要 post {}，莫名其妙
     @POST("category/jgxz")
     fun getDictJgxz(): Observable<Response<List<Dict>>>
 
-    // 资质等级
-    // 参数为鉴定类别Id
-    @POST("category/DictZzdj")
-    fun getDictZzdj(@Body keyParam: KeyParam): Observable<Response<List<Dict>>>
 
 
     @POST("Authorization/UserLogin")
