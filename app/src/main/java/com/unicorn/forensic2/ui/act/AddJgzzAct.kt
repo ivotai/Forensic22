@@ -6,6 +6,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_add_jgzz.*
@@ -62,6 +63,8 @@ class AddJgzzAct : BaseAct() {
             else
                 showZzdjDialog()
         }
+
+        tvCyly.safeClicks().subscribe { startAct(RegionTreeAct::class.java) }
     }
 
     override val layoutId = R.layout.act_add_jgzz
