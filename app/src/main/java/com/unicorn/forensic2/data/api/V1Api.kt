@@ -63,13 +63,13 @@ interface V1Api {
     fun getJdlb(): Single<List<Dict>>
 
     // 资质等级
-    // 参数为鉴定类别Id todo 正确地址
+    // 参数为鉴定类别Id
     @GET("category/zzdj")
-    fun getZzdj(@Query("jdlbId") jdlbId: String): Single<List<Dict>>
+    fun getZzdj(@Query("jdlb") jdlb: Int): Single<List<Dict>>
 
     // 机构所在地 todo 只有一个全部？
     @GET("category/region")
-    fun getRegion(): Single<List<Dict>>
+    fun getRegion(@Query("id") id: Int): Single<List<Dict>>
 
 
 

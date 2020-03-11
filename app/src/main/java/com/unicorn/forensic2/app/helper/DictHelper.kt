@@ -11,11 +11,11 @@ object DictHelper {
         getJdlb()
             .flatMap {
                 jdlb = it
-                getRegion()
+                getRegion(0)
             }
             .subscribeOn(Schedulers.io())
             .subscribeBy {
-                regions = it
+//                regions = it
             }
 //        getDictRegion()
 //            .flatMap {
