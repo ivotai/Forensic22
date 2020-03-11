@@ -2,12 +2,21 @@ package com.unicorn.forensic2.app.helper
 
 import com.unicorn.forensic2.app.di.ComponentHolder
 import com.unicorn.forensic2.data.model.Dict
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 
 object DictHelper {
 
     fun init() = with(v1Api) {
-        getJdlb().subscribeOn(Schedulers.io()).subscribe()
+        getJdlb()
+            .flatMap {
+                jdlb = it
+                getRegion()
+            }
+            .subscribeOn(Schedulers.io())
+            .subscribeBy {
+                regions = it
+            }
 //        getDictRegion()
 //            .flatMap {
 //                regions = it.data

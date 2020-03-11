@@ -5,9 +5,7 @@ import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.AddTsjyParam
 import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
 import com.unicorn.forensic2.data.model.response.GeneralResponse
-import io.reactivex.Observable
 import io.reactivex.Single
-import retrofit2.Call
 import retrofit2.http.*
 
 interface V1Api {
@@ -65,25 +63,20 @@ interface V1Api {
     fun getJdlb(): Single<List<Dict>>
 
     // 资质等级
-    // 参数为鉴定类别Id
+    // 参数为鉴定类别Id todo 正确地址
     @GET("category/zzdj")
-    fun getZzdj(): Single<List<Dict>>
+    fun getZzdj(@Query("jdlbId") jdlbId: String): Single<List<Dict>>
 
-    //所在地
-    // 一定要 post {} 才不会报错，不能传空。 @Body any: Any = Any()
-    @POST("category/region")
-    fun getDictRegion(@Body any: Any = Any()): Observable<Response<List<Dict>>>
-
-
-    // 机构性质
-    // 机构性质不需要 post {}，莫名其妙
-    @POST("category/jgxz")
-    fun getDictJgxz(): Observable<Response<List<Dict>>>
+    // 机构所在地 todo 只有一个全部？
+    @GET("category/region")
+    fun getRegion(): Single<List<Dict>>
 
 
 
-    @POST("Authorization/UserLogin")
-    fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>
+
+
+//    @POST("Authorization/UserLogin")
+//    fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>
 
 
 }
