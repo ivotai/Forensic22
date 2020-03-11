@@ -41,7 +41,8 @@ class RegionTreeAct : BaseAct() {
             }
 
             val mask = DialogHelper.showMask(this)
-            v1Api.getRegion(0).observeOnMain(this)
+            v1Api.getRegion(0)
+                .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
