@@ -12,7 +12,8 @@ import kotlinx.android.synthetic.main.act_add_jgzz.*
 
 class AddJgzzAct : BaseAct() {
 
-    private var jdlbId = ""
+    private var jdlbId = -1
+    private var zzdjId = -1
 
     override fun initViews() {
         titleBar.setTitle("添加资质详情")
@@ -25,7 +26,7 @@ class AddJgzzAct : BaseAct() {
                 .subscribeBy(
                     onSuccess = {
                         MaterialDialog(this@AddJgzzAct).show {
-                            listItems(items = it.map { it.name }) { dialog, index, text ->
+                            listItems(items = it.map { it.name }) { _, index, _ ->
                                 jdlbId = it[index].id
                                 this@AddJgzzAct.tvJdlb.text = it[index].name
                             }
@@ -37,6 +38,30 @@ class AddJgzzAct : BaseAct() {
                 )
         }
         tvJdlb.safeClicks().subscribe { showJdlbDialog() }
+
+        fun showZzdjDialog() {
+            v1Api.getZzdj(jdlbId = jdlbId)
+                .observeOnMain(this)
+                .subscribeBy(
+                    onSuccess = {
+                        MaterialDialog(this@AddJgzzAct).show {
+                            listItems(items = it.map { it.name }) { _, index, _ ->
+                                zzdjId = it[index].id
+                                this@AddJgzzAct.tvZzdj.text = it[index].name
+                            }
+                        }
+                    },
+                    onError = {
+                        ToastUtils.showShort("获取资质等级失败")
+                    }
+                )
+        }
+        tvZzdj.safeClicks().subscribe {
+            if (jdlbId == -1)
+                ToastUtils.showShort("请先选择鉴定类别")
+            else
+                showZzdjDialog()
+        }
     }
 
     override val layoutId = R.layout.act_add_jgzz
