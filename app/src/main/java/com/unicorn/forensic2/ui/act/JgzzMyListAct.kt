@@ -7,6 +7,8 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.ui.adapter.JgzzMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -43,6 +45,8 @@ class JgzzMyListAct : BaseAct() {
                 )
         }
         getJdjgMy()
+
+        titleBar.setOperation("添加").safeClicks().subscribe { startAct(AddJgzzAct::class.java) }
     }
 
     private val simpleAdapter = JgzzMyAdapter()
