@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.act_jdjg_detail.*
 import org.joda.time.DateTime
 import java.util.*
 
-class JdjgDetailAct : BaseAct() {
+class JdjgPublicDetailAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("机构详情")
@@ -27,7 +27,7 @@ class JdjgDetailAct : BaseAct() {
 
     private fun getJdjgDetail() {
         fun startJgzzListAct() {
-            Intent(this, JgzzListAct::class.java).apply {
+            Intent(this, JgzzPublicListAct::class.java).apply {
                 putExtra(Jdjg, jdjg)
             }.let { startActivity(it) }
         }

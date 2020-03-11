@@ -35,6 +35,8 @@ interface V1Api {
     @GET("api/v1/jdJdjg/basicInfo")
     fun getMyJdjg(): Single<Jdjg>
 
+    // 获取机构资质列表 jgzzList
+
 
     // 系统公告列表
     @GET("public/xtggList")
