@@ -62,11 +62,11 @@ dependencies {
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0'
     implementation 'com.github.florent37:rxlifecycle:2.0.5'
     // squareup
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
-    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.0'
     // google
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.dagger:dagger:2.25.2'

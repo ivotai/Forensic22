@@ -6,7 +6,10 @@ import com.unicorn.forensic2.data.model.param.AddTsjyParam
 import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import io.reactivex.Single
+import okhttp3.RequestBody
 import retrofit2.http.*
+
+
 
 interface V1Api {
 
@@ -56,6 +59,9 @@ interface V1Api {
     @POST("api/v1/tsjy/{tsjyId}")
     fun addTsjyReply(@Path("tsjyId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
 
+    @Multipart
+    @POST("api/v1/jdJdjgzzNew")
+    fun createJgzz(@PartMap params: Map<String,@JvmSuppressWildcards RequestBody>): Single<Any>
 
     // 字典
     // 鉴定类别
