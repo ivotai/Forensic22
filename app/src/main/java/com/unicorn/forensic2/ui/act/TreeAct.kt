@@ -49,7 +49,7 @@ abstract class TreeAct : BaseAct() {
             }
 
             val mask = DialogHelper.showMask(this)
-            dictHelper.getLevel1()
+            dictHelper.getFirstLevel()
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {

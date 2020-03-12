@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.model.TreeResult
+import com.unicorn.forensic2.data.model.param.JgzzAddParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
@@ -14,23 +15,21 @@ import kotlinx.android.synthetic.main.act_jgzz_add.*
 
 class JgzzAddAct : BaseAct() {
 
-    private var jdlbId = -1
-    private var zzdjId = -1
+    private val param = JgzzAddParam()
 
     override fun initViews() {
         titleBar.setTitle("添加资质详情")
     }
 
     override fun bindIntent() {
-
         fun showZzdjDialog() {
-            v1Api.getZzdj(jdlbId = jdlbId)
+            v1Api.getZzdj(jdlbId = param.jdlbId)
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {
                         MaterialDialog(this@JgzzAddAct).show {
                             listItems(items = it.map { it.name }) { _, index, _ ->
-                                zzdjId = it[index].id
+                                param.zzdjId = it[index].id
                                 this@JgzzAddAct.tvZzdj.text = it[index].name
                             }
                         }
@@ -41,7 +40,7 @@ class JgzzAddAct : BaseAct() {
                 )
         }
         tvZzdj.safeClicks().subscribe {
-            if (jdlbId == -1)
+            if (param.jdlbId == -1)
                 ToastUtils.showShort("请先选择鉴定类别")
             else
                 showZzdjDialog()
@@ -61,10 +60,12 @@ class JgzzAddAct : BaseAct() {
         RxBus.registerEvent(this, TreeResult::class.java, Consumer {
             when (it.key) {
                 Jdlb -> {
-                    tvJdlb.text = it.treeNode.dict.name
+                    param.jdlbId = it.dict.id
+                    tvJdlb.text = it.dict.name
                 }
                 Cyly -> {
-                    tvCyly.text = it.treeNode.dict.name
+                    param.cylyId = it.dict.id
+                    tvCyly.text = it.dict.name
                 }
             }
         })

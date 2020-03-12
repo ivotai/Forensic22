@@ -12,7 +12,7 @@ class CylyTreeAct : TreeAct() {
     override val title = "机构所在地"
 
     override val dictHelper: DictHelper = object : DictHelper() {
-        override fun getLevel1(): Single<List<Dict>> {
+        override fun getFirstLevel(): Single<List<Dict>> {
             return v1Api.getCyly(0)
         }
 
@@ -20,7 +20,5 @@ class CylyTreeAct : TreeAct() {
             return v1Api.getCyly(id)
         }
     }
-
-
 
 }

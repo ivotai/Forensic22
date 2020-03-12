@@ -12,7 +12,7 @@ class JdlbTreeAct : TreeAct() {
     override val title = "鉴定类别"
 
     override val dictHelper: DictHelper = object : DictHelper() {
-        override fun getLevel1(): Single<List<Dict>> {
+        override fun getFirstLevel(): Single<List<Dict>> {
             return v1Api.getJdlb("")
         }
 
