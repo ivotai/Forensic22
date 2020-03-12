@@ -1,12 +1,12 @@
 package com.unicorn.forensic2.ui.act
 
+import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_add_jgzz.*
@@ -64,7 +64,10 @@ class AddJgzzAct : BaseAct() {
                 showZzdjDialog()
         }
 
-        tvCyly.safeClicks().subscribe { startAct(TreeAct::class.java) }
+        tvCyly.safeClicks().subscribe {
+            Intent(this, CylyTreeAct::class.java).apply {
+            }.let { startActivity(it) }
+        }
     }
 
     override val layoutId = R.layout.act_add_jgzz

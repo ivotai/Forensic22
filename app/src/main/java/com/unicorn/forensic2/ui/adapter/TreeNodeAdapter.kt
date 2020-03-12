@@ -6,7 +6,8 @@ import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.di.ComponentHolder
+import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.helper.DictHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Dict
@@ -16,7 +17,9 @@ import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_text.*
 
-class TreeNodeAdapter : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(ArrayList()) {
+class TreeNodeAdapter() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(ArrayList()) {
+
+    lateinit var dictHelper: DictHelper
 
     init {
         addItemType(0, R.layout.item_text)
@@ -30,7 +33,7 @@ class TreeNodeAdapter : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(Arr
                     .toList()
                     .subscribeBy {
                         if (it.isEmpty())
-                            ToastUtils.showShort("末端节点")
+                            RxBus.post(item)
                         else {
                             item.subItems = it
                             expand(helper.adapterPosition);
@@ -38,8 +41,7 @@ class TreeNodeAdapter : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(Arr
                     }
             }
 
-            val v1Api = ComponentHolder.appComponent.v1Api()
-            v1Api.getRegion(item.dict.id)
+            dictHelper.getChildren(item.dict.id)
                 .observeOnMain(mContext as LifecycleOwner)
                 .subscribeBy(
                     onSuccess = {
