@@ -33,7 +33,7 @@
         <activity android:name=".ui.act.AddTsjyReplyAct" />
         <activity android:name=".ui.act.JdjgMyAct" />
         <activity android:name=".ui.act.JgzzMyListAct" />
-        <activity android:name=".ui.act.AddJgzzAct" />
+        <activity android:name=".ui.act.JgzzAddAct" />
         <activity android:name=".ui.act.CylyTreeAct" />
     </application>
 

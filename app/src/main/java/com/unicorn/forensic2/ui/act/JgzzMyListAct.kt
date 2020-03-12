@@ -46,7 +46,7 @@ class JgzzMyListAct : BaseAct() {
         }
         getJdjgMy()
 
-        titleBar.setOperation("添加").safeClicks().subscribe { startAct(AddJgzzAct::class.java) }
+        titleBar.setOperation("添加").safeClicks().subscribe { startAct(JgzzAddAct::class.java) }
     }
 
     private val simpleAdapter = JgzzMyAdapter()

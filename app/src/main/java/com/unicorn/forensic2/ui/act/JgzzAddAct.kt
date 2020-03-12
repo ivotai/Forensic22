@@ -5,13 +5,17 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.Cyly
+import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.data.model.TreeResult
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_add_jgzz.*
+import kotlinx.android.synthetic.main.act_jgzz_add.*
 
-class AddJgzzAct : BaseAct() {
+class JgzzAddAct : BaseAct() {
 
     private var jdlbId = -1
     private var zzdjId = -1
@@ -26,10 +30,10 @@ class AddJgzzAct : BaseAct() {
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {
-                        MaterialDialog(this@AddJgzzAct).show {
+                        MaterialDialog(this@JgzzAddAct).show {
                             listItems(items = it.map { it.name }) { _, index, _ ->
                                 jdlbId = it[index].id
-                                this@AddJgzzAct.tvJdlb.text = it[index].name
+                                this@JgzzAddAct.tvJdlb.text = it[index].name
                             }
                         }
                     },
@@ -45,10 +49,10 @@ class AddJgzzAct : BaseAct() {
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {
-                        MaterialDialog(this@AddJgzzAct).show {
+                        MaterialDialog(this@JgzzAddAct).show {
                             listItems(items = it.map { it.name }) { _, index, _ ->
                                 zzdjId = it[index].id
-                                this@AddJgzzAct.tvZzdj.text = it[index].name
+                                this@JgzzAddAct.tvZzdj.text = it[index].name
                             }
                         }
                     },
@@ -70,6 +74,16 @@ class AddJgzzAct : BaseAct() {
         }
     }
 
-    override val layoutId = R.layout.act_add_jgzz
+    override fun registerEvent() {
+        RxBus.registerEvent(this, TreeResult::class.java, Consumer {
+            when (it.key) {
+                Cyly -> {
+                    tvCyly.text = it.treeNode.dict.name
+                }
+            }
+        })
+    }
+
+    override val layoutId = R.layout.act_jgzz_add
 
 }

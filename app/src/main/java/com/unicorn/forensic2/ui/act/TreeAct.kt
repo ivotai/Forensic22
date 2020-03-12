@@ -1,7 +1,6 @@
 package com.unicorn.forensic2.ui.act
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
@@ -11,6 +10,7 @@ import com.unicorn.forensic2.app.helper.DictHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.data.model.Dict
 import com.unicorn.forensic2.data.model.TreeNode
+import com.unicorn.forensic2.data.model.TreeResult
 import com.unicorn.forensic2.ui.adapter.TreeNodeAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.Observable
@@ -20,9 +20,11 @@ import kotlinx.android.synthetic.main.ui_title_recycler.*
 
 abstract class TreeAct : BaseAct() {
 
-    abstract val dictHelper:DictHelper
+    abstract val dictHelper: DictHelper
 
     abstract val title: String
+
+    abstract val key: String
 
     private val simpleAdapter = TreeNodeAdapter()
 
@@ -35,7 +37,6 @@ abstract class TreeAct : BaseAct() {
         }
         simpleAdapter.dictHelper = dictHelper
     }
-
 
 
     override fun bindIntent() {
@@ -64,9 +65,10 @@ abstract class TreeAct : BaseAct() {
     }
 
     override fun registerEvent() {
-      RxBus.registerEvent(this,TreeNode::class.java, Consumer {
-          ToastUtils.showShort(it.dict.name)
-      })
+        RxBus.registerEvent(this, TreeNode::class.java, Consumer {
+            RxBus.post(TreeResult(treeNode = it, key = key))
+            finish()
+        })
     }
 
     override val layoutId = R.layout.ui_title_recycler
