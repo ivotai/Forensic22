@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.unicorn.forensic2.ui.other.TitleBar
         android:id="@+id/titleBar"
@@ -15,105 +15,217 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="鉴定类别:"
-        android:textColor="@color/md_grey_500"
-        android:textSize="14dp" />
-
-    <TextView
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvJdlb"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请选择鉴定类别"
-        android:textColorHint="@color/md_black"
-        android:textColor="@color/md_black"
-        android:textSize="18dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <View
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/md_grey_300"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="资质等级:"
-        android:textColor="@color/md_grey_500"
-        android:textSize="14dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="鉴定类别:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
 
-    <TextView
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvZzdj"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请选择资质等级"
-        android:textColorHint="@color/md_black"
-        android:textColor="@color/md_black"
-        android:textSize="18dp" />
+            <TextView
+                android:id="@+id/tvJdlb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择鉴定类别"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
 
-    <View
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/md_grey_300"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="从业领域:"
-        android:textColor="@color/md_grey_500"
-        android:textSize="14dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="资质等级:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
 
-    <TextView
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvCyly"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请选择机构所在地"
-        android:textColorHint="@color/md_black"
-        android:textColor="@color/md_black"
-        android:textSize="18dp" />
+            <TextView
+                android:id="@+id/tvZzdj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择资质等级"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
 
-    <View
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/md_grey_300"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="有效日期:"
-        android:textColor="@color/md_grey_500"
-        android:textSize="14dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="从业领域:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
 
-    <TextView
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvYxrq"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请选择有效日期"
-        android:textColorHint="@color/md_black"
-        android:textColor="@color/md_black"
-        android:textSize="18dp" />
+            <TextView
+                android:id="@+id/tvCyly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择机构所在地"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
 
-    <View
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/md_grey_300"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="有效日期:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvYxrq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择有效日期"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="审批机构:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etSpjg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入审批机构"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="资质说明:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etZzsm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入资质说明"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="资质证号:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etZzzh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入资质证号"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <com.flyco.roundview.RoundTextView
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:id="@+id/rtvNextStep"
+                android:textSize="18dp"
+                android:text="下一步"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_white"
+                app:rv_isRadiusHalfHeight="true"
+                app:rv_backgroundColor="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

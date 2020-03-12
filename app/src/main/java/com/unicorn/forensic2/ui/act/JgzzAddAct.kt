@@ -4,6 +4,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
+import com.jakewharton.rxbinding3.widget.textChanges
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.model.TreeResult
@@ -53,10 +54,46 @@ class JgzzAddAct : BaseAct() {
             }
         }
 
+        fun nextStep() = with(param) {
+            if (jdlbId == -1) {
+                ToastUtils.showShort("请选择鉴定类别")
+                return@with
+            }
+            if (zzdjId == -1) {
+                ToastUtils.showShort("请选择资质等级")
+                return@with
+            }
+            if (cylyId == -1) {
+                ToastUtils.showShort("请选择机构所在地")
+                return@with
+            }
+            if (yxrq.isBlank()) {
+                ToastUtils.showShort("请选择有效日期")
+                return@with
+            }
+            if (spjg.isBlank()) {
+                ToastUtils.showShort("请输入审批机构")
+                return@with
+            }
+            if (zzsm.isBlank()) {
+                ToastUtils.showShort("请输入资质说明")
+                return@with
+            }
+            if (zzzh.isBlank()) {
+                ToastUtils.showShort("请输入资质证号")
+                return@with
+            }
+            ToastUtils.showShort("开始下一步")
+        }
+
         tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }
         tvZzdj.safeClicks().subscribe { showZzdjDialog() }
         tvCyly.safeClicks().subscribe { startAct(CylyTreeAct::class.java) }
         tvYxrq.safeClicks().subscribe { showDateDialog() }
+        etSpjg.textChanges().map { it.toString() }.subscribe { param.spjg = it }
+        etZzsm.textChanges().map { it.toString() }.subscribe { param.zzsm = it }
+        etZzzh.textChanges().map { it.toString() }.subscribe { param.zzzh = it }
+        rtvNextStep.safeClicks().subscribe { nextStep() }
     }
 
     override fun registerEvent() {
