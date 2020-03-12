@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.ui.act
 
+import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.list.listItems
@@ -55,35 +56,37 @@ class JgzzAddAct : BaseAct() {
         }
 
         fun nextStep() = with(param) {
-            if (jdlbId == -1) {
-                ToastUtils.showShort("请选择鉴定类别")
-                return@with
-            }
-            if (zzdjId == -1) {
-                ToastUtils.showShort("请选择资质等级")
-                return@with
-            }
-            if (cylyId == -1) {
-                ToastUtils.showShort("请选择机构所在地")
-                return@with
-            }
-            if (yxrq.isBlank()) {
-                ToastUtils.showShort("请选择有效日期")
-                return@with
-            }
-            if (spjg.isBlank()) {
-                ToastUtils.showShort("请输入审批机构")
-                return@with
-            }
-            if (zzsm.isBlank()) {
-                ToastUtils.showShort("请输入资质说明")
-                return@with
-            }
-            if (zzzh.isBlank()) {
-                ToastUtils.showShort("请输入资质证号")
-                return@with
-            }
-            ToastUtils.showShort("开始下一步")
+            //            if (jdlbId == -1) {
+//                ToastUtils.showShort("请选择鉴定类别")
+//                return@with
+//            }
+//            if (zzdjId == -1) {
+//                ToastUtils.showShort("请选择资质等级")
+//                return@with
+//            }
+//            if (cylyId == -1) {
+//                ToastUtils.showShort("请选择机构所在地")
+//                return@with
+//            }
+//            if (yxrq.isBlank()) {
+//                ToastUtils.showShort("请选择有效日期")
+//                return@with
+//            }
+//            if (spjg.isBlank()) {
+//                ToastUtils.showShort("请输入审批机构")
+//                return@with
+//            }
+//            if (zzsm.isBlank()) {
+//                ToastUtils.showShort("请输入资质说明")
+//                return@with
+//            }
+//            if (zzzh.isBlank()) {
+//                ToastUtils.showShort("请输入资质证号")
+//                return@with
+//            }
+            Intent(this@JgzzAddAct, JgzzAddPictureAct::class.java).apply {
+                putExtra(JgzzAddParam, param)
+            }.let { startActivity(it) }
         }
 
         tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }

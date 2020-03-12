@@ -33,6 +33,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -87,6 +91,7 @@ dependencies {
     implementation 'com.zhy:okhttputils:2.6.2'
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0X'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.4.9'
 }
 
 androidExtensions {

@@ -5,7 +5,7 @@ import com.blankj.utilcode.util.ConvertUtils
 const val Cyly = "Cyly"
 const val Jdlb = "Jdlb"
 const val Xtgg = "Xtgg"
-const val SearchParamJdjg = "SearchParamJdjg"
+const val JgzzAddParam = "JgzzAddParam"
 const val Cookie = "Cookie"
 const val SESSION = "SESSION"
 const val Jdjg = "Jdjg "
