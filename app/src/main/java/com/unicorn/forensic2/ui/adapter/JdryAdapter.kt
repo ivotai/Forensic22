@@ -3,7 +3,7 @@ package com.unicorn.forensic2.ui.adapter
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.app.toDisplayFormat2
 import com.unicorn.forensic2.app.toDateTime
 import com.unicorn.forensic2.data.model.Jdry
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -17,7 +17,7 @@ class JdryAdapter : BaseQuickAdapter<Jdry, KVHolder>(R.layout.item_jdry) {
             tvGrzc.text = item.grzc
             tvZczyh.text = item.zczyh
             tvJdlb.text = item.jdlb
-            tvZyzsyxq.text = item.zyzsyxq.toDisplayFormat()
+            tvZyzsyxq.text = item.zyzsyxq.toDisplayFormat2()
 
             // 是否失效
             ivSx.visibility =

@@ -4,7 +4,7 @@ import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.toDateTime
-import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.app.toDisplayFormat2
 import com.unicorn.forensic2.data.model.Jgzz
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_jgzz_public.*
@@ -19,7 +19,7 @@ class JgzzPublicAdapter : BaseQuickAdapter<Jgzz, KVHolder>(R.layout.item_jgzz_pu
             tvZzsm.text = item.zzsm
 
             tvZzdj.text = item.zzdj
-            tvYxrq.text = item.yxrq.toDisplayFormat()
+            tvYxrq.text = item.yxrq.toDisplayFormat2()
             tvZzzh.text = item.zzzh
 
             // 是否失效

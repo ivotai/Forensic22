@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.blankj.utilcode.util.EncryptUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.jakewharton.rxbinding3.view.clicks
 import com.unicorn.forensic2.R
@@ -62,10 +61,11 @@ fun String.toast() {
 
 fun Long.toDateTime(): DateTime = DateTime(this)
 
-fun Long.toDisplayFormat(): String {
+fun Long.toDisplayFormat2(): String {
     return this.toDateTime().toString(displayDateFormat2)
 }
 
-fun String.encrypt(): String {
-    return EncryptUtils.encryptMD5ToString(this).toLowerCase()
+fun Long.toDisplayFormat(): String {
+    return this.toDateTime().toString(displayDateFormat)
 }
+

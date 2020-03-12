@@ -1,7 +1,7 @@
 package com.unicorn.forensic2.ui.act
 
-import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
@@ -23,6 +23,10 @@ class JgzzAddAct : BaseAct() {
 
     override fun bindIntent() {
         fun showZzdjDialog() {
+            if (param.jdlbId == -1) {
+                ToastUtils.showShort("请先选择鉴定类别")
+                return
+            }
             v1Api.getZzdj(jdlbId = param.jdlbId)
                 .observeOnMain(this)
                 .subscribeBy(
@@ -39,21 +43,20 @@ class JgzzAddAct : BaseAct() {
                     }
                 )
         }
-        tvZzdj.safeClicks().subscribe {
-            if (param.jdlbId == -1)
-                ToastUtils.showShort("请先选择鉴定类别")
-            else
-                showZzdjDialog()
+
+        fun showDateDialog() {
+            MaterialDialog(this).show {
+                datePicker { dialog, date ->
+                    param.yxrq = date.time.time.toDisplayFormat()
+                    this@JgzzAddAct.tvYxrq.text = param.yxrq
+                }
+            }
         }
 
-        tvJdlb.safeClicks().subscribe {
-            Intent(this, JdlbTreeAct::class.java).apply {
-            }.let { startActivity(it) }
-        }
-        tvCyly.safeClicks().subscribe {
-            Intent(this, CylyTreeAct::class.java).apply {
-            }.let { startActivity(it) }
-        }
+        tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }
+        tvZzdj.safeClicks().subscribe { showZzdjDialog() }
+        tvCyly.safeClicks().subscribe { startAct(CylyTreeAct::class.java) }
+        tvYxrq.safeClicks().subscribe { showDateDialog() }
     }
 
     override fun registerEvent() {

@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.TsjyId
 import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.app.toDisplayFormat2
 import com.unicorn.forensic2.data.model.Tsjy
 import com.unicorn.forensic2.ui.act.AddTsjyReplyAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -17,7 +17,7 @@ class TsjyWhfAdapter : BaseQuickAdapter<Tsjy, KVHolder>(R.layout.item_tsjy_whf) 
         helper.apply {
             tvComplainant.text = item.complainant
             tvIdCard.text = item.idCard
-            tvCreatedDate.text  = item.createdDate.toDisplayFormat()
+            tvCreatedDate.text  = item.createdDate.toDisplayFormat2()
             tvContent.text = item.content
         }
         helper.apply {
