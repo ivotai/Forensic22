@@ -64,7 +64,7 @@ class AddJgzzAct : BaseAct() {
                 showZzdjDialog()
         }
 
-        tvCyly.safeClicks().subscribe { startAct(RegionTreeAct::class.java) }
+        tvCyly.safeClicks().subscribe { startAct(TreeAct::class.java) }
     }
 
     override val layoutId = R.layout.act_add_jgzz

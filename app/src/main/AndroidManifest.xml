@@ -34,7 +34,7 @@
         <activity android:name=".ui.act.JdjgMyAct" />
         <activity android:name=".ui.act.JgzzMyListAct" />
         <activity android:name=".ui.act.AddJgzzAct" />
-        <activity android:name=".ui.act.RegionTreeAct" />
+        <activity android:name=".ui.act.TreeAct" />
     </application>
 
 </manifest>

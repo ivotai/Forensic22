@@ -69,10 +69,7 @@ interface V1Api {
 
     // 机构所在地
     @GET("category/region")
-    fun getRegion(@Query("id") id: Int): Single<List<Dict>>
-
-
-
+    fun getRegion(@Query("id") id: Int = 0): Single<List<Dict>>
 
 
 //    @POST("Authorization/UserLogin")
