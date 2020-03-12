@@ -5,10 +5,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Cyly
-import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.model.TreeResult
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -25,24 +22,6 @@ class JgzzAddAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        fun showJdlbDialog() {
-            v1Api.getJdlb()
-                .observeOnMain(this)
-                .subscribeBy(
-                    onSuccess = {
-                        MaterialDialog(this@JgzzAddAct).show {
-                            listItems(items = it.map { it.name }) { _, index, _ ->
-                                jdlbId = it[index].id
-                                this@JgzzAddAct.tvJdlb.text = it[index].name
-                            }
-                        }
-                    },
-                    onError = {
-                        ToastUtils.showShort("获取鉴定类别失败")
-                    }
-                )
-        }
-        tvJdlb.safeClicks().subscribe { showJdlbDialog() }
 
         fun showZzdjDialog() {
             v1Api.getZzdj(jdlbId = jdlbId)
@@ -68,6 +47,10 @@ class JgzzAddAct : BaseAct() {
                 showZzdjDialog()
         }
 
+        tvJdlb.safeClicks().subscribe {
+            Intent(this, JdlbTreeAct::class.java).apply {
+            }.let { startActivity(it) }
+        }
         tvCyly.safeClicks().subscribe {
             Intent(this, CylyTreeAct::class.java).apply {
             }.let { startActivity(it) }
@@ -77,6 +60,9 @@ class JgzzAddAct : BaseAct() {
     override fun registerEvent() {
         RxBus.registerEvent(this, TreeResult::class.java, Consumer {
             when (it.key) {
+                Jdlb -> {
+                    tvJdlb.text = it.treeNode.dict.name
+                }
                 Cyly -> {
                     tvCyly.text = it.treeNode.dict.name
                 }

@@ -3,6 +3,7 @@ package com.unicorn.forensic2.app
 import com.blankj.utilcode.util.ConvertUtils
 
 const val Cyly = "Cyly"
+const val Jdlb = "Jdlb"
 const val Xtgg = "Xtgg"
 const val SearchParamJdjg = "SearchParamJdjg"
 const val Cookie = "Cookie"

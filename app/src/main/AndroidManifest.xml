@@ -35,6 +35,7 @@
         <activity android:name=".ui.act.JgzzMyListAct" />
         <activity android:name=".ui.act.JgzzAddAct" />
         <activity android:name=".ui.act.CylyTreeAct" />
+        <activity android:name=".ui.act.JdlbTreeAct" />
     </application>
 
 </manifest>

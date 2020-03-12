@@ -60,7 +60,7 @@ interface V1Api {
     // 字典
     // 鉴定类别
     @GET("category/jdlb")
-    fun getJdlb(): Single<List<Dict>>
+    fun getJdlb(@Query("id") id: String): Single<List<Dict>>
 
     // 资质等级
     // 参数为鉴定类别Id
@@ -69,7 +69,7 @@ interface V1Api {
 
     // 机构所在地
     @GET("category/region")
-    fun getCyly(@Query("id") id: Int = 0): Single<List<Dict>>
+    fun getCyly(@Query("id") id: Int): Single<List<Dict>>
 
 
 //    @POST("Authorization/UserLogin")
