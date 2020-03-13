@@ -6,6 +6,7 @@ import com.unicorn.forensic2.data.model.param.AddTsjyParam
 import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import io.reactivex.Single
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
 
@@ -61,7 +62,11 @@ interface V1Api {
 
     @Multipart
     @POST("api/v1/jdJdjgzzNew")
-    fun createJgzz(@PartMap params: Map<String,@JvmSuppressWildcards RequestBody>): Single<Any>
+    fun createJgzz(@PartMap params: Map<String,@JvmSuppressWildcards RequestBody>,
+                   @Part file:MultipartBody.Part): Single<Any>
+
+
+
 
     // 字典
     // 鉴定类别

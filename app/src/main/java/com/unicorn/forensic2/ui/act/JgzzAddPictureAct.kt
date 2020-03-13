@@ -15,6 +15,7 @@ import com.unicorn.forensic2.ui.base.BaseAct
 import com.unicorn.forensic2.ui.other.GlideEngine
 import kotlinx.android.synthetic.main.act_jgzz_add_picture.*
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -55,8 +56,15 @@ class JgzzAddPictureAct : BaseAct() {
             map["spjg"] = spjg.toRequestBody("text/plain".toMediaType())
             map["zzsm"] = zzsm.toRequestBody("text/plain".toMediaType())
             map["zzzh"] = zzzh.toRequestBody("text/plain".toMediaType())
-            map["fidzzzs_new"] = File(fidzzzs_new).asRequestBody("image/*".toMediaType())
-            v1Api.createJgzz(params = map)
+//            map["fidzzzs_new"] = File(fidzzzs_new).asRequestBody("image/jpeg".toMediaType())
+
+            val file =File(fidzzzs_new)
+            val body=file.asRequestBody("image/*".toMediaType())
+            val part =MultipartBody.Part.createFormData("fidzzzs_new", file.name, body);
+
+
+
+            v1Api.createJgzz(params = map,file =part )
                 .observeOnMain(this@JgzzAddPictureAct)
                 .subscribe (
 
