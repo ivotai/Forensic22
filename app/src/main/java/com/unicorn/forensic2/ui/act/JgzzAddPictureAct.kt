@@ -12,7 +12,7 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.data.event.AddJgzzSuccessEvent
+import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
 import com.unicorn.forensic2.data.model.param.JgzzAddParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import com.unicorn.forensic2.ui.other.GlideEngine
@@ -80,7 +80,7 @@ class JgzzAddPictureAct : BaseAct() {
                         }
                         ToastUtils.showShort("保存机构资质成功")
                         finish()
-                        RxBus.post(AddJgzzSuccessEvent())
+                        RxBus.post(JgzzMyListNeedRefreshEvent())
                     },
                     onError = {
                         mask.dismiss()
