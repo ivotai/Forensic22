@@ -60,10 +60,8 @@ data class Jdry(
 ): Serializable
 
 data class Jgzz(
-    val alert: Boolean,
     val cyly: String,
     val cylyId: String,
-    val dataflag: Int,
     val fidzzzs: String,
     val fidzzzsmc: String,
     val jdlb: String,

@@ -34,7 +34,7 @@ class JgzzAddPictureAct : BaseAct() {
                 .maxSelectNum(1)
                 .forResult(object :OnResultCallbackListener{
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val path = result[0].path
+                        val path = result[0].realPath
                         param.fidzzzs_new = path
                         Glide.with(this@JgzzAddPictureAct).load(path).into(ivFidzzzsNew)
                     }
@@ -50,7 +50,8 @@ class JgzzAddPictureAct : BaseAct() {
             val map = HashMap<String,RequestBody>()
             map["jdlbId"] = jdlbId.toString().toRequestBody("text/plain".toMediaType())
             map["zzdjId"] = zzdjId.toString().toRequestBody("text/plain".toMediaType())
-            map["zzdjId"] = cylyId.toString().toRequestBody("text/plain".toMediaType())
+            map["cylyId"] = cylyId.toString().toRequestBody("text/plain".toMediaType())
+            map["yxrq"] = yxrq.toRequestBody("text/plain".toMediaType())
             map["spjg"] = spjg.toRequestBody("text/plain".toMediaType())
             map["zzsm"] = zzsm.toRequestBody("text/plain".toMediaType())
             map["zzzh"] = zzzh.toRequestBody("text/plain".toMediaType())
