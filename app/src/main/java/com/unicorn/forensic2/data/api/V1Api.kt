@@ -11,7 +11,6 @@ import okhttp3.RequestBody
 import retrofit2.http.*
 
 
-
 interface V1Api {
 
     // 登录接口要这么写，不理解其中奥妙
@@ -62,10 +61,10 @@ interface V1Api {
 
     @Multipart
     @POST("api/v1/jdJdjgzzNew")
-    fun createJgzz(@PartMap params: Map<String,@JvmSuppressWildcards RequestBody>,
-                   @Part file:MultipartBody.Part): Single<Any>
-
-
+    fun createJgzz(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part
+    ): Single<GeneralResponse>
 
 
     // 字典

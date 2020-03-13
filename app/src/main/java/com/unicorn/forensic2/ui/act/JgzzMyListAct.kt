@@ -4,13 +4,12 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.data.event.AddJgzzSuccessEvent
 import com.unicorn.forensic2.ui.adapter.JgzzMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdjg_my.*
 import kotlinx.android.synthetic.main.ui_title_recycler.*
@@ -28,25 +27,31 @@ class JgzzMyListAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        fun getJdjgMy() {
-            val mask = DialogHelper.showMask(this)
-            v1Api.getJdjgMy()
-                .observeOnMain(this)
-                .subscribeBy(
-                    onSuccess = {
-                        mask.dismiss()
-                        simpleAdapter.setNewData(it.jgzzList)
-                    },
-                    onError = {
-                        mask.dismiss()
-                        root.visibility = View.INVISIBLE
-                        ToastUtils.showShort("获取机构信息失败")
-                    }
-                )
-        }
         getJdjgMy()
-
         titleBar.setOperation("添加").safeClicks().subscribe { startAct(JgzzAddAct::class.java) }
+    }
+
+    fun getJdjgMy() {
+        val mask = DialogHelper.showMask(this)
+        v1Api.getJdjgMy()
+            .observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    mask.dismiss()
+                    simpleAdapter.setNewData(it.jgzzList)
+                },
+                onError = {
+                    mask.dismiss()
+                    root.visibility = View.INVISIBLE
+                    ToastUtils.showShort("获取机构信息失败")
+                }
+            )
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this, AddJgzzSuccessEvent::class.java, Consumer {
+            getJdjgMy()
+        })
     }
 
     private val simpleAdapter = JgzzMyAdapter()
