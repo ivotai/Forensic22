@@ -13,10 +13,10 @@ class CylyTreeAct : TreeAct() {
 
     override val dictHelper: DictHelper = object : DictHelper() {
         override fun getFirstLevel(): Single<List<Dict>> {
-            return v1Api.getCyly(0)
+            return v1Api.getCyly(0.toString())
         }
 
-        override fun getChildren(id: Int): Single<List<Dict>> {
+        override fun getChildren(id: String): Single<List<Dict>> {
             return v1Api.getCyly(id)
         }
     }

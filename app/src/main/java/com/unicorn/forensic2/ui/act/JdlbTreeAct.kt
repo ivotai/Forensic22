@@ -16,8 +16,8 @@ class JdlbTreeAct : TreeAct() {
             return v1Api.getJdlb("")
         }
 
-        override fun getChildren(id: Int): Single<List<Dict>> {
-            return v1Api.getJdlb(id.toString())
+        override fun getChildren(id: String): Single<List<Dict>> {
+            return v1Api.getJdlb(id)
         }
     }
 

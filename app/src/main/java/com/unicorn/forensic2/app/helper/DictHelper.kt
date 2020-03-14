@@ -7,6 +7,6 @@ abstract class DictHelper {
 
     abstract fun getFirstLevel(): Single<List<Dict>>
 
-    abstract fun getChildren(id: Int): Single<List<Dict>>
+    abstract fun getChildren(id: String): Single<List<Dict>>
 
 }

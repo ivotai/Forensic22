@@ -4,8 +4,8 @@
     package="com.unicorn.forensic2">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.App"
@@ -39,7 +39,8 @@
         <activity android:name=".ui.act.JgzzAddAct" />
         <activity android:name=".ui.act.CylyTreeAct" />
         <activity android:name=".ui.act.JdlbTreeAct" />
-        <activity android:name=".ui.act.JgzzAddPictureAct"/>
+        <activity android:name=".ui.act.JgzzAddPictureAct" />
+        <activity android:name=".ui.act.JgzzEditAct" />
     </application>
 
 </manifest>

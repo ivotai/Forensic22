@@ -12,6 +12,7 @@ const val SESSION = "SESSION"
 const val Jdjg = "Jdjg "
 const val JdjgId = "JdjgId"
 const val TsjyId = "TsjyId"
+const val Param = "Param"
 const val V1 = "V1"
 val TextOrPlainType = "text/plain".toMediaType()
 

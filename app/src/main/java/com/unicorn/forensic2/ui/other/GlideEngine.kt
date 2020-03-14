@@ -48,25 +48,25 @@ class GlideEngine private constructor() : ImageEngine {
                 override fun onLoadStarted(placeholder: Drawable?) {
                     super.onLoadStarted(placeholder)
                     if (callback != null) {
-                        callback!!.onShowLoading()
+                        callback.onShowLoading()
                     }
                 }
 
                 override fun onLoadFailed( errorDrawable: Drawable?) {
                     super.onLoadFailed(errorDrawable)
                     if (callback != null) {
-                        callback!!.onHideLoading()
+                        callback.onHideLoading()
                     }
                 }
 
                 override fun setResource( resource: Bitmap?) {
                     if (callback != null) {
-                        callback!!.onHideLoading()
+                        callback.onHideLoading()
                     }
                     if (resource != null) {
                         val eqLongImage = MediaUtils.isLongImg(
-                            resource!!.getWidth(),
-                            resource!!.getHeight()
+                            resource.getWidth(),
+                            resource.getHeight()
                         )
                         longImageView.setVisibility(if (eqLongImage) View.VISIBLE else View.GONE)
                         imageView.setVisibility(if (eqLongImage) View.GONE else View.VISIBLE)
@@ -104,8 +104,8 @@ class GlideEngine private constructor() : ImageEngine {
                 override fun setResource( resource: Bitmap?) {
                     if (resource != null) {
                         val eqLongImage = MediaUtils.isLongImg(
-                            resource!!.getWidth(),
-                            resource!!.getHeight()
+                            resource.getWidth(),
+                            resource.getHeight()
                         )
                         longImageView.setVisibility(if (eqLongImage) View.VISIBLE else View.GONE)
                         imageView.setVisibility(if (eqLongImage) View.GONE else View.VISIBLE)
