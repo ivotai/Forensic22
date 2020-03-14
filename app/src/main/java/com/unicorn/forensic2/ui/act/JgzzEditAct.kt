@@ -104,8 +104,8 @@ class JgzzEditAct : BaseAct() {
                 ToastUtils.showShort("请输入资质证号")
                 return@with
             }
-            Intent(this@JgzzEditAct, JgzzAddPictureAct::class.java).apply {
-                putExtra(JgzzAddParam, jgzzEditParam)
+            Intent(this@JgzzEditAct, JgzzEditPictureAct::class.java).apply {
+                putExtra(Param, jgzzEditParam)
             }.let { startActivity(it) }
         }
         rtvNextStep.safeClicks().subscribe { nextStep() }

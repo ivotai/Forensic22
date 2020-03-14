@@ -66,7 +66,13 @@ interface V1Api {
     @DELETE("api/v1/jdJdjgzzNew/{objectId}")
     fun deleteJgzz(@Path("objectId") jgzzId: String): Single<GeneralResponse>
 
-
+    @Multipart
+    @POST("api/v1/jdJdjgzzNew/{objectId}")
+    fun editJgzz(
+        @Path("objectId") jgzzId: String,
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part
+    ): Single<GeneralResponse>
 
 
     // 字典
