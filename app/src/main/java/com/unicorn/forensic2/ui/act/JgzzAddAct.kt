@@ -14,7 +14,7 @@ import com.unicorn.forensic2.data.model.param.JgzzAddParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jgzz_add.*
+import kotlinx.android.synthetic.main.act_jgzz_add_or_edit.*
 
 class JgzzAddAct : BaseAct() {
 
@@ -118,6 +118,6 @@ class JgzzAddAct : BaseAct() {
         })
     }
 
-    override val layoutId = R.layout.act_jgzz_add
+    override val layoutId = R.layout.act_jgzz_add_or_edit
 
 }

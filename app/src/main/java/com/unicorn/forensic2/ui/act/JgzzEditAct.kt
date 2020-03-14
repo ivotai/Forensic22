@@ -15,7 +15,8 @@ import com.unicorn.forensic2.data.model.param.JgzzEditParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jgzz_add.*
+import kotlinx.android.synthetic.main.act_jgzz_add_or_edit.*
+
 
 class JgzzEditAct : BaseAct() {
 
@@ -23,31 +24,39 @@ class JgzzEditAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("编辑资质详情")
+
+
     }
 
     override fun bindIntent() {
-//        fun initJgzzParam()= with(jgzz){
-//            jgzzEditParam = JgzzEditParam(
-//                objectId = zzid,
-//                jdlbId = jdlbId,
-//
-////            var zzdjId: Int = -1,
-////            var cylyId: Int = -1,
-////            var yxrq: String = "",
-////            var spjg: String = "",
-////            var zzsm: String = "",
-////            var zzzh: String = "",
-////            var fidzzzs_new: String = ""
-//                )
-//        }
+        fun initJgzzEditParam() = with(jgzz) {
+            jgzzEditParam = JgzzEditParam(
+                objectId = zzid,
+                jdlbId = jdlbId,
+                zzdjId = zzdjId,
+                cylyId = cylyId,
+                yxrq = yxrq.toDisplayFormat(),
+                spjg = spjg,
+                zzsm = zzsm,
+                zzzh = zzzh
+            )
+        }
+        initJgzzEditParam()
 
+        fun display() = with(jgzzEditParam){
+            tvJdlb.text = jgzz.jdlb
+            tvZzdj.text = jgzz.zzdj
+            tvCyly.text = jgzz.cyly
+            tvYxrq.text = yxrq
+            etSpjg.setText(spjg)
+            etZzsm.setText(zzsm)
+            etZzzh.setText(zzzh)
+        }
+        display()
 
+        tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }
 
         fun showZzdjDialog() {
-            if (jgzzEditParam.jdlbId.isBlank()) {
-                ToastUtils.showShort("请先选择鉴定类别")
-                return
-            }
             v1Api.getZzdj(jdlbId = jgzzEditParam.jdlbId)
                 .observeOnMain(this)
                 .subscribeBy(
@@ -64,6 +73,9 @@ class JgzzEditAct : BaseAct() {
                     }
                 )
         }
+        tvZzdj.safeClicks().subscribe { showZzdjDialog() }
+
+        tvCyly.safeClicks().subscribe { startAct(CylyTreeAct::class.java) }
 
         fun showDateDialog() {
             MaterialDialog(this).show {
@@ -73,24 +85,13 @@ class JgzzEditAct : BaseAct() {
                 }
             }
         }
+        tvYxrq.safeClicks().subscribe { showDateDialog() }
+
+        etSpjg.textChanges().map { it.toString() }.subscribe { jgzzEditParam.spjg = it }
+        etZzsm.textChanges().map { it.toString() }.subscribe { jgzzEditParam.zzsm = it }
+        etZzzh.textChanges().map { it.toString() }.subscribe { jgzzEditParam.zzzh = it }
 
         fun nextStep() = with(jgzzEditParam) {
-            if (jdlbId.isBlank()) {
-                ToastUtils.showShort("请选择鉴定类别")
-                return@with
-            }
-            if (zzdjId.isBlank()) {
-                ToastUtils.showShort("请选择资质等级")
-                return@with
-            }
-            if (cylyId.isBlank()) {
-                ToastUtils.showShort("请选择机构所在地")
-                return@with
-            }
-            if (yxrq.isBlank()) {
-                ToastUtils.showShort("请选择有效日期")
-                return@with
-            }
             if (spjg.isBlank()) {
                 ToastUtils.showShort("请输入审批机构")
                 return@with
@@ -107,14 +108,6 @@ class JgzzEditAct : BaseAct() {
                 putExtra(JgzzAddParam, jgzzEditParam)
             }.let { startActivity(it) }
         }
-
-        tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }
-        tvZzdj.safeClicks().subscribe { showZzdjDialog() }
-        tvCyly.safeClicks().subscribe { startAct(CylyTreeAct::class.java) }
-        tvYxrq.safeClicks().subscribe { showDateDialog() }
-        etSpjg.textChanges().map { it.toString() }.subscribe { jgzzEditParam.spjg = it }
-        etZzsm.textChanges().map { it.toString() }.subscribe { jgzzEditParam.zzsm = it }
-        etZzzh.textChanges().map { it.toString() }.subscribe { jgzzEditParam.zzzh = it }
         rtvNextStep.safeClicks().subscribe { nextStep() }
     }
 
@@ -138,6 +131,6 @@ class JgzzEditAct : BaseAct() {
 
     private val jgzz by lazy { intent.getSerializableExtra(Param) as Jgzz }
 
-    override val layoutId = R.layout.act_jgzz_add
+    override val layoutId = R.layout.act_jgzz_add_or_edit
 
 }
