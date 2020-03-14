@@ -2,20 +2,15 @@ package com.unicorn.forensic2.ui.act
 
 import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
-import com.luck.picture.lib.PictureSelector
-import com.luck.picture.lib.config.PictureMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.listener.OnResultCallbackListener
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.JgzzAddParam
-import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.helper.PictureHelper
 import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
 import com.unicorn.forensic2.data.model.param.JgzzAddParam
 import com.unicorn.forensic2.ui.base.BaseAct
-import com.unicorn.forensic2.ui.other.GlideEngine
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jgzz_add_picture.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -32,49 +27,47 @@ class JgzzAddPictureAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        fun selectPicture(){
-            PictureSelector.create(this)
-                .openGallery(PictureMimeType.ofImage())
-                .loadImageEngine(GlideEngine.createGlideEngine())
-                .maxSelectNum(1)
-                .forResult(object :OnResultCallbackListener{
-                    override fun onResult(result: MutableList<LocalMedia>) {
-                        val path = result[0].realPath
-                        param.fidzzzs_new = path
-                        Glide.with(this@JgzzAddPictureAct).load(path).into(ivFidzzzsNew)
-                    }
+        ivFidzzzsNew.safeClicks().subscribe {
+            PictureHelper.selectPicture(this@JgzzAddPictureAct, object : OnResultCallbackListener {
+                override fun onResult(result: MutableList<LocalMedia>) {
+                    val realPath = result[0].realPath
+                    param.fidzzzs_new = realPath
+                    Glide.with(this@JgzzAddPictureAct).load(realPath).into(ivFidzzzsNew)
+                }
 
-                    override fun onCancel() {
-                    }
-                })
-
+                override fun onCancel() {
+                }
+            })
         }
-        ivFidzzzsNew.safeClicks().subscribe { selectPicture() }
 
-        fun createJgzz()= with(param){
-            val map = HashMap<String,RequestBody>()
-            map["jdlbId"] = jdlbId.toString().toRequestBody("text/plain".toMediaType())
-            map["zzdjId"] = zzdjId.toString().toRequestBody("text/plain".toMediaType())
-            map["cylyId"] = cylyId.toString().toRequestBody("text/plain".toMediaType())
-            map["yxrq"] = yxrq.toRequestBody("text/plain".toMediaType())
-            map["spjg"] = spjg.toRequestBody("text/plain".toMediaType())
-            map["zzsm"] = zzsm.toRequestBody("text/plain".toMediaType())
-            map["zzzh"] = zzzh.toRequestBody("text/plain".toMediaType())
+        fun createJgzz() = with(param) {
+            val map = HashMap<String, RequestBody>()
+            map["jdlbId"] = jdlbId.toString().toRequestBody(TextOrPlainType)
+            map["zzdjId"] = zzdjId.toString().toRequestBody(TextOrPlainType)
+            map["cylyId"] = cylyId.toString().toRequestBody(TextOrPlainType)
+            map["yxrq"] = yxrq.toRequestBody(TextOrPlainType)
+            map["spjg"] = spjg.toRequestBody(TextOrPlainType)
+            map["zzsm"] = zzsm.toRequestBody(TextOrPlainType)
+            map["zzzh"] = zzzh.toRequestBody(TextOrPlainType)
 
             // 另一种方法，暂时不用，用 map 传递 file
             //注意：file就是与服务器对应的key,后面filename是服务器得到的文件名
 //            map.put("file\"; filename=\"" + file.getName(), requestFile);
 //            map["fidzzzs_new"] = File(fidzzzs_new).asRequestBody("image/jpeg".toMediaType())
 
-            val file =File(fidzzzs_new)
-            val part =MultipartBody.Part.createFormData("fidzzzs_new", file.name, file.asRequestBody("image/*".toMediaType()));
+            val file = File(fidzzzs_new)
+            val part = MultipartBody.Part.createFormData(
+                "fidzzzs_new",
+                file.name,
+                file.asRequestBody("image/*".toMediaType())
+            );
             val mask = DialogHelper.showMask(this@JgzzAddPictureAct)
             v1Api.createJgzz(map, part)
                 .observeOnMain(this@JgzzAddPictureAct)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
-                        if (!it.success){
+                        if (!it.success) {
                             ToastUtils.showShort("保存机构资质失败")
                             return@subscribeBy
                         }
@@ -88,8 +81,9 @@ class JgzzAddPictureAct : BaseAct() {
                     }
                 )
         }
+
         titleBar.setOperation("保存").safeClicks().subscribe {
-            if (param.fidzzzs_new.isBlank()){
+            if (param.fidzzzs_new.isBlank()) {
                 ToastUtils.showShort("选择资质证书照片")
                 return@subscribe
             }

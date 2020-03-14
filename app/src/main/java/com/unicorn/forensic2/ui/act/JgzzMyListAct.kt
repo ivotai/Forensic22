@@ -27,11 +27,11 @@ class JgzzMyListAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        getJdjgMy()
+        refresh()
         titleBar.setOperation("添加").safeClicks().subscribe { startAct(JgzzAddAct::class.java) }
     }
 
-    fun getJdjgMy() {
+    private fun refresh() {
         val mask = DialogHelper.showMask(this)
         v1Api.getJdjgMy()
             .observeOnMain(this)
@@ -50,7 +50,7 @@ class JgzzMyListAct : BaseAct() {
 
     override fun registerEvent() {
         RxBus.registerEvent(this, JgzzMyListNeedRefreshEvent::class.java, Consumer {
-            getJdjgMy()
+            refresh()
         })
     }
 

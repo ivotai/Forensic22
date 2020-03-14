@@ -56,15 +56,17 @@ interface V1Api {
     @POST("api/v1/tsjy")
     fun addTsjy(@Body addTsjyParam: AddTsjyParam): Single<GeneralResponse>
 
-    @POST("api/v1/tsjy/{tsjyId}")
-    fun addTsjyReply(@Path("tsjyId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
+    @POST("api/v1/tsjy/{objectId}")
+    fun addTsjyReply(@Path("objectId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
 
     @Multipart
     @POST("api/v1/jdJdjgzzNew")
-    fun createJgzz(
-        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
-        @Part vararg parts: MultipartBody.Part
-    ): Single<GeneralResponse>
+    fun createJgzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
+
+    @DELETE("api/v1/jdJdjgzzNew/{objectId}")
+    fun deleteJgzz(@Path("objectId") jgzzId: String): Single<GeneralResponse>
+
+
 
 
     // 字典
