@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.act_jdry_my_add_or_edit.*
 class JdryMyAddAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("添加资质详情")
+        titleBar.setTitle("添加鉴定人员")
     }
 
     override fun bindIntent() {

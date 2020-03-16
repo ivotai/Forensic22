@@ -3,6 +3,7 @@ package com.unicorn.forensic2.ui.adapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.app.zjlxList
 import com.unicorn.forensic2.data.model.Jdry
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_jdry_my.*
@@ -15,7 +16,7 @@ class JdryMyAdapter : BaseQuickAdapter<Jdry, KVHolder>(R.layout.item_jdry_my) {
             tvZjhm.text = item.zjhm
             tvZczyh.text = item.zczyh
             tvZyzsyxq.text = item.zyzsyxq.toDisplayFormat()
-            tvZjlx.text = item.zjlx
+            tvZjlx.text = zjlxList.find { it.id == item.zjlx }?.name
             tvGrzc.text = item.grzc
             tvJdlb.text = item.jdlb
             tvMphone.text = item.mphone
