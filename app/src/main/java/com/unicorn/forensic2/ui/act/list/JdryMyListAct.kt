@@ -4,11 +4,10 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.data.event.JdryMyListNeedRefreshEvent
+import com.unicorn.forensic2.ui.act.addOrEdit.JdryMyAddAct
 import com.unicorn.forensic2.ui.adapter.JdryMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -30,7 +29,7 @@ class JdryMyListAct : BaseAct() {
 
     override fun bindIntent() {
         refresh()
-//        titleBar.setOperation("添加").safeClicks().subscribe { startAct(JgzzAddAct::class.java) }
+        titleBar.setOperation("添加").safeClicks().subscribe { startAct(JdryMyAddAct::class.java) }
     }
 
     private fun refresh() {
