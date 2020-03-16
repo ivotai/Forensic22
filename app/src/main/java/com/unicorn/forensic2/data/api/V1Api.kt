@@ -59,6 +59,7 @@ interface V1Api {
     @POST("api/v1/tsjy/{objectId}")
     fun addTsjyReply(@Path("objectId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
 
+    // 鉴定资质
     @Multipart
     @POST("api/v1/jdJdjgzzNew")
     fun createJgzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
@@ -74,6 +75,10 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part
     ): Single<GeneralResponse>
 
+    // 鉴定人员
+    @Multipart
+    @POST("api/v1/jdJdryNew")
+    fun createJdry(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
 
     // 字典
     // 鉴定类别

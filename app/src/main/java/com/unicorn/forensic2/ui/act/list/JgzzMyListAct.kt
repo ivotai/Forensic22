@@ -6,7 +6,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.ui.act.JgzzAddAct
 import com.unicorn.forensic2.ui.adapter.JgzzMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
@@ -50,7 +50,7 @@ class JgzzMyListAct : BaseAct() {
     }
 
     override fun registerEvent() {
-        RxBus.registerEvent(this, JgzzMyListNeedRefreshEvent::class.java, Consumer {
+        RxBus.registerEvent(this, RefreshEvent::class.java, Consumer {
             refresh()
         })
     }

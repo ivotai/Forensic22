@@ -8,7 +8,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.jakewharton.rxbinding3.widget.textChanges
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
-import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Jgzz
 import com.unicorn.forensic2.data.model.TreeResult
 import com.unicorn.forensic2.data.model.param.JgzzEditParam
@@ -124,7 +124,7 @@ class JgzzEditAct : BaseAct() {
                 }
             }
         })
-        RxBus.registerEvent(this, JgzzMyListNeedRefreshEvent::class.java, Consumer {
+        RxBus.registerEvent(this, RefreshEvent::class.java, Consumer {
             finish()
         })
     }

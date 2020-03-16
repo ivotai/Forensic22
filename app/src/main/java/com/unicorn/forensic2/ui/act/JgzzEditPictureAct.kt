@@ -8,7 +8,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
-import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.param.JgzzEditParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -42,13 +42,13 @@ class JgzzEditPictureAct : BaseAct() {
 
         fun saveJgzz() = with(jgzzEditParam) {
             val map = HashMap<String, RequestBody>()
-            map["jdlbId"] = jdlbId.toString().toRequestBody(TextOrPlainType)
-            map["zzdjId"] = zzdjId.toString().toRequestBody(TextOrPlainType)
-            map["cylyId"] = cylyId.toString().toRequestBody(TextOrPlainType)
-            map["yxrq"] = yxrq.toRequestBody(TextOrPlainType)
-            map["spjg"] = spjg.toRequestBody(TextOrPlainType)
-            map["zzsm"] = zzsm.toRequestBody(TextOrPlainType)
-            map["zzzh"] = zzzh.toRequestBody(TextOrPlainType)
+            map["jdlbId"] = jdlbId.toString().toRequestBody(TextOrPlain)
+            map["zzdjId"] = zzdjId.toString().toRequestBody(TextOrPlain)
+            map["cylyId"] = cylyId.toString().toRequestBody(TextOrPlain)
+            map["yxrq"] = yxrq.toRequestBody(TextOrPlain)
+            map["spjg"] = spjg.toRequestBody(TextOrPlain)
+            map["zzsm"] = zzsm.toRequestBody(TextOrPlain)
+            map["zzzh"] = zzzh.toRequestBody(TextOrPlain)
 
             val file = File(fidzzzs_new)
             val part = MultipartBody.Part.createFormData(
@@ -68,7 +68,7 @@ class JgzzEditPictureAct : BaseAct() {
                         }
                         ToastUtils.showShort("保存机构资质成功")
                         finish()
-                        RxBus.post(JgzzMyListNeedRefreshEvent())
+                        RxBus.post(RefreshEvent())
                     },
                     onError = {
                         mask.dismiss()

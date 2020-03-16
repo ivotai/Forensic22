@@ -8,7 +8,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.di.ComponentHolder
-import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Jgzz
 import com.unicorn.forensic2.ui.act.JgzzEditAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -58,7 +58,7 @@ class JgzzMyAdapter : BaseQuickAdapter<Jgzz, KVHolder>(R.layout.item_jgzz_my) {
                         ToastUtils.showShort("删除机构资质失败")
                         return@subscribeBy
                     }
-                    RxBus.post(JgzzMyListNeedRefreshEvent())
+                    RxBus.post(RefreshEvent())
                 },
                 onError = {
                     ToastUtils.showShort("删除机构资质失败")

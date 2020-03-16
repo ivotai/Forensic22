@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.ui.act.addOrEdit
 
+import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.list.listItems
@@ -24,17 +25,11 @@ class JdryMyAddAct : BaseAct() {
     override fun bindIntent() {
         fun showZjlxDialog() {
             MaterialDialog(this@JdryMyAddAct).show {
-                listItems(
-                    items = listOf(
-                        "身份证", "军官证", "士兵证", "武警证",
-                        "港澳台居民身份证", "有效护照", "户口簿", "其他"
-                    )
-                ) { _, _, text ->
-                    param.zjlx = text.toString()
-                    this@JdryMyAddAct.tvZjlx.text = text
+                listItems(items = zjlxList.map { it.name }) { _, index, _ ->
+                    param.zjlx = zjlxList[index].id
+                    this@JdryMyAddAct.tvZjlx.text = zjlxList[index].name
                 }
             }
-
         }
 
         fun showDateDialog() {
@@ -79,9 +74,9 @@ class JdryMyAddAct : BaseAct() {
                 ToastUtils.showShort("请输入手机号码")
                 return@with
             }
-//            Intent(this@JdryMyAddAct, JgzzAddPictureAct::class.java).apply {
-//                putExtra(JgzzAddParam, param)
-//            }.let { startActivity(it) }
+            Intent(this@JdryMyAddAct, JdryMyAddPictureAct::class.java).apply {
+                putExtra(Param, param)
+            }.let { startActivity(it) }
         }
         tvZjlx.safeClicks().subscribe { showZjlxDialog() }
         tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }

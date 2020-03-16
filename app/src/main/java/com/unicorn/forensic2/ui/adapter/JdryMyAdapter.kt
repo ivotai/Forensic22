@@ -50,7 +50,7 @@ class JdryMyAdapter : BaseQuickAdapter<Jdry, KVHolder>(R.layout.item_jdry_my) {
 //                        ToastUtils.showShort("删除机构资质失败")
 //                        return@subscribeBy
 //                    }
-//                    RxBus.post(JgzzMyListNeedRefreshEvent())
+//                    RxBus.post(RefreshEvent())
 //                },
 //                onError = {
 //                    ToastUtils.showShort("删除机构资质失败")

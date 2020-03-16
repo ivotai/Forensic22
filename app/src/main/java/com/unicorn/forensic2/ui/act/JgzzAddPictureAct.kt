@@ -8,7 +8,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
-import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.param.JgzzAddParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -42,13 +42,13 @@ class JgzzAddPictureAct : BaseAct() {
 
         fun createJgzz() = with(param) {
             val map = HashMap<String, RequestBody>()
-            map["jdlbId"] = jdlbId.toString().toRequestBody(TextOrPlainType)
-            map["zzdjId"] = zzdjId.toString().toRequestBody(TextOrPlainType)
-            map["cylyId"] = cylyId.toString().toRequestBody(TextOrPlainType)
-            map["yxrq"] = yxrq.toRequestBody(TextOrPlainType)
-            map["spjg"] = spjg.toRequestBody(TextOrPlainType)
-            map["zzsm"] = zzsm.toRequestBody(TextOrPlainType)
-            map["zzzh"] = zzzh.toRequestBody(TextOrPlainType)
+            map["jdlbId"] = jdlbId.toString().toRequestBody(TextOrPlain)
+            map["zzdjId"] = zzdjId.toString().toRequestBody(TextOrPlain)
+            map["cylyId"] = cylyId.toString().toRequestBody(TextOrPlain)
+            map["yxrq"] = yxrq.toRequestBody(TextOrPlain)
+            map["spjg"] = spjg.toRequestBody(TextOrPlain)
+            map["zzsm"] = zzsm.toRequestBody(TextOrPlain)
+            map["zzzh"] = zzzh.toRequestBody(TextOrPlain)
 
             // 另一种方法，暂时不用，用 map 传递 file
             //注意：file就是与服务器对应的key,后面filename是服务器得到的文件名
@@ -73,7 +73,7 @@ class JgzzAddPictureAct : BaseAct() {
                         }
                         ToastUtils.showShort("保存机构资质成功")
                         finish()
-                        RxBus.post(JgzzMyListNeedRefreshEvent())
+                        RxBus.post(RefreshEvent())
                     },
                     onError = {
                         mask.dismiss()
