@@ -35,14 +35,14 @@
         <activity android:name=".ui.act.AddTsjyAct" />
         <activity android:name=".ui.act.AddTsjyReplyAct" />
         <activity android:name=".ui.act.JdjgMyAct" />
-        <activity android:name=".ui.act.JgzzMyListAct" />
+        <activity android:name=".ui.act.list.JgzzMyListAct" />
         <activity android:name=".ui.act.JgzzAddAct" />
         <activity android:name=".ui.act.CylyTreeAct" />
         <activity android:name=".ui.act.JdlbTreeAct" />
         <activity android:name=".ui.act.JgzzAddPictureAct" />
         <activity android:name=".ui.act.JgzzEditAct" />
         <activity android:name=".ui.act.JgzzEditPictureAct"/>
-
+        <activity android:name=".ui.act.list.JdryMyListAct"/>
     </application>
 
 </manifest>

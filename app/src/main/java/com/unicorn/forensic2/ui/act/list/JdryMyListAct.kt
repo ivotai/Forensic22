@@ -1,13 +1,15 @@
-package com.unicorn.forensic2.ui.act
+package com.unicorn.forensic2.ui.act.list
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.data.event.JgzzMyListNeedRefreshEvent
-import com.unicorn.forensic2.ui.adapter.JgzzMyAdapter
+import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.data.event.JdryMyListNeedRefreshEvent
+import com.unicorn.forensic2.ui.adapter.JdryMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
@@ -15,10 +17,10 @@ import kotlinx.android.synthetic.main.act_jdjg_my.*
 import kotlinx.android.synthetic.main.ui_title_recycler.*
 import kotlinx.android.synthetic.main.ui_title_recycler.titleBar
 
-class JgzzMyListAct : BaseAct() {
+class JdryMyListAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("资质信息")
+        titleBar.setTitle("人员信息")
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             simpleAdapter.bindToRecyclerView(this)
@@ -28,7 +30,7 @@ class JgzzMyListAct : BaseAct() {
 
     override fun bindIntent() {
         refresh()
-        titleBar.setOperation("添加").safeClicks().subscribe { startAct(JgzzAddAct::class.java) }
+//        titleBar.setOperation("添加").safeClicks().subscribe { startAct(JgzzAddAct::class.java) }
     }
 
     private fun refresh() {
@@ -38,23 +40,23 @@ class JgzzMyListAct : BaseAct() {
             .subscribeBy(
                 onSuccess = {
                     mask.dismiss()
-                    simpleAdapter.setNewData(it.jgzzList)
+                    simpleAdapter.setNewData(it.jdryList)
                 },
                 onError = {
                     mask.dismiss()
                     root.visibility = View.INVISIBLE
-                    ToastUtils.showShort("获取机构信息失败")
+                    ToastUtils.showShort("获取鉴定人员列表失败")
                 }
             )
     }
 
     override fun registerEvent() {
-        RxBus.registerEvent(this, JgzzMyListNeedRefreshEvent::class.java, Consumer {
+        RxBus.registerEvent(this, JdryMyListNeedRefreshEvent::class.java, Consumer {
             refresh()
         })
     }
 
-    private val simpleAdapter = JgzzMyAdapter()
+    private val simpleAdapter = JdryMyAdapter()
 
     override val layoutId: Int = R.layout.ui_title_recycler
 

@@ -8,6 +8,8 @@ import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.Jdjg
+import com.unicorn.forensic2.ui.act.list.JdryMyListAct
+import com.unicorn.forensic2.ui.act.list.JgzzMyListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdjg_my.*
@@ -43,6 +45,7 @@ class JdjgMyAct : BaseAct() {
         getJdjgMy()
 
         ivJgzz.clicks().mergeWith(tvJgzz.clicks()).subscribe { startAct(JgzzMyListAct::class.java) }
+        ivJdry.clicks().mergeWith(tvJdry.clicks()).subscribe { startAct(JdryMyListAct::class.java) }
     }
 
     override val layoutId = R.layout.act_jdjg_my

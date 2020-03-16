@@ -40,8 +40,6 @@ data class Jdjg(
 ): Serializable
 
 data class Jdry(
-    val alert: Boolean,
-    val dataflag: Int,
     val fidzczs: String,
     val fidzczsmc: String,
     val fidzyzs: String,
