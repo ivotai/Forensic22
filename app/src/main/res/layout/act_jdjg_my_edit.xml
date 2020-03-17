@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.unicorn.forensic2.ui.other.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="姓名:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etXm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入姓名"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="证件类型:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvZjlx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择证件类型"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="证件号码:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etZjhm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入证件号码"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="个人职称:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etGrzc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入个人职称"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="执业证号:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etZczyh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入执业证号"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="鉴定类别:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvJdlb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择鉴定类型"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="有效日期:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvZyzsyxq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择有效日期"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="手机号码:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:background="@null"
+                android:inputType="phone"
+                android:id="@+id/etMPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请输入手机号码"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <com.flyco.roundview.RoundTextView
+                android:id="@+id/rtvNextStep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="下一步"
+                android:textColor="@color/md_white"
+                android:textSize="18dp"
+                app:rv_backgroundColor="@color/colorPrimary"
+                app:rv_isRadiusHalfHeight="true" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -9,7 +9,7 @@ import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.HomeMenu
 import com.unicorn.forensic2.ui.act.JdjgPublicListAct
-import com.unicorn.forensic2.ui.act.JdjgMyAct
+import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
 import com.unicorn.forensic2.ui.act.TsjyAct
 import com.unicorn.forensic2.ui.act.XtggListAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -34,7 +34,7 @@ class HomeMenuAdapter : BaseQuickAdapter<HomeMenu, KVHolder>(R.layout.item_home_
                             mContext.startAct(TsjyAct::class.java)
                     }
                     HomeMenu.JGXX -> {
-                        mContext.startAct(JdjgMyAct::class.java)
+                        mContext.startAct(JdjgMyGuideAct::class.java)
                     }
                     else -> {
                     }

@@ -12,7 +12,7 @@ import com.unicorn.forensic2.ui.adapter.JdryMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jdjg_my.*
+import kotlinx.android.synthetic.main.act_jdjg_my_guide.*
 import kotlinx.android.synthetic.main.ui_title_recycler.*
 import kotlinx.android.synthetic.main.ui_title_recycler.titleBar
 

@@ -12,13 +12,13 @@ import com.unicorn.forensic2.ui.act.list.JdryMyListAct
 import com.unicorn.forensic2.ui.act.list.JgzzMyListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jdjg_my.*
+import kotlinx.android.synthetic.main.act_jdjg_my_guide.*
 
-class JdjgMyAct : BaseAct() {
+class JdjgMyGuideAct : BaseAct() {
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle("机构信息")
+        titleBar.setTitle("我的机构")
     }
 
     override fun bindIntent() {
@@ -48,6 +48,6 @@ class JdjgMyAct : BaseAct() {
         ivJdry.clicks().mergeWith(tvJdry.clicks()).subscribe { startAct(JdryMyListAct::class.java) }
     }
 
-    override val layoutId = R.layout.act_jdjg_my
+    override val layoutId = R.layout.act_jdjg_my_guide
 
 }

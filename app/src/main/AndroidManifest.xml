@@ -34,7 +34,7 @@
         <activity android:name=".ui.act.TsjyWhfListAct" />
         <activity android:name=".ui.act.AddTsjyAct" />
         <activity android:name=".ui.act.AddTsjyReplyAct" />
-        <activity android:name=".ui.act.JdjgMyAct" />
+        <activity android:name=".ui.act.JdjgMyGuideAct" />
         <activity android:name=".ui.act.list.JgzzMyListAct" />
         <activity android:name=".ui.act.JgzzAddAct" />
         <activity android:name=".ui.act.CylyTreeAct" />
@@ -47,6 +47,7 @@
         <activity android:name=".ui.act.addOrEdit.JdryMyAddPictureAct" />
         <activity android:name=".ui.act.addOrEdit.JdryMyEditAct" />
         <activity android:name=".ui.act.addOrEdit.JdryMyEditPictureAct" />
+        <activity android:name=".ui.act.addOrEdit.JdjgMyEditAct"/>
     </application>
 
 </manifest>
