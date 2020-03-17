@@ -2,3 +2,4 @@
 2. 超时重连。
 
 3. 编辑机构资质时是不是看不到图片？
+                     http://192.168.7.69:8088/sfjdwww/sysFileinfo/download/

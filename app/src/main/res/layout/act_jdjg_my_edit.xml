@@ -31,18 +31,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="姓名:"
+                android:text="机构名称:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/etXm"
+                android:id="@+id/etJgmc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@null"
-                android:hint="请输入姓名"
+                android:hint="请输入机构名称"
                 android:inputType="text"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
@@ -58,43 +58,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="证件类型:"
-                android:textColor="@color/md_grey_500"
-                android:textSize="14dp" />
-
-            <TextView
-                android:id="@+id/tvZjlx"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="请选择证件类型"
-                android:textColor="@color/md_black"
-                android:textColorHint="@color/md_black"
-                android:textSize="18dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_margin="16dp"
-                android:background="@color/md_grey_300" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="证件号码:"
+                android:text="机构曾用名:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/etZjhm"
+                android:id="@+id/etJgmc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@null"
-                android:hint="请输入证件号码"
+                android:hint="请输入机构曾用名"
                 android:inputType="text"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
@@ -110,18 +86,68 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="个人职称:"
+                android:text="机构性质:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvJgxz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择机构性质"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="资质类别:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tvZzlb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="请选择资质类别"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="营业执照号/组织机构代码:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/etGrzc"
+                android:id="@+id/etYyzzh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@null"
-                android:hint="请输入个人职称"
+                android:hint="请输入营业执照号/组织机构代码"
                 android:inputType="text"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
@@ -137,22 +163,135 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="执业证号:"
+                android:text="许可证号:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/etZczyh"
+                android:id="@+id/etXkzh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@null"
-                android:hint="请输入执业证号"
+                android:hint="请输入许可证号"
                 android:inputType="text"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
                 android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="法人代表:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etFddb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入法人代表"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="法人代表身份证号:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etFddbSfzh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入法人代表身份证号"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="负责人姓名:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etFzr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入负责人姓名"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="负责人电话:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etFzrDh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入负责人电话"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
 
             <View
                 android:layout_width="match_parent"

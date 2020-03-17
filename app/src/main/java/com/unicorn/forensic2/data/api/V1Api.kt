@@ -90,6 +90,15 @@ interface V1Api {
 
     @DELETE("api/v1/jdJdryNew/{objectId}")
     fun deleteJdry(@Path("objectId") objectId: String): Single<GeneralResponse>
+//    http://192.168.7.69:8088/sfjdwww/api/v1/jdJdjg/updateBasicInfo
+
+    @Multipart
+    @POST("api/v1/jdJdjg/updateBasicInfo")
+    fun editJdjgMy(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part
+    ): Single<GeneralResponse>
+
 
 
     // 字典
