@@ -85,7 +85,7 @@ interface V1Api {
     fun editJdry(
         @Path("objectId") jdryId: String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
-        @Part vararg parts: MultipartBody.Part
+        @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
     @DELETE("api/v1/jdJdryNew/{objectId}")

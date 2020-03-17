@@ -24,6 +24,8 @@ class JdryMyEditPictureAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("上传鉴定人员照片")
+        PictureHelper.load(this,"$pictureBaseUrl${jdryMyEditParam.fidzyzs}").into(ivFidzyzsNew)
+        PictureHelper.load(this,"$pictureBaseUrl${jdryMyEditParam.fidzczs}").into(ivFidzczsNew)
     }
 
     override fun bindIntent() {
@@ -33,7 +35,7 @@ class JdryMyEditPictureAct : BaseAct() {
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
-                        param.fidzyzs_new = realPath
+                        jdryMyEditParam.fidzyzs_new = realPath
                         Glide.with(this@JdryMyEditPictureAct).load(realPath).into(ivFidzyzsNew)
                     }
 
@@ -47,7 +49,7 @@ class JdryMyEditPictureAct : BaseAct() {
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
-                        param.fidzczs_new = realPath
+                        jdryMyEditParam.fidzczs_new = realPath
                         Glide.with(this@JdryMyEditPictureAct).load(realPath).into(ivFidzczsNew)
                     }
 
@@ -56,7 +58,7 @@ class JdryMyEditPictureAct : BaseAct() {
                 })
         }
 
-        fun saveJdry() = with(param) {
+        fun save() = with(jdryMyEditParam) {
             val map = HashMap<String, RequestBody>()
             map["xm"] = xm.toRequestBody(TextOrPlain)
             map["zjlx"] = zjlx.toRequestBody(TextOrPlain)
@@ -66,19 +68,24 @@ class JdryMyEditPictureAct : BaseAct() {
             map["mphone"] = mphone.toRequestBody(TextOrPlain)
             map["jdlbId"] = jdlbId.toRequestBody(TextOrPlain)
             map["zyzsyxq"] = zyzsyxq.toRequestBody(TextOrPlain)
-
-            val part1 = MultipartBody.Part.createFormData(
-                "fidzyzs_new",
-                "",
-                File(fidzyzs_new).asRequestBody("image/*".toMediaType())
-            )
-            val part2 = MultipartBody.Part.createFormData(
-                "fidzczs_new",
-                "",
-                File(fidzczs_new).asRequestBody("image/*".toMediaType())
-            )
+            var partZyzs:MultipartBody.Part?=null
+            var partZczs:MultipartBody.Part?=null
+            if (fidzyzs_new.isNotBlank()) {
+                partZyzs = MultipartBody.Part.createFormData(
+                    "fidzyzs_new",
+                    "",
+                    File(fidzyzs_new).asRequestBody("image/*".toMediaType())
+                )
+            }
+            if (fidzczs_new.isNotBlank()) {
+                partZczs = MultipartBody.Part.createFormData(
+                    "fidzczs_new",
+                    "",
+                    File(fidzczs_new).asRequestBody("image/*".toMediaType())
+                )
+            }
             val mask = DialogHelper.showMask(this@JdryMyEditPictureAct)
-            v1Api.editJdry(param.objectId,map, part1, part2)
+            v1Api.editJdry(jdryMyEditParam.objectId,map, partZyzs, partZczs)
                 .observeOnMain(this@JdryMyEditPictureAct)
                 .subscribeBy(
                     onSuccess = {
@@ -98,20 +105,10 @@ class JdryMyEditPictureAct : BaseAct() {
                 )
         }
 
-        titleBar.setOperation("保存").safeClicks().subscribe {
-            if (param.fidzyzs_new.isBlank()) {
-                ToastUtils.showShort("选择执业证书")
-                return@subscribe
-            }
-            if (param.fidzczs_new.isBlank()) {
-                ToastUtils.showShort("选择职称证书")
-                return@subscribe
-            }
-            saveJdry()
-        }
+        titleBar.setOperation("保存").safeClicks().subscribe { save() }
     }
 
-    private val param by lazy { intent.getSerializableExtra(Param) as JdryMyEditParam }
+    private val jdryMyEditParam by lazy { intent.getSerializableExtra(Param) as JdryMyEditParam }
 
     override val layoutId = R.layout.act_jdry_my_add_picture
 

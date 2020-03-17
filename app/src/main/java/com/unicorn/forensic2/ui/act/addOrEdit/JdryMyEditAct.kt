@@ -34,7 +34,9 @@ class JdryMyEditAct : BaseAct() {
                 grzc = grzc,
                 mphone = mphone,
                 jdlbId = jdlbId,
-                zyzsyxq = zyzsyxq.toDisplayFormat()
+                zyzsyxq = zyzsyxq.toDisplayFormat(),
+                fidzczs = fidzczs,
+                fidzyzs = fidzyzs
             )
         }
         initEditParam()
