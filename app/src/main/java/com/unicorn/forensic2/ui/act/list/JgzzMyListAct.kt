@@ -50,6 +50,7 @@ class JgzzMyListAct : BaseAct() {
     }
 
     override fun registerEvent() {
+
         RxBus.registerEvent(this, RefreshEvent::class.java, Consumer {
             refresh()
         })

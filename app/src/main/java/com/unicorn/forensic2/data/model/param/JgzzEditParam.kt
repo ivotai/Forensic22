@@ -11,5 +11,6 @@ data class JgzzEditParam(
     var spjg: String,
     var zzsm: String,
     var zzzh: String,
+    var fidzzzs:String,
     var fidzzzs_new: String = ""
 ) : Serializable

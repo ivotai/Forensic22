@@ -38,7 +38,8 @@ class JgzzEditAct : BaseAct() {
                 yxrq = yxrq.toDisplayFormat(),
                 spjg = spjg,
                 zzsm = zzsm,
-                zzzh = zzzh
+                zzzh = zzzh,
+                fidzzzs = fidzzzs
             )
         }
         initJgzzEditParam()
@@ -104,7 +105,7 @@ class JgzzEditAct : BaseAct() {
                 ToastUtils.showShort("请输入资质证号")
                 return@with
             }
-            Intent(this@JgzzEditAct, JgzzEditPictureAct::class.java).apply {
+            Intent(this@JgzzEditAct, JgzzMyEditPictureAct::class.java).apply {
                 putExtra(Param, jgzzEditParam)
             }.let { startActivity(it) }
         }

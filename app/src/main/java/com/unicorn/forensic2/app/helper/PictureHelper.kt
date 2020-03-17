@@ -1,6 +1,9 @@
 package com.unicorn.forensic2.app.helper
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureMimeType
 import com.luck.picture.lib.listener.OnResultCallbackListener
@@ -15,5 +18,12 @@ object PictureHelper {
             .maxSelectNum(1)
             .forResult(listener)
     }
+
+    fun load(context: Context, url: String) =
+        Glide.with(context)
+            .load(url)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+
 
 }

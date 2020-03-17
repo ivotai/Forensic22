@@ -72,7 +72,7 @@ interface V1Api {
     fun editJgzz(
         @Path("objectId") jgzzId: String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
-        @Part vararg parts: MultipartBody.Part
+        @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
     // 鉴定人员
@@ -98,7 +98,6 @@ interface V1Api {
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
         @Part vararg parts: MultipartBody.Part
     ): Single<GeneralResponse>
-
 
 
     // 字典

@@ -20,45 +20,52 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class JgzzEditPictureAct : BaseAct() {
+class JgzzMyEditPictureAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("上传资质详情照片")
+        val url = "$pictureBaseUrl${jgzzEditParam.fidzzzs}"
+        PictureHelper.load(this, url).into(ivFidzzzsNew)
     }
 
     override fun bindIntent() {
         ivFidzzzsNew.safeClicks().subscribe {
-            PictureHelper.selectPicture(this@JgzzEditPictureAct, object : OnResultCallbackListener {
-                override fun onResult(result: MutableList<LocalMedia>) {
-                    val realPath = result[0].realPath
-                    jgzzEditParam.fidzzzs_new = realPath
-                    Glide.with(this@JgzzEditPictureAct).load(realPath).into(ivFidzzzsNew)
-                }
+            PictureHelper.selectPicture(
+                this@JgzzMyEditPictureAct,
+                object : OnResultCallbackListener {
+                    override fun onResult(result: MutableList<LocalMedia>) {
+                        val realPath = result[0].realPath
+                        jgzzEditParam.fidzzzs_new = realPath
+                        Glide.with(this@JgzzMyEditPictureAct).load(realPath).into(ivFidzzzsNew)
+                    }
 
-                override fun onCancel() {
-                }
-            })
+                    override fun onCancel() {
+                    }
+                })
         }
 
         fun saveJgzz() = with(jgzzEditParam) {
             val map = HashMap<String, RequestBody>()
-            map["jdlbId"] = jdlbId.toString().toRequestBody(TextOrPlain)
-            map["zzdjId"] = zzdjId.toString().toRequestBody(TextOrPlain)
-            map["cylyId"] = cylyId.toString().toRequestBody(TextOrPlain)
+            map["jdlbId"] = jdlbId.toRequestBody(TextOrPlain)
+            map["zzdjId"] = zzdjId.toRequestBody(TextOrPlain)
+            map["cylyId"] = cylyId.toRequestBody(TextOrPlain)
             map["yxrq"] = yxrq.toRequestBody(TextOrPlain)
             map["spjg"] = spjg.toRequestBody(TextOrPlain)
             map["zzsm"] = zzsm.toRequestBody(TextOrPlain)
             map["zzzh"] = zzzh.toRequestBody(TextOrPlain)
 
-            val file = File(fidzzzs_new)
-            val part = MultipartBody.Part.createFormData(
-                "fidzzzs_new",
-                file.name,
-                file.asRequestBody("image/*".toMediaType())
-            );
-            val mask = DialogHelper.showMask(this@JgzzEditPictureAct)
+            var part: MultipartBody.Part? = null
+            if (fidzzzs_new.isNotBlank()) {
+                val file = File(fidzzzs_new)
+                part = MultipartBody.Part.createFormData(
+                    "fidzzzs_new",
+                    file.name,
+                    file.asRequestBody("image/*".toMediaType())
+                )
+            }
+            val mask = DialogHelper.showMask(this@JgzzMyEditPictureAct)
             v1Api.editJgzz(jgzzEditParam.objectId, map, part)
-                .observeOnMain(this@JgzzEditPictureAct)
+                .observeOnMain(this@JgzzMyEditPictureAct)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
@@ -77,13 +84,7 @@ class JgzzEditPictureAct : BaseAct() {
                 )
         }
 
-        titleBar.setOperation("保存").safeClicks().subscribe {
-            if (jgzzEditParam.fidzzzs_new.isBlank()) {
-                ToastUtils.showShort("选择资质证书照片")
-                return@subscribe
-            }
-            saveJgzz()
-        }
+        titleBar.setOperation("保存").safeClicks().subscribe { saveJgzz() }
     }
 
     private val jgzzEditParam by lazy { intent.getSerializableExtra(Param) as JgzzEditParam }
