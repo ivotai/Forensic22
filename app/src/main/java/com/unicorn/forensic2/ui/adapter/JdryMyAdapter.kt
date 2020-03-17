@@ -1,11 +1,18 @@
 package com.unicorn.forensic2.ui.adapter
 
+import android.content.Intent
+import androidx.lifecycle.LifecycleOwner
+import com.afollestad.materialdialogs.MaterialDialog
+import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.toDisplayFormat
-import com.unicorn.forensic2.app.zjlxList
+import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.app.di.ComponentHolder
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Jdry
+import com.unicorn.forensic2.ui.act.addOrEdit.JdryMyEditAct
 import com.unicorn.forensic2.ui.base.KVHolder
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_jdry_my.*
 
 class JdryMyAdapter : BaseQuickAdapter<Jdry, KVHolder>(R.layout.item_jdry_my) {
@@ -22,41 +29,41 @@ class JdryMyAdapter : BaseQuickAdapter<Jdry, KVHolder>(R.layout.item_jdry_my) {
             tvMphone.text = item.mphone
         }
 
-//        helper.apply {
-//            tvDelete.safeClicks().subscribe { showConfirmDialog(item) }
-//            tvEdit.safeClicks().subscribe {
-//                Intent(mContext, JgzzEditAct::class.java).apply {
-//                    putExtra(Param, item)
-//                }.let { mContext.startActivity(it) }
-//            }
-//        }
+        helper.apply {
+            tvDelete.safeClicks().subscribe { showConfirmDialog(item.jdryid) }
+            tvEdit.safeClicks().subscribe {
+                Intent(mContext, JdryMyEditAct::class.java).apply {
+                    putExtra(Param, item)
+                }.let { mContext.startActivity(it) }
+            }
+        }
     }
 
-//    private fun showConfirmDialog(jgzz: Jgzz) {
-//        MaterialDialog(mContext).show {
-//            title(text = "确认删除该机构资质")
-//            positiveButton(text = "确认") { _ ->
-//                deleteJgzz(jgzz)
-//            }
-//        }
-//    }
-//
-//    private fun deleteJgzz(jgzz: Jgzz) {
-//        ComponentHolder.appComponent.v1Api()
-//            .deleteJgzz(jgzzId = jgzz.zzid)
-//            .observeOnMain(mContext as LifecycleOwner)
-//            .subscribeBy(
-//                onSuccess = {
-//                    if (!it.success) {
-//                        ToastUtils.showShort("删除机构资质失败")
-//                        return@subscribeBy
-//                    }
-//                    RxBus.post(RefreshEvent())
-//                },
-//                onError = {
-//                    ToastUtils.showShort("删除机构资质失败")
-//                }
-//            )
-//    }
+    private fun showConfirmDialog(objectId: String) {
+        MaterialDialog(mContext).show {
+            title(text = "确认删除该鉴定人员")
+            positiveButton(text = "确认") { _ ->
+                delete(objectId)
+            }
+        }
+    }
+
+    private fun delete(objectId: String) {
+        ComponentHolder.appComponent.v1Api()
+            .deleteJdry(objectId = objectId)
+            .observeOnMain(mContext as LifecycleOwner)
+            .subscribeBy(
+                onSuccess = {
+                    if (!it.success) {
+                        ToastUtils.showShort("删除鉴定人员失败")
+                        return@subscribeBy
+                    }
+                    RxBus.post(RefreshEvent())
+                },
+                onError = {
+                    ToastUtils.showShort("删除鉴定人员失败")
+                }
+            )
+    }
 
 }

@@ -65,7 +65,7 @@ interface V1Api {
     fun createJgzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
 
     @DELETE("api/v1/jdJdjgzzNew/{objectId}")
-    fun deleteJgzz(@Path("objectId") jgzzId: String): Single<GeneralResponse>
+    fun deleteJgzz(@Path("objectId") objectId: String): Single<GeneralResponse>
 
     @Multipart
     @POST("api/v1/jdJdjgzzNew/{objectId}")
@@ -79,6 +79,18 @@ interface V1Api {
     @Multipart
     @POST("api/v1/jdJdryNew")
     fun createJdry(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
+
+    @Multipart
+    @POST("api/v1/jdJdryNew/{objectId}")
+    fun editJdry(
+        @Path("objectId") jdryId: String,
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part
+    ): Single<GeneralResponse>
+
+    @DELETE("api/v1/jdJdryNew/{objectId}")
+    fun deleteJdry(@Path("objectId") objectId: String): Single<GeneralResponse>
+
 
     // 字典
     // 鉴定类别

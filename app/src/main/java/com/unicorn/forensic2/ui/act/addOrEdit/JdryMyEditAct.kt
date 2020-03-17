@@ -9,25 +9,53 @@ import com.jakewharton.rxbinding3.widget.textChanges
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.RefreshEvent
+import com.unicorn.forensic2.data.model.Jdry
 import com.unicorn.forensic2.data.model.TreeResult
-import com.unicorn.forensic2.data.model.param.addOrEdit.JdryMyAddParam
+import com.unicorn.forensic2.data.model.param.addOrEdit.JdryMyEditParam
 import com.unicorn.forensic2.ui.act.JdlbTreeAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.act_jdry_my_add_or_edit.*
 
-class JdryMyAddAct : BaseAct() {
+class JdryMyEditAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("添加鉴定人员")
+        titleBar.setTitle("编辑鉴定人员")
     }
 
     override fun bindIntent() {
+        fun initEditParam() = with(jdry) {
+            jdryMyEditParam =JdryMyEditParam(
+                objectId = jdryid,
+                xm = xm,
+                zjlx = zjlx,
+                zjhm = zjhm,
+                zczyh = zczyh,
+                grzc = grzc,
+                mphone = mphone,
+                jdlbId = jdlbId,
+                zyzsyxq = zyzsyxq.toDisplayFormat()
+            )
+        }
+        initEditParam()
+
+        fun display() = with(jdryMyEditParam){
+            etXm.setText(xm)
+            tvZjlx.text = zjlxList.find { it.id == zjlx }?.name
+            etZjhm.setText(zjhm)
+            etZczyh.setText(zczyh)
+            etGrzc.setText(grzc)
+            tvJdlb.text=jdry.jdlb
+            tvZyzsyxq.text= zyzsyxq
+            etMPhone.setText(mphone)
+        }
+        display()
+
         fun showZjlxDialog() {
-            MaterialDialog(this@JdryMyAddAct).show {
+            MaterialDialog(this@JdryMyEditAct).show {
                 listItems(items = zjlxList.map { it.name }) { _, index, _ ->
-                    param.zjlx = zjlxList[index].id
-                    this@JdryMyAddAct.tvZjlx.text = zjlxList[index].name
+                    jdryMyEditParam.zjlx = zjlxList[index].id
+                    this@JdryMyEditAct.tvZjlx.text = zjlxList[index].name
                 }
             }
         }
@@ -35,19 +63,15 @@ class JdryMyAddAct : BaseAct() {
         fun showDateDialog() {
             MaterialDialog(this).show {
                 datePicker { _, date ->
-                    param.zyzsyxq = date.time.time.toDisplayFormat()
-                    this@JdryMyAddAct.tvZyzsyxq.text = param.zyzsyxq
+                    jdryMyEditParam.zyzsyxq = date.time.time.toDisplayFormat()
+                    this@JdryMyEditAct.tvZyzsyxq.text = jdryMyEditParam.zyzsyxq
                 }
             }
         }
 
-        fun nextStep() = with(param) {
+        fun nextStep() = with(jdryMyEditParam) {
             if (xm.isBlank()) {
                 ToastUtils.showShort("请输入姓名")
-                return@with
-            }
-            if (zjlx.isBlank()) {
-                ToastUtils.showShort("请选择证件类型")
                 return@with
             }
             if (zjhm.isBlank()) {
@@ -62,10 +86,6 @@ class JdryMyAddAct : BaseAct() {
                 ToastUtils.showShort("请输入执业证号")
                 return@with
             }
-            if (jdlbId.isBlank()) {
-                ToastUtils.showShort("请选择鉴定类别")
-                return@with
-            }
             if (zyzsyxq.isBlank()) {
                 ToastUtils.showShort("请选择有效日期")
                 return@with
@@ -74,18 +94,18 @@ class JdryMyAddAct : BaseAct() {
                 ToastUtils.showShort("请输入手机号码")
                 return@with
             }
-            Intent(this@JdryMyAddAct, JdryMyAddPictureAct::class.java).apply {
-                putExtra(Param, param)
+            Intent(this@JdryMyEditAct, JdryMyEditPictureAct::class.java).apply {
+                putExtra(Param, jdryMyEditParam)
             }.let { startActivity(it) }
         }
         tvZjlx.safeClicks().subscribe { showZjlxDialog() }
         tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }
         tvZyzsyxq.safeClicks().subscribe { showDateDialog() }
-        etXm.textChanges().map { it.toString() }.subscribe { param.xm = it }
-        etZjhm.textChanges().map { it.toString() }.subscribe { param.zjhm = it }
-        etGrzc.textChanges().map { it.toString() }.subscribe { param.grzc = it }
-        etZczyh.textChanges().map { it.toString() }.subscribe { param.zczyh = it }
-        etMPhone.textChanges().map { it.toString() }.subscribe { param.mphone = it }
+        etXm.textChanges().map { it.toString() }.subscribe { jdryMyEditParam.xm = it }
+        etZjhm.textChanges().map { it.toString() }.subscribe { jdryMyEditParam.zjhm = it }
+        etGrzc.textChanges().map { it.toString() }.subscribe { jdryMyEditParam.grzc = it }
+        etZczyh.textChanges().map { it.toString() }.subscribe { jdryMyEditParam.zczyh = it }
+        etMPhone.textChanges().map { it.toString() }.subscribe { jdryMyEditParam.mphone = it }
         rtvNextStep.safeClicks().subscribe { nextStep() }
     }
 
@@ -93,7 +113,7 @@ class JdryMyAddAct : BaseAct() {
         RxBus.registerEvent(this, TreeResult::class.java, Consumer {
             when (it.key) {
                 Jdlb -> {
-                    param.jdlbId = it.dict.id
+                    jdryMyEditParam.jdlbId = it.dict.id
                     tvJdlb.text = it.dict.name
                 }
             }
@@ -103,7 +123,9 @@ class JdryMyAddAct : BaseAct() {
         })
     }
 
-    private val param = JdryMyAddParam()
+    private lateinit var jdryMyEditParam:JdryMyEditParam
+
+    private val jdry by lazy { intent.getSerializableExtra(Param) as Jdry }
 
     override val layoutId = R.layout.act_jdry_my_add_or_edit
 

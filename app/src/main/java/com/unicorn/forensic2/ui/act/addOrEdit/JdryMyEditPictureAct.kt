@@ -9,7 +9,7 @@ import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
 import com.unicorn.forensic2.data.event.RefreshEvent
-import com.unicorn.forensic2.data.model.param.addOrEdit.JdryMyAddParam
+import com.unicorn.forensic2.data.model.param.addOrEdit.JdryMyEditParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdry_my_add_picture.*
@@ -20,21 +20,21 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class JdryMyAddPictureAct : BaseAct() {
+class JdryMyEditPictureAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("上传人员详情照片")
+        titleBar.setTitle("上传鉴定人员照片")
     }
 
     override fun bindIntent() {
         ivFidzyzsNew.safeClicks().subscribe {
             PictureHelper.selectPicture(
-                this@JdryMyAddPictureAct,
+                this@JdryMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
                         param.fidzyzs_new = realPath
-                        Glide.with(this@JdryMyAddPictureAct).load(realPath).into(ivFidzyzsNew)
+                        Glide.with(this@JdryMyEditPictureAct).load(realPath).into(ivFidzyzsNew)
                     }
 
                     override fun onCancel() {
@@ -43,12 +43,12 @@ class JdryMyAddPictureAct : BaseAct() {
         }
         ivFidzczsNew.safeClicks().subscribe {
             PictureHelper.selectPicture(
-                this@JdryMyAddPictureAct,
+                this@JdryMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
                         param.fidzczs_new = realPath
-                        Glide.with(this@JdryMyAddPictureAct).load(realPath).into(ivFidzczsNew)
+                        Glide.with(this@JdryMyEditPictureAct).load(realPath).into(ivFidzczsNew)
                     }
 
                     override fun onCancel() {
@@ -56,7 +56,7 @@ class JdryMyAddPictureAct : BaseAct() {
                 })
         }
 
-        fun createJdry() = with(param) {
+        fun saveJdry() = with(param) {
             val map = HashMap<String, RequestBody>()
             map["xm"] = xm.toRequestBody(TextOrPlain)
             map["zjlx"] = zjlx.toRequestBody(TextOrPlain)
@@ -77,9 +77,9 @@ class JdryMyAddPictureAct : BaseAct() {
                 "",
                 File(fidzczs_new).asRequestBody("image/*".toMediaType())
             )
-            val mask = DialogHelper.showMask(this@JdryMyAddPictureAct)
-            v1Api.createJdry(map, part1, part2)
-                .observeOnMain(this@JdryMyAddPictureAct)
+            val mask = DialogHelper.showMask(this@JdryMyEditPictureAct)
+            v1Api.editJdry(param.objectId,map, part1, part2)
+                .observeOnMain(this@JdryMyEditPictureAct)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
@@ -107,11 +107,11 @@ class JdryMyAddPictureAct : BaseAct() {
                 ToastUtils.showShort("选择职称证书")
                 return@subscribe
             }
-            createJdry()
+            saveJdry()
         }
     }
 
-    private val param by lazy { intent.getSerializableExtra(Param) as JdryMyAddParam }
+    private val param by lazy { intent.getSerializableExtra(Param) as JdryMyEditParam }
 
     override val layoutId = R.layout.act_jdry_my_add_picture
 

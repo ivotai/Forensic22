@@ -50,7 +50,7 @@ class JgzzMyAdapter : BaseQuickAdapter<Jgzz, KVHolder>(R.layout.item_jgzz_my) {
 
     private fun deleteJgzz(jgzz: Jgzz) {
         ComponentHolder.appComponent.v1Api()
-            .deleteJgzz(jgzzId = jgzz.zzid)
+            .deleteJgzz(objectId = jgzz.zzid)
             .observeOnMain(mContext as LifecycleOwner)
             .subscribeBy(
                 onSuccess = {

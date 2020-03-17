@@ -6,7 +6,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.data.event.JdryMyListNeedRefreshEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.ui.act.addOrEdit.JdryMyAddAct
 import com.unicorn.forensic2.ui.adapter.JdryMyAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
@@ -50,7 +50,7 @@ class JdryMyListAct : BaseAct() {
     }
 
     override fun registerEvent() {
-        RxBus.registerEvent(this, JdryMyListNeedRefreshEvent::class.java, Consumer {
+        RxBus.registerEvent(this, RefreshEvent::class.java, Consumer {
             refresh()
         })
     }
