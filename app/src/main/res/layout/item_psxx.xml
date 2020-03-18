@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:background="@color/md_white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ContentDescription,HardcodedText,SpUsage">
+
+    <TextView
+        android:id="@+id/lFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="评审材料："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lBeginDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="开始时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lFileName"
+        app:layout_constraintTop_toBottomOf="@+id/lFileName" />
+
+    <TextView
+        android:id="@+id/lEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="结束时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lBeginDate"
+        app:layout_constraintTop_toBottomOf="@+id/lBeginDate" />
+
+    <TextView
+        android:id="@+id/lStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="状态："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/lEndDate" />
+
+    <TextView
+        android:id="@+id/tvFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="评审材料："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lFileName" />
+
+    <TextView
+        android:id="@+id/tvBeginDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvFileName"
+        app:layout_constraintTop_toTopOf="@+id/lBeginDate" />
+
+    <TextView
+        android:id="@+id/tvEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结束时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvBeginDate"
+        app:layout_constraintTop_toTopOf="@+id/lEndDate" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="状态："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvEndDate"
+        app:layout_constraintTop_toTopOf="@+id/lStatus" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

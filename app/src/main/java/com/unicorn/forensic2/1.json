@@ -1,74 +1,40 @@
 {
-  "@id": "11",
-  "createdBy": {
-    "@id": "12",
-    "objectId": "2020",
-    "createdDate": 1578731174000,
-    "lastUpdateDate": 1578731174000,
-    "name": "司法鉴定-管理员",
-    "account": {
-      "@id": "13",
-      "objectId": "537639598403092501",
-      "createdDate": 1578731174000,
-      "lastUpdateDate": 1578731174000,
-      "name": "sxgy",
-      "user": {
-        "@ref": "12"
-      }
+  "content": [
+    {
+      "@id": "1",
+      "objectId": "4795332505582308632",
+      "lastUpdateDate": 1579110898000,
+      "fidreview": "d5acde96-27b8-47d7-86bb-7d01f8c45ffb",
+      "fileName": "1.jpg",
+      "beginDate": 1579104000000,
+      "endDate": 1579708800000,
+      "status": 0,
+      "remark": "法医临床评审最最最终"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": true,
+      "unsorted": false,
+      "empty": false
     },
-    "userRoleList": [
-      {
-        "@id": "14",
-        "objectId": "537639598403092481",
-        "user": {
-          "@ref": "12"
-        },
-        "role": {
-          "@id": "15",
-          "objectId": "537638442285137928",
-          "createdDate": 1578731174000,
-          "lastUpdateDate": 1578731174000,
-          "name": "系统管理员",
-          "tag": "Admin",
-          "roleAuthorityList": [
-            {
-              "@id": "16",
-              "objectId": "537639598394703873",
-              "role": {
-                "@ref": "15"
-              },
-              "authority": {
-                "@id": "17",
-                "objectId": "537638442280943617",
-                "createdDate": 1578731174000,
-                "lastUpdateDate": 1578731174000,
-                "name": "ADMIN",
-                "tag": "ROLE_ADMIN"
-              }
-            },
-            {
-              "@id": "18",
-              "objectId": "537639598394703888",
-              "role": {
-                "@ref": "15"
-              },
-              "authority": {
-                "@ref": "7"
-              }
-            }
-          ]
-        }
-      }
-    ]
+    "offset": "0",
+    "pageNumber": 0,
+    "pageSize": 5,
+    "paged": true,
+    "unpaged": false
   },
-  "createdDate": 1579059672000,
-  "lastUpdatedBy": {
-    "@ref": "12"
+  "last": true,
+  "totalElements": "1",
+  "totalPages": 1,
+  "number": 0,
+  "size": 5,
+  "sort": {
+    "sorted": true,
+    "unsorted": false,
+    "empty": false
   },
-  "lastUpdateDate": 1579059672000,
-  "id": "e53f9edb-beaa-495f-8a97-80b78535cdf1",
-  "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
-  "jgmc": "时代大厦",
-  "remark": "大夫十分",
-  "dataflag": 1
+  "numberOfElements": 1,
+  "first": true,
+  "empty": false
 }

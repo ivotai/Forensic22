@@ -105,6 +105,9 @@ interface V1Api {
     @GET("api/v1/jdJdjgSp/jg")
     fun getShjlJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<ShjlJdjg>>
 
+    @GET("api/v1/jdReview/dpsList/vo")
+    fun getPsxxList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
+
     // 字典
     // 鉴定类别
     @GET("category/jdlb")

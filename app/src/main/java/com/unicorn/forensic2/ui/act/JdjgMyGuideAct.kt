@@ -27,6 +27,8 @@ class JdjgMyGuideAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("我的机构")
+
+        v1Api.getPsxxList(1).observeOnMain(this).subscribe()
     }
 
     override fun bindIntent() {
