@@ -6,7 +6,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.helper.DictHelper
+import com.unicorn.forensic2.app.helper.TreeFetcher
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.data.model.Dict
 import com.unicorn.forensic2.data.model.TreeNode
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.ui_title_recycler.*
 
 abstract class TreeAct : BaseAct() {
 
-    abstract val dictHelper: DictHelper
+    abstract val treeFetcher: TreeFetcher
 
     abstract val title: String
 
@@ -35,7 +35,7 @@ abstract class TreeAct : BaseAct() {
             simpleAdapter.bindToRecyclerView(this)
             addDefaultItemDecoration(1)
         }
-        simpleAdapter.dictHelper = dictHelper
+        simpleAdapter.treeFetcher = treeFetcher
     }
 
 
@@ -49,7 +49,7 @@ abstract class TreeAct : BaseAct() {
             }
 
             val mask = DialogHelper.showMask(this)
-            dictHelper.getFirstLevel()
+            treeFetcher.getFirstLevel()
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {

@@ -114,6 +114,9 @@ interface V1Api {
     @GET("category/region")
     fun getCyly(@Query("id") id: String): Single<List<Dict>>
 
+    // 机构性质
+    @GET("category/jgxz")
+    fun getJgxz(): Single<List<Jgxz>>
 
 //    @POST("Authorization/UserLogin")
 //    fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>

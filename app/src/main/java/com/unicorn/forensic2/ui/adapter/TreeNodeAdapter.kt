@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.helper.DictHelper
+import com.unicorn.forensic2.app.helper.TreeFetcher
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Dict
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.item_text.*
 
 class TreeNodeAdapter() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(ArrayList()) {
 
-    lateinit var dictHelper: DictHelper
+    lateinit var treeFetcher: TreeFetcher
 
     init {
         addItemType(0, R.layout.item_text)
@@ -41,7 +41,7 @@ class TreeNodeAdapter() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(A
                     }
             }
 
-            dictHelper.getChildren(item.dict.id)
+            treeFetcher.getChildren(item.dict.id)
                 .observeOnMain(mContext as LifecycleOwner)
                 .subscribeBy(
                     onSuccess = {

@@ -1,13 +1,18 @@
 package com.unicorn.forensic2.ui.act.addOrEdit
 
 import android.content.Intent
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.list.listItems
+import com.blankj.utilcode.util.ToastUtils
 import com.jakewharton.rxbinding3.widget.textChanges
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
+import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.model.Jdjg
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdjg_my_edit.*
 
 class JdjgMyEditAct : BaseAct() {
@@ -44,6 +49,23 @@ class JdjgMyEditAct : BaseAct() {
         }
         display()
 
+        tvJgxz.safeClicks().subscribe {
+            v1Api.getJgxz()
+                .observeOnMain(this)
+                .subscribeBy(
+                    onSuccess = {
+                        MaterialDialog(this@JdjgMyEditAct).show {
+                            listItems(items = it.map { it.jgxz }) { _, index, _ ->
+                                jdjg.jgxzId = it[index].jgxzId
+                                this@JdjgMyEditAct.tvJgxz.text = it[index].jgxz
+                            }
+                        }
+                    },
+                    onError = {
+                        ToastUtils.showShort("获取资质等级失败")
+                    }
+                )
+        }
         rtvNextStep.safeClicks().subscribe {
             Intent(this@JdjgMyEditAct, JdryMyEditPictureAct::class.java).apply {
                 putExtra(Param, jdjg)
@@ -65,11 +87,11 @@ class JdjgMyEditAct : BaseAct() {
         etLxrCz.textChanges().map { it.toString() }.subscribe { jdjg.lxrCz = it }
         etLxrYx.textChanges().map { it.toString() }.subscribe { jdjg.lxrYx = it }
         etBgdz.textChanges().map { it.toString() }.subscribe { jdjg.bgdz = it }
-        etYb.textChanges().map { it.toString() }.subscribe { jdjg.yb= it }
-        etZczj.textChanges().map { it.toString() }.subscribe { jdjg.zczj= it }
+        etYb.textChanges().map { it.toString() }.subscribe { jdjg.yb = it }
+        etZczj.textChanges().map { it.toString() }.subscribe { jdjg.zczj = it }
         etBankName.textChanges().map { it.toString() }.subscribe { jdjg.bankname = it }
-        etBankAccount.textChanges().map { it.toString() }.subscribe { jdjg.bankaccount= it }
-        etZwpj.textChanges().map { it.toString() }.subscribe { jdjg.zwpj= it }
+        etBankAccount.textChanges().map { it.toString() }.subscribe { jdjg.bankaccount = it }
+        etZwpj.textChanges().map { it.toString() }.subscribe { jdjg.zwpj = it }
     }
 
     private val jdjg by lazy { intent.getSerializableExtra(Param) as Jdjg }
