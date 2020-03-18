@@ -3,41 +3,41 @@ package com.unicorn.forensic2.data.model
 import java.io.Serializable
 
 data class Jdjg(
-    val bankaccount: String,
-    val bankname: String,
-    val bgdz: String,
-    val clsj: Long,
-    val fddb: String,
-    val fddbSfzh: String,
-    val fidbacl: String,
-    val fidfrsfz: String,
-    val fidxkzs: String,
-    val fidyyzz: String,
-    val fzr: String,
-    val fzrDh: String,
-    val fzrSj: String,
+    var bankaccount: String = "",
+    var bankname: String = "",
+    var bgdz: String = "",
+    var clsj: Long = 0,
+    var fddb: String = "",
+    var fddbSfzh: String = "",
+    var fidbacl: String = "",
+    var fidfrsfz: String = "",
+    var fidxkzs: String = "",
+    var fidyyzz: String = "",
+    var fzr: String = "",
+    var fzrDh: String = "",
+    var fzrSj: String = "",
     val jdryList: List<Jdry>,
-    val jgid: String,
-    val jgmc: String,
-    val jgmc2: String,
-    val jgszd: String,
-    val jgszdId: String,
-    val jgxz: String,
-    val jgxzId: String,
-    val jgzzList: List<Jgzz>,
-    val lxr: String,
-    val lxrCz: String,
-    val lxrDh: String,
-    val lxrSj: String,
-    val lxrYx: String,
-    val xkzh: String,
-    val yb: String,
-    val yyzzh: String,
-    val zczj: String,
-    val zwpj: String,
-    val zzlb: String,
-    val zzlbId: String
-): Serializable
+    var jgid: String = "",
+    var jgmc: String = "",
+    var jgmc2: String = "",
+    var jgszd: String = "",
+    var jgszdId: String = "",
+    var jgxz: String = "",
+    var jgxzId: String = "",
+    var jgzzList: List<Jgzz>,
+    var lxr: String = "",
+    var lxrCz: String = "",
+    var lxrDh: String = "",
+    var lxrSj: String = "",
+    var lxrYx: String = "",
+    var xkzh: String = "",
+    var yb: String = "",
+    var yyzzh: String = "",
+    var zczj: String = "",
+    var zwpj: String = "",
+    var zzlb: String = "",
+    var zzlbId: String = ""
+) : Serializable
 
 data class Jdry(
     val fidzczs: String,
@@ -55,7 +55,7 @@ data class Jdry(
     val zjhm: String,
     val zjlx: String,
     val zyzsyxq: Long
-): Serializable
+) : Serializable
 
 data class Jgzz(
     val cyly: String,
@@ -67,9 +67,9 @@ data class Jgzz(
     val jgid: String,
     val spjg: String,
     val yxrq: Long,
-    val zzdj:String,
+    val zzdj: String,
     val zzdjId: String,
     val zzid: String,
     val zzsm: String,
     val zzzh: String
-): Serializable
+) : Serializable
