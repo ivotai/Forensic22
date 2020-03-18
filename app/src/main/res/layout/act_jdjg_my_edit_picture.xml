@@ -14,52 +14,99 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ivFidzyzsNew"
+        android:id="@+id/ivFidyyzzNew"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:scaleType="fitXY"
         android:src="@mipmap/upload_picture"
-        app:layout_constraintBottom_toBottomOf="@+id/ivFidzczsNew"
-        app:layout_constraintEnd_toStartOf="@+id/ivFidzczsNew"
+        app:layout_constraintBottom_toBottomOf="@+id/ivFidxkzsNew"
+        app:layout_constraintEnd_toStartOf="@+id/ivFidxkzsNew"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivFidzczsNew" />
+        app:layout_constraintTop_toTopOf="@+id/ivFidxkzsNew" />
 
     <TextView
-        android:id="@+id/tvFidzyzsNew"
+        android:id="@+id/tvFidyyzzNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="选择执业证书"
+        android:text="选择营业执照"
         android:textColor="@color/colorPrimary"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivFidzyzsNew"
-        app:layout_constraintStart_toStartOf="@+id/ivFidzyzsNew"
-        app:layout_constraintTop_toBottomOf="@+id/ivFidzyzsNew" />
+        app:layout_constraintEnd_toEndOf="@+id/ivFidyyzzNew"
+        app:layout_constraintStart_toStartOf="@+id/ivFidyyzzNew"
+        app:layout_constraintTop_toBottomOf="@+id/ivFidyyzzNew" />
 
     <ImageView
-        android:id="@+id/ivFidzczsNew"
+        android:id="@+id/ivFidxkzsNew"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="32dp"
         android:scaleType="fitXY"
         android:src="@mipmap/upload_picture"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivFidzyzsNew"
+        app:layout_constraintStart_toEndOf="@+id/ivFidyyzzNew"
         app:layout_constraintTop_toBottomOf="@+id/titleBar" />
 
     <TextView
-        android:id="@+id/tvFidzczsNew"
+        android:id="@+id/tvFidxkzsNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="选择职称证书"
+        android:text="选择许可证书"
         android:textColor="@color/colorPrimary"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivFidzczsNew"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="@+id/ivFidzczsNew"
-        app:layout_constraintTop_toTopOf="@+id/tvFidzyzsNew" />
+        app:layout_constraintEnd_toEndOf="@+id/ivFidxkzsNew"
+        app:layout_constraintStart_toStartOf="@+id/ivFidxkzsNew"
+        app:layout_constraintTop_toTopOf="@+id/tvFidyyzzNew" />
+
+    <ImageView
+        android:id="@+id/ivFidfrsfzNew"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/upload_picture"
+        app:layout_constraintEnd_toStartOf="@+id/ivFidbaclNew"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFidyyzzNew" />
+
+    <ImageView
+        android:id="@+id/ivFidbaclNew"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/upload_picture"
+        app:layout_constraintBottom_toBottomOf="@+id/ivFidfrsfzNew"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivFidfrsfzNew"
+        app:layout_constraintTop_toTopOf="@+id/ivFidfrsfzNew" />
+
+
+    <TextView
+        android:id="@+id/tvFidfrsfzNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="选择法人代表身份证"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivFidfrsfzNew"
+        app:layout_constraintStart_toStartOf="@+id/ivFidfrsfzNew"
+        app:layout_constraintTop_toBottomOf="@+id/ivFidfrsfzNew" />
+
+    <TextView
+        android:id="@+id/tvFidbaclNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择行业备案材料"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivFidbaclNew"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ivFidbaclNew"
+        app:layout_constraintTop_toTopOf="@+id/tvFidfrsfzNew" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

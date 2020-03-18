@@ -4,11 +4,12 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
+import com.unicorn.forensic2.app.helper.PictureHelper
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Jdjg
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jdry_my_add_or_edit_picture.*
+import kotlinx.android.synthetic.main.act_jdjg_my_edit_picture.*
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
@@ -16,8 +17,10 @@ class JdjgMyEditPictureAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("上传鉴定人员照片")
-//        PictureHelper.load(this,"$pictureBaseUrl${jdryMyEditParam.fidzyzs}").into(ivFidzyzsNew)
-//        PictureHelper.load(this,"$pictureBaseUrl${jdryMyEditParam.fidzczs}").into(ivFidzczsNew)
+        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidyyzz}").into(ivFidyyzzNew)
+        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidxkzs}").into(ivFidxkzsNew)
+        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidfrsfz}").into(ivFidfrsfzNew)
+        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidbacl}").into(ivFidbaclNew)
     }
 
     override fun bindIntent() {
@@ -119,6 +122,6 @@ class JdjgMyEditPictureAct : BaseAct() {
 
     private val jdjg by lazy { intent.getSerializableExtra(Param) as Jdjg }
 
-    override val layoutId = R.layout.act_jdry_my_add_or_edit_picture
+    override val layoutId = R.layout.act_jdjg_my_edit_picture
 
 }
