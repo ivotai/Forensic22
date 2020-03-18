@@ -8,7 +8,7 @@ import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.event.RefreshEvent
-import com.unicorn.forensic2.data.model.Jdjg
+import com.unicorn.forensic2.data.model.Expert
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
@@ -23,7 +23,7 @@ class ExpertGuideAct : BaseAct() {
     override fun bindIntent() {
 //        ivJgxx.clicks().mergeWith(tvJgxx.clicks()).subscribe {
 //            Intent(this@ExpertGuideAct, JdjgMyEditAct::class.java).apply {
-//                putExtra(Param, jdjg)
+//                putExtra(Param, expert)
 //            }.let { startActivity(it) }
 //        }
 //        ivJgzz.clicks().mergeWith(tvJgzz.clicks()).subscribe { startAct(JgzzMyListAct::class.java) }
@@ -36,8 +36,8 @@ class ExpertGuideAct : BaseAct() {
     }
 
     private fun getExpert() {
-        fun display() = with(jdjg) {
-//            tvJgmc.text = jgmc
+        fun display() = with(expert) {
+            tvExpertName.text = expertName
         }
 
         val mask = DialogHelper.showMask(this)
@@ -46,8 +46,8 @@ class ExpertGuideAct : BaseAct() {
             .subscribeBy(
                 onSuccess = {
                     mask.dismiss()
-//                    jdjg = it
-//                    display()
+                    expert = it
+                    display()
                 },
                 onError = {
                     mask.dismiss()
@@ -63,7 +63,7 @@ class ExpertGuideAct : BaseAct() {
         })
     }
 
-    private lateinit var jdjg: Jdjg
+    private lateinit var expert: Expert
 
     override val layoutId = R.layout.act_expert_guide
 

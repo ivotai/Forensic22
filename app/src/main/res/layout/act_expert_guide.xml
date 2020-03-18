@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvExpertName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,21 +31,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:text="基本信息"
         android:textColor="@color/colorPrimary"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toStartOf="@+id/tvZjzz"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvExpertName" />
 
     <TextView
         android:id="@+id/tvZjzz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:text="专家资质"
         android:textColor="@color/colorPrimary"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvBasicInfo"
         app:layout_constraintEnd_toStartOf="@+id/tvShjl"
         app:layout_constraintTop_toTopOf="@+id/tvBasicInfo" />
@@ -58,7 +58,7 @@
         android:layout_marginBottom="16dp"
         android:text="审核记录"
         android:textColor="@color/colorPrimary"
-        android:textSize="18dp"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvZjzz" />
