@@ -17,6 +17,7 @@ import com.unicorn.forensic2.data.model.Jdjg
 import com.unicorn.forensic2.ui.act.addOrEdit.JdjgMyEditAct
 import com.unicorn.forensic2.ui.act.list.JdryMyListAct
 import com.unicorn.forensic2.ui.act.list.JgzzMyListAct
+import com.unicorn.forensic2.ui.act.list.ShjlJdjgListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
@@ -62,7 +63,8 @@ class JdjgMyGuideAct : BaseAct() {
             }
         }
         ivTjsh.clicks().mergeWith(tvTjsh.clicks()).subscribe { showSubmitAuditConfirm() }
-
+        ivShjl.clicks().mergeWith(tvShjl.clicks())
+            .subscribe { startAct(ShjlJdjgListAct::class.java) }
         getJdjgMy()
     }
 

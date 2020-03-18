@@ -1,109 +1,74 @@
 {
+  "@id": "11",
+  "createdBy": {
+    "@id": "12",
+    "objectId": "2020",
+    "createdDate": 1578731174000,
+    "lastUpdateDate": 1578731174000,
+    "name": "司法鉴定-管理员",
+    "account": {
+      "@id": "13",
+      "objectId": "537639598403092501",
+      "createdDate": 1578731174000,
+      "lastUpdateDate": 1578731174000,
+      "name": "sxgy",
+      "user": {
+        "@ref": "12"
+      }
+    },
+    "userRoleList": [
+      {
+        "@id": "14",
+        "objectId": "537639598403092481",
+        "user": {
+          "@ref": "12"
+        },
+        "role": {
+          "@id": "15",
+          "objectId": "537638442285137928",
+          "createdDate": 1578731174000,
+          "lastUpdateDate": 1578731174000,
+          "name": "系统管理员",
+          "tag": "Admin",
+          "roleAuthorityList": [
+            {
+              "@id": "16",
+              "objectId": "537639598394703873",
+              "role": {
+                "@ref": "15"
+              },
+              "authority": {
+                "@id": "17",
+                "objectId": "537638442280943617",
+                "createdDate": 1578731174000,
+                "lastUpdateDate": 1578731174000,
+                "name": "ADMIN",
+                "tag": "ROLE_ADMIN"
+              }
+            },
+            {
+              "@id": "18",
+              "objectId": "537639598394703888",
+              "role": {
+                "@ref": "15"
+              },
+              "authority": {
+                "@ref": "7"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "createdDate": 1579059672000,
+  "lastUpdatedBy": {
+    "@ref": "12"
+  },
+  "lastUpdateDate": 1579059672000,
+  "id": "e53f9edb-beaa-495f-8a97-80b78535cdf1",
   "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
   "jgmc": "时代大厦",
-  "jgxz": "法人机构",
-  "yyzzh": "121332322321321313",
-  "xkzh": "21312321313",
-  "fddb": "张三",
-  "fddbSfzh": "610424198904013522",
-  "lxr": "史鹤祥",
-  "lxrSj": "12332123332",
-  "bgdz": "放松的地方",
-  "yb": "434234",
-  "jgxzId": "1",
-  "jgzzList": [
-    {
-      "jdlb": "测绘",
-      "zzdj": "丙级",
-      "cyly": "沈阳市",
-      "yxrq": 1584374400000,
-      "spjg": "12e",
-      "zzsm": "2",
-      "zzzh": "3",
-      "zzid": "61c53975-7f7e-4911-ba50-fd7b26e43ddf",
-      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
-      "jdlbId": "1",
-      "zzdjId": "3",
-      "cylyId": "210100",
-      "dataflag": 0,
-      "fidzzzs": "61e4296a-5d2e-4bd7-9200-2f78670b4e6f",
-      "fidzzzsmc": "资质证书_临.jpg",
-      "alert": true
-    },
-    {
-      "jdlb": "测绘",
-      "zzdj": "丁级",
-      "cyly": "太原市",
-      "yxrq": 1584201600000,
-      "spjg": "hi21",
-      "zzsm": "21",
-      "zzzh": "21",
-      "zzid": "152efbda-f75b-4bb3-98a8-bb6536335662",
-      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
-      "jdlbId": "1",
-      "zzdjId": "13",
-      "cylyId": "140100",
-      "dataflag": 0,
-      "fidzzzs": "3a6c35ef-6a40-44fe-978c-8d14536002f0",
-      "fidzzzsmc": "资质证书_临.jpg",
-      "alert": true
-    },
-    {
-      "jdlb": "法医病理",
-      "cyly": "西安市",
-      "yxrq": 1579276800000,
-      "spjg": "手动阀手动阀",
-      "zzsm": "额我热我热我",
-      "zzzh": "12313131311231",
-      "zzid": "07cf6fe6-b0d5-48bb-adc8-e557519abbe8",
-      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
-      "jdlbId": "3",
-      "zzdjId": "0",
-      "cylyId": "610100",
-      "dataflag": 4,
-      "fidzzzs": "3a6c027f-04e1-40dd-b2db-05ae499a087f",
-      "fidzzzsmc": "资质证书_临.jpg",
-      "alert": true
-    }
-  ],
-  "jdryList": [
-    {
-      "xm": "6",
-      "zjlx": "2",
-      "zjhm": "5",
-      "zczyh": "3",
-      "grzc": "4",
-      "jdlb": "工程造价",
-      "zyzsyxq": 1585324800000,
-      "mphone": "2",
-      "jdryid": "15c4fa2f-8585-4017-85c1-bbbf1b09c8a3",
-      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
-      "jdlbId": "23",
-      "fidzyzs": "5a66e830-443a-4085-b034-0d18142be67e",
-      "fidzyzsmc": "执业证书_15c4fa2f-8585-4017-85c1-bbbf1b09c8a3_临.jpg",
-      "fidzczs": "cd45c519-5193-485c-88d1-99745be98ccd",
-      "fidzczsmc": "职称证书_15c4fa2f-8585-4017-85c1-bbbf1b09c8a3_临.jpg",
-      "dataflag": 0,
-      "alert": false
-    },
-    {
-      "xm": "微软",
-      "zjlx": "1",
-      "zjhm": "61042419890401357X",
-      "zczyh": "2121344542322",
-      "grzc": "工程师",
-      "jdlb": "法医病理",
-      "zyzsyxq": 1579881600000,
-      "mphone": "11111111111",
-      "jdryid": "bec48978-46a2-4fd3-8b2a-81cd106fb5c9",
-      "jgid": "b179e68a-a47b-45f4-bb62-3901959b18f2",
-      "jdlbId": "3",
-      "fidzyzs": "88c94a28-b645-4d6a-9cce-46eb0f847722",
-      "fidzyzsmc": "执业证书_bec48978-46a2-4fd3-8b2a-81cd106fb5c9_临.jpg",
-      "fidzczs": "18b7e83b-12a7-48b5-96f2-70fcfdbc9773",
-      "fidzczsmc": "职称证书_bec48978-46a2-4fd3-8b2a-81cd106fb5c9_临.jpg",
-      "dataflag": 1,
-      "alert": true
-    }
-  ]
+  "remark": "大夫十分",
+  "dataflag": 1
 }
