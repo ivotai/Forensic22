@@ -2,11 +2,13 @@ package com.unicorn.forensic2.ui.act
 
 import android.content.Intent
 import android.view.View
+import com.afollestad.materialdialogs.MaterialDialog
 import com.blankj.utilcode.util.ToastUtils
 import com.jakewharton.rxbinding3.view.clicks
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.di.ComponentHolder
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.startAct
@@ -34,6 +36,32 @@ class JdjgMyGuideAct : BaseAct() {
         }
         ivJgzz.clicks().mergeWith(tvJgzz.clicks()).subscribe { startAct(JgzzMyListAct::class.java) }
         ivJdry.clicks().mergeWith(tvJdry.clicks()).subscribe { startAct(JdryMyListAct::class.java) }
+
+        fun showSubmitAuditConfirm() {
+            fun submitAudit() {
+                ComponentHolder.appComponent.v1Api()
+                    .submitAudit()
+                    .observeOnMain(this)
+                    .subscribeBy(
+                        onSuccess = {
+                            if (!it.success) {
+                                ToastUtils.showShort("提交审核失败")
+                                return@subscribeBy
+                            }
+                            RxBus.post(RefreshEvent())
+                        },
+                        onError = {
+                            ToastUtils.showShort("提交审核失败")
+                        }
+                    )
+            }
+
+            MaterialDialog(this).show {
+                title(text = "确认提交审核？")
+                positiveButton(text = "确认") { submitAudit() }
+            }
+        }
+        ivTjsh.clicks().mergeWith(tvTjsh.clicks()).subscribe { showSubmitAuditConfirm() }
 
         getJdjgMy()
     }

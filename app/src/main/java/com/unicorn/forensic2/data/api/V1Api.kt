@@ -102,6 +102,8 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
+    @POST("api/v1/jdJdjg/submitAudit")
+    fun submitAudit(): Single<GeneralResponse>
 
 
     // 字典
