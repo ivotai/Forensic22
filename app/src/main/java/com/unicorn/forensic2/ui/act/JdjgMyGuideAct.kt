@@ -8,11 +8,15 @@ import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.Jdjg
+import com.unicorn.forensic2.ui.act.addOrEdit.JdjgMyEditAct
 import com.unicorn.forensic2.ui.act.list.JdryMyListAct
 import com.unicorn.forensic2.ui.act.list.JgzzMyListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdjg_my_guide.*
+import kotlinx.android.synthetic.main.act_jdjg_my_guide.root
+import kotlinx.android.synthetic.main.act_jdjg_my_guide.tvJgmc
+import kotlinx.android.synthetic.main.item_jdjg.*
 
 class JdjgMyGuideAct : BaseAct() {
 
@@ -44,6 +48,7 @@ class JdjgMyGuideAct : BaseAct() {
         }
         getJdjgMy()
 
+        ivJdjg.clicks().mergeWith(ivJdjg.clicks()).subscribe { startAct(JdjgMyEditAct::class.java) }
         ivJgzz.clicks().mergeWith(tvJgzz.clicks()).subscribe { startAct(JgzzMyListAct::class.java) }
         ivJdry.clicks().mergeWith(tvJdry.clicks()).subscribe { startAct(JdryMyListAct::class.java) }
     }
