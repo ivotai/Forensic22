@@ -51,6 +51,8 @@
         <activity android:name=".ui.act.addOrEdit.JdjgMyEditPictureAct" />
         <activity android:name=".ui.act.list.ShjlJdjgListAct" />
         <activity android:name=".ui.act.list.PsxxListAct"/>
+
+        <activity android:name=".ui.act.ExpertGuideAct"/>
     </application>
 
 </manifest>

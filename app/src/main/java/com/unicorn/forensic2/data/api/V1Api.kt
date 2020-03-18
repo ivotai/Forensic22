@@ -94,7 +94,7 @@ interface V1Api {
     @Multipart
     @POST("api/v1/jdJdjg/updateBasicInfo")
     fun editJdjgMy(
-        @Query("jgid") jgId:String,
+        @Query("jgid") jgId: String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
@@ -107,6 +107,12 @@ interface V1Api {
 
     @GET("api/v1/jdReview/dpsList/vo")
     fun getPsxxList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
+
+
+    // 专家信息
+    @GET("api/v1/jdExpertNew/basicInfo")
+    fun getExpert(@Query("expertId") expertId: Long): Single<Expert>
+
 
     // 字典
     // 鉴定类别
