@@ -1,6 +1,9 @@
 package com.unicorn.forensic2.ui.act.addOrEdit
 
 import com.blankj.utilcode.util.ToastUtils
+import com.bumptech.glide.Glide
+import com.luck.picture.lib.entity.LocalMedia
+import com.luck.picture.lib.listener.OnResultCallbackListener
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
@@ -10,48 +13,80 @@ import com.unicorn.forensic2.data.model.Jdjg
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdjg_my_edit_picture.*
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
 
 class JdjgMyEditPictureAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("上传鉴定人员照片")
-        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidyyzz}").into(ivFidyyzzNew)
-        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidxkzs}").into(ivFidxkzsNew)
-        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidfrsfz}").into(ivFidfrsfzNew)
-        PictureHelper.load(this,"$pictureBaseUrl${jdjg.fidbacl}").into(ivFidbaclNew)
+        titleBar.setTitle("上传机构信息照片")
+        PictureHelper.load(this, "$pictureBaseUrl${jdjg.fidyyzz}").into(ivFidyyzzNew)
+        PictureHelper.load(this, "$pictureBaseUrl${jdjg.fidxkzs}").into(ivFidxkzsNew)
+        PictureHelper.load(this, "$pictureBaseUrl${jdjg.fidfrsfz}").into(ivFidfrsfzNew)
+        PictureHelper.load(this, "$pictureBaseUrl${jdjg.fidbacl}").into(ivFidbaclNew)
     }
 
     override fun bindIntent() {
-//        ivFidzyzsNew.safeClicks().subscribe {
-//            PictureHelper.selectPicture(
-//                this@JdjgMyEditPictureAct,
-//                object : OnResultCallbackListener {
-//                    override fun onResult(result: MutableList<LocalMedia>) {
-//                        val realPath = result[0].realPath
-//                        jdryMyEditParam.fidzyzs_new = realPath
-//                        Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidzyzsNew)
-//                    }
-//
-//                    override fun onCancel() {
-//                    }
-//                })
-//        }
-//        ivFidzczsNew.safeClicks().subscribe {
-//            PictureHelper.selectPicture(
-//                this@JdjgMyEditPictureAct,
-//                object : OnResultCallbackListener {
-//                    override fun onResult(result: MutableList<LocalMedia>) {
-//                        val realPath = result[0].realPath
-//                        jdryMyEditParam.fidzczs_new = realPath
-//                        Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidzczsNew)
-//                    }
-//
-//                    override fun onCancel() {
-//                    }
-//                })
-//        }
+        ivFidyyzzNew.safeClicks().subscribe {
+            PictureHelper.selectPicture(
+                this@JdjgMyEditPictureAct,
+                object : OnResultCallbackListener {
+                    override fun onResult(result: MutableList<LocalMedia>) {
+                        val realPath = result[0].realPath
+                        jdjg.fidyyzz_new = realPath
+                        Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidyyzzNew)
+                    }
+
+                    override fun onCancel() {
+                    }
+                })
+        }
+        ivFidxkzsNew.safeClicks().subscribe {
+            PictureHelper.selectPicture(
+                this@JdjgMyEditPictureAct,
+                object : OnResultCallbackListener {
+                    override fun onResult(result: MutableList<LocalMedia>) {
+                        val realPath = result[0].realPath
+                        jdjg.fidxkzs_new = realPath
+                        Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidxkzsNew)
+                    }
+
+                    override fun onCancel() {
+                    }
+                })
+        }
+        ivFidfrsfzNew.safeClicks().subscribe {
+            PictureHelper.selectPicture(
+                this@JdjgMyEditPictureAct,
+                object : OnResultCallbackListener {
+                    override fun onResult(result: MutableList<LocalMedia>) {
+                        val realPath = result[0].realPath
+                        jdjg.fidfrsfz_new = realPath
+                        Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidfrsfzNew)
+                    }
+
+                    override fun onCancel() {
+                    }
+                })
+        }
+        ivFidbaclNew.safeClicks().subscribe {
+            PictureHelper.selectPicture(
+                this@JdjgMyEditPictureAct,
+                object : OnResultCallbackListener {
+                    override fun onResult(result: MutableList<LocalMedia>) {
+                        val realPath = result[0].realPath
+                        jdjg.fidbacl_new = realPath
+                        Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidbaclNew)
+                    }
+
+                    override fun onCancel() {
+                    }
+                })
+        }
 
         fun save() = with(jdjg) {
             val map = HashMap<String, RequestBody>()
@@ -80,24 +115,40 @@ class JdjgMyEditPictureAct : BaseAct() {
             map["bgdz"] = bgdz.toRequestBody(TextOrPlain)
             map["zwpj"] = zwpj.toRequestBody(TextOrPlain)
 
-//            var partZyzs:MultipartBody.Part?=null
-//            var partZczs:MultipartBody.Part?=null
-//            if (fidzyzs_new.isNotBlank()) {
-//                partZyzs = MultipartBody.Part.createFormData(
-//                    "fidzyzs_new",
-//                    "",
-//                    File(fidzyzs_new).asRequestBody("image/*".toMediaType())
-//                )
-//            }
-//            if (fidzczs_new.isNotBlank()) {
-//                partZczs = MultipartBody.Part.createFormData(
-//                    "fidzczs_new",
-//                    "",
-//                    File(fidzczs_new).asRequestBody("image/*".toMediaType())
-//                )
-//            }
+            var partYyzz: MultipartBody.Part? = null
+            var partXkzs: MultipartBody.Part? = null
+            var partFrsfz: MultipartBody.Part? = null
+            var partBacl: MultipartBody.Part? = null
+            if (fidyyzz_new.isNotBlank()) {
+                partYyzz = MultipartBody.Part.createFormData(
+                    "fidyyzz_new",
+                    "",
+                    File(fidyyzz_new).asRequestBody("image/*".toMediaType())
+                )
+            }
+            if (fidxkzs_new.isNotBlank()) {
+                partXkzs = MultipartBody.Part.createFormData(
+                    "fidxkzs_new",
+                    "",
+                    File(fidxkzs_new).asRequestBody("image/*".toMediaType())
+                )
+            }
+            if (fidfrsfz_new.isNotBlank()) {
+                partFrsfz = MultipartBody.Part.createFormData(
+                    "fidfrsfz_new",
+                    "",
+                    File(fidfrsfz_new).asRequestBody("image/*".toMediaType())
+                )
+            }
+            if (fidbacl_new.isNotBlank()) {
+                partBacl = MultipartBody.Part.createFormData(
+                    "fidbacl_new",
+                    "",
+                    File(fidbacl_new).asRequestBody("image/*".toMediaType())
+                )
+            }
             val mask = DialogHelper.showMask(this@JdjgMyEditPictureAct)
-            v1Api.editJdjgMy(jdjg.jgid, map)
+            v1Api.editJdjgMy(jdjg.jgid, map, partYyzz, partXkzs, partFrsfz, partBacl)
                 .observeOnMain(this@JdjgMyEditPictureAct)
                 .subscribeBy(
                     onSuccess = {

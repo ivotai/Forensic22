@@ -99,7 +99,7 @@ interface V1Api {
     fun editJdjgMy(
         @Query("jgid") jgId:String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
-        @Part vararg parts: MultipartBody.Part
+        @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
 
