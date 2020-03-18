@@ -118,6 +118,11 @@ interface V1Api {
     @GET("category/jgxz")
     fun getJgxz(): Single<List<Jgxz>>
 
+    // 资质类别
+    @GET("category/zzlb")
+    fun getZzlb(): Single<List<Zzlb>>
+
+
 //    @POST("Authorization/UserLogin")
 //    fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>
 

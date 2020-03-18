@@ -66,6 +66,23 @@ class JdjgMyEditAct : BaseAct() {
                     }
                 )
         }
+        tvZzlb.safeClicks().subscribe {
+            v1Api.getZzlb()
+                .observeOnMain(this)
+                .subscribeBy(
+                    onSuccess = {
+                        MaterialDialog(this@JdjgMyEditAct).show {
+                            listItems(items = it.map { it.zzlb }) { _, index, _ ->
+                                jdjg.zzlbId = it[index].zzlbId
+                                this@JdjgMyEditAct.tvZzlb.text = it[index].zzlb
+                            }
+                        }
+                    },
+                    onError = {
+                        ToastUtils.showShort("获取资质等级失败")
+                    }
+                )
+        }
         rtvNextStep.safeClicks().subscribe {
             Intent(this@JdjgMyEditAct, JdryMyEditPictureAct::class.java).apply {
                 putExtra(Param, jdjg)
