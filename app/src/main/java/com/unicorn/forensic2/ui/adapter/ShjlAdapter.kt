@@ -3,13 +3,13 @@ package com.unicorn.forensic2.ui.adapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.toDisplayFormat
-import com.unicorn.forensic2.data.model.ShjlJdjg
+import com.unicorn.forensic2.data.model.Shjl
 import com.unicorn.forensic2.ui.base.KVHolder
-import kotlinx.android.synthetic.main.item_shjl_jdjg.*
+import kotlinx.android.synthetic.main.item_shjl.*
 
-class ShjlJdjgAdapter : BaseQuickAdapter<ShjlJdjg, KVHolder>(R.layout.item_shjl_jdjg) {
+class ShjlAdapter : BaseQuickAdapter<Shjl, KVHolder>(R.layout.item_shjl) {
 
-    override fun convert(helper: KVHolder, item: ShjlJdjg) {
+    override fun convert(helper: KVHolder, item: Shjl) {
         helper.apply {
             tvJgmc.text = item.jgmc
             tvDate.text = item.createdDate.toDisplayFormat()

@@ -50,9 +50,10 @@
         <activity android:name=".ui.act.addOrEdit.JdjgMyEditAct" />
         <activity android:name=".ui.act.addOrEdit.JdjgMyEditPictureAct" />
         <activity android:name=".ui.act.list.ShjlJdjgListAct" />
-        <activity android:name=".ui.act.list.PsxxListAct"/>
+        <activity android:name=".ui.act.list.PsxxListAct" />
 
-        <activity android:name=".ui.act.ExpertGuideAct"/>
+        <activity android:name=".ui.act.ExpertGuideAct" />
+        <activity android:name=".ui.act.list.ShjlExpertListAct" />
     </application>
 
 </manifest>

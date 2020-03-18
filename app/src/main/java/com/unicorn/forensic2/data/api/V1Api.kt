@@ -103,7 +103,7 @@ interface V1Api {
     fun submitAudit(): Single<GeneralResponse>
 
     @GET("api/v1/jdJdjgSp/jg")
-    fun getShjlJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<ShjlJdjg>>
+    fun getShjlJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Shjl>>
 
     @GET("api/v1/jdReview/dpsList/vo")
     fun getPsxxList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
@@ -112,6 +112,12 @@ interface V1Api {
     // 专家信息
     @GET("api/v1/jdExpertNew/basicInfo")
     fun getExpert(@Query("expertId") expertId: Long): Single<Expert>
+
+//    api/v1/jdJdjgSp/expert?page=1&pageSize=10
+
+    @GET("api/v1/jdJdjgSp/expert")
+    fun getShjlExpertList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Shjl>>
+
 
 
     // 字典

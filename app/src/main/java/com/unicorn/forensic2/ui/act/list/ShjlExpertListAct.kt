@@ -10,7 +10,7 @@ import com.unicorn.forensic2.ui.base.SimplePageAct
 import io.reactivex.Single
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
-class ShjlJdjgListAct : SimplePageAct<Shjl, KVHolder>() {
+class ShjlExpertListAct : SimplePageAct<Shjl, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
@@ -20,6 +20,6 @@ class ShjlJdjgListAct : SimplePageAct<Shjl, KVHolder>() {
 
     override val simpleAdapter: BaseQuickAdapter<Shjl, KVHolder> = ShjlAdapter()
 
-    override fun loadPage(page: Int): Single<Page<Shjl>> = v1Api.getShjlJdjgList(page = page)
+    override fun loadPage(page: Int): Single<Page<Shjl>> = v1Api.getShjlExpertList(page = page)
 
 }

@@ -3,12 +3,11 @@ package com.unicorn.forensic2.ui.act
 import android.view.View
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Expert
+import com.unicorn.forensic2.ui.act.list.ShjlExpertListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
@@ -30,8 +29,8 @@ class ExpertGuideAct : BaseAct() {
 //        ivJdry.clicks().mergeWith(tvJdry.clicks()).subscribe { startAct(JdryMyListAct::class.java) }
 
 //        ivTjsh.clicks().mergeWith(tvTjsh.clicks()).subscribe { showSubmitAuditConfirm() }
-//        ivShjl.clicks().mergeWith(tvShjl.clicks())
-//            .subscribe { startAct(ShjlJdjgListAct::class.java) }
+        tvShjl.safeClicks().subscribe { startAct(ShjlExpertListAct::class.java) }
+
         getExpert()
     }
 

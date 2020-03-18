@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.data.model
 
-data class ShjlJdjg(
+data class Shjl(
     val createdDate: Long,
     val dataflag: Int,
     val id: String,

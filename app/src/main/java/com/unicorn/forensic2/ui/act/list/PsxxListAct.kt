@@ -4,9 +4,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.data.model.Psxx
-import com.unicorn.forensic2.data.model.ShjlJdjg
 import com.unicorn.forensic2.ui.adapter.PsxxAdapter
-import com.unicorn.forensic2.ui.adapter.ShjlJdjgAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
 import io.reactivex.Single
