@@ -12,7 +12,7 @@ import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.param.addOrEdit.JdryMyAddParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
-import kotlinx.android.synthetic.main.act_jdry_my_add_picture.*
+import kotlinx.android.synthetic.main.act_jdry_my_add_or_edit_picture.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -113,6 +113,6 @@ class JdryMyAddPictureAct : BaseAct() {
 
     private val param by lazy { intent.getSerializableExtra(Param) as JdryMyAddParam }
 
-    override val layoutId = R.layout.act_jdry_my_add_picture
+    override val layoutId = R.layout.act_jdry_my_add_or_edit_picture
 
 }

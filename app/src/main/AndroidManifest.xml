@@ -47,7 +47,8 @@
         <activity android:name=".ui.act.addOrEdit.JdryMyAddPictureAct" />
         <activity android:name=".ui.act.addOrEdit.JdryMyEditAct" />
         <activity android:name=".ui.act.addOrEdit.JdryMyEditPictureAct" />
-        <activity android:name=".ui.act.addOrEdit.JdjgMyEditAct"/>
+        <activity android:name=".ui.act.addOrEdit.JdjgMyEditAct" />
+        <activity android:name=".ui.act.addOrEdit.JdjgMyEditPictureAct" />
     </application>
 
 </manifest>

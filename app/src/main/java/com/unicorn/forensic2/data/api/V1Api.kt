@@ -92,12 +92,16 @@ interface V1Api {
     fun deleteJdry(@Path("objectId") objectId: String): Single<GeneralResponse>
 //    http://192.168.7.69:8088/sfjdwww/api/v1/jdJdjg/updateBasicInfo
 
+
+//    api/v1/jdJdjg/basicInfo?jgid=b179e68a-a47b-45f4-bb62-3901959b18f2
     @Multipart
     @POST("api/v1/jdJdjg/updateBasicInfo")
     fun editJdjgMy(
+        @Query("jgid") jgId:String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
         @Part vararg parts: MultipartBody.Part
     ): Single<GeneralResponse>
+
 
 
     // 字典

@@ -2,16 +2,18 @@ package com.unicorn.forensic2.ui.act.addOrEdit
 
 import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.jakewharton.rxbinding3.widget.textChanges
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Param
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Jdjg
+import com.unicorn.forensic2.data.model.TreeResult
+import com.unicorn.forensic2.ui.act.CylyTreeAct
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdjg_my_edit.*
 
@@ -83,8 +85,17 @@ class JdjgMyEditAct : BaseAct() {
                     }
                 )
         }
+        tvJgszd.safeClicks().subscribe { startAct(CylyTreeAct::class.java) }
+        tvClsj.safeClicks().subscribe {
+            MaterialDialog(this).show {
+                datePicker { _, date ->
+                    jdjg.clsj = date.time.time
+                    this@JdjgMyEditAct.tvClsj.text = jdjg.clsj.toDisplayFormat()
+                }
+            }
+        }
         rtvNextStep.safeClicks().subscribe {
-            Intent(this@JdjgMyEditAct, JdryMyEditPictureAct::class.java).apply {
+            Intent(this@JdjgMyEditAct, JdjgMyEditPictureAct::class.java).apply {
                 putExtra(Param, jdjg)
             }.let { startActivity(it) }
         }
@@ -109,6 +120,20 @@ class JdjgMyEditAct : BaseAct() {
         etBankName.textChanges().map { it.toString() }.subscribe { jdjg.bankname = it }
         etBankAccount.textChanges().map { it.toString() }.subscribe { jdjg.bankaccount = it }
         etZwpj.textChanges().map { it.toString() }.subscribe { jdjg.zwpj = it }
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this, TreeResult::class.java, Consumer {
+            when (it.key) {
+                Cyly -> {
+                    jdjg.jgszdId = it.dict.id
+                    tvJgszd.text = it.dict.name
+                }
+            }
+        })
+        RxBus.registerEvent(this, RefreshEvent::class.java, Consumer {
+            finish()
+        })
     }
 
     private val jdjg by lazy { intent.getSerializableExtra(Param) as Jdjg }
