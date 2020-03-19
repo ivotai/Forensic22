@@ -11,7 +11,7 @@ import io.reactivex.Single
 
 class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
-    private var caseType = CaseType.MyCase
+    private var caseType = CaseType.Dsr
 
     override val simpleAdapter = CaseAdapter()
 

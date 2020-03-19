@@ -13,7 +13,8 @@ class CaseMainFra : BaseFra() {
     private val caseTypeAdapter = CaseTypeAdapter()
 
     override fun initViews() {
-        rvHomeMenu.apply {
+        titleBar.setTitle("案件", false)
+        rvCaseType.apply {
             layoutManager = LinearLayoutManager(context)
             caseTypeAdapter.bindToRecyclerView(this)
             addDefaultItemDecoration(1)

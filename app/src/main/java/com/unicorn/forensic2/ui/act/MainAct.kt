@@ -5,6 +5,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
+import com.unicorn.forensic2.data.event.ShowCaseEvent
 import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -32,6 +33,9 @@ class MainAct : BaseAct() {
         RxBus.registerEvent(this, LoginStateChangeEvent::class.java, Consumer {
             mainPagerAdapter.notifyDataSetChanged()
             notifyTabs()
+        })
+        RxBus.registerEvent(this,ShowCaseEvent::class.java, Consumer {
+            viewPaper.setCurrentItem(1,true)
         })
     }
 

@@ -1,12 +1,26 @@
 package com.unicorn.forensic2.data.model
 
+import com.unicorn.forensic2.app.user
+
 enum class CaseType(val namez: String) {
-    DjdList("机构"),
-    DpsList("专家"),
-    MyCase("当事人")
+    Jg("机构"),
+    Zj("专家"),
+    Dsr("当事人")
     ;
 
     companion object {
-        val all get() = listOf(DjdList, DpsList, MyCase)
+        val all
+            get() = ArrayList<CaseType>().apply {
+                add(Jg)
+                add(Zj)
+                add(Dsr)
+                if (!user.JdjgAdmin)
+                    remove(Jg)
+                if (!user.Normal)
+                    remove(Dsr)
+                if (!user.Pszj)
+                    remove(Zj)
+            }
     }
+
 }
