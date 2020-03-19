@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:background="@color/md_white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ContentDescription,HardcodedText,SpUsage">
+
+    <TextView
+        android:id="@+id/lJdlb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="鉴定类别："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lZczyh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="注册执业号："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lJdlb"
+        app:layout_constraintTop_toBottomOf="@+id/lJdlb" />
+
+    <TextView
+        android:id="@+id/lGrzc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="个人职称："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lZczyh"
+        app:layout_constraintTop_toBottomOf="@+id/lZczyh" />
+
+    <TextView
+        android:id="@+id/lZyzsyxq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="有效日期："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lGrzc"
+        app:layout_constraintTop_toBottomOf="@+id/lGrzc" />
+
+    <TextView
+        android:id="@+id/tvJdlb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="鉴定类别："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lJdlb" />
+
+    <TextView
+        android:id="@+id/tvZczyh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册执业号："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvJdlb"
+        app:layout_constraintTop_toTopOf="@+id/lZczyh" />
+
+    <TextView
+        android:id="@+id/tvGrzc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="个人职称："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvZczyh"
+        app:layout_constraintTop_toTopOf="@+id/lGrzc" />
+
+    <TextView
+        android:id="@+id/tvZyzsyxq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有效日期："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvGrzc"
+        app:layout_constraintTop_toTopOf="@+id/lZyzsyxq" />
+
+    <TextView
+        android:id="@+id/tvDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="删除"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvZyzsyxq" />
+
+    <TextView
+        android:id="@+id/tvEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="编辑"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDelete"
+        app:layout_constraintEnd_toStartOf="@+id/tvDelete"
+        app:layout_constraintTop_toTopOf="@+id/tvDelete" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

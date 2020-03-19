@@ -10,6 +10,7 @@ import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Expert
 import com.unicorn.forensic2.ui.act.addOrEdit.ExpertEditAct
 import com.unicorn.forensic2.ui.act.list.ShjlExpertListAct
+import com.unicorn.forensic2.ui.act.list.ZjzzListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
@@ -18,21 +19,16 @@ import kotlinx.android.synthetic.main.act_expert_guide.*
 class ExpertGuideAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("专家")
+        titleBar.setTitle("专家信息")
     }
 
     override fun bindIntent() {
-//        ivJgxx.clicks().mergeWith(tvJgxx.clicks()).subscribe {
-//            Intent(this@ExpertGuideAct, JdjgMyEditAct::class.java).apply {
-//                putExtra(Param, expert)
-//            }.let { startActivity(it) }
-//        }
-
         tvBasicInfo.safeClicks().subscribe {
             Intent(this@ExpertGuideAct, ExpertEditAct::class.java).apply {
                 putExtra(Param, expert)
             }.let { startActivity(it) }
         }
+        tvZjzz.safeClicks().subscribe { startAct(ZjzzListAct::class.java) }
         tvShjl.safeClicks().subscribe { startAct(ShjlExpertListAct::class.java) }
 
         getExpert()

@@ -124,6 +124,8 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
+    @GET("api/v1/jdExpertZzNew")
+    fun getZjzzList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Zjzz>>
 
     // 字典
     // 鉴定类别
