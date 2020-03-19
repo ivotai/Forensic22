@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.ui.act
 
+import android.content.Intent
 import android.view.View
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
@@ -7,6 +8,7 @@ import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Expert
+import com.unicorn.forensic2.ui.act.addOrEdit.ExpertEditAct
 import com.unicorn.forensic2.ui.act.list.ShjlExpertListAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -25,10 +27,12 @@ class ExpertGuideAct : BaseAct() {
 //                putExtra(Param, expert)
 //            }.let { startActivity(it) }
 //        }
-//        ivJgzz.clicks().mergeWith(tvJgzz.clicks()).subscribe { startAct(JgzzMyListAct::class.java) }
-//        ivJdry.clicks().mergeWith(tvJdry.clicks()).subscribe { startAct(JdryMyListAct::class.java) }
 
-//        ivTjsh.clicks().mergeWith(tvTjsh.clicks()).subscribe { showSubmitAuditConfirm() }
+        tvBasicInfo.safeClicks().subscribe {
+            Intent(this@ExpertGuideAct, ExpertEditAct::class.java).apply {
+                putExtra(Param, expert)
+            }.let { startActivity(it) }
+        }
         tvShjl.safeClicks().subscribe { startAct(ShjlExpertListAct::class.java) }
 
         getExpert()

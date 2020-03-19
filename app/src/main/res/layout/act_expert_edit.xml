@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.unicorn.forensic2.ui.other.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="专家姓名:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etExpertName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入专家姓名"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="身份证号:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etSfzh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入身份证号"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="手机号码:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入手机号码"
+                android:inputType="phone"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="邮箱:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入邮箱"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="地址:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etAddr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入地址"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="专业描述:"
+                android:textColor="@color/md_grey_500"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/etZyms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@null"
+                android:hint="请输入专业描述"
+                android:inputType="text"
+                android:textColor="@color/md_black"
+                android:textColorHint="@color/md_black"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_margin="16dp"
+                android:background="@color/md_grey_300" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,20 +1,22 @@
 package com.unicorn.forensic2.data.model
 
+import java.io.Serializable
+
 data class Expert(
-    val addr: String,
+    var addr: String,
     val createdDate: Long,
-    val email: String,
-    val expertName: String,
+    var email: String,
+    var expertName: String,
     val fidphoto: Fidphoto,
     val fidphotoid: String,
     val lastUpdateDate: Long,
     val objectId: String,
-    val phoneNumber: String,
-    val sfzh: String,
+    var phoneNumber: String,
+    var sfzh: String,
     val status: Int,
     val userId: String,
-    val zyms: String
-)
+    var zyms: String
+): Serializable
 
 data class Fidphoto(
     val attachedkey1: String,
@@ -24,4 +26,4 @@ data class Fidphoto(
     val filetype: String,
     val uploadat: Long,
     val uploadby: String
-)
+): Serializable

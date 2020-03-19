@@ -54,6 +54,7 @@
 
         <activity android:name=".ui.act.ExpertGuideAct" />
         <activity android:name=".ui.act.list.ShjlExpertListAct" />
+        <activity android:name=".ui.act.addOrEdit.ExpertEditAct" />
     </application>
 
 </manifest>
