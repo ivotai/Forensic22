@@ -2,7 +2,8 @@ package com.unicorn.forensic2.data.model
 
 import com.unicorn.forensic2.app.user
 
-enum class CaseType(val namez: String) {
+enum class CaseType(val text: String) {
+    None(""),
     Jg("机构"),
     Zj("专家"),
     Dsr("当事人")
@@ -21,6 +22,10 @@ enum class CaseType(val namez: String) {
                 if (!user.Pszj)
                     remove(Zj)
             }
+
+        val default
+            get() = if (all.isEmpty()) None else all[0]
+
     }
 
 }

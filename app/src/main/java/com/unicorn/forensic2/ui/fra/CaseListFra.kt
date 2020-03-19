@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.ui.fra
 
+import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
@@ -8,10 +9,11 @@ import com.unicorn.forensic2.ui.adapter.CaseAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageFra
 import io.reactivex.Single
+import io.reactivex.functions.Consumer
 
 class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
-    private var caseType = CaseType.Dsr
+    private var caseType = CaseType.default
 
     override val simpleAdapter = CaseAdapter()
 
@@ -20,6 +22,13 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     override fun initViews() {
         super.initViews()
         mRecyclerView.addDefaultItemDecoration(1)
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this, CaseType::class.java, Consumer {
+            caseType = it
+            loadFirstPage()
+        })
     }
 
 }
