@@ -3,6 +3,8 @@ package com.unicorn.forensic2.ui.act.addOrEdit
 import com.jakewharton.rxbinding3.widget.textChanges
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
+import com.unicorn.forensic2.app.helper.PictureHelper
+import com.unicorn.forensic2.app.pictureBaseUrl
 import com.unicorn.forensic2.data.model.Expert
 import com.unicorn.forensic2.ui.base.BaseAct
 import kotlinx.android.synthetic.main.act_expert_edit.*
@@ -21,6 +23,7 @@ class ExpertEditAct : BaseAct() {
             etEmail.setText(email)
             etAddr.setText(addr)
             etZyms.setText(zyms)
+            PictureHelper.load(this@ExpertEditAct, "$pictureBaseUrl${fidphotoid}").into(ivFidphoto)
         }
         display()
 
