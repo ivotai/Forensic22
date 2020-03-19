@@ -113,11 +113,16 @@ interface V1Api {
     @GET("api/v1/jdExpertNew/basicInfo")
     fun getExpert(@Query("expertId") expertId: Long): Single<Expert>
 
-//    api/v1/jdJdjgSp/expert?page=1&pageSize=10
-
     @GET("api/v1/jdJdjgSp/expert")
     fun getShjlExpertList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Shjl>>
 
+    @Multipart
+    @POST("api/v1/jdExpertNew/{objectId}")
+    fun editExpert(
+        @Path("objectId") jdryId: String,
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part?
+    ): Single<GeneralResponse>
 
 
     // 字典

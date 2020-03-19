@@ -8,6 +8,7 @@ data class Expert(
     var email: String,
     var expertName: String,
     val fidphoto: Fidphoto,
+    var fid_photo: String = "",
     val fidphotoid: String,
     val lastUpdateDate: Long,
     val objectId: String,
@@ -16,7 +17,7 @@ data class Expert(
     val status: Int,
     val userId: String,
     var zyms: String
-): Serializable
+) : Serializable
 
 data class Fidphoto(
     val attachedkey1: String,
@@ -26,4 +27,4 @@ data class Fidphoto(
     val filetype: String,
     val uploadat: Long,
     val uploadby: String
-): Serializable
+) : Serializable
