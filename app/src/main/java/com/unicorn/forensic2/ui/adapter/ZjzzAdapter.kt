@@ -1,17 +1,16 @@
 package com.unicorn.forensic2.ui.adapter
 
+import android.content.Intent
 import androidx.lifecycle.LifecycleOwner
 import com.afollestad.materialdialogs.MaterialDialog
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.di.ComponentHolder
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Zjzz
+import com.unicorn.forensic2.ui.act.addOrEdit.ZjzzEditAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_zjzz.*
@@ -26,6 +25,11 @@ class ZjzzAdapter : BaseQuickAdapter<Zjzz, KVHolder>(R.layout.item_zjzz) {
             tvZyzsyxq.text = item.zyzsyxq.toDisplayFormat()
         }
         helper.apply {
+            tvEdit.safeClicks().subscribe {
+                Intent(mContext,ZjzzEditAct::class.java).apply {
+                    putExtra(Param,item)
+                }.let { mContext.startActivity(it) }
+            }
             tvDelete.safeClicks().subscribe { showDeleteConfirm(item.objectId) }
         }
     }

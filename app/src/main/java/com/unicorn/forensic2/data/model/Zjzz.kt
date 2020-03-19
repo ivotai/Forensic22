@@ -1,5 +1,7 @@
 package com.unicorn.forensic2.data.model
 
+import java.io.Serializable
+
 data class Zjzz(
     val createdDate: Long,
     val eid: String,
@@ -17,7 +19,7 @@ data class Zjzz(
     val status: Int,
     val zczyh: String,
     val zyzsyxq: Long
-)
+): Serializable
 
 data class Fidzczs(
     val attachedkey1: String,
@@ -28,7 +30,7 @@ data class Fidzczs(
     val filetype: String,
     val uploadat: Long,
     val uploadby: String
-)
+): Serializable
 
 data class Fidzyzs(
     val attachedkey1: String,
@@ -39,4 +41,4 @@ data class Fidzyzs(
     val filetype: String,
     val uploadat: Long,
     val uploadby: String
-)
+): Serializable

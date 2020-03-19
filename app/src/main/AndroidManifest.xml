@@ -57,6 +57,7 @@
         <activity android:name=".ui.act.addOrEdit.ExpertEditAct" />
         <activity android:name=".ui.act.list.ZjzzListAct" />
         <activity android:name=".ui.act.addOrEdit.ZjzzAddAct" />
+        <activity android:name=".ui.act.addOrEdit.ZjzzEditAct" />
     </application>
 
 </manifest>

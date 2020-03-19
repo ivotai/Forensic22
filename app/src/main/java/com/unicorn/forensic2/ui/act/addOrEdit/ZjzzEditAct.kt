@@ -13,7 +13,8 @@ import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.TreeResult
-import com.unicorn.forensic2.data.model.param.addOrEdit.ZjzzAddParam
+import com.unicorn.forensic2.data.model.Zjzz
+import com.unicorn.forensic2.data.model.param.addOrEdit.ZjzzEditParam
 import com.unicorn.forensic2.ui.act.JdlbTreeAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -26,33 +27,53 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class ZjzzAddAct : BaseAct() {
+class ZjzzEditAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("添加专家资质")
+        titleBar.setTitle("编辑专家资质")
+
+        fun display() = with(zjzz){
+            tvJdlb.text = jdlb
+            etGrzc.setText(grzc)
+            etZczyh.setText(zczyh)
+            tvZyzsyxq.text =zyzsyxq.toDisplayFormat()
+            PictureHelper.load(this@ZjzzEditAct,"$pictureBaseUrl${fidzyzsid}").into(ivZyzs)
+            PictureHelper.load(this@ZjzzEditAct,"$pictureBaseUrl${fidzczsid}").into(ivZczs)
+        }
+        display()
     }
 
     override fun bindIntent() {
+        fun initZjzzEditParam() = with(zjzz){
+            zjzzEditParam = ZjzzEditParam(
+                jdlbId = jdlbId,
+                grzc = grzc,
+                zczyh = zczyh,
+                zyzsyxq = zyzsyxq.toDisplayFormat()
+            )
+        }
+        initZjzzEditParam()
+
         tvJdlb.safeClicks().subscribe { startAct(JdlbTreeAct::class.java) }
-        etGrzc.textChanges().map { it.toString() }.subscribe { zjzzAddParam.grzc = it }
-        etZczyh.textChanges().map { it.toString() }.subscribe { zjzzAddParam.zczyh = it }
+        etGrzc.textChanges().map { it.toString() }.subscribe { zjzzEditParam.grzc = it }
+        etZczyh.textChanges().map { it.toString() }.subscribe { zjzzEditParam.zczyh = it }
         tvZyzsyxq.safeClicks().subscribe {
             MaterialDialog(this).show {
                 datePicker { _, date ->
                     val dateStr = date.time.time.toDisplayFormat()
-                    zjzzAddParam.zyzsyxq = dateStr
-                    this@ZjzzAddAct.tvZyzsyxq.text = dateStr
+                    zjzzEditParam.zyzsyxq = dateStr
+                    this@ZjzzEditAct.tvZyzsyxq.text = dateStr
                 }
             }
         }
         ivZyzs.safeClicks().subscribe {
             PictureHelper.selectPicture(
-                this@ZjzzAddAct,
+                this@ZjzzEditAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
-                        zjzzAddParam.fid_zyzs = realPath
-                        Glide.with(this@ZjzzAddAct).load(realPath).into(ivZyzs)
+                        zjzzEditParam.fid_zyzs = realPath
+                        Glide.with(this@ZjzzEditAct).load(realPath).into(ivZyzs)
                     }
 
                     override fun onCancel() {
@@ -61,12 +82,12 @@ class ZjzzAddAct : BaseAct() {
         }
         ivZczs.safeClicks().subscribe {
             PictureHelper.selectPicture(
-                this@ZjzzAddAct,
+                this@ZjzzEditAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
-                        zjzzAddParam.fid_zczs = realPath
-                        Glide.with(this@ZjzzAddAct).load(realPath).into(ivZczs)
+                        zjzzEditParam.fid_zczs = realPath
+                        Glide.with(this@ZjzzEditAct).load(realPath).into(ivZczs)
                     }
 
                     override fun onCancel() {
@@ -74,7 +95,7 @@ class ZjzzAddAct : BaseAct() {
                 })
         }
 
-        fun save() = with(zjzzAddParam) {
+        fun save() = with(zjzzEditParam) {
             val map = HashMap<String, RequestBody>()
             map["jdlbId"] = jdlbId.toRequestBody(TextOrPlain)
             map["zczyh"] = zczyh.toRequestBody(TextOrPlain)
@@ -98,9 +119,9 @@ class ZjzzAddAct : BaseAct() {
                     File(fid_zczs).asRequestBody("image/*".toMediaType())
                 )
             }
-            val mask = DialogHelper.showMask(this@ZjzzAddAct)
+            val mask = DialogHelper.showMask(this@ZjzzEditAct)
             v1Api.addZjzz(map, part1, part2)
-                .observeOnMain(this@ZjzzAddAct)
+                .observeOnMain(this@ZjzzEditAct)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
@@ -120,7 +141,7 @@ class ZjzzAddAct : BaseAct() {
         }
 
         titleBar.setOperation("保存").safeClicks().subscribe {
-            with(zjzzAddParam) {
+            with(zjzzEditParam) {
                 if (jdlbId.isBlank()) {
                     ToastUtils.showShort("请选择鉴定类别")
                     return@subscribe
@@ -144,12 +165,14 @@ class ZjzzAddAct : BaseAct() {
 
     override fun registerEvent() {
         RxBus.registerEvent(this, TreeResult::class.java, Consumer {
-            zjzzAddParam.jdlbId = it.dict.id
+            zjzzEditParam.jdlbId = it.dict.id
             tvJdlb.text = it.dict.name
         })
     }
 
-    private val zjzzAddParam = ZjzzAddParam()
+    private lateinit var zjzzEditParam:ZjzzEditParam
+
+    private val zjzz by  lazy { intent.getSerializableExtra(Param) as Zjzz }
 
     override val layoutId = R.layout.act_zjzz_add_or_edit
 
