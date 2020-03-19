@@ -132,6 +132,10 @@ interface V1Api {
     @POST("api/v1/jdExpertZzNew")
     fun addZjzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part?): Single<GeneralResponse>
 
+    @DELETE("api/v1/jdExpertZzNew/{objectId}")
+    fun deleteZjzz(@Path("objectId") objectId: String): Single<GeneralResponse>
+
+
     // 字典
     // 鉴定类别
     @GET("category/jdlb")
