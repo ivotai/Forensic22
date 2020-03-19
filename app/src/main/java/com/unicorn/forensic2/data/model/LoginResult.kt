@@ -17,7 +17,7 @@ data class User(
     val Sfjd: Boolean,
     val id: Long,
     val expertId:Long,
-    val realName: Boolean,
+    val realName: Boolean,  // 1已认证 2未认证
     val roleTag: String,
     val roles: List<String>,
     val username: String
