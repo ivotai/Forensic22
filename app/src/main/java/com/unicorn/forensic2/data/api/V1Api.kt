@@ -62,7 +62,7 @@ interface V1Api {
     // 鉴定资质
     @Multipart
     @POST("api/v1/jdJdjgzzNew")
-    fun createJgzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
+    fun createJgzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part?): Single<GeneralResponse>
 
     @DELETE("api/v1/jdJdjgzzNew/{objectId}")
     fun deleteJgzz(@Path("objectId") objectId: String): Single<GeneralResponse>
@@ -124,8 +124,13 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
+    // 专家资质
     @GET("api/v1/jdExpertZzNew")
     fun getZjzzList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Zjzz>>
+
+    @Multipart
+    @POST("api/v1/jdExpertZzNew")
+    fun addZjzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part?): Single<GeneralResponse>
 
     // 字典
     // 鉴定类别
