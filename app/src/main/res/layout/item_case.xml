@@ -3,48 +3,143 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
-    android:background="@color/md_white"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/md_white"
     tools:ignore="ContentDescription,HardcodedText,SpUsage">
 
     <TextView
+        android:background="@color/md_grey_100"
+        android:padding="16dp"
         android:id="@+id/tvJdNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="鉴定案号"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvCourtNameAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="end"
+        android:text="办案法院："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvCaseNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvCaseNo" />
+
+    <TextView
+        android:id="@+id/lCourtNameAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="办案法院："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lCaseNo"
+        app:layout_constraintTop_toTopOf="@+id/tvCourtNameAccept" />
+
+    <TextView
+        android:id="@+id/lCourtNameApply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="鉴定案号"
+        android:text="鉴定法院："
         android:textColor="@color/md_black"
         android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJdNo" />
 
     <TextView
-        android:id="@+id/tvLarq"
+        android:id="@+id/lCaseType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="立案时间"
+        android:text="鉴定类型："
         android:textColor="@color/md_black"
         android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/tvJdNo"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdNo" />
+        app:layout_constraintStart_toStartOf="@+id/lCourtNameApply"
+        app:layout_constraintTop_toBottomOf="@+id/lCourtNameApply" />
+
+    <TextView
+        android:id="@+id/lCaseStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="当前状态："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lCaseType"
+        app:layout_constraintTop_toBottomOf="@+id/lCaseType" />
+
+    <TextView
+        android:id="@+id/lCaseNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="案件案号："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lCaseStatus"
+        app:layout_constraintTop_toBottomOf="@+id/lCaseStatus" />
+
+    <TextView
+        android:id="@+id/tvCourtNameApply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="鉴定法院："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lCourtNameApply" />
+
+    <TextView
+        android:id="@+id/tvCaseType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="鉴定类型："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCourtNameApply"
+        app:layout_constraintTop_toTopOf="@+id/lCaseType" />
+
+    <TextView
+        android:id="@+id/tvCaseStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前状态："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCaseType"
+        app:layout_constraintTop_toTopOf="@+id/lCaseStatus" />
 
     <TextView
         android:id="@+id/tvCaseNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="案号"
+        android:text="案件案号："
         android:textColor="@color/md_black"
         android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvJdNo"
-        app:layout_constraintTop_toBottomOf="@+id/tvLarq"
-        app:layout_constraintVertical_bias="0.361" />
+        app:layout_constraintEnd_toEndOf="@+id/tvCaseStatus"
+        app:layout_constraintTop_toTopOf="@+id/lCaseNo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
