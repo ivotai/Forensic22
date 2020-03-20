@@ -34,7 +34,7 @@ interface V1Api {
         @Query("caseId") caseId: String,
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int = defaultPageSize
-    ): Single<Page<Case>>
+    ): Single<Page<CaseProcess>>
 
     // 鉴定机构
     // 鉴定机构公共列表
