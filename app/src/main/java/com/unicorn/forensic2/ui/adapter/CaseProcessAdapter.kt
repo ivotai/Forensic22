@@ -11,7 +11,7 @@ class CaseProcessAdapter : BaseQuickAdapter<CaseProcess, KVHolder>(R.layout.item
 
     override fun convert(helper: KVHolder, item: CaseProcess) {
         helper.apply {
-            tvAction.text = item.action
+            tvStatusDb.text = item.status
             tvAcceptDttm.text = item.acceptDttm.toDisplayFormat()
             tvHandler.text = item.handler
             tvHandleDttm.text = item.handleDttm.toDisplayFormat()
