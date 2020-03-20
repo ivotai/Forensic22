@@ -1,2 +1,6 @@
 1. 超时重连。
-2. HomeMenu 逻辑待测试。
+2. HomeMenu 逻辑待调整。
+
+todo
+1. CaseAdapter item_case
+

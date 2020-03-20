@@ -1,44 +1,57 @@
 package com.unicorn.forensic2.data.model
 
-import java.util.*
-
 data class Case(
+    val ay: String,
+    val bafg: String,
+    val bafgId: String,
     val caseId: String,
     val caseNo: String,
+    val caseNode: String,
+    val caseNodeDb: Int,
+    val caseSource: String,
     val caseStatus: String,
-    val caseStatus2: String,
     val caseStatusDb: Int,
     val caseType: String,
     val caseTypeDb: Int,
+    val closeTypeDisplay: String,
+    val courtAccept: String,
+    val courtApply: String,
+    val courtLxdhAccept: String,
+    val courtNameAccept: String,
+    val courtNameApply: String,
+    val dateApply: Long,
+    val dateLottery: Long,
+    val dateReply: Long,
+    val dateStart: Long,
+    val fee: Double,
+    val fidjdbg: String,
+    val fidjfqd: String,
+    val fidsfbz: String,
+    val fidyhhf: String,
+    val idx: String,
+    val isAgain: Boolean,
     val isParty: Boolean,
-    val isReexpertise: Boolean,
-    val jafs: String,
-    val jarq: Date,
+    val isTrial: Boolean,
     val jdNo: String,
     val jdlb: String,
+    val jdlb0: String,
     val jdlbId: String,
-    val larq: Date,
-    val lstCasePerson: List<LstCasePerson>,
-    val lstCaseProcess: List<CaseProcess>
-)
-
-data class LstCasePerson(
-    val caseId: String,
-    val casePersonId: String,
-    val name: String,
-    val status: String,
-    val statusFlag: Int
-)
-
-data class CaseProcess(
-    val acceptAt: String,
-    val caseId: String,
-    val handledAt: String,
-    val handledById: String,
-    val handledByName: String,
-    val idx: Int,
-    val processId: String,
+    val jdlbId0: Int,
+    val jdryid: String,
+    val jdryxm: String,
+    val jgid: String,
+    val jgmc: String,
+    val lid: String,
+    val lotteryStatus: String,
+    val lotteryStatusDb: Int,
+    val lotteryType: Int,
+    val operaPerson: String,
+    val plaintiff: String,
+    val planFinish: Long,
+    val reasonAppoint: String,
     val remark: String,
-    val status: String,
-    val statusDb: Int
+    val rollMode: Int,
+    val updateDttm: Long,
+    val zbr: String,
+    val zbrId: String
 )

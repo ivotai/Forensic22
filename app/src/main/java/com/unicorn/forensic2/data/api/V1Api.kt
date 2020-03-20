@@ -21,8 +21,13 @@ interface V1Api {
     // 案件
     // 机构案件
     @GET("api/v1/jdLottery/djdList")
-    fun getDjdList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
+    fun getCaseJgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
 
+    @GET("api/v1/jdReview/dpsList")
+    fun getCaseZjList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
+
+    @GET("api/v1/jdCase/myCase")
+    fun getCaseDsrList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
 
     // 鉴定机构
     // 鉴定机构公共列表
