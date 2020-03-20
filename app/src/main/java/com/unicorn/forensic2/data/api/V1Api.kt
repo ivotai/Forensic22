@@ -29,6 +29,13 @@ interface V1Api {
     @GET("api/v1/jdCase/myCase")
     fun getCaseDsrList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
 
+    @GET("api/v1/jdProcess")
+    fun getCaseProcessList(
+        @Query("caseId") caseId: String,
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Case>>
+
     // 鉴定机构
     // 鉴定机构公共列表
     @GET("public/jgList")

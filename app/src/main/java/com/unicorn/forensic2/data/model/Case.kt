@@ -1,5 +1,7 @@
 package com.unicorn.forensic2.data.model
 
+import java.io.Serializable
+
 data class Case(
     val ay: String,
     val bafg: String,
@@ -54,4 +56,4 @@ data class Case(
     val updateDttm: Long,
     val zbr: String,
     val zbrId: String
-)
+) : Serializable

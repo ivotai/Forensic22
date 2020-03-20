@@ -2,5 +2,9 @@
 2. HomeMenu 逻辑待调整。
 
 todo
+1. 案件三种 list 返回不一致。
+
+
+todo
 1. CaseAdapter item_case
 

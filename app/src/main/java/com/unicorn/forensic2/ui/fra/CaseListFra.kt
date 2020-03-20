@@ -17,15 +17,17 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
     override val simpleAdapter = CaseAdapter()
 
-    override fun loadPage(page: Int): Single<Page<Case>> = when (caseType) {
-        CaseType.Jg -> api.getCaseJgList(page)
-        CaseType.Dsr -> api.getCaseDsrList(page)
-        CaseType.Zj -> api.getCaseJgList(page)
-        CaseType.None -> Single.create {
-            Page<Case>(
-                content = ArrayList(),
-                totalElements = 0.toString()
-            )
+    override fun loadPage(page: Int): Single<Page<Case>> {
+        return when (caseType) {
+            CaseType.Jg -> api.getCaseJgList(page)
+            CaseType.Dsr -> api.getCaseDsrList(page)
+            CaseType.Zj -> api.getCaseZjList(page)
+            CaseType.None -> Single.create {
+                Page<Case>(
+                    content = ArrayList(),
+                    totalElements = 0.toString()
+                )
+            }
         }
     }
 
