@@ -8,6 +8,7 @@ import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
+import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
@@ -17,6 +18,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
         super.initViews()
         titleBar.setTitle("案件详情")
         mRecyclerView.addDefaultItemDecoration(1)
+        simpleAdapter.addHeaderView(CaseDetailHeader(this,case))
     }
 
     override fun bindIntent() {

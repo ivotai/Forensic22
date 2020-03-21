@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md_grey_300"
+    tools:ignore="HardcodedText,SpUsage,contentDescription">
+
+    <LinearLayout
+        android:background="@color/md_grey_100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/wdaj"/>
+
+        <TextView
+            android:layout_marginStart="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="案件基本信息"
+            android:textColor="@color/md_black"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="鉴定案号"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvJdNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鉴定案号"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="案件案号"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvCaseNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="案件案号"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="案件状态"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvCaseStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="案件状态"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="立案日期"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvDateAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="立案日期"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="结案日期"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvDateClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="结案日期"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="结案方式"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvCloseTypeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="结案方式"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:background="@color/md_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="相关人员"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+        <TextView
+            android:id="@+id/tvJdryxm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相关人员"
+            android:textColor="@color/md_black"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/md_grey_100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/process"/>
+
+        <TextView
+            android:layout_marginStart="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="案件流程进展"
+            android:textColor="@color/md_black"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
