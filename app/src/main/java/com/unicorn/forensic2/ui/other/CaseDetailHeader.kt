@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.model.Case
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.header_case_detail.view.*
@@ -19,9 +20,8 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             tvJdNo.text = jdNo
             tvCaseNo.text = caseNo
             tvCaseStatus.text = caseStatus
-            // todo
-            tvDateAccept.text = ""
-            tvDateClose.text = ""
+            tvDateApply.text = dateApply.toDisplayFormat()
+            tvPlanFinish.text = planFinish.toDisplayFormat()
             tvCloseTypeDisplay.text = closeTypeDisplay
             tvJdryxm.text = jdryxm
         }

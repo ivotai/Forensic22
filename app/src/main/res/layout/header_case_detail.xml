@@ -124,7 +124,7 @@
             android:textSize="16dp"/>
 
         <TextView
-            android:id="@+id/tvDateAccept"
+            android:id="@+id/tvDateApply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="立案日期"
@@ -150,7 +150,7 @@
             android:textSize="16dp"/>
 
         <TextView
-            android:id="@+id/tvDateClose"
+            android:id="@+id/tvPlanFinish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="结案日期"
