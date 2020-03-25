@@ -51,15 +51,14 @@
         <activity android:name=".ui.act.addOrEdit.JdjgMyEditPictureAct" />
         <activity android:name=".ui.act.list.ShjlJdjgListAct" />
         <activity android:name=".ui.act.list.PsxxListAct" />
-
         <activity android:name=".ui.act.ExpertGuideAct" />
         <activity android:name=".ui.act.list.ShjlExpertListAct" />
         <activity android:name=".ui.act.addOrEdit.ExpertEditAct" />
         <activity android:name=".ui.act.list.ZjzzListAct" />
         <activity android:name=".ui.act.addOrEdit.ZjzzAddAct" />
         <activity android:name=".ui.act.addOrEdit.ZjzzEditAct" />
-
         <activity android:name=".ui.act.CaseDetailAct" />
+        <activity android:name=".ui.act.list.RollListAct" />
     </application>
 
 </manifest>

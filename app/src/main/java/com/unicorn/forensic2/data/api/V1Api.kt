@@ -59,11 +59,11 @@ interface V1Api {
     // 投诉建议
     // 已回复投诉建议列表
     @GET("api/v1/tsjy/reply")
-    fun getTsjyYhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Tsjy>>
+    fun getTsjyYhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Tsjy>>
 
     // 未回复投诉建议列表
     @GET("api/v1/tsjy/noReply")
-    fun getTsjyWhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Tsjy>>
+    fun getTsjyWhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Tsjy>>
 
     @POST("api/v1/tsjy")
     fun addTsjy(@Body addTsjyParam: AddTsjyParam): Single<GeneralResponse>
@@ -146,6 +146,10 @@ interface V1Api {
 
     @DELETE("api/v1/jdExpertZzNew/{objectId}")
     fun deleteZjzz(@Path("objectId") objectId: String): Single<GeneralResponse>
+
+    // 摇号列表
+    @GET("public/rollList")
+    fun getRollList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Roll>>
 
 
     // 字典

@@ -25,7 +25,7 @@ val defaultPadding = ConvertUtils.dp2px(16f)
 
 //const val originalBaseUrl = "http://renjiawen1988.vicp.cc:33333/JudicialExpertise" +
 //        "V3Public/"
-const val baseUrl = "http://192.168.7.207:3500/sfjdwww/"
+const val baseUrl = "http://192.168.7.208:8080/sfjdwww/"
 const val pictureBaseUrl = "${baseUrl}sysFileinfo/download/"
 
 //const val baseUrl2 = "http://renjiawen1988.vicp.cc:33333/JudicialExpertiseV3/api/"

@@ -12,6 +12,7 @@ import com.unicorn.forensic2.data.event.ShowCaseEvent
 import com.unicorn.forensic2.data.model.HomeMenu
 import com.unicorn.forensic2.ui.act.*
 import com.unicorn.forensic2.ui.act.list.PsxxListAct
+import com.unicorn.forensic2.ui.act.list.RollListAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_home_menu.*
 
@@ -33,6 +34,7 @@ class HomeMenuAdapter : BaseQuickAdapter<HomeMenu, KVHolder>(R.layout.item_home_
                         else
                             mContext.startAct(TsjyAct::class.java)
                     }
+                    HomeMenu.JDYH -> mContext.startAct(RollListAct::class.java)
                     HomeMenu.JGXX -> mContext.startAct(JdjgMyGuideAct::class.java)
                     HomeMenu.PSXX -> mContext.startAct(PsxxListAct::class.java)
                     HomeMenu.ZJXX -> mContext.startAct(ExpertGuideAct::class.java)

@@ -2,6 +2,7 @@ package com.unicorn.forensic2.ui.act
 
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.data.model.Page
@@ -19,6 +20,9 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
         titleBar.setTitle("案件详情")
         mRecyclerView.addDefaultItemDecoration(1)
         simpleAdapter.addHeaderView(CaseDetailHeader(this,case))
+
+
+        v1Api.getRollList(1).observeOnMain(this).subscribe()
     }
 
     override fun bindIntent() {
