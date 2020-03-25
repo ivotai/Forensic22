@@ -1,5 +1,7 @@
 package com.unicorn.forensic2.data.model
 
+import java.io.Serializable
+
 data class Roll(
     val ay: String,
     val bafg: String,
@@ -41,4 +43,4 @@ data class Roll(
     val updateDttm: Long,
     val zbr: String,
     val zbrId: String
-)
+): Serializable
