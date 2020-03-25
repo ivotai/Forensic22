@@ -7,6 +7,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.ui.fra.CaseMainFra
 import com.unicorn.forensic2.ui.fra.HomeMainFra
+import com.unicorn.forensic2.ui.fra.MyMainFra
 
 @Suppress("DEPRECATION")
 class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
@@ -18,7 +19,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     override fun getItem(position: Int): Fragment = when (position) {
         0 -> HomeMainFra()
         1 -> CaseMainFra()
-        else -> HomeMainFra()
+        else -> MyMainFra()
     }
 
     override fun getCount(): Int = titles.size

@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.data.model
 
-enum class MyOperation(val text: String) {
+enum class MyMenu(val text: String) {
 
     ModifyPwd("修改密码"),
     PersonInfo("个人信息"),
