@@ -12,7 +12,7 @@ class MyMenuAdapter : BaseQuickAdapter<MyMenu, KVHolder>(R.layout.item_my_menu) 
     override fun convert(helper: KVHolder, item: MyMenu) {
         helper.apply {
             tvText.text = item.text
-//            ivIcon.setBackgroundResource(item.icon)
+            ivIcon.setBackgroundResource(item.imgRes)
             root.safeClicks().subscribe {
                 when (item) {
 
