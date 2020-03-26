@@ -65,6 +65,7 @@
         <activity android:name=".ui.act.ModifyPwdAct" />
         <activity android:name=".ui.act.JdjgRegisterAct" />
         <activity android:name=".ui.act.list.PersonalInfoUpdateAct" />
+        <activity android:name=".ui.act.ExpertRegisterAct"/>
     </application>
 
 </manifest>

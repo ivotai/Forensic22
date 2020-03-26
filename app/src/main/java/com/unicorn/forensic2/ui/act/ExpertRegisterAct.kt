@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.act.addOrEdit
+package com.unicorn.forensic2.ui.act
 
 import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
@@ -9,7 +9,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
-import com.unicorn.forensic2.data.event.RefreshEvent
+import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.Expert
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -21,27 +21,27 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class ExpertEditAct : BaseAct() {
+class ExpertRegisterAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("基本信息")
+        titleBar.setTitle("注册专家")
+    }
 
-        // 处理 null
-        expert.fid_photo = ""
+    private fun getPersonalInfo() {
+        v1Api.getPersonalInfo().observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    if (it.success) {
+                        loginResult.user = it.user
+                        RxBus.post(LoginStateChangeEvent())
+                    }
+                },
+                onError = {
+                }
+            )
     }
 
     override fun bindIntent() {
-        fun display() = with(expert) {
-            etExpertName.setText(expertName)
-            etSfzh.setText(sfzh)
-            etPhoneNumber.setText(phoneNumber)
-            etEmail.setText(email)
-            etAddr.setText(addr)
-            etZyms.setText(zyms)
-            PictureHelper.load(this@ExpertEditAct, "$pictureBaseUrl${fidphotoid}").into(ivFidphoto)
-        }
-        display()
-
         etExpertName.textChanges().map { it.toString() }.subscribe { expert.expertName = it }
         etSfzh.textChanges().map { it.toString() }.subscribe { expert.sfzh = it }
         etPhoneNumber.textChanges().map { it.toString() }.subscribe { expert.phoneNumber = it }
@@ -51,12 +51,12 @@ class ExpertEditAct : BaseAct() {
 
         ivFidphoto.safeClicks().subscribe {
             PictureHelper.selectPicture(
-                this@ExpertEditAct,
+                this@ExpertRegisterAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
                         val realPath = result[0].realPath
                         expert.fid_photo = realPath
-                        Glide.with(this@ExpertEditAct).load(realPath).into(ivFidphoto)
+                        Glide.with(this@ExpertRegisterAct).load(realPath).into(ivFidphoto)
                     }
 
                     override fun onCancel() {
@@ -80,23 +80,23 @@ class ExpertEditAct : BaseAct() {
                     File(fid_photo).asRequestBody("image/*".toMediaType())
                 )
             }
-            val mask = DialogHelper.showMask(this@ExpertEditAct)
-            v1Api.editExpert(expert.objectId, map, part)
-                .observeOnMain(this@ExpertEditAct)
+            val mask = DialogHelper.showMask(this@ExpertRegisterAct)
+            v1Api.registerExpert(map, part)
+                .observeOnMain(this@ExpertRegisterAct)
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
                         if (!it.success) {
-                            ToastUtils.showShort("保存失败")
+                            ToastUtils.showShort("注册失败")
                             return@subscribeBy
                         }
-                        ToastUtils.showShort("保存成功")
+                        ToastUtils.showShort("注册成功")
+                        getPersonalInfo()
                         finish()
-                        RxBus.post(RefreshEvent())
                     },
                     onError = {
                         mask.dismiss()
-                        ToastUtils.showShort("保存失败")
+                        ToastUtils.showShort("注册失败")
                     }
                 )
         }
@@ -132,7 +132,7 @@ class ExpertEditAct : BaseAct() {
         }
     }
 
-    private val expert by lazy { intent.getSerializableExtra(Param) as Expert }
+    private val expert = Expert()
 
     override val layoutId = R.layout.act_expert_edit_or_add
 

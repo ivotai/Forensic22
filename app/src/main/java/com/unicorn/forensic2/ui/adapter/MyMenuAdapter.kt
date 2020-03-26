@@ -9,6 +9,7 @@ import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.model.MyMenu
+import com.unicorn.forensic2.ui.act.ExpertRegisterAct
 import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
 import com.unicorn.forensic2.ui.act.JdjgRegisterAct
 import com.unicorn.forensic2.ui.act.ModifyPwdAct
@@ -33,6 +34,7 @@ class MyMenuAdapter : BaseQuickAdapter<MyMenu, KVHolder>(R.layout.item_my_menu) 
                         else
                             ToastUtils.showShort("尚未注册机构")
                     }
+                    MyMenu.RegisterExpert -> mContext.startAct(ExpertRegisterAct::class.java)
                     MyMenu.Logout -> RxBus.post(LogoutEvent())
                 }
             }

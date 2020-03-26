@@ -163,6 +163,13 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
+    @Multipart
+    @POST("api/v1/jdExpertNew")
+    fun registerExpert(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part?
+    ): Single<GeneralResponse>
+
     // 专家资质
     @GET("api/v1/jdExpertZzNew")
     fun getZjzzList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Zjzz>>
