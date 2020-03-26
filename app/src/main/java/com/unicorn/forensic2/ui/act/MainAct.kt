@@ -5,6 +5,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
+import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.event.ShowCaseEvent
 import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
@@ -24,18 +25,16 @@ class MainAct : BaseAct() {
     }
 
     override fun registerEvent() {
-        // TODO 修改密码后是否需要重新登录
-//        RxBus.registerEvent(this, NeedLoginEvent::class.java, Consumer {
-//            ActivityUtils.finishAllActivities()
-//            startAct(LoginAct::class.java)
-//        })
-
+        RxBus.registerEvent(this, LogoutEvent::class.java, Consumer {
+            isLogin = false
+            RxBus.post(LoginStateChangeEvent())
+        })
         RxBus.registerEvent(this, LoginStateChangeEvent::class.java, Consumer {
             mainPagerAdapter.notifyDataSetChanged()
             notifyTabs()
         })
-        RxBus.registerEvent(this,ShowCaseEvent::class.java, Consumer {
-            viewPaper.setCurrentItem(1,true)
+        RxBus.registerEvent(this, ShowCaseEvent::class.java, Consumer {
+            viewPaper.setCurrentItem(1, true)
         })
     }
 

@@ -2,8 +2,12 @@ package com.unicorn.forensic2.ui.adapter
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.model.MyMenu
+import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_my_menu.*
 
@@ -15,7 +19,10 @@ class MyMenuAdapter : BaseQuickAdapter<MyMenu, KVHolder>(R.layout.item_my_menu) 
             ivIcon.setBackgroundResource(item.imgRes)
             root.safeClicks().subscribe {
                 when (item) {
-
+                    MyMenu.Logout -> RxBus.post(LogoutEvent())
+                    MyMenu.MyJdjg -> {
+                        mContext.startAct(JdjgMyGuideAct::class.java)
+                    }
                 }
             }
         }
