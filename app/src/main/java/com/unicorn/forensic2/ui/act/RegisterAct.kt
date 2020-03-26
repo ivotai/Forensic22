@@ -4,10 +4,8 @@ import android.text.TextUtils
 import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.trimText
-import com.unicorn.forensic2.app.verifyCodeCount
+import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.data.model.param.RegisterParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
@@ -22,45 +20,48 @@ class RegisterAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        rtvRegister.safeClicks().subscribe { }
+        rtvRegister.safeClicks().subscribe {
+            if (etMobile.isEmpty()) {
+                ToastUtils.showShort("手机号不能为空")
+                return@subscribe
+            }
+            if (etVerifyCode.isEmpty()) {
+                ToastUtils.showShort("验证码不能为空")
+                return@subscribe
+            }
+            if (etLoginName.isEmpty()) {
+                ToastUtils.showShort("用户名不能为空")
+                return@subscribe
+            }
+            if (etPwd.isEmpty()) {
+                ToastUtils.showShort("密码不能为空")
+                return@subscribe
+            }
+            register()
+        }
         verifyCodeClicks()
     }
 
-//    private fun checkVerifyCode() {
-//        userApi.checkVerifyCode(
-//            VerifyCode(
-//                userMobile = etMobile.trimText(),
-//                code = etVerifyCode.trimText()
-//            )
-//        ).observeOnMain(this).subscribeBy(
-//            onSuccess = {
-//                if (it.failed) return@subscribeBy
-//                register()
-//            },
-//            onError = {
-//                it.print()
-//            }
-//        )
-//    }
-
     private fun register() {
-//        userApi.addUser(
-//            UserInfo(
-//                loginName = etLoginName.trimText(),
-//                userMobile = etMobile.trimText(),
-//                userPwd = EncryptUtils.encryptMD5ToString(etPwd.trimText()).toLowerCase(),
-//                userIdNum = etUserIdNum.trimText()
-//            )
-//        ).observeOnMain(this).subscribeBy(
-//            onSuccess = {
-//                if (it.failed) return@subscribeBy
-//                ToastUtils.showShort("注册完成")
-//                finish()
-//            },
-//            onError = {
-//                it.print()
-//            }
-//        )
+        v1Api.register(
+            RegisterParam(
+                phoneNo = etMobile.trimText(),
+                verifyCode = etVerifyCode.trimText(),
+                username = etLoginName.trimText(),
+                password = etPwd.trimText()
+            )
+        ).observeOnMain(this).subscribeBy(
+            onSuccess = {
+                if (it.success) {
+                    ToastUtils.showShort("注册成功")
+                    finish()
+                }
+                else
+                    ToastUtils.showShort("注册失败")
+            },
+            onError = {
+            }
+        )
     }
 
     private fun verifyCodeClicks() {
@@ -69,12 +70,10 @@ class RegisterAct : BaseAct() {
                 .observeOnMain(this)
                 .subscribeBy(
                     onSuccess = {
-                        //                        if (it.failed) return@subscribeBy
                         if (it.success)
                             ToastUtils.showShort("验证码已发送")
                         else
                             ToastUtils.showShort("获取验证码失败")
-//                        etVerifyCode.setText(it.data.value)
                     },
                     onError = {
                     }

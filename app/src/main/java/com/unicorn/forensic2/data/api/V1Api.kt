@@ -4,6 +4,7 @@ import com.unicorn.forensic2.app.defaultPageSize
 import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.AddTsjyParam
 import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
+import com.unicorn.forensic2.data.model.param.RegisterParam
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import io.reactivex.Single
 import okhttp3.MultipartBody
@@ -19,12 +20,12 @@ interface V1Api {
     fun login(@Field("username") username: String, @Field("password") password: String): Single<LoginResult>
 
 
-//    @POST("Authorization/UserAdd")
-//    fun addUser(@Body userInfo: UserInfo): Single<Response<UserLoginResult>>
-
     // 注册
     @GET("public/verifyCode/register")
     fun getVerifyCodeForRegister(@Query("phoneNo") phoneNo: String): Single<GeneralResponse>
+
+    @POST("register")
+    fun register(@Body registerParam: RegisterParam): Single<GeneralResponse>
 
 
     // 案件
