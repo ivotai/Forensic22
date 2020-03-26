@@ -60,6 +60,7 @@
         <activity android:name=".ui.act.CaseDetailAct" />
         <activity android:name=".ui.act.list.RollListAct" />
         <activity android:name=".ui.act.RollDetailAct" />
+        <activity android:name=".ui.act.RegisterAct" />
     </application>
 
 </manifest>

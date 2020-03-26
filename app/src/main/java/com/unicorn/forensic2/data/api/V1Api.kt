@@ -18,6 +18,15 @@ interface V1Api {
     @POST("login/account")
     fun login(@Field("username") username: String, @Field("password") password: String): Single<LoginResult>
 
+
+//    @POST("Authorization/UserAdd")
+//    fun addUser(@Body userInfo: UserInfo): Single<Response<UserLoginResult>>
+
+    // 注册
+    @GET("public/verifyCode/register")
+    fun getVerifyCodeForRegister(@Query("phoneNo") phoneNo: String): Single<GeneralResponse>
+
+
     // 案件
     // 机构案件
     @GET("api/v1/jdLottery/djdList")
