@@ -15,7 +15,6 @@ class JdjgRegisterAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("注册机构")
-        v1Api.getPersonalInfo().observeOnMain(this).subscribe()
     }
 
     private fun getPersonalInfo() {
@@ -28,7 +27,6 @@ class JdjgRegisterAct : BaseAct() {
                     }
                 },
                 onError = {
-                    ToastUtils.showShort("获取机构性质失败")
                 }
             )
     }

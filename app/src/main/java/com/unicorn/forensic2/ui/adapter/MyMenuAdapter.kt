@@ -12,6 +12,7 @@ import com.unicorn.forensic2.data.model.MyMenu
 import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
 import com.unicorn.forensic2.ui.act.JdjgRegisterAct
 import com.unicorn.forensic2.ui.act.ModifyPwdAct
+import com.unicorn.forensic2.ui.act.list.PersonalInfoUpdateAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_my_menu.*
 
@@ -24,6 +25,7 @@ class MyMenuAdapter : BaseQuickAdapter<MyMenu, KVHolder>(R.layout.item_my_menu) 
             root.safeClicks().subscribe {
                 when (item) {
                     MyMenu.ModifyPwd -> mContext.startAct(ModifyPwdAct::class.java)
+                    MyMenu.PersonInfo -> mContext.startAct(PersonalInfoUpdateAct::class.java)
                     MyMenu.RegisterJdjg -> mContext.startAct(JdjgRegisterAct::class.java)
                     MyMenu.MyJdjg -> {
                         if (user.JdjgAdmin)

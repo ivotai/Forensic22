@@ -41,6 +41,9 @@ interface V1Api {
     @GET("api/v1/current")
     fun getPersonalInfo():Single<PersonalInfoResponse>
 
+    @PATCH( "api/v1/system/user/personalInfo")
+    fun updatePersonalInfo(@Body updatePersonalInfoParam: UpdatePersonalInfoParam): Single<GeneralResponse>
+
 
     // 案件
     // 机构案件
