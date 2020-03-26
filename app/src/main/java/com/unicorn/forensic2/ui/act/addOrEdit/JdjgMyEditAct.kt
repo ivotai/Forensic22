@@ -64,7 +64,7 @@ class JdjgMyEditAct : BaseAct() {
                         }
                     },
                     onError = {
-                        ToastUtils.showShort("获取资质等级失败")
+                        ToastUtils.showShort("获取机构性质失败")
                     }
                 )
         }

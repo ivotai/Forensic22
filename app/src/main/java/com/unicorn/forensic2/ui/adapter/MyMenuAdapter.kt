@@ -10,6 +10,7 @@ import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.model.MyMenu
 import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
+import com.unicorn.forensic2.ui.act.JdjgRegisterAct
 import com.unicorn.forensic2.ui.act.ModifyPwdAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_my_menu.*
@@ -22,14 +23,15 @@ class MyMenuAdapter : BaseQuickAdapter<MyMenu, KVHolder>(R.layout.item_my_menu) 
             ivIcon.setBackgroundResource(item.imgRes)
             root.safeClicks().subscribe {
                 when (item) {
-                    MyMenu.Logout -> RxBus.post(LogoutEvent())
                     MyMenu.ModifyPwd -> mContext.startAct(ModifyPwdAct::class.java)
+                    MyMenu.RegisterJdjg -> mContext.startAct(JdjgRegisterAct::class.java)
                     MyMenu.MyJdjg -> {
                         if (user.JdjgAdmin)
                             mContext.startAct(JdjgMyGuideAct::class.java)
                         else
                             ToastUtils.showShort("尚未注册机构")
                     }
+                    MyMenu.Logout -> RxBus.post(LogoutEvent())
                 }
             }
         }

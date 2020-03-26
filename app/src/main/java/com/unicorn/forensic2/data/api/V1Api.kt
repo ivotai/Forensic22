@@ -34,6 +34,10 @@ interface V1Api {
     @PUT("api/v1/system/user/modifyPassword")
     fun modifyPassword(@Body modifyPasswordParam: ModifyPasswordParam): Single<GeneralResponse>
 
+    // 注册机构
+    @POST("api/v1/jdJdjg/register")
+    fun registerJdjg(@Body registerJdjgParam: RegisterJdjgParam): Single<GeneralResponse>
+
 
     // 案件
     // 机构案件
