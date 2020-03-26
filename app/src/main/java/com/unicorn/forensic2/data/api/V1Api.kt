@@ -2,10 +2,7 @@ package com.unicorn.forensic2.data.api
 
 import com.unicorn.forensic2.app.defaultPageSize
 import com.unicorn.forensic2.data.model.*
-import com.unicorn.forensic2.data.model.param.AddTsjyParam
-import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
-import com.unicorn.forensic2.data.model.param.ForgotPasswordParam
-import com.unicorn.forensic2.data.model.param.RegisterParam
+import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import io.reactivex.Single
 import okhttp3.MultipartBody
@@ -33,6 +30,9 @@ interface V1Api {
 
     @PATCH("public/forgotPassword")
     fun forgotPassword(@Body forgotPasswordParam: ForgotPasswordParam): Single<GeneralResponse>
+
+    @PUT("api/v1/system/user/modifyPassword")
+    fun modifyPassword(@Body modifyPasswordParam: ModifyPasswordParam): Single<GeneralResponse>
 
 
     // 案件
