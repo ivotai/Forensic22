@@ -81,13 +81,13 @@
             app:layout_constraintTop_toBottomOf="@+id/etVerifyCode" />
 
         <EditText
-            android:id="@+id/etLoginName"
+            android:id="@+id/etNewPwd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@null"
             android:textSize="15dp"
-            android:hint="输入用户名"
+            android:hint="输入新密码"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,15 +101,15 @@
             android:background="@color/md_grey_300"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etLoginName" />
+            app:layout_constraintTop_toBottomOf="@+id/etNewPwd" />
 
         <EditText
-            android:id="@+id/etPwd"
+            android:id="@+id/etConfirmPwd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@null"
-            android:hint="输入密码"
+            android:hint="确认新密码"
             android:textSize="15dp"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,15 +125,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.812"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPwd" />
+            app:layout_constraintTop_toBottomOf="@+id/etConfirmPwd" />
 
         <com.flyco.roundview.RoundTextView
-            android:id="@+id/rtvRegister"
+            android:id="@+id/rtvConfirm"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="36dp"
             android:gravity="center"
-            android:text="注  册"
+            android:text="确认修改"
             android:textColor="@color/md_white"
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@ import com.unicorn.forensic2.app.defaultPageSize
 import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.AddTsjyParam
 import com.unicorn.forensic2.data.model.param.AddTsjyReplyParam
+import com.unicorn.forensic2.data.model.param.ForgotPasswordParam
 import com.unicorn.forensic2.data.model.param.RegisterParam
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import io.reactivex.Single
@@ -26,6 +27,12 @@ interface V1Api {
 
     @POST("register")
     fun register(@Body registerParam: RegisterParam): Single<GeneralResponse>
+
+    @GET("public/verifyCode/forgotPassword")
+    fun getVerifyCodeForForgotPassword(@Query("phoneNo") phoneNo: String): Single<GeneralResponse>
+
+    @PATCH("public/forgotPassword")
+    fun forgotPassword(@Body forgotPasswordParam: ForgotPasswordParam): Single<GeneralResponse>
 
 
     // 案件

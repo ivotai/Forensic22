@@ -23,7 +23,7 @@ class LoginAct : BaseAct() {
     override fun bindIntent() {
         rtvLogin.safeClicks().subscribe { login() }
         tvRegister.safeClicks().subscribe { startAct(RegisterAct::class.java) }
-//        tvRetrievePwd.safeClicks().subscribe { startAct(RetrievePwdAct::class.java) }
+        tvForgotPwd.safeClicks().subscribe { startAct(ForgotPwdAct::class.java) }
     }
 
     private fun login() {

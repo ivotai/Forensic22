@@ -35,15 +35,15 @@
             android:text="登  录"
             android:textColor="@color/md_white"
             android:textSize="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvRetrievePwd"
+            app:layout_constraintBottom_toTopOf="@+id/tvForgotPwd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvRetrievePwd"
+            app:layout_constraintStart_toStartOf="@+id/tvForgotPwd"
             app:rv_cornerRadius="10dp"
             app:rv_strokeColor="@color/md_white"
             app:rv_strokeWidth="1dp" />
 
         <TextView
-            android:id="@+id/tvRetrievePwd"
+            android:id="@+id/tvForgotPwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="找回密码"

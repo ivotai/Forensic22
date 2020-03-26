@@ -61,6 +61,7 @@
         <activity android:name=".ui.act.list.RollListAct" />
         <activity android:name=".ui.act.RollDetailAct" />
         <activity android:name=".ui.act.RegisterAct" />
+        <activity android:name=".ui.act.ForgotPwdAct" />
     </application>
 
 </manifest>
