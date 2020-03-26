@@ -4,10 +4,8 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.isEmpty
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.trimText
+import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.param.RegisterJdjgParam
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -17,6 +15,22 @@ class JdjgRegisterAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("注册机构")
+        v1Api.getPersonalInfo().observeOnMain(this).subscribe()
+    }
+
+    private fun getPersonalInfo() {
+        v1Api.getPersonalInfo().observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    if (it.success) {
+                        loginResult.user = it.user
+                        RxBus.post(LoginStateChangeEvent())
+                    }
+                },
+                onError = {
+                    ToastUtils.showShort("获取机构性质失败")
+                }
+            )
     }
 
     override fun bindIntent() {
@@ -58,7 +72,7 @@ class JdjgRegisterAct : BaseAct() {
                     onSuccess = {
                         if (it.success) {
                             ToastUtils.showShort("注册成功")
-                            // todo  刷新 current
+                            getPersonalInfo()
                             finish()
                         } else
                             ToastUtils.showShort("注册失败")

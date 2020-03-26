@@ -38,6 +38,9 @@ interface V1Api {
     @POST("api/v1/jdJdjg/register")
     fun registerJdjg(@Body registerJdjgParam: RegisterJdjgParam): Single<GeneralResponse>
 
+    @GET("api/v1/current")
+    fun getPersonalInfo():Single<PersonalInfoResponse>
+
 
     // 案件
     // 机构案件

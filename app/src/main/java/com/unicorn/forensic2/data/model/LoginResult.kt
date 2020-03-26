@@ -3,7 +3,7 @@ package com.unicorn.forensic2.data.model
 data class LoginResult(
     val session: String,
     val success: Boolean,
-    val user: User
+    var user: User
 )
 
 data class User(
@@ -21,4 +21,9 @@ data class User(
     val roleTag: String,
     val roles: List<String>,
     val username: String
+)
+
+data class PersonalInfoResponse(
+    val success: Boolean,
+    val user: User
 )
