@@ -2,9 +2,9 @@ package com.unicorn.forensic2.ui.adapter
 
 import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.util.ConvertUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
+import com.jakewharton.rxbinding3.view.longClicks
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.helper.TreeFetcher2
@@ -33,7 +33,7 @@ class TreeNodeAdapter2() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(
                     .toList()
                     .subscribeBy {
                         if (it.isEmpty())
-                            RxBus.post(item)
+
                         else {
                             item.subItems = it
                             expand(helper.adapterPosition);
@@ -54,7 +54,7 @@ class TreeNodeAdapter2() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(
 
         item as TreeNode2
         helper.apply {
-            root.text = item.fy.fymc
+            root.text = item.fy.dmms
             val paddingStart = ConvertUtils.dp2px(16 * item.nodeLevel.toFloat())
             val paddingOther = ConvertUtils.dp2px(16f)
             root.setPadding(paddingStart, paddingOther, paddingOther, paddingOther)
@@ -71,6 +71,9 @@ class TreeNodeAdapter2() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(
                         expand(pos);
                     }
                 }
+            }
+            root.longClicks().subscribe {
+                RxBus.post(item)
             }
         }
     }

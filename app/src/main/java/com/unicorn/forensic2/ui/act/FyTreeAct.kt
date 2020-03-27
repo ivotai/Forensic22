@@ -32,14 +32,12 @@ class FyTreeAct : BaseAct() {
         }
     }
 
-    val title: String = "法院"
-
     val key: String = Fy
 
     private val simpleAdapter2 = TreeNodeAdapter2()
 
     override fun initViews() {
-        titleBar.setTitle("选择$title")
+        titleBar.setTitle("选择法院(长按选中)")
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@FyTreeAct)
             simpleAdapter2.bindToRecyclerView(this)
