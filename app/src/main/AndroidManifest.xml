@@ -66,6 +66,7 @@
         <activity android:name=".ui.act.JdjgRegisterAct" />
         <activity android:name=".ui.act.list.PersonalInfoUpdateAct" />
         <activity android:name=".ui.act.ExpertRegisterAct"/>
+        <activity android:name=".ui.act.query.JdjgPublicQueryAct"/>
     </application>
 
 </manifest>

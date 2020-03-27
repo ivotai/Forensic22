@@ -39,13 +39,13 @@ interface V1Api {
     fun registerJdjg(@Body registerJdjgParam: RegisterJdjgParam): Single<GeneralResponse>
 
     @GET("api/v1/current")
-    fun getPersonalInfo():Single<PersonalInfoResponse>
+    fun getPersonalInfo(): Single<PersonalInfoResponse>
 
-    @PATCH( "api/v1/system/user/personalInfo")
+    @PATCH("api/v1/system/user/personalInfo")
     fun updatePersonalInfo(@Body updatePersonalInfoParam: UpdatePersonalInfoParam): Single<GeneralResponse>
 
     @GET("api/v1/home")
-    fun getHomeInfo():Single<HomeInfo>
+    fun getHomeInfo(): Single<HomeInfo>
 
     // 案件
     // 机构案件
@@ -68,7 +68,11 @@ interface V1Api {
     // 鉴定机构
     // 鉴定机构公共列表
     @GET("public/jgList")
-    fun getJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Jdjg>>
+    fun getJdjgList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String,@JvmSuppressWildcards Any>
+    ): Single<Page<Jdjg>>
 
     // 鉴定机构公共详情
     @GET("public/jgDetail")

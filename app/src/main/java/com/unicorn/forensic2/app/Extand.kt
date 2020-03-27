@@ -55,6 +55,10 @@ fun TextView.isEmpty(): Boolean {
     return this.trimText().isEmpty()
 }
 
+fun TextView.isNotBlack(): Boolean {
+    return this.trimText().isNotBlank()
+}
+
 fun String.toast() {
     ToastUtils.showShort(this)
 }
