@@ -7,29 +7,29 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.helper.TreeFetcher
+import com.unicorn.forensic2.app.helper.TreeFetcher2
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.data.model.Dict
-import com.unicorn.forensic2.data.model.TreeNode
+import com.unicorn.forensic2.data.TreeNode2
+import com.unicorn.forensic2.data.model.Fy
 import com.unicorn.forensic2.ui.base.KVHolder
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_text.*
 
-class TreeNodeAdapter() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(ArrayList()) {
+class TreeNodeAdapter2() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(ArrayList()) {
 
-    lateinit var treeFetcher: TreeFetcher
+    lateinit var treeFetcher2: TreeFetcher2
 
     init {
         addItemType(0, R.layout.item_text)
     }
 
     override fun convert(helper: KVHolder, item: MultiItemEntity) {
-        fun getSubItems(item: TreeNode) {
-            fun cope(dicts: List<Dict>) {
-                Observable.fromIterable(dicts)
-                    .map { TreeNode(dict = it, nodeLevel = item.nodeLevel + 1) }
+        fun getSubItems(item: TreeNode2) {
+            fun cope(items: List<Fy>) {
+                Observable.fromIterable(items)
+                    .map { TreeNode2(fy = it, nodeLevel = item.nodeLevel + 1) }
                     .toList()
                     .subscribeBy {
                         if (it.isEmpty())
@@ -41,7 +41,7 @@ class TreeNodeAdapter() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(A
                     }
             }
 
-            treeFetcher.getChildren(item.dict.id)
+            treeFetcher2.getChildren(item.fy.dm)
                 .observeOnMain(mContext as LifecycleOwner)
                 .subscribeBy(
                     onSuccess = {
@@ -52,9 +52,9 @@ class TreeNodeAdapter() : BaseMultiItemQuickAdapter<MultiItemEntity, KVHolder>(A
                 )
         }
 
-        item as TreeNode
+        item as TreeNode2
         helper.apply {
-            root.text = item.dict.name
+            root.text = item.fy.fymc
             val paddingStart = ConvertUtils.dp2px(16 * item.nodeLevel.toFloat())
             val paddingOther = ConvertUtils.dp2px(16f)
             root.setPadding(paddingStart, paddingOther, paddingOther, paddingOther)

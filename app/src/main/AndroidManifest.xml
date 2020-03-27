@@ -37,8 +37,8 @@
         <activity android:name=".ui.act.JdjgMyGuideAct" />
         <activity android:name=".ui.act.list.JgzzMyListAct" />
         <activity android:name=".ui.act.JgzzAddAct" />
-        <activity android:name=".ui.act.CylyTreeAct" />
-        <activity android:name=".ui.act.JdlbTreeAct" />
+        <activity android:name=".ui.act.tree.CylyTreeAct" />
+        <activity android:name=".ui.act.tree.JdlbTreeAct" />
         <activity android:name=".ui.act.JgzzAddPictureAct" />
         <activity android:name=".ui.act.JgzzEditAct" />
         <activity android:name=".ui.act.JgzzMyEditPictureAct" />
@@ -67,6 +67,8 @@
         <activity android:name=".ui.act.list.PersonalInfoUpdateAct" />
         <activity android:name=".ui.act.ExpertRegisterAct"/>
         <activity android:name=".ui.act.query.JdjgPublicQueryAct"/>
+        <activity android:name=".ui.act.query.RollQueryAct"/>
+        <activity android:name=".ui.act.FyTreeAct"/>
     </application>
 
 </manifest>

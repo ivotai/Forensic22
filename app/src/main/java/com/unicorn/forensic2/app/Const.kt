@@ -4,6 +4,7 @@ import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.data.model.Dict
 import okhttp3.MediaType.Companion.toMediaType
 
+const val Fy = "Fy"
 const val Cyly = "Cyly"
 const val Jdlb = "Jdlb"
 const val Xtgg = "Xtgg"

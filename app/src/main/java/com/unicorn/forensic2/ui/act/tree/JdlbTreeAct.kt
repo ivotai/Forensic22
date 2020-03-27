@@ -1,23 +1,24 @@
-package com.unicorn.forensic2.ui.act
+package com.unicorn.forensic2.ui.act.tree
 
-import com.unicorn.forensic2.app.Cyly
+import com.unicorn.forensic2.app.Jdlb
 import com.unicorn.forensic2.app.helper.TreeFetcher
 import com.unicorn.forensic2.data.model.Dict
+import com.unicorn.forensic2.ui.act.TreeAct
 import io.reactivex.Single
 
-class CylyTreeAct : TreeAct() {
+class JdlbTreeAct : TreeAct() {
 
-    override val key =Cyly
+    override val key = Jdlb
 
-    override val title = "机构所在地"
+    override val title = "鉴定类别"
 
     override val treeFetcher: TreeFetcher = object : TreeFetcher() {
         override fun getFirstLevel(): Single<List<Dict>> {
-            return v1Api.getCyly(0.toString())
+            return v1Api.getJdlb("")
         }
 
         override fun getChildren(id: String): Single<List<Dict>> {
-            return v1Api.getCyly(id)
+            return v1Api.getJdlb(id)
         }
     }
 

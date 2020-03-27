@@ -71,7 +71,7 @@ interface V1Api {
     fun getJdjgList(
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int = defaultPageSize,
-        @QueryMap queryMap: Map<String,@JvmSuppressWildcards Any>
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any>
     ): Single<Page<Jdjg>>
 
     // 鉴定机构公共详情
@@ -189,7 +189,11 @@ interface V1Api {
 
     // 摇号列表
     @GET("public/rollList")
-    fun getRollList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Roll>>
+    fun getRollList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any>
+    ): Single<Page<Roll>>
 
 
     // 字典
@@ -205,6 +209,10 @@ interface V1Api {
     // 机构所在地
     @GET("category/region")
     fun getCyly(@Query("id") id: String): Single<List<Dict>>
+
+    // 法院
+    @GET("category/fy")
+    fun getFy(@Query("fydm") fydm: String): Single<List<Fy>>
 
     // 机构性质
     @GET("category/jgxz")

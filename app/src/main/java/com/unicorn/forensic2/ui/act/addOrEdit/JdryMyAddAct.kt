@@ -11,7 +11,7 @@ import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.TreeResult
 import com.unicorn.forensic2.data.model.param.addOrEdit.JdryMyAddParam
-import com.unicorn.forensic2.ui.act.JdlbTreeAct
+import com.unicorn.forensic2.ui.act.tree.JdlbTreeAct
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.act_jdry_my_add_or_edit.*
