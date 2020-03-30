@@ -55,3 +55,12 @@ val shjgList = listOf(
     Dict("6","公示不通过"),
     Dict("8","暂停")
 )
+
+val ajlxList = listOf(
+    Dict("1","鉴定委托"),
+    Dict("2","保外就医审核"),
+    Dict("3","技术咨询"),
+    Dict("4","技术审核"),
+    Dict("5","诉前鉴定"),
+    Dict("9","其他")
+)

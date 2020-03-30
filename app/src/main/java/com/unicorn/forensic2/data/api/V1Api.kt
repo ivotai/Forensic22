@@ -50,13 +50,25 @@ interface V1Api {
     // 案件
     // 机构案件
     @GET("api/v1/jdLottery/djdList")
-    fun getCaseJgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
+    fun getCaseJgList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
 
     @GET("api/v1/jdReview/dpsList")
-    fun getCaseZjList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
+    fun getCaseZjList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
 
     @GET("api/v1/jdCase/myCase")
-    fun getCaseDsrList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Case>>
+    fun getCaseDsrList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
 
     @GET("api/v1/jdProcess")
     fun getCaseProcessList(

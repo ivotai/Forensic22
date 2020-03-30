@@ -2,6 +2,7 @@ package com.unicorn.forensic2.ui.fra
 
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.data.event.QueryMapEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.Page
@@ -19,9 +20,9 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
     override fun loadPage(page: Int): Single<Page<Case>> {
         return when (caseType) {
-            CaseType.Jg -> api.getCaseJgList(page)
-            CaseType.Dsr -> api.getCaseDsrList(page)
-            CaseType.Zj -> api.getCaseZjList(page)
+            CaseType.Jg -> api.getCaseJgList(page = page, queryMap = queryMap)
+            CaseType.Dsr -> api.getCaseDsrList(page = page, queryMap = queryMap)
+            CaseType.Zj -> api.getCaseZjList(page = page, queryMap = queryMap)
             CaseType.None -> Single.create {
                 Page<Case>(
                     content = ArrayList(),
@@ -41,6 +42,12 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
             caseType = it
             loadFirstPage()
         })
+        RxBus.registerEvent(this, QueryMapEvent::class.java, Consumer {
+            queryMap = it.queryMap
+            loadFirstPage()
+        })
     }
+
+    private var queryMap = HashMap<String, Any>()
 
 }

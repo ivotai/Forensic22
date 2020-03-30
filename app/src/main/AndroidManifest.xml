@@ -70,6 +70,7 @@
         <activity android:name=".ui.act.query.RollQueryAct"/>
         <activity android:name=".ui.act.FyTreeAct"/>
         <activity android:name=".ui.act.query.ShjlJdjgQueryAct"/>
+        <activity android:name=".ui.act.query.CaseQueryAct"/>
     </application>
 
 </manifest>
