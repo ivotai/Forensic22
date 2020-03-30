@@ -148,7 +148,11 @@ interface V1Api {
     fun submitAudit(): Single<GeneralResponse>
 
     @GET("api/v1/jdJdjgSp/jg")
-    fun getShjlJdjgList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Shjl>>
+    fun getShjlJdjgList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Shjl>>
 
     @GET("api/v1/jdReview/dpsList/vo")
     fun getPsxxList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>

@@ -63,8 +63,11 @@ class JdjgMyGuideAct : BaseAct() {
             }
         }
         ivTjsh.clicks().mergeWith(tvTjsh.clicks()).subscribe { showSubmitAuditConfirm() }
-        ivShjl.clicks().mergeWith(tvShjl.clicks())
-            .subscribe { startAct(ShjlJdjgListAct::class.java) }
+        ivShjl.clicks().mergeWith(tvShjl.clicks()).subscribe {
+            Intent(this, ShjlJdjgListAct::class.java).apply {
+                putExtra(Param, jdjg.jgid)
+            }.let { startActivity(it) }
+        }
         getJdjgMy()
     }
 

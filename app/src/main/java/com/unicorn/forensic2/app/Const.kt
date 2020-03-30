@@ -45,3 +45,13 @@ val zjlxList = listOf(
     Dict("8", "其他")
 )
 
+val shjgList = listOf(
+    Dict("0","待审核"),
+    Dict("1","审核通过"),
+    Dict("2","审核不通过"),
+    Dict("3","待公示"),
+    Dict("4","公示中"),
+    Dict("5","公示通过"),
+    Dict("6","公示不通过"),
+    Dict("8","暂停")
+)
