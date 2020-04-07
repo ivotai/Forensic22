@@ -22,6 +22,7 @@ class ShjlJdjgListAct : SimplePageAct<Shjl, KVHolder>() {
     }
 
     override fun bindIntent() {
+        super.bindIntent()
         titleBar.setOperation("搜索").safeClicks()
             .subscribe { startAct(ShjlJdjgQueryAct::class.java) }
     }

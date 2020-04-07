@@ -5,7 +5,7 @@ import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.list.listItems
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
-import com.unicorn.forensic2.data.event.QueryMapEvent
+import com.unicorn.forensic2.data.event.CaseQueryMapEvent
 import com.unicorn.forensic2.ui.base.BaseAct
 import kotlinx.android.synthetic.main.act_case_query.*
 
@@ -49,7 +49,7 @@ class CaseQueryAct : BaseAct() {
                 queryMap["larqEnd"] = tvLarqEnd.trimText()
             if (flag.isNotBlank())
                 queryMap["flag"] = flag
-            RxBus.post(QueryMapEvent(queryMap = queryMap))
+            RxBus.post(CaseQueryMapEvent(queryMap = queryMap))
             finish()
         }
     }

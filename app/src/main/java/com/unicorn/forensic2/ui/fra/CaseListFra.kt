@@ -2,7 +2,7 @@ package com.unicorn.forensic2.ui.fra
 
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
-import com.unicorn.forensic2.data.event.QueryMapEvent
+import com.unicorn.forensic2.data.event.CaseQueryMapEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.Page
@@ -42,7 +42,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
             caseType = it
             loadFirstPage()
         })
-        RxBus.registerEvent(this, QueryMapEvent::class.java, Consumer {
+        RxBus.registerEvent(this, CaseQueryMapEvent::class.java, Consumer {
             queryMap = it.queryMap
             loadFirstPage()
         })

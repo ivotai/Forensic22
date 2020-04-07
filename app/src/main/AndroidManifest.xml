@@ -10,9 +10,9 @@
     <application
         android:name=".app.App"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
         <activity android:name="com.unicorn.forensic2.ui.act.MainAct">
