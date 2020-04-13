@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'mtj-circle-plugin'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
@@ -45,6 +47,14 @@ android {
     }
 }
 
+MtjCirclePluginConfig {
+    // 设置appkey
+    appkey = '824cca5714'
+    // 设置debug 开关，如果需要查看日志则打开开关，为避免影响性能建议上线前关闭（设置为false）
+    debug = false
+    // 默认启动此插件，如果开发者不需要可以禁用（设置为false）
+    enabled = true
+}
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -92,6 +102,8 @@ dependencies {
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0X'
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.4.9'
+    implementation 'cat.ereza:customactivityoncrash:2.2.0'
+
 }
 
 androidExtensions {
