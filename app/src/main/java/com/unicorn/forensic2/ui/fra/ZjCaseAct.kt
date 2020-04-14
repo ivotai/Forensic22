@@ -6,59 +6,55 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
-import com.unicorn.forensic2.data.model.Case
-import com.unicorn.forensic2.data.model.JgCaseType
-import com.unicorn.forensic2.data.model.JgCaseTypeS
-import com.unicorn.forensic2.data.model.Page
+import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.ui.adapter.JgCaseTypeAdapter
 import com.unicorn.forensic2.ui.adapter.JgCaseAdapter
+import com.unicorn.forensic2.ui.adapter.ZjCaseAdapter
+import com.unicorn.forensic2.ui.adapter.ZjCaseTypeAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.act_jg_case.*
 
-class JgCaseAct : SimplePageAct<Case, KVHolder>() {
+class ZjCaseAct : SimplePageAct<ZjCase, KVHolder>() {
 
-    override fun loadPage(page: Int): Single<Page<Case>> {
+    override fun loadPage(page: Int): Single<Page<ZjCase>> {
         return when (caseType) {
-            JgCaseType.ZBTZ -> v1Api.getZbtzList(page = page)
-            JgCaseType.DJD -> v1Api.getDjdList(page = page)
-            JgCaseType.YJD -> v1Api.getYjdList(page = page)
-            JgCaseType.YJJ -> v1Api.getYjjList(page = page)
-            JgCaseType.YXA -> v1Api.getYxaList(page = page)
+            ZjCaseType.DPS -> v1Api.getDpsList(page = page)
+            ZjCaseType.YPS -> v1Api.getYwcList(page = page)
         }
     }
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle("机构案件", false)
+        titleBar.setTitle("专家案件", false)
         rvCaseType.apply {
             layoutManager = LinearLayoutManager(context)
-            jgCaseTypeAdapter.bindToRecyclerView(this)
+            zjCaseTypeAdapter.bindToRecyclerView(this)
         }
         mRecyclerView.addDefaultItemDecoration(1)
     }
 
     override fun bindIntent() {
         super.bindIntent()
-        val data = JgCaseType.all.map { JgCaseTypeS(it) }
+        val data = ZjCaseType.all.map { ZjCaseTypeS(it) }
         data[0].isSelect = true
-        jgCaseTypeAdapter.setNewData(data)
+        zjCaseTypeAdapter.setNewData(data)
     }
 
     override fun registerEvent() {
-        RxBus.registerEvent(this, JgCaseType::class.java, Consumer {
+        RxBus.registerEvent(this, ZjCaseType::class.java, Consumer {
             caseType = it
             loadFirstPage()
         })
     }
 
-    private val jgCaseTypeAdapter = JgCaseTypeAdapter()
+    private val zjCaseTypeAdapter = ZjCaseTypeAdapter()
 
-    override val simpleAdapter = JgCaseAdapter()
+    override val simpleAdapter = ZjCaseAdapter()
 
-    private var caseType = JgCaseType.all[0]
+    private var caseType = ZjCaseType.all[0]
 
     override val mRecyclerView: RecyclerView
         get() = recyclerView

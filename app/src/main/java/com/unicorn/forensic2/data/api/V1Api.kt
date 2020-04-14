@@ -85,6 +85,20 @@ interface V1Api {
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
     ): Single<Page<Case>>
 
+    @GET("api/v1/jdReview/dpsList")
+    fun getDpsList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<ZjCase>>
+
+    @GET("api/v1/jdReview/ywcList")
+    fun getYwcList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<ZjCase>>
+
     @GET("api/v1/jdCase/myCase")
     fun getCaseDsrList(
         @Query("page") page: Int,

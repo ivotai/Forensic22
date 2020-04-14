@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/md_white"
+    tools:ignore="ContentDescription,HardcodedText,SpUsage">
+
+    <TextView
+        android:background="@color/md_grey_100"
+        android:padding="16dp"
+        android:id="@+id/tvRemark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="鉴定案号"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <TextView
+        android:id="@+id/lStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="开始时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRemark" />
+
+    <TextView
+        android:id="@+id/lEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="结束时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lStartTime"
+        app:layout_constraintTop_toBottomOf="@+id/lStartTime" />
+
+    <TextView
+        android:id="@+id/lPscl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="评审材料："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lEndTime"
+        app:layout_constraintTop_toBottomOf="@+id/lEndTime" />
+    
+    <TextView
+        android:id="@+id/tvBeginDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="开始时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lStartTime" />
+
+    <TextView
+        android:id="@+id/tvEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结束时间："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvBeginDate"
+        app:layout_constraintTop_toTopOf="@+id/lEndTime" />
+
+    <TextView
+        android:id="@+id/tvPscl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="评审材料："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvEndDate"
+        app:layout_constraintTop_toTopOf="@+id/lPscl" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
