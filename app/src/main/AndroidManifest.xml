@@ -65,12 +65,13 @@
         <activity android:name=".ui.act.ModifyPwdAct" />
         <activity android:name=".ui.act.JdjgRegisterAct" />
         <activity android:name=".ui.act.list.PersonalInfoUpdateAct" />
-        <activity android:name=".ui.act.ExpertRegisterAct"/>
-        <activity android:name=".ui.act.query.JdjgPublicQueryAct"/>
-        <activity android:name=".ui.act.query.RollQueryAct"/>
-        <activity android:name=".ui.act.FyTreeAct"/>
-        <activity android:name=".ui.act.query.ShjlJdjgQueryAct"/>
-        <activity android:name=".ui.act.query.CaseQueryAct"/>
+        <activity android:name=".ui.act.ExpertRegisterAct" />
+        <activity android:name=".ui.act.query.JdjgPublicQueryAct" />
+        <activity android:name=".ui.act.query.RollQueryAct" />
+        <activity android:name=".ui.act.FyTreeAct" />
+        <activity android:name=".ui.act.query.ShjlJdjgQueryAct" />
+        <activity android:name=".ui.act.query.CaseQueryAct" />
+        <activity android:name=".ui.fra.JgCaseAct" />
     </application>
 
 </manifest>

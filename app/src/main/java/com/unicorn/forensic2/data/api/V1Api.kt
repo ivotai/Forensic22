@@ -49,15 +49,37 @@ interface V1Api {
 
     // 案件
     // 机构案件
-    @GET("api/v1/jdLottery/djdList")
-    fun getCaseJgList(
+
+    @GET("api/v1/jdLottery/zbtzList")
+    fun getZbtzList(
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int = defaultPageSize,
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
     ): Single<Page<Case>>
 
-    @GET("api/v1/jdReview/dpsList")
-    fun getCaseZjList(
+    @GET("api/v1/jdLottery/djdList")
+    fun getDjdList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/jdLottery/yjdList")
+    fun getYjdList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/jdLottery/yjjList")
+    fun getYjjList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/jdLottery/yxaList")
+    fun getYxaList(
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int = defaultPageSize,
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
