@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:text="当事人"
+    android:gravity="center"
     android:textColor="@color/md_black"
     android:textSize="18dp" />
 

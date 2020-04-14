@@ -8,12 +8,12 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.JgCaseType
+import com.unicorn.forensic2.data.model.JgCaseTypeS
 import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.JgCaseTypeAdapter
 import com.unicorn.forensic2.ui.adapter.JgCaseAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
-import com.unicorn.forensic2.ui.base.SimplePageFra
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.act_jg_case.*
@@ -36,14 +36,15 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
         rvCaseType.apply {
             layoutManager = LinearLayoutManager(context)
             jgCaseTypeAdapter.bindToRecyclerView(this)
-            addDefaultItemDecoration(1)
         }
         mRecyclerView.addDefaultItemDecoration(1)
     }
 
     override fun bindIntent() {
         super.bindIntent()
-        jgCaseTypeAdapter.setNewData(JgCaseType.all)
+        val data = JgCaseType.all.map { JgCaseTypeS(it) }
+        data[0].isSelect = true
+        jgCaseTypeAdapter.setNewData(data)
     }
 
     override fun registerEvent() {

@@ -21,9 +21,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCaseType"
-            android:layout_width="100dp"
+            android:layout_width="112dp"
+            android:background="@color/douYuGrey"
             android:layout_height="match_parent" />
-        
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="0dp"
