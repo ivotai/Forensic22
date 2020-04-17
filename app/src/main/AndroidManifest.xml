@@ -73,6 +73,10 @@
         <activity android:name=".ui.act.query.CaseQueryAct" />
         <activity android:name=".ui.fra.JgCaseAct" />
         <activity android:name=".ui.fra.ZjCaseAct" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
     </application>
 
 </manifest>

@@ -119,28 +119,28 @@ class JdjgMyEditPictureAct : BaseAct() {
             var partXkzs: MultipartBody.Part? = null
             var partFrsfz: MultipartBody.Part? = null
             var partBacl: MultipartBody.Part? = null
-            if (fidyyzz_new.isNotBlank()) {
+            if (fidyyzz_new?.isNotBlank() == true) {
                 partYyzz = MultipartBody.Part.createFormData(
                     "fidyyzz_new",
                     "",
                     File(fidyyzz_new).asRequestBody("image/*".toMediaType())
                 )
             }
-            if (fidxkzs_new.isNotBlank()) {
+            if (fidxkzs_new?.isNotBlank() == true) {
                 partXkzs = MultipartBody.Part.createFormData(
                     "fidxkzs_new",
                     "",
                     File(fidxkzs_new).asRequestBody("image/*".toMediaType())
                 )
             }
-            if (fidfrsfz_new.isNotBlank()) {
+            if (fidfrsfz_new?.isNotBlank() == true) {
                 partFrsfz = MultipartBody.Part.createFormData(
                     "fidfrsfz_new",
                     "",
                     File(fidfrsfz_new).asRequestBody("image/*".toMediaType())
                 )
             }
-            if (fidbacl_new.isNotBlank()) {
+            if (fidbacl_new?.isNotBlank() == true) {
                 partBacl = MultipartBody.Part.createFormData(
                     "fidbacl_new",
                     "",
