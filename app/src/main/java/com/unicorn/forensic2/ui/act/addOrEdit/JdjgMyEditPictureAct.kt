@@ -36,7 +36,7 @@ class JdjgMyEditPictureAct : BaseAct() {
                 this@JdjgMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jdjg.fidyyzz_new = realPath
                         Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidyyzzNew)
                     }
@@ -50,7 +50,7 @@ class JdjgMyEditPictureAct : BaseAct() {
                 this@JdjgMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jdjg.fidxkzs_new = realPath
                         Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidxkzsNew)
                     }
@@ -64,7 +64,7 @@ class JdjgMyEditPictureAct : BaseAct() {
                 this@JdjgMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jdjg.fidfrsfz_new = realPath
                         Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidfrsfzNew)
                     }
@@ -78,7 +78,7 @@ class JdjgMyEditPictureAct : BaseAct() {
                 this@JdjgMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jdjg.fidbacl_new = realPath
                         Glide.with(this@JdjgMyEditPictureAct).load(realPath).into(ivFidbaclNew)
                     }

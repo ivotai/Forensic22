@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureMimeType
+import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.listener.OnResultCallbackListener
 import com.unicorn.forensic2.ui.other.GlideEngine
 
@@ -25,5 +26,11 @@ object PictureHelper {
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
 
+
+    fun getPath(result: MutableList<LocalMedia>): String {
+        var path = result[0].path
+        if (path.startsWith("content")) path = result[0].realPath
+        return path
+    }
 
 }
