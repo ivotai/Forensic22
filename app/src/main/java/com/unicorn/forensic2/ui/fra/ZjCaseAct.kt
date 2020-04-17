@@ -28,7 +28,7 @@ class ZjCaseAct : SimplePageAct<ZjCase, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle("专家案件", false)
+        titleBar.setTitle("专家案件", true)
         rvCaseType.apply {
             layoutManager = LinearLayoutManager(context)
             zjCaseTypeAdapter.bindToRecyclerView(this)

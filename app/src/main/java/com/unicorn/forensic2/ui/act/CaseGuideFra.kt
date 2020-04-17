@@ -13,7 +13,9 @@ import kotlinx.android.synthetic.main.fra_case_guide.*
 
 class CaseGuideFra : BaseFra() {
 
-    override val layoutId = R.layout.fra_case_guide
+    override fun initViews() {
+        titleBar.setTitle("案件", false)
+    }
 
     override fun bindIntent() {
         button.safeClicks().subscribe {
@@ -23,5 +25,7 @@ class CaseGuideFra : BaseFra() {
         }
         button2.safeClicks().subscribe { context!!.startAct(ZjCaseAct::class.java) }
     }
+
+    override val layoutId = R.layout.fra_case_guide
 
 }

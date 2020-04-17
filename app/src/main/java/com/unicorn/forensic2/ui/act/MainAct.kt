@@ -15,7 +15,7 @@ import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 
 class MainAct : BaseAct() {
 
-    lateinit var mainPagerAdapter: MainPagerAdapter
+    private lateinit var mainPagerAdapter: MainPagerAdapter
 
     override fun initViews() {
         mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
