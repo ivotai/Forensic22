@@ -30,7 +30,7 @@ class JgzzAddPictureAct : BaseAct() {
         ivFidzzzsNew.safeClicks().subscribe {
             PictureHelper.selectPicture(this@JgzzAddPictureAct, object : OnResultCallbackListener {
                 override fun onResult(result: MutableList<LocalMedia>) {
-                    val realPath = result[0].realPath
+                    val realPath = PictureHelper.getPath(result)
                     param.fidzzzs_new = realPath
                     Glide.with(this@JgzzAddPictureAct).load(realPath).into(ivFidzzzsNew)
                 }

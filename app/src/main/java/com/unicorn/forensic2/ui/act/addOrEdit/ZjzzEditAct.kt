@@ -71,7 +71,7 @@ class ZjzzEditAct : BaseAct() {
                 this@ZjzzEditAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         zjzzEditParam.fid_zyzs = realPath
                         Glide.with(this@ZjzzEditAct).load(realPath).into(ivZyzs)
                     }
@@ -85,7 +85,7 @@ class ZjzzEditAct : BaseAct() {
                 this@ZjzzEditAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         zjzzEditParam.fid_zczs = realPath
                         Glide.with(this@ZjzzEditAct).load(realPath).into(ivZczs)
                     }

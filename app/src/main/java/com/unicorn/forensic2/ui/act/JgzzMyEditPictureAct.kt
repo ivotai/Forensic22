@@ -34,7 +34,7 @@ class JgzzMyEditPictureAct : BaseAct() {
                 this@JgzzMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jgzzEditParam.fidzzzs_new = realPath
                         Glide.with(this@JgzzMyEditPictureAct).load(realPath).into(ivFidzzzsNew)
                     }

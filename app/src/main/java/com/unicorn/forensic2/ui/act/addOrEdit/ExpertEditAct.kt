@@ -54,7 +54,7 @@ class ExpertEditAct : BaseAct() {
                 this@ExpertEditAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         expert.fid_photo = realPath
                         Glide.with(this@ExpertEditAct).load(realPath).into(ivFidphoto)
                     }

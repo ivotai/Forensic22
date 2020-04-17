@@ -32,7 +32,7 @@ class JdryMyAddPictureAct : BaseAct() {
                 this@JdryMyAddPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         param.fidzyzs_new = realPath
                         Glide.with(this@JdryMyAddPictureAct).load(realPath).into(ivFidzyzsNew)
                     }
@@ -46,7 +46,7 @@ class JdryMyAddPictureAct : BaseAct() {
                 this@JdryMyAddPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         param.fidzczs_new = realPath
                         Glide.with(this@JdryMyAddPictureAct).load(realPath).into(ivFidzczsNew)
                     }

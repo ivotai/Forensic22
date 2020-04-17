@@ -34,7 +34,7 @@ class JdryMyEditPictureAct : BaseAct() {
                 this@JdryMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jdryMyEditParam.fidzyzs_new = realPath
                         Glide.with(this@JdryMyEditPictureAct).load(realPath).into(ivFidzyzsNew)
                     }
@@ -48,7 +48,7 @@ class JdryMyEditPictureAct : BaseAct() {
                 this@JdryMyEditPictureAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         jdryMyEditParam.fidzczs_new = realPath
                         Glide.with(this@JdryMyEditPictureAct).load(realPath).into(ivFidzczsNew)
                     }

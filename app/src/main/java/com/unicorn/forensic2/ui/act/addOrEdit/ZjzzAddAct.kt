@@ -50,7 +50,7 @@ class ZjzzAddAct : BaseAct() {
                 this@ZjzzAddAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         zjzzAddParam.fid_zyzs = realPath
                         Glide.with(this@ZjzzAddAct).load(realPath).into(ivZyzs)
                     }
@@ -64,7 +64,7 @@ class ZjzzAddAct : BaseAct() {
                 this@ZjzzAddAct,
                 object : OnResultCallbackListener {
                     override fun onResult(result: MutableList<LocalMedia>) {
-                        val realPath = result[0].realPath
+                        val realPath = PictureHelper.getPath(result)
                         zjzzAddParam.fid_zczs = realPath
                         Glide.with(this@ZjzzAddAct).load(realPath).into(ivZczs)
                     }
