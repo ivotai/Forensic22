@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Case
@@ -43,8 +44,9 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
     override fun bindIntent() {
         super.bindIntent()
         val data = JgCaseType.all.map { JgCaseTypeS(it) }
-        data[0].isSelect = true
+        data.forEach { it.isSelect = it.jgCaseType == firstCaseType }
         jgCaseTypeAdapter.setNewData(data)
+        RxBus.post(firstCaseType)
     }
 
     override fun registerEvent() {
@@ -67,5 +69,7 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
         get() = swipeRefreshLayout
 
     override val layoutId = R.layout.act_jg_case
+
+    private val firstCaseType by lazy { intent.getSerializableExtra(Param) as JgCaseType }
 
 }

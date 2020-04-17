@@ -1,13 +1,17 @@
 package com.unicorn.forensic2.ui.fra
 
+import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.user
+import com.unicorn.forensic2.data.model.JgCaseType
 import com.unicorn.forensic2.data.model.MyMenu
 import com.unicorn.forensic2.ui.adapter.MyMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
@@ -51,8 +55,8 @@ class MyMainFra : BaseFra() {
     private fun getHomeInfo() {
         api.getHomeInfo().observeOnMain(this)
             .subscribeBy(
-                onSuccess = {
-                    with(it) {
+                onSuccess = { homeInfo ->
+                    with(homeInfo) {
                         if (user.JdjgAdmin) {
                             tvLabel1.text = "中标通知"
                             tvNum1.text = zbtz
@@ -60,6 +64,16 @@ class MyMainFra : BaseFra() {
                             tvNum2.text = djd
                             tvLabel3.visibility = View.INVISIBLE
                             tvNum3.visibility = View.INVISIBLE
+                            tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+                                Intent(context!!, JgCaseAct::class.java).apply {
+                                    putExtra(Param, JgCaseType.ZBTZ)
+                                }.let { context!!.startActivity(it) }
+                            }
+                            tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
+                                Intent(context!!, JgCaseAct::class.java).apply {
+                                    putExtra(Param, JgCaseType.DJD)
+                                }.let { context!!.startActivity(it) }
+                            }
                         } else if (user.Admin) {
                             tvLabel1.text = "机构注册"
                             tvNum1.text = jgzc
@@ -70,10 +84,16 @@ class MyMainFra : BaseFra() {
                         } else if (user.Pszj) {
                             tvLabel1.text = "待评审"
                             tvNum1.text = dps
+                            tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+                                Intent(context!!, ZjCaseAct::class.java).apply {
+                                }.let { context!!.startActivity(it) }
+                            }
                             tvLabel2.visibility = View.INVISIBLE
                             tvNum2.visibility = View.INVISIBLE
                             tvLabel3.visibility = View.INVISIBLE
                             tvNum3.visibility = View.INVISIBLE
+                        } else {
+                            //
                         }
                     }
                 },
