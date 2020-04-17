@@ -57,43 +57,69 @@ class MyMainFra : BaseFra() {
             .subscribeBy(
                 onSuccess = { homeInfo ->
                     with(homeInfo) {
-                        if (user.JdjgAdmin) {
-                            tvLabel1.text = "中标通知"
-                            tvNum1.text = zbtz
-                            tvLabel2.text = "待鉴定"
-                            tvNum2.text = djd
-                            tvLabel3.visibility = View.INVISIBLE
-                            tvNum3.visibility = View.INVISIBLE
-                            tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-                                Intent(context!!, JgCaseAct::class.java).apply {
-                                    putExtra(Param, JgCaseType.ZBTZ)
-                                }.let { context!!.startActivity(it) }
+                        when {
+                            user.Admin -> {
+                                tvLabel1.text = "机构注册"
+                                tvNum1.text = jgzc
+                                tvLabel2.text = "机构变更"
+                                tvNum2.text = jgbg
+                                tvLabel3.text = "专家注册"
+                                tvNum3.text = zjzc
                             }
-                            tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
-                                Intent(context!!, JgCaseAct::class.java).apply {
-                                    putExtra(Param, JgCaseType.DJD)
-                                }.let { context!!.startActivity(it) }
+                            user.Pszj && user.JdjgAdmin -> {
+                                tvLabel1.text = "中标通知"
+                                tvNum1.text = zbtz
+                                tvLabel2.text = "待鉴定"
+                                tvNum2.text = djd
+                                tvLabel3.text = "待评审"
+                                tvNum3.text = dps
+                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+                                    Intent(context!!, JgCaseAct::class.java).apply {
+                                        putExtra(Param, JgCaseType.ZBTZ)
+                                    }.let { context!!.startActivity(it) }
+                                }
+                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
+                                    Intent(context!!, JgCaseAct::class.java).apply {
+                                        putExtra(Param, JgCaseType.DJD)
+                                    }.let { context!!.startActivity(it) }
+                                }
+                                tvLabel3.safeClicks().mergeWith(tvNum3.safeClicks()).subscribe {
+                                    Intent(context!!, ZjCaseAct::class.java).apply {
+                                    }.let { context!!.startActivity(it) }
+                                }
                             }
-                        } else if (user.Admin) {
-                            tvLabel1.text = "机构注册"
-                            tvNum1.text = jgzc
-                            tvLabel2.text = "机构变更"
-                            tvNum2.text = jgbg
-                            tvLabel3.text = "专家注册"
-                            tvNum3.text = zjzc
-                        } else if (user.Pszj) {
-                            tvLabel1.text = "待评审"
-                            tvNum1.text = dps
-                            tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-                                Intent(context!!, ZjCaseAct::class.java).apply {
-                                }.let { context!!.startActivity(it) }
+                            user.JdjgAdmin -> {
+                                tvLabel1.text = "中标通知"
+                                tvNum1.text = zbtz
+                                tvLabel2.text = "待鉴定"
+                                tvNum2.text = djd
+                                tvLabel3.visibility = View.INVISIBLE
+                                tvNum3.visibility = View.INVISIBLE
+                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+                                    Intent(context!!, JgCaseAct::class.java).apply {
+                                        putExtra(Param, JgCaseType.ZBTZ)
+                                    }.let { context!!.startActivity(it) }
+                                }
+                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
+                                    Intent(context!!, JgCaseAct::class.java).apply {
+                                        putExtra(Param, JgCaseType.DJD)
+                                    }.let { context!!.startActivity(it) }
+                                }
                             }
-                            tvLabel2.visibility = View.INVISIBLE
-                            tvNum2.visibility = View.INVISIBLE
-                            tvLabel3.visibility = View.INVISIBLE
-                            tvNum3.visibility = View.INVISIBLE
-                        } else {
-                            //
+                            user.Pszj -> {
+                                tvLabel1.text = "待评审"
+                                tvNum1.text = dps
+                                tvLabel2.visibility = View.INVISIBLE
+                                tvNum2.visibility = View.INVISIBLE
+                                tvLabel3.visibility = View.INVISIBLE
+                                tvNum3.visibility = View.INVISIBLE
+                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+                                    Intent(context!!, ZjCaseAct::class.java).apply {
+                                    }.let { context!!.startActivity(it) }
+                                }
+                            }
+                            else -> {
+                            }
                         }
                     }
                 },
