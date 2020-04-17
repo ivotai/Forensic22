@@ -32,7 +32,7 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle("机构案件", false)
+        titleBar.setTitle("机构案件", true)
         rvCaseType.apply {
             layoutManager = LinearLayoutManager(context)
             jgCaseTypeAdapter.bindToRecyclerView(this)
