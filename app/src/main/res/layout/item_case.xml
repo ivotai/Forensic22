@@ -9,11 +9,11 @@
     tools:ignore="ContentDescription,HardcodedText,SpUsage">
 
     <TextView
-        android:background="@color/md_grey_100"
-        android:padding="16dp"
         android:id="@+id/tvJdNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/md_grey_100"
+        android:padding="16dp"
         android:text="鉴定案号"
         android:textColor="@color/md_black"
         android:textSize="17dp"
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/tvCourtNameAccept"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -35,17 +35,16 @@
         android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvCaseNo"
+        app:layout_constraintStart_toEndOf="@+id/lCourtNameAccept"
         app:layout_constraintTop_toBottomOf="@+id/tvCaseNo" />
 
     <TextView
         android:id="@+id/lCourtNameAccept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="办案法院："
         android:textColor="@color/md_black"
         android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/lCaseNo"
         app:layout_constraintTop_toTopOf="@+id/tvCourtNameAccept" />
 
@@ -54,86 +53,95 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="鉴定法院："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdNo" />
+        app:layout_constraintTop_toTopOf="@+id/tvCourtNameApply" />
 
     <TextView
         android:id="@+id/lCaseType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="鉴定类型："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/lCourtNameApply"
-        app:layout_constraintTop_toBottomOf="@+id/lCourtNameApply" />
+        app:layout_constraintTop_toTopOf="@+id/tvCaseType" />
 
     <TextView
         android:id="@+id/lCaseStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="当前状态："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/lCaseType"
-        app:layout_constraintTop_toBottomOf="@+id/lCaseType" />
+        app:layout_constraintTop_toTopOf="@+id/tvCaseStatus" />
 
     <TextView
         android:id="@+id/lCaseNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="案件案号："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="@+id/lCaseStatus"
-        app:layout_constraintTop_toBottomOf="@+id/lCaseStatus" />
+        app:layout_constraintTop_toTopOf="@+id/tvCaseNo" />
 
     <TextView
         android:id="@+id/tvCourtNameApply"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="end"
         android:text="鉴定法院："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lCourtNameApply" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lCourtNameApply"
+        app:layout_constraintTop_toBottomOf="@+id/tvJdNo" />
 
     <TextView
         android:id="@+id/tvCaseType"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="end"
         android:text="鉴定类型："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="@+id/tvCourtNameApply"
-        app:layout_constraintTop_toTopOf="@+id/lCaseType" />
+        app:layout_constraintStart_toEndOf="@+id/lCourtNameApply"
+        app:layout_constraintTop_toBottomOf="@+id/tvCourtNameApply" />
 
     <TextView
         android:id="@+id/tvCaseStatus"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="end"
         android:text="当前状态："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="@+id/tvCaseType"
-        app:layout_constraintTop_toTopOf="@+id/lCaseStatus" />
+        app:layout_constraintStart_toEndOf="@+id/lCaseStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvCaseType" />
 
     <TextView
         android:id="@+id/tvCaseNo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="end"
         android:text="案件案号："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="@+id/tvCaseStatus"
-        app:layout_constraintTop_toTopOf="@+id/lCaseNo" />
+        app:layout_constraintStart_toEndOf="@+id/lCaseNo"
+        app:layout_constraintTop_toBottomOf="@+id/tvCaseStatus" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"

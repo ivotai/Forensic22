@@ -1,6 +1,7 @@
 package com.unicorn.forensic2.data.api
 
 import com.unicorn.forensic2.app.defaultPageSize
+import com.unicorn.forensic2.data.DsrCase
 import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
@@ -49,6 +50,14 @@ interface V1Api {
 
     // 案件
     // 机构案件
+
+    // 当事人
+    @GET("api/v1/jdCase/myCase")
+    fun getMyCaseList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<DsrCase>>
 
     @GET("api/v1/jdLottery/zbtzList")
     fun getZbtzList(
