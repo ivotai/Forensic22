@@ -41,7 +41,7 @@ class RollQueryAct : BaseAct() {
         titleBar.setOperation("确认").safeClicks().subscribe {
             val queryMap = HashMap<String, Any>()
             if (courtCode.isNotBlank())
-                queryMap["courtCode"] = tvJdfy.trimText()
+                queryMap["courtCode"] = courtCode
             if (tvBeginDate.isNotBlack())
                 queryMap["beginDate"] = tvBeginDate.trimText()
             if (tvEndDate.isNotBlack())

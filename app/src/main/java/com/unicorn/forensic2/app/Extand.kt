@@ -66,10 +66,12 @@ fun String.toast() {
 fun Long.toDateTime(): DateTime = DateTime(this)
 
 fun Long.toDisplayFormat2(): String {
+    if (this == 0L) return ""
     return this.toDateTime().toString(displayDateFormat2)
 }
 
 fun Long.toDisplayFormat(): String {
+    if (this == 0L) return ""
     return this.toDateTime().toString(displayDateFormat)
 }
 
