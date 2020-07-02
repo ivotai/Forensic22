@@ -9,10 +9,10 @@ data class LoginResult(
 data class User(
     val Admin: Boolean,
     val Bafg: Boolean,
-    val Jdjg: Boolean,
+    var Jdjg: Boolean,      // 鉴定机构
     val JdjgAdmin: Boolean,
-    val Normal: Boolean,
-    val Pszj: Boolean,
+    var Normal: Boolean,    // 当事人
+    var Pszj: Boolean,      // 专家
     val Root: Boolean,
     val Sfjd: Boolean,
     val id: Long,

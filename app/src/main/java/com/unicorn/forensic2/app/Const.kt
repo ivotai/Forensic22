@@ -24,8 +24,8 @@ const val defaultPageSize = 5
 
 val defaultPadding = ConvertUtils.dp2px(16f)
 
-//const val baseUrl = "http://113.142.60.13:8080/sfjdwww/"
-const val baseUrl = "http://113.142.60.13:9999/sfjdwww/"
+//const val baseUrl = "http://117.33.147.12:8080/sfjdwww"
+const val baseUrl = "http://113.142.60.13:8086/sfjdwww_test/"
 
 const val pictureBaseUrl = "${baseUrl}sysFileinfo/download/"
 

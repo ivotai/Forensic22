@@ -35,8 +35,6 @@ class HomeMainFra : BaseFra() {
         homeMenuAdapter.setNewData(HomeMenu.all)
 
         tvUsername.safeClicks().subscribe { if (!isLogin) activity?.startAct(LoginAct::class.java) }
-
-//        api.getJdjgList(page = 5).observeOnMain(this).subscribe()
     }
 
     override val layoutId = R.layout.fra_home_main
