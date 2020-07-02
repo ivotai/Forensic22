@@ -1,10 +1,12 @@
 package com.unicorn.forensic2.ui.act
 
 import android.content.Intent
+import android.view.View
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
+import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.model.JgCaseType
 import com.unicorn.forensic2.ui.base.BaseFra
 import com.unicorn.forensic2.ui.fra.DsrCaseAct
@@ -16,6 +18,12 @@ class CaseGuideFra : BaseFra() {
 
     override fun initViews() {
         titleBar.setTitle("案件", false)
+
+        with(user){
+            if (!Jdjg) button.visibility = View.GONE
+            if (!Pszj) button2.visibility = View.GONE
+            if (!Normal) button3.visibility = View.GONE
+        }
     }
 
     override fun bindIntent() {
