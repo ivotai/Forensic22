@@ -9,8 +9,8 @@ data class LoginResult(
 data class User(
     val Admin: Boolean,
     val Bafg: Boolean,
-    var Jdjg: Boolean,      // 鉴定机构
-    val JdjgAdmin: Boolean,
+    val Jdjg: Boolean,      // 鉴定机构
+    var JdjgAdmin: Boolean,
     var Normal: Boolean,    // 当事人
     var Pszj: Boolean,      // 专家
     val Root: Boolean,

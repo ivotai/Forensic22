@@ -1,5 +1,8 @@
 package com.unicorn.forensic2.ui.act
 
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.list.listItems
+import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
@@ -40,23 +43,57 @@ class LoginAct : BaseAct() {
             .subscribeBy(
                 onSuccess = {
                     mask.dismiss()
-                    if (!it.success){
+                    if (!it.success) {
                         ToastUtils.showShort("登录失败")
                         return@subscribeBy
                     }
                     isLogin = true
                     loginResult = it
                     storeLoginInfo(etUsername.trimText(), etPassword.trimText())
-                    // 关闭登录界面
-                    finish()
+
                     // 刷新登录状态
                     RxBus.post(LoginStateChangeEvent())
+
+                    showRoleDialog()
                 },
                 onError = {
                     mask.dismiss()
                     ToastUtils.showShort("登录失败")
                 }
             )
+    }
+
+    private fun showRoleDialog() {
+        val items = ArrayList<String>()
+        with(user) {
+            if (JdjgAdmin) items.add("鉴定机构")
+            if (Pszj) items.add("评审专家")
+            if (Normal) items.add("当事人")
+        }
+        MaterialDialog(this).show {
+            title(text = "选择角色")
+            listItems(items = items) { dialog, index, text ->
+                with(user) {
+                    if (text == "鉴定机构") {
+                        JdjgAdmin = true
+                        Pszj = false
+                        Normal = false
+                    }
+                    if (text == "评审专家") {
+                        JdjgAdmin = false
+                        Pszj = true
+                        Normal = false
+                    }
+                    if (text == "当事人") {
+                        JdjgAdmin = false
+                        Pszj = false
+                        Normal = true
+                    }
+                    // 关闭登录界面
+                    finish()
+                }
+            }
+        }
     }
 
     override val layoutId = R.layout.act_login
