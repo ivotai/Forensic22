@@ -20,7 +20,7 @@ class CaseGuideFra : BaseFra() {
         titleBar.setTitle("案件", false)
 
         with(user){
-            if (!Jdjg) button.visibility = View.GONE
+            if (!JdjgAdmin) button.visibility = View.GONE
             if (!Pszj) button2.visibility = View.GONE
             if (!Normal) button3.visibility = View.GONE
         }
