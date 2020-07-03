@@ -3,6 +3,7 @@ package com.unicorn.forensic2.data.model
 import java.io.Serializable
 
 data class Case(
+    val fidzbtz: UploadFile?,
     val ay: String,
     val bafg: String,
     val bafgId: String,
