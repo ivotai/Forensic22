@@ -8,7 +8,7 @@ enum class HomeMenu(val namez: String, url: String, val imgRes: Int) {
     JGCX("机构查询", "mianJGCX", R.mipmap.jgcx),
     XTGG("系统公告", "mianXTGG", R.mipmap.xtgg),
     TSJY("投诉建议", "mianTSJY", R.mipmap.tsjy),
-    JDYH("鉴定摇号", "mianJDYH", R.mipmap.jdyh),
+//    JDYH("鉴定摇号", "mianJDYH", R.mipmap.jdyh),
     JGXX("机构信息", "mianJGXX", R.mipmap.jgxx),
     AJXX("案件信息", "mianAJXX", R.mipmap.ajxx),
     ZJXX("专家信息", "mianZJXX", R.mipmap.zjxx),
@@ -20,7 +20,7 @@ enum class HomeMenu(val namez: String, url: String, val imgRes: Int) {
         val all
             get():List<HomeMenu> {
                 val list = ArrayList<HomeMenu>()
-                list.addAll(listOf(JGCX, XTGG, TSJY, JDYH))
+                list.addAll(listOf(JGCX, XTGG, TSJY))
                 if (!isLogin) return list
 
                 // 登录情况下
