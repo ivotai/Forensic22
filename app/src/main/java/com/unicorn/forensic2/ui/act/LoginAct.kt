@@ -51,9 +51,6 @@ class LoginAct : BaseAct() {
                     loginResult = it
                     storeLoginInfo(etUsername.trimText(), etPassword.trimText())
 
-                    // 刷新登录状态
-                    RxBus.post(LoginStateChangeEvent())
-
                     showRoleDialog()
                 },
                 onError = {
@@ -89,6 +86,9 @@ class LoginAct : BaseAct() {
                         Pszj = false
                         Normal = true
                     }
+
+                    // 刷新登录状态
+                    RxBus.post(LoginStateChangeEvent())
                     // 关闭登录界面
                     finish()
                 }
