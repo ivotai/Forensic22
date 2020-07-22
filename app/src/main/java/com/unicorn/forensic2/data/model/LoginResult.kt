@@ -20,7 +20,7 @@ data class User(
     val realName: Boolean,  // 1已认证 2未认证
     val roleTag: String,
     val roles: List<String>,
-    val username: String
+    val username: String?
 )
 
 data class PersonalInfoResponse(
