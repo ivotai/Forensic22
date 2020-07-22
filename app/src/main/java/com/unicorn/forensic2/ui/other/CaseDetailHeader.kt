@@ -52,44 +52,4 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
         }
     }
 
-    private fun download(context: Context, uploadFile: UploadFile) {
-        val progressMask = KProgressHUD.create(context)
-            .setStyle(KProgressHUD.Style.BAR_DETERMINATE)
-            .setCancellable(true)
-            .setDimAmount(0.5f)
-            .setMaxProgress(100)
-            .show()
-        val pdfId = uploadFile.fileid
-        val pdfName = uploadFile.filename
-        val pdfUrl = "${baseUrl}sysFileinfo/download/$pdfId"
-        OkHttpUtils
-            .get()
-            .url(pdfUrl)
-            .build()
-            .execute(object : FileCallBack(context.cacheDir.path, pdfName) {
-                override fun onResponse(response: File, id: Int) {
-                    progressMask.dismiss()
-                    openPdf(context, file = response)
-                }
-
-                override fun inProgress(progress: Float, total: Long, id: Int) {
-                    val p = (100 * progress).toInt()
-                    progressMask.setProgress(p)
-                }
-
-                override fun onError(call: Call?, e: Exception?, id: Int) {
-                    progressMask.dismiss()
-                }
-            })
-    }
-
-    private fun openPdf(context: Context, file: File) {
-        val intent = Intent("android.intent.action.VIEW");
-        intent.addCategory("android.intent.category.DEFAULT");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        val uri = Uri.fromFile(file);
-        intent.setDataAndType(uri, "application/pdf");
-        context.startActivity(intent)
-    }
-
 }
