@@ -16,7 +16,6 @@ class ForgotPwdAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("找回密码")
-        etMobile.setText("13611840424")
     }
 
     override fun bindIntent() {

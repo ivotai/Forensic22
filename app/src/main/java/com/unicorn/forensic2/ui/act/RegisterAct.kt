@@ -16,7 +16,6 @@ class RegisterAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("注册")
-        etMobile.setText("13611840424")
     }
 
     override fun bindIntent() {
