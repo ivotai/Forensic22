@@ -9,11 +9,13 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.baseUrl
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.UploadFile
+import com.unicorn.forensic2.ui.act.PdfAct
 import com.zhy.http.okhttp.OkHttpUtils
 import com.zhy.http.okhttp.callback.FileCallBack
 import kotlinx.android.extensions.LayoutContainer
@@ -43,11 +45,9 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
         if (case.fidzbtz != null) {
             tvZbtz.text = case.fidzbtz.filename
             tvZbtz.safeClicks().subscribe {
-                val pdf = File(context.cacheDir.path, case.fidzbtz.filename)
-                if (pdf.exists()) {
-                    openPdf(context,pdf)
-                } else
-                    download(context, case.fidzbtz)
+                val intent = Intent(context, PdfAct::class.java)
+                intent.putExtra(Param, case.fidzbtz)
+                context.startActivity(intent)
             }
         }
     }
@@ -69,7 +69,7 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             .execute(object : FileCallBack(context.cacheDir.path, pdfName) {
                 override fun onResponse(response: File, id: Int) {
                     progressMask.dismiss()
-                    openPdf(context,file = response)
+                    openPdf(context, file = response)
                 }
 
                 override fun inProgress(progress: Float, total: Long, id: Int) {
@@ -83,8 +83,8 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             })
     }
 
-    private fun openPdf(context: Context,file: File) {
-        val intent =  Intent("android.intent.action.VIEW");
+    private fun openPdf(context: Context, file: File) {
+        val intent = Intent("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         val uri = Uri.fromFile(file);
