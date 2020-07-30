@@ -1,11 +1,20 @@
 {
-  "@id": "5",
-  "fileid": "54d5de6a-1f6a-4688-bc27-e30308aac42e",
-  "filetype": "中标通知",
-  "attachedkey1": "0198261b-38ac-4b22-8c29-cde5fe9befe0",
-  "attachedkey2": "41d95246-7419-4bd7-a29b-82b0a8dc0238",
-  "filename": "鉴定委托书.pdf",
-  "filesavepath": "RA0\\2020\\(2020)陕08鉴460号\\54d5de6a-1f6a-4688-bc27-e30308aac42e.upload",
-  "uploadby": "370501086",
-  "uploadat": 1593588283000
+  "success": true,
+  "session": "NGZlODFlZjUtODE5My00ZGFjLWE3OGQtNWNjNDY3YTdlOWY1",
+  "user": {
+    "JdjgAdmin": false,
+    "Root": false,
+    "roles": [
+      "Normal"
+    ],
+    "Sfjd": false,
+    "Normal": true,
+    "Admin": false,
+    "realName": false,
+    "Jdjg": false,
+    "roleTag": "Normal",
+    "Pszj": false,
+    "id": 735603581574447104,
+    "Bafg": false
+  }
 }
