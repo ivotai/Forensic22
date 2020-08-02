@@ -4,9 +4,11 @@ import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
+import com.unicorn.forensic2.app.roleTag
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.event.ShowCaseEvent
+import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
@@ -60,7 +62,7 @@ class MainAct : BaseAct() {
                     newItem(
                         R.mipmap.casez,
                         R.mipmap.case_select,
-                        "案件"
+                        if (roleTag == Role.Pszj.en) "评审" else "案件"
                     )
                 )
                 addItem(
