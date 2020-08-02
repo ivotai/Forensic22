@@ -127,7 +127,7 @@ interface V1Api {
     @GET("public/jgList")
     fun getJdjgList(
         @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @Query("pageSize") pageSize: Int = 10,
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any>
     ): Single<Page<Jdjg>>
 
