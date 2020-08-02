@@ -108,3 +108,32 @@ data class Case(
     val zbr: String,
     val zbrId: String
 ) : Serializable
+
+// 当事人
+//"@id": "1",
+//"caseId": "4b444561-c7d5-4a62-b5bd-4db6e658731f",
+//"updateDttm": 1595386898000,
+//"plaintiff": "被告：张三",
+//"jdNo": "(2020)陕08诉前鉴4号",
+//"caseNo": "测试11",
+//"caseType": 5,
+//"isTrial": 1,
+//"isParty": 0,
+//"isAgain": 0,
+//"ay": "测试",
+//"courtApply": "RA0",
+//"courtNameApply": "榆林市中级人民法院",
+//"courtAccept": "RA0",
+//"courtNameAccept": "榆林市中级人民法院",
+//"dateApply": 1595347200000,
+//"dateAccept": 1595382238000,
+//"dateClose": 1595347200000,
+//"closeType": 1,
+//"closeTypeDisplay": "正常结案",
+//"dateRegister": 1595347200000,
+//"dateSetperson": 1595347200000,
+//"dateFinishRequest": 1595347200000,
+//"statusDb": 70,
+//"statusFlag": 7,
+//"workDays": 0,
+//"workDaysW": 0

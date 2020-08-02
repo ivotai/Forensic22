@@ -58,6 +58,8 @@ class JdjgAdminCaseListFra : SimplePageFra<Case, KVHolder>() {
             JdjgAdminCaseType.YJD -> api.getYjdList(page = page)
             JdjgAdminCaseType.YJJ -> api.getYjjList(page = page)
             JdjgAdminCaseType.YXA -> api.getYxaList(page = page)
+            JdjgAdminCaseType.CLOSE -> api.getClose(page = page)
+            JdjgAdminCaseType.UNCLOSE -> api.getUnClose(page = page)
         }
     }
 

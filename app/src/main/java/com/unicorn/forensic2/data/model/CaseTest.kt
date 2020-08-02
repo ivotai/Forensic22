@@ -1,0 +1,30 @@
+package com.unicorn.forensic2.data.model
+
+data class CaseTest(
+    val ay: String,
+    val caseId: String,
+    val caseNo: String,
+    val caseType: Int,
+    val closeType: Int,
+    val closeTypeDisplay: String,
+    val courtAccept: String,
+    val courtApply: String,
+    val courtNameAccept: String,
+    val courtNameApply: String,
+    val dateAccept: Long,
+    val dateApply: Long,
+    val dateClose: Long,
+    val dateFinishRequest: Long,
+    val dateRegister: Long,
+    val dateSetperson: Long,
+    val isAgain: Int,
+    val isParty: Int,
+    val isTrial: Int,
+    val jdNo: String,
+    val plaintiff: String,
+    val statusDb: Int,
+    val statusFlag: Int,
+    val updateDttm: Long,
+    val workDays: Int,
+    val workDaysW: Int
+)

@@ -59,6 +59,8 @@ interface V1Api {
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
     ): Single<Page<DsrCase>>
 
+    //
+
     @GET("api/v1/jdLottery/zbtzList")
     fun getZbtzList(
         @Query("page") page: Int,
@@ -93,6 +95,24 @@ interface V1Api {
         @Query("pageSize") pageSize: Int = defaultPageSize,
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
     ): Single<Page<Case>>
+
+    //
+
+    @GET("api/v1/app/jdCase/unClose")
+    fun getUnClose(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/app/jdCase/close")
+    fun getClose(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    //
 
     @GET("api/v1/jdReview/dpsList")
     fun getDpsList(

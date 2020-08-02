@@ -28,6 +28,8 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
             JdjgAdminCaseType.YJD -> v1Api.getYjdList(page = page)
             JdjgAdminCaseType.YJJ -> v1Api.getYjjList(page = page)
             JdjgAdminCaseType.YXA -> v1Api.getYxaList(page = page)
+            JdjgAdminCaseType.CLOSE -> v1Api.getClose(page = page)
+            JdjgAdminCaseType.UNCLOSE -> v1Api.getUnClose(page = page)
         }
     }
 
