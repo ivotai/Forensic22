@@ -28,12 +28,8 @@ class HomeMenuAdapter : BaseQuickAdapter<HomeMenu, KVHolder>(R.layout.item_home_
                 when (item) {
                     HomeMenu.JGCX -> mContext.startAct(JdjgPublicListAct::class.java)
                     HomeMenu.XTGG -> mContext.startAct(XtggListAct::class.java)
-                    HomeMenu.TSJY -> {
-                        if (!isLogin)
-                            ToastUtils.showShort("请登录")
-                        else
-                            mContext.startAct(TsjyAct::class.java)
-                    }
+                    HomeMenu.TSJY -> mContext.startAct(TsjyAct::class.java)
+
 //                    HomeMenu.JDYH -> mContext.startAct(RollListAct::class.java)
                     HomeMenu.JGXX -> mContext.startAct(JdjgMyGuideAct::class.java)
                     HomeMenu.PSXX -> mContext.startAct(PsxxListAct::class.java)

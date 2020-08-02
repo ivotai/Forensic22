@@ -20,13 +20,13 @@ class TsjyWhfAdapter : BaseQuickAdapter<Tsjy, KVHolder>(R.layout.item_tsjy_whf) 
             tvCreatedDate.text  = item.createdDate.toDisplayFormat2()
             tvContent.text = item.content
         }
-        helper.apply {
-            tvReply.safeClicks().subscribe {
-                Intent(mContext, AddTsjyReplyAct::class.java).apply {
-                    putExtra(TsjyId, item.objectId)
-                }.let { mContext.startActivity(it) }
-            }
-        }
+//        helper.apply {
+//            tvReply.safeClicks().subscribe {
+//                Intent(mContext, AddTsjyReplyAct::class.java).apply {
+//                    putExtra(TsjyId, item.objectId)
+//                }.let { mContext.startActivity(it) }
+//            }
+//        }
     }
 
 }
