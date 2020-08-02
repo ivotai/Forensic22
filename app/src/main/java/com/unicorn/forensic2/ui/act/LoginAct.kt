@@ -2,13 +2,13 @@ package com.unicorn.forensic2.ui.act
 
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
-import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.LoginInfo
+import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_login.*
@@ -61,37 +61,16 @@ class LoginAct : BaseAct() {
     }
 
     private fun showRoleDialog() {
-        val items = ArrayList<String>()
-        with(user) {
-            if (JdjgAdmin) items.add("鉴定机构")
-            if (Pszj) items.add("评审专家")
-            if (Normal) items.add("当事人")
-        }
+        val ens = user.roles
+        val cns = ens.map { Role.en2Cn(it) }
         MaterialDialog(this).show {
             title(text = "选择角色")
-            listItems(items = items) { dialog, index, text ->
-                with(user) {
-                    if (text == "鉴定机构") {
-                        JdjgAdmin = true
-                        Pszj = false
-                        Normal = false
-                    }
-                    if (text == "评审专家") {
-                        JdjgAdmin = false
-                        Pszj = true
-                        Normal = false
-                    }
-                    if (text == "当事人") {
-                        JdjgAdmin = false
-                        Pszj = false
-                        Normal = true
-                    }
-
-                    // 刷新登录状态
-                    RxBus.post(LoginStateChangeEvent())
-                    // 关闭登录界面
-                    finish()
-                }
+            listItems(items = cns) { _, index, _ ->
+                user.roleTag = ens[index]
+                // 刷新登录状态
+                RxBus.post(LoginStateChangeEvent())
+                // 关闭登录界面
+                finish()
             }
         }
     }
