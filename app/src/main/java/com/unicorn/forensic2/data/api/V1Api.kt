@@ -231,9 +231,13 @@ interface V1Api {
         @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
     ): Single<Page<Shjl>>
 
-    @GET("api/v1/jdReview/dpsList/vo")
-    fun getPsxxList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
+    //
 
+    @GET("api/v1/jdReview/dpsList")
+    fun getJdReviewDpsList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
+
+    @GET("api/v1/jdReview/ywcList")
+    fun getJdReviewYwcList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
 
     // 专家信息
     @GET("api/v1/jdExpertNew/basicInfo")

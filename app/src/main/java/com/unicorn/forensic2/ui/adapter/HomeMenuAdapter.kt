@@ -1,18 +1,15 @@
 package com.unicorn.forensic2.ui.adapter
 
-import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
-import com.unicorn.forensic2.data.event.ShowCaseEvent
+import com.unicorn.forensic2.data.event.SetCurrentItemEvent
 import com.unicorn.forensic2.data.model.HomeMenu
 import com.unicorn.forensic2.ui.act.*
 import com.unicorn.forensic2.ui.act.list.PsxxListAct
-import com.unicorn.forensic2.ui.act.list.RollListAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_home_menu.*
 
@@ -34,7 +31,7 @@ class HomeMenuAdapter : BaseQuickAdapter<HomeMenu, KVHolder>(R.layout.item_home_
                     HomeMenu.JGXX -> mContext.startAct(JdjgMyGuideAct::class.java)
                     HomeMenu.PSXX -> mContext.startAct(PsxxListAct::class.java)
                     HomeMenu.ZJXX -> mContext.startAct(ExpertGuideAct::class.java)
-                    HomeMenu.WDAJ -> RxBus.post(ShowCaseEvent())
+                    HomeMenu.WDAJ, HomeMenu.WDPS -> RxBus.post(SetCurrentItemEvent())
                     else -> {
                     }
                 }
