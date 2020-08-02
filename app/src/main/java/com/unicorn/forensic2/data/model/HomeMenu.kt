@@ -25,13 +25,13 @@ enum class HomeMenu(val namez: String, url: String, val imgRes: Int) {
 
                 // 登录情况下
                 val roles = user.roles
-                if (Role.JdjgAdmin.namez in roles)
+                if (Role.JdjgAdmin.cn in roles)
                     list.add(JGXX)
-                if (Role.Jdjg.namez in roles)
-                    list.add(AJXX)
-                if (Role.Pszj.namez in roles)
+//                if (Role.Jdjg.namez in roles)
+//                    list.add(AJXX)
+                if (Role.Pszj.cn in roles)
                     list.addAll(listOf(ZJXX, PSXX))
-                if (Role.Normal.namez in roles)
+                if (Role.Normal.cn in roles)
                     list.add(WDAJ)
                 return list
             }

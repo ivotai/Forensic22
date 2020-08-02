@@ -1,9 +1,11 @@
 package com.unicorn.forensic2.data.model
 
-enum class Role(val namez: String) {
-    JdjgAdmin("JdjgAdmin"),
-    Pszj("Pszj"),
-    Jdjg("Jdjg"),
-    Normal("Normal")
+enum class Role(val cn: String, val en: String) {
+    Normal("Normal", "当事人"),
+    JdjgAdmin("JdjgAdmin", "鉴定机构"),
+    Pszj("Pszj", "评审专家"),
+    Bafg("Bafg", "办案法官"),
+    Sfjd("Sfjd", "司技办案"),
+    SfjdAdmin("SfjdAdmin", "司技主管")
     ;
 }
