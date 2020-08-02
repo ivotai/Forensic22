@@ -143,7 +143,7 @@ interface V1Api {
     // 系统公告
     // 系统公告列表
     @GET("public/xtggList")
-    fun getXtggList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Xtgg>>
+    fun getXtggList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Xtgg>>
 
 
     // 投诉建议
