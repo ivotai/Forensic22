@@ -5,15 +5,15 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.jakewharton.rxbinding3.view.clicks
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.data.model.JgCaseTypeS
+import com.unicorn.forensic2.data.model.JdjgAdminCaseTypeS
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_case_type.*
 
-class JgCaseTypeAdapter : BaseQuickAdapter<JgCaseTypeS, KVHolder>(R.layout.item_case_type) {
+class JdjgAdminCaseTypeSAdapter : BaseQuickAdapter<JdjgAdminCaseTypeS, KVHolder>(R.layout.item_case_type) {
 
-    override fun convert(helper: KVHolder, item: JgCaseTypeS) {
+    override fun convert(helper: KVHolder, item: JdjgAdminCaseTypeS) {
         helper.apply {
-            tvText.text = item.jgCaseType.text
+            tvText.text = item.jdjgAdminCaseType.text
             val textColor = ContextCompat.getColor(
                 mContext,
                 if (item.isSelect) R.color.md_red_400 else R.color.md_black
@@ -24,7 +24,7 @@ class JgCaseTypeAdapter : BaseQuickAdapter<JgCaseTypeS, KVHolder>(R.layout.item_
             tvText.clicks().subscribe {
                 data.forEach { it.isSelect = it == item }
                 notifyDataSetChanged()
-                RxBus.post(item.jgCaseType)
+                RxBus.post(item.jdjgAdminCaseType)
             }
         }
     }

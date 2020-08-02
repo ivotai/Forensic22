@@ -1,20 +1,461 @@
 {
-  "success": true,
-  "session": "NGZlODFlZjUtODE5My00ZGFjLWE3OGQtNWNjNDY3YTdlOWY1",
-  "user": {
-    "JdjgAdmin": false,
-    "Root": false,
-    "roles": [
-      "Normal"
-    ],
-    "Sfjd": false,
-    "Normal": true,
-    "Admin": false,
-    "realName": false,
-    "Jdjg": false,
-    "roleTag": "Normal",
-    "Pszj": false,
-    "id": 735603581574447104,
-    "Bafg": false
-  }
-}
+  "content": [
+    {
+      "@id": "1",
+      "caseId": "243a2789-a734-4b58-860d-dddb988c4cca",
+      "lid": "2800b899-b8ed-4411-a171-fddd0913ecf2",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 10,
+      "lotteryStatus": "已摇号",
+      "updateDttm": 1594692683000,
+      "jdNo": "(2020)陕08鉴469号",
+      "caseTypeDb": 1,
+      "caseType": "鉴定委托",
+      "isParty": false,
+      "isAgain": false,
+      "isTrial": true,
+      "caseSource": "司技系统",
+      "plaintiff": "被告|被告：贾向鹏，居民身份证：612725199208195030，联系电话：18091985958\r\n原告|原告：曹志文，居民身份证：61273219860927525X，联系电话：15389577727",
+      "caseNo": "(2019)陕0824民初5702号",
+      "courtApply": "RA5",
+      "courtNameApply": "靖边县人民法院",
+      "courtAccept": "RA0",
+      "courtNameAccept": "榆林市中级人民法院",
+      "courtLxdhAccept": "0912-3260929",
+      "bafg": "常伟",
+      "bafgId": "371001102",
+      "zbr": "邢东升",
+      "zbrId": "370501086",
+      "ay": "机动车交通事故责任纠纷",
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 2,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所",
+      "reasonAppoint": "",
+      "dateApply": 1588953600000,
+      "dateRegister": 1594137600000,
+      "dateAccept": 1594692324000,
+      "dateSetperson": 1594656000000,
+      "dateLottery": 1594656000000,
+      "dateStart": 1594656000000,
+      "operaPerson": "邢东升"
+    },
+    {
+      "@id": "2",
+      "caseId": "2bd3546a-a369-4bd6-ae6f-30da80726c66",
+      "lid": "8341ebd4-2731-472f-8f68-945a0626dc07",
+      "idx": "1",
+      "caseStatusDb": 60,
+      "caseStatus": "待审批",
+      "caseNodeDb": 1,
+      "caseNode": "初审",
+      "lotteryStatusDb": 10,
+      "lotteryStatus": "已摇号",
+      "updateDttm": 1592554668000,
+      "jdNo": "(2020)陕05诉前鉴4号",
+      "caseTypeDb": 5,
+      "caseType": "诉前鉴定",
+      "isParty": false,
+      "isAgain": false,
+      "isTrial": false,
+      "caseSource": "司技系统",
+      "plaintiff": "原告|原告：李四，：，联系电话：13355556666",
+      "caseNo": "快快快",
+      "courtApply": "R53",
+      "courtNameApply": "华阴市人民法院",
+      "courtAccept": "R50",
+      "courtNameAccept": "渭南市中级人民法院",
+      "courtLxdhAccept": "0913-2117521",
+      "bafg": "王龙飞",
+      "bafgId": "365101058",
+      "zbr": "张方舟",
+      "zbrId": "364801689",
+      "ay": "啊啊",
+      "closeType": 1,
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 2,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所（测试）",
+      "reasonAppoint": "",
+      "dateApply": 1592496000000,
+      "dateLottery": 1592496000000,
+      "dateStart": 1592496000000,
+      "operaPerson": "张方舟"
+    },
+    {
+      "@id": "3",
+      "caseId": "6aabda59-a279-4206-b6a6-f6b4776dba56",
+      "lid": "ad959b90-d353-4e5c-a5d8-f0824ed67828",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 10,
+      "lotteryStatus": "已摇号",
+      "updateDttm": 1589417429000,
+      "jdNo": "(2020)陕08鉴409号",
+      "caseTypeDb": 1,
+      "caseType": "鉴定委托",
+      "isParty": true,
+      "isAgain": false,
+      "isTrial": true,
+      "caseSource": "审判系统",
+      "plaintiff": "原告：周鹏，居民身份证：61273019960415053X，手机号码：17719650808，\r\n被告：任炳亮，居民身份证：61273019960710001X，手机号码：13488341119，\r\n被告：康树成，居民身份证：612730196708250013，手机号码：15877548242，\r\n",
+      "caseNo": "(2020)陕0802民初1976号",
+      "courtApply": "RA1",
+      "courtNameApply": "榆林市榆阳区人民法院",
+      "courtAccept": "RA0",
+      "courtNameAccept": "榆林市中级人民法院",
+      "courtLxdhAccept": "0912-3260929",
+      "bafg": "白萍",
+      "bafgId": "370601189",
+      "zbr": "张超",
+      "zbrId": "370501336",
+      "ay": "机动车交通事故责任纠纷",
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 3,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所",
+      "reasonAppoint": "",
+      "dateApply": 1587830400000,
+      "dateRegister": 1587830400000,
+      "dateAccept": 1589019453000,
+      "dateSetperson": 1589212800000,
+      "dateLottery": 1589385600000,
+      "dateStart": 1589385600000,
+      "operaPerson": "白璇"
+    },
+    {
+      "@id": "4",
+      "caseId": "9965056d-4f41-4439-8ddd-70b862a07504",
+      "lid": "8eba2f3b-90a1-4917-960b-eff4b214fbbf",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      dlbId
+      ":"
+      4
+      ","
+      jdlb
+      ":"
+      法医临床
+      ","
+      jdlbId0
+      ":1,"
+      jdlb0
+      ":"
+      法医
+      ","
+      lotteryType
+      ":1,"
+      rollMode
+      ":3,"
+      jgid
+      ":"
+      106
+      ","
+      jgmc
+      ":"
+      陕西榆林高科法医司法鉴定所
+      ","
+      reasonAppoint
+      ":"
+      ","
+      dateApply
+      ":1588089600000,"
+      dateRegister
+      ":1588089600000,"
+      dateAccept
+      ":1589018879000,"
+      dateSetperson
+      ":1589212800000,"
+      dateLottery
+      ":1589385600000,"
+      dateStart
+      ":1589385600000,"
+      operaPerson
+      ":"
+      白璇
+      "},{"
+      @id
+      ":"
+      5
+      ","
+      caseId
+      ":"
+      a54ae4cd-20f7-49c6-a81f-df92c6b83cae
+      ","
+      lid
+      ":"
+      72d440c3-1362-42df-aa22-e0017b1e9e4c
+      ","
+      idx
+      ":"
+      1
+      ","
+      caseStatusDb
+      ":50,"
+      caseStatus
+      ":"
+      案件办理
+      ","
+      caseNodeDb
+      ":5,"
+      caseNode
+      ":"
+      案件办理
+      ","
+      lotteryStatusDb
+      ":10,"
+      lotteryStatus
+      ":"
+      已摇号
+      ","
+      updateDttm
+      ":1589416779000,"
+      jdNo
+      ":"
+      (2020)陕08鉴390号
+      ","
+      caseTypeDb
+      ":1,"
+      caseType
+      ":"
+      鉴定委托
+      ","
+      isParty
+      ":true,"
+      isAgain
+      ":false,"
+      isTrial
+      ":true,"
+      caseSource
+      ":"
+      审判系统
+      ","
+      plaintiff
+      ":"
+      原告
+      ：
+      苏汉银
+      ，
+      居民身份证
+      ：
+      612731194704282015
+      ，
+      手机号码
+      ：
+      15929059100
+      ，
+      \
+      r
+      \
+      n被告
+      ：
+      武春莲
+      ，
+      居民身份证
+      ：
+      612727196901130429
+      ，
+      手机号码
+      ：
+      13772326554
+      ，
+      \
+      r
+      \
+      n被告
+      ：
+      榆林市富博旅游出租有限公司
+      ，
+      组织机构代码
+      ：
+      91610802727341746H
+      ，
+      手机号码
+      ：
+      13319123908
+      ，
+      \
+      r
+      \
+      n被告
+      ：
+      永安财产保险股份有限公司榆林中心支公司
+      ，
+      组织机构代码
+      ：
+      91610800735355769A
+      ，
+      手机号码
+      ：
+      13892251987
+      ，
+      \
+      r
+      \
+      n
+      ","
+      caseNo
+      ":"
+      (2020)陕0826民初694号
+      ","
+      courtApply
+      ":"
+      RA7
+      ","
+      courtNameApply
+      ":"
+      绥德县人民法院
+      ","
+      courtAccept
+      ":"
+      RA0
+      ","
+      courtNameAccept
+      ":"
+      榆林市中级人民法院
+      ","
+      courtLxdhAccept
+      ":"
+      0912-3260929
+      ","
+      bafg
+      ":"
+      田富平
+      ","
+      bafgId
+      ":"
+      371201015
+      ","
+      zbr
+      ":"
+      马慧
+      ","
+      zbrId
+      ":"
+      370501556
+      ","
+      ay
+      ":"
+      机动车交通事故责任纠纷
+      ","
+      closeTypeDisplay
+      ":"
+      ","
+      jdlbId
+      ":"
+      4
+      ","
+      jdlb
+      ":"
+      法医临床
+      ","
+      jdlbId0
+      ":1,"
+      jdlb0
+      ":"
+      法医
+      ","
+      lotteryType
+      ":1,"
+      rollMode
+      ":3,"
+      jgid
+      ":"
+      106
+      ","
+      jgmc
+      ":"
+      陕西榆林高科法医司法鉴定所
+      ","
+      reasonAppoint
+      ":"
+      ","
+      dateApply
+      ":1587830400000,"
+      dateRegister
+      ":1587830400000,"
+      dateAccept
+      ":1589019105000,"
+      dateSetperson
+      ":1589212800000,"
+      dateLottery
+      ":1589385600000,"
+      dateStart
+      ":1589385600000,"
+      operaPerson
+      ":"
+      白璇
+      "}],"
+      pageable
+      ":{"
+      sort
+      ":{"
+      sorted
+      ":true,"
+      unsorted
+      ":false,"
+      empty
+      ":false},"
+      pageNumber
+      ":0,"
+      offset
+      ":"
+      0
+      ","
+      pageSize
+      ":5,"
+      unpaged
+      ":false,"
+      paged
+      ":true},"
+      last
+      ":false,"
+      totalElements
+      ":"
+      47
+      ","
+      totalPages
+      ":10,"
+      first
+      ":true,"
+      sort
+      ":{"
+      sorted
+      ":true,"
+      unsorted
+      ":false,"
+      empty
+      ":false},"
+      size
+      ":5,"
+      number
+      ":0,"
+      numberOfElements
+      ":5,"
+      empty
+      ":false}

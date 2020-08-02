@@ -5,7 +5,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.jakewharton.rxbinding3.view.clicks
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.data.model.JgCaseTypeS
 import com.unicorn.forensic2.data.model.ZjCaseTypeS
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_case_type.*

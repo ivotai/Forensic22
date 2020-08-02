@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.data.model
 
-data class JgCaseTypeS(
-    val jgCaseType: JgCaseType,
+data class JdjgAdminCaseTypeS(
+    val jdjgAdminCaseType: JdjgAdminCaseType,
     var isSelect: Boolean = false
 )

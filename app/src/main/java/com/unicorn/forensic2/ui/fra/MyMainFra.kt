@@ -11,7 +11,7 @@ import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.user
-import com.unicorn.forensic2.data.model.JgCaseType
+import com.unicorn.forensic2.data.model.JdjgAdminCaseType
 import com.unicorn.forensic2.data.model.MyMenu
 import com.unicorn.forensic2.ui.adapter.MyMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
@@ -75,12 +75,12 @@ class MyMainFra : BaseFra() {
                                 tvNum3.text = dps
                                 tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
                                     Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JgCaseType.ZBTZ)
+                                        putExtra(Param, JdjgAdminCaseType.ZBTZ)
                                     }.let { context!!.startActivity(it) }
                                 }
                                 tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
                                     Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JgCaseType.DJD)
+                                        putExtra(Param, JdjgAdminCaseType.DJD)
                                     }.let { context!!.startActivity(it) }
                                 }
                                 tvLabel3.safeClicks().mergeWith(tvNum3.safeClicks()).subscribe {
@@ -97,12 +97,12 @@ class MyMainFra : BaseFra() {
                                 tvNum3.visibility = View.INVISIBLE
                                 tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
                                     Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JgCaseType.ZBTZ)
+                                        putExtra(Param, JdjgAdminCaseType.ZBTZ)
                                     }.let { context!!.startActivity(it) }
                                 }
                                 tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
                                     Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JgCaseType.DJD)
+                                        putExtra(Param, JdjgAdminCaseType.DJD)
                                     }.let { context!!.startActivity(it) }
                                 }
                             }

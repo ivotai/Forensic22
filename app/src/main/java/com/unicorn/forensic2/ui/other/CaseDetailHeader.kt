@@ -36,20 +36,20 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             tvCaseNo.text = caseNo
             tvCaseStatus.text = caseStatus
             tvDateApply.text = dateApply.toDisplayFormat()
-            tvPlanFinish.text = planFinish.toDisplayFormat()
+//            tvPlanFinish.text = planFinish.toDisplayFormat()
             tvCloseTypeDisplay.text = closeTypeDisplay
-            tvJdryxm.text = jdryxm
+//            tvJdryxm.text = jdryxm
         }
 
-        // 下载中标通知
-        if (case.fidzbtz != null) {
-            tvZbtz.text = case.fidzbtz.filename
-            tvZbtz.safeClicks().subscribe {
-                val intent = Intent(context, PdfAct::class.java)
-                intent.putExtra(Param, case.fidzbtz)
-                context.startActivity(intent)
-            }
-        }
+//        // 下载中标通知
+//        if (case.fidzbtz != null) {
+//            tvZbtz.text = case.fidzbtz.filename
+//            tvZbtz.safeClicks().subscribe {
+//                val intent = Intent(context, PdfAct::class.java)
+//                intent.putExtra(Param, case.fidzbtz)
+//                context.startActivity(intent)
+//            }
+//        }
     }
 
 }

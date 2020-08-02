@@ -2,7 +2,7 @@ package com.unicorn.forensic2.data.model
 
 import java.io.Serializable
 
-enum class JgCaseType(val text: String) : Serializable {
+enum class JdjgAdminCaseType(val text: String) : Serializable {
     ZBTZ("中标通知"),
     DJD("待鉴定"),
     YJD("已鉴定"),
@@ -14,6 +14,9 @@ enum class JgCaseType(val text: String) : Serializable {
 
         val all
             get() = listOf(ZBTZ, DJD, YJD, YJJ, YXA)
+
+        val default
+            get() = all[0]
 
     }
 

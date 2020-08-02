@@ -3,8 +3,8 @@ package com.unicorn.forensic2.ui.fra
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Case
@@ -14,29 +14,21 @@ import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.JdjgAdminCaseTypeSAdapter
 import com.unicorn.forensic2.ui.adapter.JdjgAdminCaseAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
-import com.unicorn.forensic2.ui.base.SimplePageAct
+import com.unicorn.forensic2.ui.base.SimplePageFra
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fra_case_list.*
 
-class JgCaseAct : SimplePageAct<Case, KVHolder>() {
-
-    override fun loadPage(page: Int): Single<Page<Case>> {
-        return when (caseType) {
-            JdjgAdminCaseType.ZBTZ -> v1Api.getZbtzList(page = page)
-            JdjgAdminCaseType.DJD -> v1Api.getDjdList(page = page)
-            JdjgAdminCaseType.YJD -> v1Api.getYjdList(page = page)
-            JdjgAdminCaseType.YJJ -> v1Api.getYjjList(page = page)
-            JdjgAdminCaseType.YXA -> v1Api.getYxaList(page = page)
-        }
-    }
+class JdjgAdminCaseListFra : SimplePageFra<Case, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle("机构案件", true)
+
+        titleBar.setTitle("我的案件", false)
+
         rvCaseTypeS.apply {
             layoutManager = LinearLayoutManager(context)
-            jgCaseTypeAdapter.bindToRecyclerView(this)
+            jdjgAdminCaseTypeSAdapter.bindToRecyclerView(this)
         }
         mRecyclerView.addDefaultItemDecoration(1)
     }
@@ -44,23 +36,34 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
     override fun bindIntent() {
         super.bindIntent()
         val data = JdjgAdminCaseType.all.map { JdjgAdminCaseTypeS(it) }
-        data.forEach { it.isSelect = it.jdjgAdminCaseType == firstCaseType }
-        jgCaseTypeAdapter.setNewData(data)
-        RxBus.post(firstCaseType)
+        data.forEach { it.isSelect = it.jdjgAdminCaseType == jdjgAdminCaseType }
+        jdjgAdminCaseTypeSAdapter.setNewData(data)
     }
 
     override fun registerEvent() {
         RxBus.registerEvent(this, JdjgAdminCaseType::class.java, Consumer {
-            caseType = it
+            jdjgAdminCaseType = it
             loadFirstPage()
         })
     }
 
-    private val jgCaseTypeAdapter = JdjgAdminCaseTypeSAdapter()
+    override val simpleAdapter: BaseQuickAdapter<Case, KVHolder> = JdjgAdminCaseAdapter()
 
-    override val simpleAdapter = JdjgAdminCaseAdapter()
+    private val jdjgAdminCaseTypeSAdapter = JdjgAdminCaseTypeSAdapter()
 
-    private var caseType = JdjgAdminCaseType.all[0]
+    override fun loadPage(page: Int): Single<Page<Case>> {
+        return when (jdjgAdminCaseType) {
+            JdjgAdminCaseType.ZBTZ -> api.getZbtzList(page = page)
+            JdjgAdminCaseType.DJD -> api.getDjdList(page = page)
+            JdjgAdminCaseType.YJD -> api.getYjdList(page = page)
+            JdjgAdminCaseType.YJJ -> api.getYjjList(page = page)
+            JdjgAdminCaseType.YXA -> api.getYxaList(page = page)
+        }
+    }
+
+    private var jdjgAdminCaseType = JdjgAdminCaseType.default
+
+    //
 
     override val mRecyclerView: RecyclerView
         get() = recyclerView
@@ -69,7 +72,4 @@ class JgCaseAct : SimplePageAct<Case, KVHolder>() {
         get() = swipeRefreshLayout
 
     override val layoutId = R.layout.fra_case_list
-
-    private val firstCaseType by lazy { intent.getSerializableExtra(Param) as JdjgAdminCaseType }
-
 }

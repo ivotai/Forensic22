@@ -7,7 +7,7 @@ import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.app.user
-import com.unicorn.forensic2.data.model.JgCaseType
+import com.unicorn.forensic2.data.model.JdjgAdminCaseType
 import com.unicorn.forensic2.ui.base.BaseFra
 import com.unicorn.forensic2.ui.fra.DsrCaseAct
 import com.unicorn.forensic2.ui.fra.JgCaseAct
@@ -29,7 +29,7 @@ class CaseGuideFra : BaseFra() {
     override fun bindIntent() {
         button.safeClicks().subscribe {
             Intent(context!!, JgCaseAct::class.java).apply {
-                putExtra(Param, JgCaseType.ZBTZ)
+                putExtra(Param, JdjgAdminCaseType.ZBTZ)
             }.let { context!!.startActivity(it) }
         }
         button2.safeClicks().subscribe { context!!.startAct(ZjCaseAct::class.java) }
