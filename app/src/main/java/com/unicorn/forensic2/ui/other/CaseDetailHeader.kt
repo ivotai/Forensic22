@@ -35,7 +35,7 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             tvJdNo.text = jdNo
             tvCaseNo.text = caseNo
             tvCaseStatus.text = caseStatus
-            tvDateApply.text = dateApply.toDisplayFormat()
+//            tvDateApply.text = dateApply.toDisplayFormat()
 //            tvPlanFinish.text = planFinish.toDisplayFormat()
             tvCloseTypeDisplay.text = closeTypeDisplay
 //            tvJdryxm.text = jdryxm

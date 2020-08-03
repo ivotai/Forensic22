@@ -67,7 +67,10 @@ data class Case(
     val caseStatus: String,
     val dateAccept: Long,
     val dateClose: Long,
-    val closeTypeDisplay: String
+    val closeTypeDisplay: String,
+    val courtNameApply: String,
+    val caseType: String,
+    val courtNameAccept: String
 ) : Serializable
 
 

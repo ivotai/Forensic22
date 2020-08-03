@@ -10,7 +10,7 @@ import com.unicorn.forensic2.ui.act.CaseDetailAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_case.*
 
-class JdjgAdminCaseAdapter : BaseQuickAdapter<Case, KVHolder>(R.layout.item_case) {
+class CaseAdapter : BaseQuickAdapter<Case, KVHolder>(R.layout.item_case) {
 
     override fun convert(helper: KVHolder, item: Case) {
         helper.apply {
