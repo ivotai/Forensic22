@@ -33,6 +33,7 @@ data class Jdxx(
     val dateStart: Long,
     val feeActual: Double,
     val fidyhhf: String?,
+    val fidjdbg:String?,
     val fidzbtz: UploadFile?,
     val idx: String,
     val isAccept: Int,

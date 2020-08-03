@@ -41,7 +41,17 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
                     intent.putExtra(Param, item.fidyhhf)
                     context.startActivity(intent)
                 }
+            } else {
+                ToastUtils.showShort("暂无文件")
+            }
 
+            //
+            if (item.fidjdbg != null) {
+                tvJdbg.safeClicks().subscribe {
+                    val intent = Intent(context, PdfAct::class.java)
+                    intent.putExtra(Param, item.fidjdbg)
+                    context.startActivity(intent)
+                }
             } else {
                 ToastUtils.showShort("暂无文件")
             }
