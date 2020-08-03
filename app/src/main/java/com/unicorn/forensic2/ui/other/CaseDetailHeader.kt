@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.di.ComponentHolder
 import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.ui.jdxx.JdxxAdapter
 import io.reactivex.rxkotlin.subscribeBy
@@ -20,7 +21,6 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
 
     override val containerView = this
 
-
     private val jdxxAdapter = JdxxAdapter()
 
     init {
@@ -29,22 +29,23 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             tvJdNo.text = jdNo
             tvCaseNo.text = caseNo
             tvCaseStatus.text = caseStatus
-//            tvDateApply.text = dateApply.toDisplayFormat()
-//            tvPlanFinish.text = planFinish.toDisplayFormat()
+            tvDateAccept.text = dateAccept.toDisplayFormat()
+            tvDateClose.text = dateClose.toDisplayFormat()
             tvCloseTypeDisplay.text = closeTypeDisplay
-//            tvJdryxm.text = jdryxm
-
-            with(recyclerView) {
-                layoutManager = LinearLayoutManager(context)
-                jdxxAdapter.bindToRecyclerView(this)
-            }
-            ComponentHolder.appComponent.v1Api()
-                .getJdxx(case.caseId).observeOnMain(context as LifecycleOwner).subscribeBy(
-                    onSuccess = {
-                        jdxxAdapter.setNewData(it)
-                    }
-                )
         }
+
+        // 鉴定信息
+        with(recyclerView) {
+            layoutManager = LinearLayoutManager(context)
+            jdxxAdapter.bindToRecyclerView(this)
+        }
+        ComponentHolder.appComponent.v1Api()
+            .getJdxx(case.caseId).observeOnMain(context as LifecycleOwner).subscribeBy(
+                onSuccess = {
+                    jdxxAdapter.setNewData(it)
+                }
+            )
+
 
 //        // 下载中标通知
 //        if (case.fidzbtz != null) {

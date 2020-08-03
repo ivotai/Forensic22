@@ -72,8 +72,6 @@
         <activity android:name=".ui.act.query.ShjlJdjgQueryAct" />
         <activity android:name=".ui.act.query.CaseQueryAct" />
         <activity android:name=".ui.fra.ZjCaseAct" />
-        <activity android:name=".ui.fra.DsrCaseAct" />
-        <activity android:name=".ui.DsrCaseDetailAct" />
         <activity android:name=".ui.act.PdfAct" />
 
         <meta-data

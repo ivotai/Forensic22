@@ -30,7 +30,6 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
             layoutManager = LinearLayoutManager(context)
             caseTypeSAdapter.bindToRecyclerView(this)
         }
-        mRecyclerView.addDefaultItemDecoration(1)
     }
 
     override fun bindIntent() {

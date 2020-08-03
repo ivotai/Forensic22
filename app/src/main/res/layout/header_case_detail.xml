@@ -24,7 +24,7 @@
             android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="案件基本信息"
+            android:text="基本信息"
             android:textColor="@color/md_black"
             android:textSize="18dp"/>
 
@@ -49,7 +49,7 @@
             android:id="@+id/tvJdNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="鉴定案号"
+            android:text=""
             android:textColor="@color/md_black"
             android:textSize="16dp"/>
 
@@ -75,7 +75,7 @@
             android:id="@+id/tvCaseNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="案件案号"
+            android:text=""
             android:textColor="@color/md_black"
             android:textSize="16dp"/>
 
@@ -101,7 +101,7 @@
             android:id="@+id/tvCaseStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="案件状态"
+            android:text=""
             android:textColor="@color/md_black"
             android:textSize="16dp"/>
 
@@ -124,10 +124,10 @@
             android:textSize="16dp"/>
 
         <TextView
-            android:id="@+id/tvDateApply"
+            android:id="@+id/tvDateAccept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="立案日期"
+            android:text=""
             android:textColor="@color/md_black"
             android:textSize="16dp"/>
 
@@ -150,10 +150,10 @@
             android:textSize="16dp"/>
 
         <TextView
-            android:id="@+id/tvPlanFinish"
+            android:id="@+id/tvDateClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="结案日期"
+            android:text=""
             android:textColor="@color/md_black"
             android:textSize="16dp"/>
 
@@ -179,62 +179,8 @@
             android:id="@+id/tvCloseTypeDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="结案方式"
-            android:textColor="@color/md_black"
-            android:textSize="16dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="1px"
-        android:background="@color/md_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="相关人员"
-            android:textColor="@color/md_black"
-            android:textSize="16dp"/>
-
-        <TextView
-            android:layout_marginStart="16dp"
-            android:id="@+id/tvJdryxm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="相关人员"
-            android:textColor="@color/md_black"
-            android:textSize="16dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="1px"
-        android:background="@color/md_white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="中标通知"
-            android:textColor="@color/md_black"
-            android:textSize="16dp"/>
-
-        <TextView
-            android:layout_marginStart="16dp"
-            android:id="@+id/tvZbtz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text=""
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/md_black"
             android:textSize="16dp"/>
 
     </LinearLayout>
@@ -285,7 +231,7 @@
             android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="鉴定信息"
+            android:text="流程进展"
             android:textColor="@color/md_black"
             android:textSize="18dp"/>
 
