@@ -9,139 +9,139 @@
     tools:ignore="ContentDescription,HardcodedText,SpUsage">
 
     <TextView
-        android:id="@+id/tvJdNo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/md_grey_100"
-        android:padding="16dp"
-        android:text="鉴定案号"
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/tvCourtNameAccept"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="end"
-        android:text="办案法院："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvCaseNo"
-        app:layout_constraintStart_toEndOf="@+id/lCourtNameAccept"
-        app:layout_constraintTop_toBottomOf="@+id/tvCaseNo" />
-
-    <TextView
-        android:id="@+id/lCourtNameAccept"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="办案法院："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lCaseNo"
-        app:layout_constraintTop_toTopOf="@+id/tvCourtNameAccept" />
-
-    <TextView
-        android:id="@+id/lCourtNameApply"
+        android:id="@+id/lJdlb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="鉴定法院："
+        android:layout_marginTop="16dp"
+        android:text="鉴定类别："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvCourtNameApply" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lCaseType"
+        android:id="@+id/lDateLottery"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="鉴定类型："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lCourtNameApply"
-        app:layout_constraintTop_toTopOf="@+id/tvCaseType" />
-
-    <TextView
-        android:id="@+id/lCaseStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="当前状态："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lCaseType"
-        app:layout_constraintTop_toTopOf="@+id/tvCaseStatus" />
-
-    <TextView
-        android:id="@+id/lCaseNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="案件案号："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lCaseStatus"
-        app:layout_constraintTop_toTopOf="@+id/tvCaseNo" />
-
-    <TextView
-        android:id="@+id/tvCourtNameApply"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:text="摇号日期："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lJdlb"
+        app:layout_constraintTop_toBottomOf="@+id/lJdlb" />
+
+    <TextView
+        android:id="@+id/lJgmc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="中标机构："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lDateLottery"
+        app:layout_constraintTop_toBottomOf="@+id/lDateLottery" />
+
+    <TextView
+        android:id="@+id/lZbtz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="中标通知："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lJgmc"
+        app:layout_constraintTop_toBottomOf="@+id/lJgmc" />
+
+    <TextView
+        android:id="@+id/tvJdlb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="鉴定法院："
+        android:text="鉴定类别："
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lJdlb" />
+
+    <TextView
+        android:id="@+id/tvDateLottery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="摇号日期："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvJdlb"
+        app:layout_constraintTop_toTopOf="@+id/lDateLottery" />
+
+    <TextView
+        android:id="@+id/tvJgmc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中标机构："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvDateLottery"
+        app:layout_constraintTop_toTopOf="@+id/lJgmc" />
+
+    <TextView
+        android:id="@+id/tvZbtz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中标通知："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvJgmc"
+        app:layout_constraintTop_toTopOf="@+id/lZbtz" />
+
+    <TextView
+        android:id="@+id/tvYhhf"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="摇号回放："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvZbtz"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/lYhhf" />
+
+    <TextView
+        android:id="@+id/lYhhf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="摇号回放："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/lZbtz"
+        app:layout_constraintTop_toBottomOf="@+id/lZbtz" />
+
+    <TextView
+        android:id="@+id/tvJdbg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="end"
+        android:text="鉴定报告："
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvZbtz"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/lCourtNameApply"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdNo" />
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/lJdbg" />
 
     <TextView
-        android:id="@+id/tvCaseType"
-        android:layout_width="0dp"
+        android:id="@+id/lJdbg"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="鉴定类型："
+        android:text="鉴定报告："
         android:textColor="@color/md_black"
         android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvCourtNameApply"
-        app:layout_constraintStart_toEndOf="@+id/lCourtNameApply"
-        app:layout_constraintTop_toBottomOf="@+id/tvCourtNameApply" />
-
-    <TextView
-        android:id="@+id/tvCaseStatus"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="当前状态："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvCaseType"
-        app:layout_constraintStart_toEndOf="@+id/lCaseStatus"
-        app:layout_constraintTop_toBottomOf="@+id/tvCaseType" />
-
-    <TextView
-        android:id="@+id/tvCaseNo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="案件案号："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvCaseStatus"
-        app:layout_constraintStart_toEndOf="@+id/lCaseNo"
-        app:layout_constraintTop_toBottomOf="@+id/tvCaseStatus" />
+        app:layout_constraintStart_toStartOf="@+id/lZbtz"
+        app:layout_constraintTop_toBottomOf="@+id/lYhhf" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
