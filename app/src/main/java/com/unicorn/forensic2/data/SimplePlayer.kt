@@ -23,7 +23,6 @@ class SimplePlayer : AppCompatActivity() {
     }
 
     private fun init() {
-//        var source1 = file.absolutePath
         val source1 = "${baseUrl}sysFileinfo/download/$mp4Id"
         videoPlayer!!.setUp(source1, true, "摇号回放")
 

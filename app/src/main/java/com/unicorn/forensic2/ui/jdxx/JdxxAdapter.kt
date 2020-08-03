@@ -27,7 +27,7 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
             if (item.fidzbtz != null) {
                 tvZbtz.safeClicks().subscribe {
                     val intent = Intent(context, PdfAct::class.java)
-                    intent.putExtra(Param, item.fidzbtz)
+                    intent.putExtra(Param, item.fidzbtz.fileid)
                     context.startActivity(intent)
                 }
             } else {
@@ -49,8 +49,5 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
 
     }
 
-    fun downloadMp4() {
-
-    }
 
 }
