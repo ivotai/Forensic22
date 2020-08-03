@@ -7,6 +7,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.data.SimplePlayer
 import com.unicorn.forensic2.ui.act.PdfAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_jdxx.*
@@ -32,7 +33,23 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
             } else {
                 ToastUtils.showShort("暂无文件")
             }
+
+            //
+            if (item.fidyhhf != null) {
+                tvYhhf.safeClicks().subscribe {
+                    val intent = Intent(context, SimplePlayer::class.java)
+                    intent.putExtra(Param, item.fidyhhf)
+                    context.startActivity(intent)
+                }
+
+            } else {
+                ToastUtils.showShort("暂无文件")
+            }
         }
+
+    }
+
+    fun downloadMp4() {
 
     }
 
