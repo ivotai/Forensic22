@@ -11,7 +11,7 @@ import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.user
-import com.unicorn.forensic2.data.model.JdjgAdminCaseType
+import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.MyMenu
 import com.unicorn.forensic2.ui.adapter.MyMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
@@ -73,16 +73,16 @@ class MyMainFra : BaseFra() {
                                 tvNum2.text = djd
                                 tvLabel3.text = "待评审"
                                 tvNum3.text = dps
-                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-                                    Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JdjgAdminCaseType.ZBTZ)
-                                    }.let { context!!.startActivity(it) }
-                                }
-                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
-                                    Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JdjgAdminCaseType.DJD)
-                                    }.let { context!!.startActivity(it) }
-                                }
+//                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+//                                    Intent(context!!, JgCaseAct::class.java).apply {
+//                                        putExtra(Param, CaseType.ZBTZ)
+//                                    }.let { context!!.startActivity(it) }
+//                                }
+//                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
+//                                    Intent(context!!, JgCaseAct::class.java).apply {
+//                                        putExtra(Param, CaseType.DJD)
+//                                    }.let { context!!.startActivity(it) }
+//                                }
                                 tvLabel3.safeClicks().mergeWith(tvNum3.safeClicks()).subscribe {
                                     Intent(context!!, ZjCaseAct::class.java).apply {
                                     }.let { context!!.startActivity(it) }
@@ -95,16 +95,16 @@ class MyMainFra : BaseFra() {
                                 tvNum2.text = djd
                                 tvLabel3.visibility = View.INVISIBLE
                                 tvNum3.visibility = View.INVISIBLE
-                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-                                    Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JdjgAdminCaseType.ZBTZ)
-                                    }.let { context!!.startActivity(it) }
-                                }
-                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
-                                    Intent(context!!, JgCaseAct::class.java).apply {
-                                        putExtra(Param, JdjgAdminCaseType.DJD)
-                                    }.let { context!!.startActivity(it) }
-                                }
+//                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
+//                                    Intent(context!!, JgCaseAct::class.java).apply {
+//                                        putExtra(Param, CaseType.ZBTZ)
+//                                    }.let { context!!.startActivity(it) }
+//                                }
+//                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
+//                                    Intent(context!!, JgCaseAct::class.java).apply {
+//                                        putExtra(Param, CaseType.DJD)
+//                                    }.let { context!!.startActivity(it) }
+//                                }
                             }
                             user.Pszj -> {
                                 tvLabel1.text = "待评审"
