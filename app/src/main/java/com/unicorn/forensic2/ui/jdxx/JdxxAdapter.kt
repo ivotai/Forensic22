@@ -24,36 +24,39 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
             tvJdbg.text = "查看鉴定报告"
 
             //
-            if (item.fidzbtz != null) {
-                tvZbtz.safeClicks().subscribe {
+
+            tvZbtz.safeClicks().subscribe {
+                if (item.fidzbtz != null) {
                     val intent = Intent(context, PdfAct::class.java)
                     intent.putExtra(Param, item.fidzbtz.fileid)
                     context.startActivity(intent)
+                } else {
+                    ToastUtils.showShort("暂无文件")
                 }
-            } else {
-                ToastUtils.showShort("暂无文件")
             }
 
             //
-            if (item.fidyhhf != null) {
-                tvYhhf.safeClicks().subscribe {
+
+            tvYhhf.safeClicks().subscribe {
+                if (item.fidyhhf != null) {
                     val intent = Intent(context, SimplePlayer::class.java)
                     intent.putExtra(Param, item.fidyhhf)
                     context.startActivity(intent)
+
+                } else {
+                    ToastUtils.showShort("暂无文件")
                 }
-            } else {
-                ToastUtils.showShort("暂无文件")
             }
 
             //
-            if (item.fidjdbg != null) {
-                tvJdbg.safeClicks().subscribe {
+            tvJdbg.safeClicks().subscribe {
+                if (item.fidjdbg != null) {
                     val intent = Intent(context, PdfAct::class.java)
                     intent.putExtra(Param, item.fidjdbg)
                     context.startActivity(intent)
+                } else {
+                    ToastUtils.showShort("暂无文件")
                 }
-            } else {
-                ToastUtils.showShort("暂无文件")
             }
         }
 

@@ -2,7 +2,6 @@ package com.unicorn.forensic2.ui.act
 
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
-import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.safeClicks
@@ -30,17 +29,13 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
         super.bindIntent()
 
         //
-        titleBar.setOperation("操作").safeClicks().subscribe { showOperationDialog() }
+        if (Operation.all.isNotEmpty())
+            titleBar.setOperation("操作").safeClicks().subscribe { showOperationDialog() }
     }
 
-    private fun showOperationDialog(){
-        val operations = Operation.all
-        if (operations.isEmpty()) {
-            ToastUtils.showShort("无可用操作")
-            return
-        }
+    private fun showOperationDialog() {
         MaterialDialog(this).show {
-            listItems(items = operations.map { it.cn })
+            listItems(items = Operation.all.map { it.cn })
         }
     }
 
