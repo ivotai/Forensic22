@@ -4,12 +4,17 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.kaopiz.kprogresshud.KProgressHUD
 import com.shuyu.gsyvideoplayer.GSYVideoManager
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.baseUrl
+import com.zhy.http.okhttp.OkHttpUtils
+import com.zhy.http.okhttp.callback.FileCallBack
 import kotlinx.android.synthetic.main.activity_simple_player.*
+import okhttp3.Call
+import java.io.File
 
 class SimplePlayer : AppCompatActivity() {
     var orientationUtils: OrientationUtils? = null
@@ -19,11 +24,40 @@ class SimplePlayer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_player)
-        init()
+        download()
     }
 
-    private fun init() {
-        val source1 = "${baseUrl}sysFileinfo/download/$mp4Id"
+    private fun download() {
+        val progressMask = KProgressHUD.create(this)
+            .setStyle(KProgressHUD.Style.BAR_DETERMINATE)
+            .setCancellable(true)
+            .setDimAmount(0.5f)
+            .setMaxProgress(100)
+            .show()
+        val url = "${baseUrl}sysFileinfo/download/$mp4Id"
+        OkHttpUtils
+            .get()
+            .url(url)
+            .build()
+            .execute(object : FileCallBack(cacheDir.path, ".pdf") {
+                override fun onResponse(response: File, id: Int) {
+                    progressMask.dismiss()
+                    init(file = response)
+                }
+
+                override fun inProgress(progress: Float, total: Long, id: Int) {
+                    val p = (100 * progress).toInt()
+                    progressMask.setProgress(p)
+                }
+
+                override fun onError(call: Call?, e: Exception?, id: Int) {
+                    progressMask.dismiss()
+                }
+            })
+    }
+
+    private fun init(file: File) {
+        val source1 = file.absolutePath
         videoPlayer!!.setUp(source1, true, "摇号回放")
 
         //增加封面
