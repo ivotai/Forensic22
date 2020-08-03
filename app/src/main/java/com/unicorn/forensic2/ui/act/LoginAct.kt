@@ -62,6 +62,17 @@ class LoginAct : BaseAct() {
 
     private fun showRoleDialog() {
         val ens = user.roles
+
+        // 假如只有一个角色
+        if (ens.size == 1) {
+            user.roleTag = ens.first()
+            // 刷新登录状态
+            RxBus.post(LoginStateChangeEvent())
+            // 关闭登录界面
+            finish()
+            return
+        }
+
         val cns = ens.map { Role.en2Cn(it) }
         MaterialDialog(this).show {
             title(text = "选择角色")
