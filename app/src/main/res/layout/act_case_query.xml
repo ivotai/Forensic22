@@ -33,17 +33,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="开始日期:"
+                android:text="案号:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
-            <TextView
-                android:id="@+id/tvLarqBegin"
+            <EditText
+                android:id="@+id/tvAh"
+                android:inputType="text"
+                android:background="@null"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="请选择开始日期"
+                android:hint="请输入案号"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
                 android:textSize="18dp" />
@@ -59,17 +61,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="结束日期:"
+                android:text="年度:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
-            <TextView
-                android:id="@+id/tvLarqEnd"
+            <EditText
+                android:background="@null"
+                android:id="@+id/tvYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="请选择结束日期"
+                android:hint="请输入年度"
+                android:inputType="numberSigned"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
                 android:textSize="18dp" />
@@ -85,17 +89,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="案件类型:"
+                android:text="当事人:"
                 android:textColor="@color/md_grey_500"
                 android:textSize="14dp" />
 
-            <TextView
-                android:id="@+id/tvFlag"
+            <EditText
+                android:inputType="text"
+                android:background="@null"
+                android:id="@+id/tvPlaintiff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="请选择案件类型"
+                android:hint="请输入当事人"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
                 android:textSize="18dp" />
