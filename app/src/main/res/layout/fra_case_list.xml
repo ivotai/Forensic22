@@ -21,7 +21,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCaseTypeS"
-            android:layout_width="112dp"
+            android:layout_width="wrap_content"
             android:background="@color/douYuGrey"
             android:layout_height="match_parent" />
 
