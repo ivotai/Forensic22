@@ -1,9 +1,14 @@
 package com.unicorn.forensic2.ui.act
 
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.list.listItems
+import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseProcess
+import com.unicorn.forensic2.data.model.Operation
 import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -25,7 +30,18 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
         super.bindIntent()
 
         //
+        titleBar.setOperation("操作").safeClicks().subscribe { showOperationDialog() }
+    }
 
+    private fun showOperationDialog(){
+        val operations = Operation.all
+        if (operations.isEmpty()) {
+            ToastUtils.showShort("无可用操作")
+            return
+        }
+        MaterialDialog(this).show {
+            listItems(items = operations.map { it.cn })
+        }
     }
 
     override val simpleAdapter = CaseProcessAdapter()
