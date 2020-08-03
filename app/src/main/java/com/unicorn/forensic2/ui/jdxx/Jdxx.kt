@@ -1,5 +1,7 @@
 package com.unicorn.forensic2.ui.jdxx
 
+import com.unicorn.forensic2.data.model.UploadFile
+
 data class Jdxx(
     val ay: String,
     val bafg: String,
@@ -13,6 +15,7 @@ data class Jdxx(
     val caseStatusDb: Int,
     val caseType: String,
     val caseTypeDb: Int,
+    val closeType: Int,
     val closeTypeDisplay: String,
     val courtAccept: String,
     val courtApply: String,
@@ -21,11 +24,18 @@ data class Jdxx(
     val courtNameApply: String,
     val dateAccept: Long,
     val dateApply: Long,
+    val dateClose: Long,
+    val dateFinishRequest: Long,
     val dateLottery: Long,
     val dateRegister: Long,
+    val dateReply: Long,
     val dateSetperson: Long,
     val dateStart: Long,
+    val feeActual: Double,
+    val fidyhhf: String?,
+    val fidzbtz: UploadFile?,
     val idx: String,
+    val isAccept: Int,
     val isAgain: Boolean,
     val isParty: Boolean,
     val isTrial: Boolean,
@@ -48,3 +58,4 @@ data class Jdxx(
     val zbr: String,
     val zbrId: String
 )
+
