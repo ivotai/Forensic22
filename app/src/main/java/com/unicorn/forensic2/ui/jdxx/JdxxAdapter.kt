@@ -1,8 +1,13 @@
 package com.unicorn.forensic2.ui.jdxx
 
+import android.content.Intent
+import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.Param
+import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.toDisplayFormat
+import com.unicorn.forensic2.ui.act.PdfAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_jdxx.*
 
@@ -13,10 +18,22 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
             tvJdlb.text = item.jdlb
             tvDateLottery.text = item.dateLottery.toDisplayFormat()
             tvJgmc.text = item.jgmc
-            tvZbtz.text = item.fidzbtz?.filename ?: ""
-            tvYhhf.text = item.fidyhhf
-            tvJdbg.text = ""// todo fidjdbg
+            tvZbtz.text = "查看中标通知"
+            tvYhhf.text = "查看摇号回放"
+            tvJdbg.text = "查看鉴定报告"
+
+            //
+            if (item.fidzbtz != null) {
+                tvZbtz.safeClicks().subscribe {
+                    val intent = Intent(context, PdfAct::class.java)
+                    intent.putExtra(Param, item.fidzbtz)
+                    context.startActivity(intent)
+                }
+            } else {
+                ToastUtils.showShort("暂无文件")
+            }
         }
+
     }
 
 }

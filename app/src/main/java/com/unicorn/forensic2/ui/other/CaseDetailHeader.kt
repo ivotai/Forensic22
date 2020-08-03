@@ -46,16 +46,6 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
                 }
             )
 
-
-//        // 下载中标通知
-//        if (case.fidzbtz != null) {
-//            tvZbtz.text = case.fidzbtz.filename
-//            tvZbtz.safeClicks().subscribe {
-//                val intent = Intent(context, PdfAct::class.java)
-//                intent.putExtra(Param, case.fidzbtz)
-//                context.startActivity(intent)
-//            }
-//        }
     }
 
 }
