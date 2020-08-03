@@ -11,8 +11,8 @@ import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.CaseTypeS
 import com.unicorn.forensic2.data.model.Page
-import com.unicorn.forensic2.ui.adapter.CaseTypeSAdapter
 import com.unicorn.forensic2.ui.adapter.CaseAdapter
+import com.unicorn.forensic2.ui.adapter.CaseTypeSAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageFra
 import io.reactivex.Single
@@ -28,7 +28,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
         rvCaseTypeS.apply {
             layoutManager = LinearLayoutManager(context)
-            jdjgAdminCaseTypeSAdapter.bindToRecyclerView(this)
+            caseTypeSAdapter.bindToRecyclerView(this)
         }
         mRecyclerView.addDefaultItemDecoration(1)
     }
@@ -36,23 +36,23 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     override fun bindIntent() {
         super.bindIntent()
         val data = CaseType.all.map { CaseTypeS(it) }
-        data.forEach { it.isSelect = it.caseType == jdjgAdminCaseType }
-        jdjgAdminCaseTypeSAdapter.setNewData(data)
+        data.forEach { it.isSelect = it.caseType == caseType }
+        caseTypeSAdapter.setNewData(data)
     }
 
     override fun registerEvent() {
         RxBus.registerEvent(this, CaseType::class.java, Consumer {
-            jdjgAdminCaseType = it
+            caseType = it
             loadFirstPage()
         })
     }
 
     override val simpleAdapter: BaseQuickAdapter<Case, KVHolder> = CaseAdapter()
 
-    private val jdjgAdminCaseTypeSAdapter = CaseTypeSAdapter()
+    private val caseTypeSAdapter = CaseTypeSAdapter()
 
     override fun loadPage(page: Int): Single<Page<Case>> {
-        return when (jdjgAdminCaseType) {
+        return when (caseType) {
             CaseType.ZBTZ -> api.getZbtzList(page = page)
             CaseType.DJD -> api.getDjdList(page = page)
             CaseType.YJD -> api.getYjdList(page = page)
@@ -60,10 +60,14 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
             CaseType.YXA -> api.getYxaList(page = page)
             CaseType.CLOSE -> api.getClose(page = page)
             CaseType.UNCLOSE -> api.getUnClose(page = page)
+            CaseType.LASP -> api.getAcceptApproval(page)
+            CaseType.CYHSP -> api.getShakeAgainApproval(page)
+            CaseType.JASP -> api.getCloseApproval(page)
+            CaseType.XASP -> api.getDestroyApproval(page)
         }
     }
 
-    private var jdjgAdminCaseType = CaseType.default
+    private var caseType = CaseType.default
 
     //
 

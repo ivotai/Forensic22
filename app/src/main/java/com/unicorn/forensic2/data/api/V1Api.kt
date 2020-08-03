@@ -114,6 +114,37 @@ interface V1Api {
 
     //
 
+    @GET("api/v1/app/jdCase/acceptApproval")
+    fun getAcceptApproval(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/app/jdCase/shakeAgainApproval")
+    fun getShakeAgainApproval(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/app/jdCase/closeApproval")
+    fun getCloseApproval(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    @GET("api/v1/app/jdCase/destroyApproval")
+    fun getDestroyApproval(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @QueryMap queryMap: Map<String, @JvmSuppressWildcards Any> = HashMap()
+    ): Single<Page<Case>>
+
+    //
+
+
     @GET("api/v1/jdReview/dpsList")
     fun getDpsList(
         @Query("page") page: Int,
