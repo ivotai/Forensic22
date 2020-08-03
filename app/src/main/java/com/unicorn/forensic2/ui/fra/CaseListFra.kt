@@ -80,7 +80,9 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
         }
     }
 
-    private var caseType = CaseType.default
+    companion object{
+        var caseType = CaseType.default
+    }
 
     //
 
