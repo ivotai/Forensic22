@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/md_grey_300"
     tools:ignore="HardcodedText,SpUsage,contentDescription">
@@ -256,7 +256,36 @@
             android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="案件流程进展"
+            android:text="鉴定信息"
+            android:textColor="@color/md_black"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:background="@color/md_red_50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:background="@color/md_grey_100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/process"/>
+
+        <TextView
+            android:layout_marginStart="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鉴定信息"
             android:textColor="@color/md_black"
             android:textSize="18dp"/>
 

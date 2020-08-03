@@ -5,6 +5,7 @@ import com.unicorn.forensic2.data.DsrCase
 import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
+import com.unicorn.forensic2.ui.jdxx.Jdxx
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -16,7 +17,10 @@ interface V1Api {
     // 登录接口要这么写，不理解其中奥妙
     @FormUrlEncoded
     @POST("login/account")
-    fun login(@Field("username") username: String, @Field("password") password: String): Single<LoginResult>
+    fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): Single<LoginResult>
 
 
     // 注册
@@ -144,6 +148,10 @@ interface V1Api {
 
     //
 
+    @GET("api/v1/jdLottery/yhhf")
+    fun getJdxx(@Query("caseId") caseId: String): Single<List<Jdxx>>
+
+    //
 
     @GET("api/v1/jdReview/dpsList")
     fun getDpsList(
@@ -194,28 +202,43 @@ interface V1Api {
     // 系统公告
     // 系统公告列表
     @GET("public/xtggList")
-    fun getXtggList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = 10): Single<Page<Xtgg>>
+    fun getXtggList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = 10
+    ): Single<Page<Xtgg>>
 
 
     // 投诉建议
     // 已回复投诉建议列表
     @GET("api/v1/tsjy/reply")
-    fun getTsjyYhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Tsjy>>
+    fun getTsjyYhfList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Tsjy>>
 
     // 未回复投诉建议列表
     @GET("api/v1/tsjy/noReply")
-    fun getTsjyWhfList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Tsjy>>
+    fun getTsjyWhfList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Tsjy>>
 
     @POST("api/v1/tsjy")
     fun addTsjy(@Body addTsjyParam: AddTsjyParam): Single<GeneralResponse>
 
     @POST("api/v1/tsjy/{objectId}")
-    fun addTsjyReply(@Path("objectId") tsjyId: String, @Body addTsjyReplyParam: AddTsjyReplyParam): Single<GeneralResponse>
+    fun addTsjyReply(
+        @Path("objectId") tsjyId: String,
+        @Body addTsjyReplyParam: AddTsjyReplyParam
+    ): Single<GeneralResponse>
 
     // 鉴定资质
     @Multipart
     @POST("api/v1/jdJdjgzzNew")
-    fun createJgzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part?): Single<GeneralResponse>
+    fun createJgzz(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part?
+    ): Single<GeneralResponse>
 
     @DELETE("api/v1/jdJdjgzzNew/{objectId}")
     fun deleteJgzz(@Path("objectId") objectId: String): Single<GeneralResponse>
@@ -231,7 +254,10 @@ interface V1Api {
     // 鉴定人员
     @Multipart
     @POST("api/v1/jdJdryNew")
-    fun createJdry(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part): Single<GeneralResponse>
+    fun createJdry(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part
+    ): Single<GeneralResponse>
 
     @Multipart
     @POST("api/v1/jdJdryNew/{objectId}")
@@ -265,17 +291,26 @@ interface V1Api {
     //
 
     @GET("api/v1/jdReview/dpsList")
-    fun getJdReviewDpsList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
+    fun getJdReviewDpsList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Psxx>>
 
     @GET("api/v1/jdReview/ywcList")
-    fun getJdReviewYwcList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Psxx>>
+    fun getJdReviewYwcList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Psxx>>
 
     // 专家信息
     @GET("api/v1/jdExpertNew/basicInfo")
     fun getExpert(@Query("expertId") expertId: Long): Single<Expert>
 
     @GET("api/v1/jdJdjgSp/expert")
-    fun getShjlExpertList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Shjl>>
+    fun getShjlExpertList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Shjl>>
 
     @Multipart
     @POST("api/v1/jdExpertNew/{objectId}")
@@ -294,11 +329,17 @@ interface V1Api {
 
     // 专家资质
     @GET("api/v1/jdExpertZzNew")
-    fun getZjzzList(@Query("page") page: Int, @Query("pageSize") pageSize: Int = defaultPageSize): Single<Page<Zjzz>>
+    fun getZjzzList(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Zjzz>>
 
     @Multipart
     @POST("api/v1/jdExpertZzNew")
-    fun addZjzz(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>, @Part vararg parts: MultipartBody.Part?): Single<GeneralResponse>
+    fun addZjzz(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part?
+    ): Single<GeneralResponse>
 
     @DELETE("api/v1/jdExpertZzNew/{objectId}")
     fun deleteZjzz(@Path("objectId") objectId: String): Single<GeneralResponse>
