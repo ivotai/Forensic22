@@ -63,7 +63,7 @@ data class Case(
     val jdNo: String,
     val caseId: String,
     val caseNo: String,
-    val caseStatus: String,
+    val caseStatus: String?,
     val dateAccept: Long,
     val dateClose: Long,
     val closeTypeDisplay: String,
@@ -72,7 +72,13 @@ data class Case(
     val courtNameAccept: String,
     val lid: String?,
     val jgid: String,
-    val jdlbId: String
-) : Serializable
+    val jdlbId: String,
+    val jdlbDisplay1: String?,
+    val jdlbDisplay2: String?
+) : Serializable {
+
+    val caseStatusX get() = caseStatus ?: jdlbDisplay1 ?: jdlbDisplay2 ?: ""
+
+}
 
 
