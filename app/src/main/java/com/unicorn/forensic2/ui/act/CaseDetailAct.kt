@@ -54,7 +54,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     Operation.JDFK -> Intent(this@CaseDetailAct, JDFKAct::class.java).apply {
                         putExtra(Param, case)
                     }.let { startActivity(it) }
-                    Operation.AJBW, Operation.BATX -> ToastUtils.showShort("尚未实现")
+                    Operation.AJBW, Operation.BATX, Operation.JDBG -> ToastUtils.showShort("尚未实现")
                     Operation.BGPF_JDJGADMIN -> Intent(
                         this@CaseDetailAct,
                         LotteryDelayListAct::class.java
