@@ -120,6 +120,8 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -130,18 +132,13 @@
                     android:text="是" />
 
                 <RadioButton
+                    android:layout_marginStart="12dp"
                     android:id="@+id/rb0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="否" />
 
             </RadioGroup>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_margin="16dp"
-                android:background="@color/md_grey_300" />
 
         </LinearLayout>
 

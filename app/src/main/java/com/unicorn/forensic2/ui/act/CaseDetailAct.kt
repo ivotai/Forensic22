@@ -113,7 +113,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         ToastUtils.showShort("${operation}失败")
                         return@subscribeBy
                     }
-                    ToastUtils.showShort("${operation}批复成功")
+                    ToastUtils.showShort("${operation}成功")
                     RxBus.post(RefreshCaseEvent())
                 },
                 onError = {

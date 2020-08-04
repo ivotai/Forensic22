@@ -7,6 +7,7 @@ import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.ui.jdxx.Jdxx
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
+import com.unicorn.forensic2.ui.operation.jdfk.AddLotteryDelayParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
@@ -401,5 +402,8 @@ interface V1Api {
 
     @GET("api/v1/jdJdry/list")
     fun jdJdryList(@Query("jgid") jgid: String,@Query("jdlb") jdlbId: String): Single<List<JdrySimple>>
+
+    @POST(" api/v1/jdLottery/addLotteryDelay")
+    fun addLotteryDelay(@Body addLotteryDelayParam: AddLotteryDelayParam): Single<GeneralResponse>
 
 }
