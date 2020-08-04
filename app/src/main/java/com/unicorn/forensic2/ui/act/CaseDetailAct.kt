@@ -1,10 +1,11 @@
 package com.unicorn.forensic2.ui.act
 
 import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.list.listItemsSingleChoice
+import com.afollestad.materialdialogs.list.listItems
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.data.model.Operation
@@ -12,6 +13,7 @@ import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
+import com.unicorn.forensic2.ui.operation.HfAct
 import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
@@ -35,10 +37,10 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
 
     private fun showOperationDialog() {
         MaterialDialog(this).show {
-            listItemsSingleChoice(items = Operation.all.map { it.cn }) { dialog, index, text ->
+            listItems(items = Operation.all.map { it.cn }) { dialog, index, text ->
                 val result = Operation.all[index]
                 when (result) {
-                    Operation.HF -> showHfDialog()
+                    Operation.HF -> startAct(HfAct::class.java)
                     else -> ""
                 }
             }
