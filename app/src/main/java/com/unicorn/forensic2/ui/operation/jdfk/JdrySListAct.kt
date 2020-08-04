@@ -1,11 +1,10 @@
 package com.unicorn.forensic2.ui.operation.jdfk
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Param
-import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
-import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
@@ -35,6 +34,15 @@ class JdrySListAct : BaseAct() {
                     mask.dismiss()
                 }
             )
+
+        titleBar.setOperation("确定").safeClicks().subscribe {
+            if (jdrySAdapter.jdryListSelected.isEmpty()) {
+                ToastUtils.showShort("请选择鉴定人员")
+                return@subscribe
+            }
+            RxBus.post(JdrySelectEvent(jdryList = jdrySAdapter.jdryListSelected))
+            finish()
+        }
     }
 
     private val jdrySAdapter = JdrySAdapter()

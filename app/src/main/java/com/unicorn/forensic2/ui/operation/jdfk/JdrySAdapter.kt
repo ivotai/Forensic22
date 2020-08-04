@@ -34,4 +34,6 @@ class JdrySAdapter : BaseQuickAdapter<JdryS, KVHolder>(R.layout.item_jdry_s) {
         }
     }
 
+    val jdryListSelected: List<JdrySimple> get() = data.filter { it.isSelected }.map { it.jdry }
+
 }
