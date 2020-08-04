@@ -2,12 +2,12 @@ package com.unicorn.forensic2.ui.act
 
 import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.input.getInputField
-import com.afollestad.materialdialogs.input.input
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
-import com.unicorn.forensic2.app.*
-import com.unicorn.forensic2.app.helper.DialogHelper
+import com.unicorn.forensic2.app.Param
+import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.addDefaultItemDecoration
+import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.data.model.Operation
@@ -15,15 +15,14 @@ import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
+import com.unicorn.forensic2.ui.operation.JdTaskDocHelper
 import com.unicorn.forensic2.ui.operation.hf.HfAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.operation.jdfk.JDFKAct
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelayListAct
-import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
 import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
-import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
 class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
@@ -55,17 +54,29 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         putExtra(Param, case)
                     }.let { startActivity(it) }
                     Operation.AJBW, Operation.BATX, Operation.JDBG -> ToastUtils.showShort("尚未实现")
-                    Operation.BGPF_JDJGADMIN -> Intent(
+                    Operation.BGPF_JDJGADMIN, Operation.BGPF_SFJD -> Intent(
                         this@CaseDetailAct,
                         LotteryDelayListAct::class.java
                     ).apply {
-                        putExtra(Param, case.lid)
+                        putExtra(Param, case)
                     }.let { startActivity(it) }
-                    Operation.BGPF_SFJD -> showJdTaskDocDialog(result.cn, 21, 22)
-                    Operation.LASP -> showJdTaskDocDialog(result.cn, 23, 24)
-                    Operation.CYHSP -> showJdTaskDocDialog(result.cn, 25, 26)
-                    Operation.JASP -> showJdTaskDocDialog(result.cn, 27, 28)
-                    Operation.XASP -> showJdTaskDocDialog(result.cn, 29, 30)
+
+                    Operation.LASP -> JdTaskDocHelper.showJdTaskDocDialog(
+                        this@CaseDetailAct,
+                        case, result.cn, 23, 24
+                    )
+                    Operation.CYHSP -> JdTaskDocHelper.showJdTaskDocDialog(
+                        this@CaseDetailAct,
+                        case, result.cn, 25, 26
+                    )
+                    Operation.JASP -> JdTaskDocHelper.showJdTaskDocDialog(
+                        this@CaseDetailAct,
+                        case, result.cn, 27, 28
+                    )
+                    Operation.XASP -> JdTaskDocHelper.showJdTaskDocDialog(
+                        this@CaseDetailAct,
+                        case, result.cn, 29, 30
+                    )
                     else -> ""
                 }
             }
@@ -74,54 +85,6 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
 
     //
 
-    private fun showJdTaskDocDialog(operation: String, taskType1: Int, taskType2: Int) {
-        MaterialDialog(this).show {
-            input(allowEmpty = true, hint = "输入备注")
-            title(text = operation)
-            positiveButton(text = "同意") {
-                jdTaskDoc(
-                    taskType = taskType1,
-                    operation = operation,
-                    remark = it.getInputField().trimText()
-                )
-            }
-            negativeButton(text = "不同意") {
-                jdTaskDoc(
-                    taskType = taskType2,
-                    operation = operation,
-                    remark = it.getInputField().trimText()
-                )
-            }
-        }
-    }
-
-    //
-    private fun jdTaskDoc(taskType: Int, operation: String, remark: String = "") {
-        val mask = DialogHelper.showMask(this)
-        val jdTaskDocParam =
-            JdTaskDocParam(
-                lid = case.lid,
-                caseId = case.caseId,
-                taskType = taskType,
-                remark = remark
-            )
-        v1Api.jdTaskDoc(jdTaskDocParam).observeOnMain(this)
-            .subscribeBy(
-                onSuccess = {
-                    mask.dismiss()
-                    if (!it.success) {
-                        ToastUtils.showShort("${operation}失败")
-                        return@subscribeBy
-                    }
-                    ToastUtils.showShort("${operation}成功")
-                    RxBus.post(RefreshCaseEvent())
-                },
-                onError = {
-                    mask.dismiss()
-                    ToastUtils.showShort("${operation}失败")
-                }
-            )
-    }
 
     //
 
