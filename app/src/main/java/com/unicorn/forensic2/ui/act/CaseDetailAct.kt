@@ -4,10 +4,8 @@ import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
-import com.unicorn.forensic2.app.Param
-import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.addDefaultItemDecoration
-import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.data.model.Operation
@@ -17,9 +15,11 @@ import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
 import com.unicorn.forensic2.ui.operation.hf.HfAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
+import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
 import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
 class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
@@ -48,11 +48,52 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
                     Operation.AJBW, Operation.BATX -> ToastUtils.showShort("无")
+                    Operation.BGPF_SFJD -> showBGPF_SFJDDialog()
                     else -> ""
                 }
             }
         }
     }
+
+    //
+
+    private fun showBGPF_SFJDDialog() {
+        MaterialDialog(this).show {
+            title(text = "变更批复")
+            positiveButton(text = "同意") {
+                jdTaskDoc(taskType = 21, operation = "变更批复")
+
+            }
+            negativeButton(text = "不同意") {
+                jdTaskDoc(taskType = 22, operation = "变更批复")
+            }
+        }
+    }
+
+    private fun jdTaskDoc(taskType: Int, operation: String) {
+        val mask = DialogHelper.showMask(this)
+        val jdTaskDocParam =
+            JdTaskDocParam(lid = case.lid, caseId = case.caseId, TaskType = taskType)
+        v1Api.jdTaskDoc(jdTaskDocParam).observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    mask.dismiss()
+                    if (!it.success) {
+                        ToastUtils.showShort("${operation}失败")
+                        return@subscribeBy
+                    }
+                    ToastUtils.showShort("${operation}批复成功")
+//                    RxBus.post(RefreshCaseEvent())
+                },
+                onError = {
+                    mask.dismiss()
+                    ToastUtils.showShort("${operation}失败")
+                }
+            )
+    }
+
+
+    //
 
     override fun registerEvent() {
         RxBus.registerEvent(this, RefreshCaseEvent::class.java, Consumer {

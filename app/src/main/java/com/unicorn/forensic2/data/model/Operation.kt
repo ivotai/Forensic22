@@ -10,6 +10,7 @@ enum class Operation(val cn: String) {
     JDFK("鉴定反馈"),
     BGPF("变更批复"),
     JDBG("鉴定报告"),
+    BGPF_SFJD("变更批复"),
     TYAL("同意立案"),
     THCS("退回初审"),
     TYCYH("同意重摇号"),
@@ -32,7 +33,7 @@ enum class Operation(val cn: String) {
                         else -> listOf()
                     }
                     Role.Sfjd.en -> when (caseType) {
-                        CaseType.UNCLOSE -> listOf(AJBW, BATX, BGPF)
+                        CaseType.UNCLOSE -> listOf(AJBW, BATX, BGPF_SFJD)
                         CaseType.CLOSE -> listOf(AJBW)
                         else -> listOf()
                     }

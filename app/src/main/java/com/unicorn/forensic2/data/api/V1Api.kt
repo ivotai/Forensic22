@@ -7,6 +7,7 @@ import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.ui.jdxx.Jdxx
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
+import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -389,5 +390,8 @@ interface V1Api {
 
     @POST("api/v1/app/jdLottery/reply")
     fun reply(@Body replyParam: ReplyParam): Single<GeneralResponse>
+
+    @POST("api/v1/jdTaskDoc")
+    fun jdTaskDoc(@Body jdTaskDocParam: JdTaskDocParam): Single<GeneralResponse>
 
 }
