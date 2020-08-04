@@ -1,7 +1,7 @@
 package com.unicorn.forensic2.ui.act
 
 import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.list.listItems
+import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.safeClicks
@@ -35,9 +35,23 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
 
     private fun showOperationDialog() {
         MaterialDialog(this).show {
-            listItems(items = Operation.all.map { it.cn })
+            listItemsSingleChoice(items = Operation.all.map { it.cn }) { dialog, index, text ->
+                val result = Operation.all[index]
+                when (result) {
+                    Operation.HF -> showHfDialog()
+                    else -> ""
+                }
+            }
         }
     }
+
+    // 回复
+
+    private fun showHfDialog() {
+
+    }
+
+    //
 
     override val simpleAdapter = CaseProcessAdapter()
 

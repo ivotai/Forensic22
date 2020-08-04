@@ -4,11 +4,9 @@ import com.unicorn.forensic2.app.roleTag
 import com.unicorn.forensic2.ui.fra.CaseListFra
 
 enum class Operation(val cn: String) {
-    // 受理不受理等于一个回复
-    SL("受理"),
-    BSL("不受理"),
-    AJBW("案件备忘"),   // 暂时不做
-    BATX("办案提醒"),   // 暂时不做
+    HF("回复"),             // 受理不受理
+    AJBW("案件备忘"),       // 暂时不做
+    BATX("办案提醒"),       // 暂时不做
     JDFK("鉴定反馈"),
     BGPF("变更批复"),
     JDBG("鉴定报告"),
@@ -28,7 +26,7 @@ enum class Operation(val cn: String) {
                 val caseType = CaseListFra.caseType
                 return when (roleTag) {
                     Role.JdjgAdmin.en -> when (caseType) {
-                        CaseType.ZBTZ -> listOf(SL, BSL)
+                        CaseType.ZBTZ -> listOf(HF)
                         CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF, JDBG)
                         CaseType.YJD -> listOf(AJBW)
                         else -> listOf()
