@@ -11,8 +11,7 @@ enum class Operation(val cn: String) {
     BGPF("变更批复"),
     JDBG("鉴定报告"),
     BGPF_SFJD("变更批复"),
-    TYAL("同意立案"),
-    THCS("退回初审"),
+    LASP("立案审批"),
     TYCYH("同意重摇号"),
     BHCYH("驳回重摇号"),
     TYJA("同意结案"),
@@ -38,7 +37,7 @@ enum class Operation(val cn: String) {
                         else -> listOf()
                     }
                     Role.SfjdAdmin.en -> when (caseType) {
-                        CaseType.LASP -> listOf(TYAL, THCS)
+                        CaseType.LASP -> listOf(LASP)
                         CaseType.CYHSP -> listOf(TYCYH, BHCYH)
                         CaseType.JASP -> listOf(TYJA, BHJA)
                         CaseType.XASP -> listOf(TYXA, BHXA)

@@ -49,6 +49,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     }.let { startActivity(it) }
                     Operation.AJBW, Operation.BATX -> ToastUtils.showShort("无")
                     Operation.BGPF_SFJD -> showBGPF_SFJDDialog()
+                    Operation.LASP -> showLASPDialog()
                     else -> ""
                 }
             }
@@ -59,17 +60,31 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
 
     private fun showBGPF_SFJDDialog() {
         MaterialDialog(this).show {
-            title(text = "变更批复")
+            title(text = Operation.BGPF_SFJD.cn)
             positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 21, operation = "变更批复")
+                jdTaskDoc(taskType = 21, operation = Operation.BGPF_SFJD.cn)
 
             }
             negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 22, operation = "变更批复")
+                jdTaskDoc(taskType = 22, operation = Operation.BGPF_SFJD.cn)
             }
         }
     }
 
+    private fun showLASPDialog() {
+        MaterialDialog(this).show {
+            title(text = Operation.LASP.cn)
+            positiveButton(text = "同意") {
+                jdTaskDoc(taskType = 23, operation = Operation.BGPF_SFJD.cn)
+
+            }
+            negativeButton(text = "不同意") {
+                jdTaskDoc(taskType = 24, operation = Operation.BGPF_SFJD.cn)
+            }
+        }
+    }
+
+    //
     private fun jdTaskDoc(taskType: Int, operation: String) {
         val mask = DialogHelper.showMask(this)
         val jdTaskDocParam =
@@ -83,7 +98,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         return@subscribeBy
                     }
                     ToastUtils.showShort("${operation}批复成功")
-//                    RxBus.post(RefreshCaseEvent())
+                    RxBus.post(RefreshCaseEvent())
                 },
                 onError = {
                     mask.dismiss()
