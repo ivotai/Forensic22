@@ -50,11 +50,11 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
                     Operation.AJBW, Operation.BATX -> ToastUtils.showShort("尚未实现")
-                    Operation.BGPF_SFJD -> showJdTaskDocDialog(Operation.BGPF_SFJD.cn, 21, 22)
-                    Operation.LASP -> showJdTaskDocDialog(Operation.LASP.cn, 23, 24)
-                    Operation.CYHSP -> showJdTaskDocDialog(Operation.CYHSP.cn, 25, 26)
-                    Operation.JASP -> showJdTaskDocDialog(Operation.JASP.cn, 27, 28)
-                    Operation.XASP -> showJdTaskDocDialog(Operation.XASP.cn, 29, 30)
+                    Operation.BGPF_SFJD -> showJdTaskDocDialog(result.cn, 21, 22)
+                    Operation.LASP -> showJdTaskDocDialog(result.cn, 23, 24)
+                    Operation.CYHSP -> showJdTaskDocDialog(result.cn, 25, 26)
+                    Operation.JASP -> showJdTaskDocDialog(result.cn, 27, 28)
+                    Operation.XASP -> showJdTaskDocDialog(result.cn, 29, 30)
                     else -> ""
                 }
             }
