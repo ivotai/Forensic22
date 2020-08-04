@@ -3,6 +3,7 @@ package com.unicorn.forensic2.ui.act
 import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
+import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
@@ -46,6 +47,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     Operation.HF -> Intent(this@CaseDetailAct, HfAct::class.java).apply {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
+                    Operation.AJBW, Operation.BATX -> ToastUtils.showShort("无")
                     else -> ""
                 }
             }

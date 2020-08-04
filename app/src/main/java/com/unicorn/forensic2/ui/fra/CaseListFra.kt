@@ -9,7 +9,6 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.event.QueryMapEvent
-import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.CaseTypeS
@@ -78,7 +77,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
             CaseType.DJD -> api.getDjdList(page = page, queryMap = queryMap)
             CaseType.YJD -> api.getYjdList(page = page, queryMap = queryMap)
             CaseType.YJJ -> api.getYjjList(page = page, queryMap = queryMap)
-            CaseType.YXA -> api.getYxaList(page = page, queryMap = queryMap)
+            CaseType.YQX -> api.getYxaList(page = page, queryMap = queryMap)
             CaseType.CLOSE -> api.getClose(page = page, queryMap = queryMap)
             CaseType.UNCLOSE -> api.getUnClose(page = page, queryMap = queryMap)
             CaseType.LASP -> api.getAcceptApproval(page = page, queryMap = queryMap)

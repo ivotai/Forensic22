@@ -8,7 +8,7 @@ enum class CaseType(val text: String) : Serializable {
     DJD("待鉴定"),
     YJD("已鉴定"),
     YJJ("已拒绝"),
-    YXA("已销案"),
+    YQX("已取消"),
     CLOSE("已结案"),
     UNCLOSE("未结案"),
     LASP("立案审批"),
@@ -21,7 +21,7 @@ enum class CaseType(val text: String) : Serializable {
 
         val all
             get() = when (roleTag) {
-                Role.JdjgAdmin.en -> listOf(ZBTZ, DJD, YJD, YJJ, YXA)
+                Role.JdjgAdmin.en -> listOf(ZBTZ, DJD, YJD, YJJ, YQX)
                 Role.Normal.en, Role.Sfjd.en, Role.Bafg.en -> listOf(CLOSE, UNCLOSE)
                 Role.SfjdAdmin.en -> listOf(LASP, CYHSP, JASP, XASP)
                 else -> listOf(CLOSE, UNCLOSE)
