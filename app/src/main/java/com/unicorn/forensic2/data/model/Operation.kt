@@ -8,7 +8,7 @@ enum class Operation(val cn: String) {
     AJBW("案件备忘"),       // 暂时不做
     BATX("办案提醒"),       // 暂时不做
     JDFK("鉴定反馈"),
-    BGPF("变更批复"),
+    BGPF_JDJGADMIN("变更批复"),
     JDBG("鉴定报告"),
     BGPF_SFJD("变更批复"),
     LASP("立案审批"),
@@ -24,7 +24,7 @@ enum class Operation(val cn: String) {
                 return when (roleTag) {
                     Role.JdjgAdmin.en -> when (caseType) {
                         CaseType.ZBTZ -> listOf(HF)
-                        CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF, JDBG)
+                        CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDBG)
                         CaseType.YJD -> listOf(AJBW)
                         else -> listOf()
                     }

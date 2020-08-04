@@ -17,6 +17,7 @@ import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
 import com.unicorn.forensic2.ui.operation.hf.HfAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
+import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelayListAct
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
 import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
@@ -50,6 +51,12 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
                     Operation.AJBW, Operation.BATX -> ToastUtils.showShort("尚未实现")
+                    Operation.BGPF_JDJGADMIN -> Intent(
+                        this@CaseDetailAct,
+                        LotteryDelayListAct::class.java
+                    ).apply {
+                        putExtra(Param, case.lid)
+                    }.let { startActivity(it) }
                     Operation.BGPF_SFJD -> showJdTaskDocDialog(result.cn, 21, 22)
                     Operation.LASP -> showJdTaskDocDialog(result.cn, 23, 24)
                     Operation.CYHSP -> showJdTaskDocDialog(result.cn, 25, 26)
