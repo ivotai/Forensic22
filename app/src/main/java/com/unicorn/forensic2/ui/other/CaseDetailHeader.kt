@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.di.ComponentHolder
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.toDisplayFormat
@@ -38,6 +39,7 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
         with(recyclerView) {
             layoutManager = LinearLayoutManager(context)
             jdxxAdapter.bindToRecyclerView(this)
+            addDefaultItemDecoration(1)
         }
         ComponentHolder.appComponent.v1Api()
             .getJdxx(case.caseId).observeOnMain(context as LifecycleOwner).subscribeBy(
