@@ -1,11 +1,12 @@
 package com.unicorn.forensic2.ui.act
 
+import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.unicorn.forensic2.app.Param
+import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.data.model.Operation
@@ -13,9 +14,11 @@ import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
-import com.unicorn.forensic2.ui.operation.HfAct
+import com.unicorn.forensic2.ui.operation.hf.HfAct
+import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
 class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
@@ -40,17 +43,19 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
             listItems(items = Operation.all.map { it.cn }) { dialog, index, text ->
                 val result = Operation.all[index]
                 when (result) {
-                    Operation.HF -> startAct(HfAct::class.java)
+                    Operation.HF -> Intent(this@CaseDetailAct, HfAct::class.java).apply {
+                        putExtra(Param, case.lid)
+                    }.let { startActivity(it) }
                     else -> ""
                 }
             }
         }
     }
 
-    // 回复
-
-    private fun showHfDialog() {
-
+    override fun registerEvent() {
+        RxBus.registerEvent(this, RefreshCaseEvent::class.java, Consumer {
+            finish()
+        })
     }
 
     //

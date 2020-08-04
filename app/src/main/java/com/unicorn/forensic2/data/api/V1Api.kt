@@ -6,6 +6,7 @@ import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.ui.jdxx.Jdxx
+import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -383,5 +384,10 @@ interface V1Api {
 //    @POST("Authorization/UserLogin")
 //    fun loginForSession(@Body userLogin: UserLogin): Call<Response<LoginResult>>
 
+
+    //
+
+    @POST("api/v1/app/jdLottery/reply")
+    fun reply(@Body replyParam: ReplyParam): Single<GeneralResponse>
 
 }

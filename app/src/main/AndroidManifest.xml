@@ -73,7 +73,7 @@
         <activity android:name=".ui.act.query.CaseQueryAct" />
         <activity android:name=".ui.fra.ZjCaseAct" />
         <activity android:name=".ui.act.PdfAct" />
-        <activity android:name=".ui.operation.HfAct" />
+        <activity android:name=".ui.operation.hf.HfAct" />
         <activity
             android:name=".data.SimplePlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"

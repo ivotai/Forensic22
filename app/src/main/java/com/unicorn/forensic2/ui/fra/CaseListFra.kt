@@ -9,6 +9,7 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.event.QueryMapEvent
+import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.CaseTypeS
@@ -18,6 +19,7 @@ import com.unicorn.forensic2.ui.adapter.CaseAdapter
 import com.unicorn.forensic2.ui.adapter.CaseTypeSAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageFra
+import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fra_case_list.*
@@ -57,6 +59,9 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
         })
         RxBus.registerEvent(this, QueryMapEvent::class.java, Consumer {
             queryMap = it.queryMap
+            loadFirstPage()
+        })
+        RxBus.registerEvent(this, RefreshCaseEvent::class.java, Consumer {
             loadFirstPage()
         })
     }
