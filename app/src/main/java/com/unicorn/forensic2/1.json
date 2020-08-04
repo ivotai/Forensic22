@@ -1,113 +1,57 @@
-[
-  {
-    "@id": "1",
-    "createdBy": {
-      "@id": "2",
-      "objectId": "2020",
-      "createdDate": 1578731174000,
-      "lastUpdateDate": 1588723336000,
-      "name": "司法鉴定-管理员",
-      "description": "系统管理员",
-      "account": {
-        "@id": "3",
-        "objectId": "537639598403092501",
-        "createdDate": 1578731174000,
-        "lastUpdateDate": 1588812292000,
-        "name": "sxgy",
-        "user": {
-          "@ref": "2"
-        }
-      },
-      "userRoleList": [
-        {
-          "@id": "4",
-          "objectId": "707502483261358080",
-          "user": {
-            "@ref": "2"
-          },
-          "role": {
-            "@id": "5",
-            "objectId": "537638442285137928",
-            "createdDate": 1578731174000,
-            "lastUpdateDate": 1578731174000,
-            "name": "系统管理员",
-            "tag": "Admin",
-            "roleAuthorityList": [
-              {
-                "@id": "6",
-                "objectId": "537639598394703873",
-                "role": {
-                  "@ref": "5"
-                },
-                "authority": {
-                  "@id": "7",
-                  "objectId": "537638442280943617",
-                  "createdDate": 1578731174000,
-                  "lastUpdateDate": 1578731174000,
-                  "name": "ADMIN",
-                  "tag": "ROLE_ADMIN"
-                }
-              },
-              {
-                "@id": "8",
-                "objectId": "537639598394703888",
-                "role": {
-                  "@ref": "5"
-                },
-                "authority": {
-                  "@id": "9",
-                  "objectId": "537638442280943618",
-                  "createdDate": 1578731174000,
-                  "lastUpdateDate": 1578731174000,
-                  "name": "USER",
-                  "tag": "ROLE_USER"
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "createdDate": 1596440876000,
-    "lastUpdatedBy": {
-      "@ref": "2"
-    },
-    "lastUpdateDate": 1596440876000,
-    "jdryid": "7e2523b5-6d73-4116-a148-ab30479dfc55",
-    "jgid": "789afe2a-2d74-489b-a428-69707360e677",
-    "xm": "金鑫",
-    "zjlx": "1",
-    "zjhm": "310102199408124413",
-    "zczyh": "12365478903251",
-    "grzc": "高级工程师",
-    "jdlbId": "33",
-    "jdlb": {
-      "@id": "10",
-      "jdlbId": "33",
-      "jdlb": "文物珠宝鉴定",
-      "usedInSfjd": 1,
-      "childList": []
-    },
-    "zyzsyxq": 1659456000000,
-    "fidzyzs": {
-      "@id": "11",
-      "fileid": "c711c4c4-0731-4edf-8ff1-ad2578239e77",
-      "attachedkey1": "789afe2a-2d74-489b-a428-69707360e677",
-      "attachedkey2": "33",
-      "filename": "",
-      "filesavepath": "机构资料/789afe2a-2d74-489b-a428-69707360e677/33/执业证书_7e2523b5-6d73-4116-a148-ab30479dfc55_2572fa9c-abec-48d7-aabc-f37f93935706.jpg",
-      "uploadat": 1596440876000
-    },
-    "dataflag": 1,
-    "mphone": "13816237812",
-    "fidzczs": {
-      "@id": "12",
-      "fileid": "7053afb6-00c8-485d-862a-af5ea6776d34",
-      "attachedkey1": "789afe2a-2d74-489b-a428-69707360e677",
-      "attachedkey2": "33",
-      "filename": "",
-      "filesavepath": "机构资料/789afe2a-2d74-489b-a428-69707360e677/33/职称证书_7e2523b5-6d73-4116-a148-ab30479dfc55_67b9de70-ca6c-4d28-bf03-743a7ba59f86.jpg",
-      "uploadat": 1596440876000
+{
+  "content": [
+    {
+      "@id": "1",
+      "caseId": "101530cc-effb-4ac5-b3d7-e0961da5cd00",
+      "updateDttm": 1596534394000,
+      "plaintiff": "原告：史鹤祥",
+      "caseNo": "诉前测试1",
+      "caseType": 5,
+      "jdlb0": "99",
+      "jdlb1": "33",
+      "jdlbDisplay1": "其他",
+      "jdlb2": "33",
+      "jdlbDisplay2": "文物珠宝鉴定",
+      "isTrial": 1,
+      "isParty": 0,
+      "isAgain": 0,
+      "ay": "案由",
+      "courtApply": "RA0",
+      "courtNameApply": "榆林市中级人民法院",
+      "courtAccept": "RA0",
+      "courtNameAccept": "榆林市中级人民法院",
+      "dateApply": 1596470400000,
+      "closeTypeDisplay": "",
+      "dateRegister": 1596470400000,
+      "statusDb": 20,
+      "statusFlag": 2,
+      "workDays": 0,
+      "workDaysW": 0
     }
-  }
-]
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": true,
+      "unsorted": false,
+      "empty": false
+    },
+    "pageNumber": 0,
+    "offset": "0",
+    "pageSize": 5,
+    "unpaged": false,
+    "paged": true
+  },
+  "last": true,
+  "totalElements": "1",
+  "totalPages": 1,
+  "first": true,
+  "sort": {
+    "sorted": true,
+    "unsorted": false,
+    "empty": false
+  },
+  "size": 5,
+  "number": 0,
+  "numberOfElements": 1,
+  "empty": false
+}

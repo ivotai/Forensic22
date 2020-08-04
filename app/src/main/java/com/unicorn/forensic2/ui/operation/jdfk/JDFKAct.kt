@@ -14,6 +14,8 @@ import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdfk.*
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 class JDFKAct : BaseAct() {
 
@@ -59,6 +61,13 @@ class JDFKAct : BaseAct() {
 
     private fun addLotteryDelay_() {
         val mask = DialogHelper.showMask(this)
+        val map = HashMap<String, RequestBody>()
+        map["lid"] = case.lid!!.toRequestBody(TextOrPlain)
+        map["fee"] = tvFee.trimText().toRequestBody(TextOrPlain)
+        map["delayTo"] = tvDelayTo.trimText().toRequestBody(TextOrPlain)
+        map["jdryid"] = jdryList!!.joinToString(",") { it.jdryid }.toRequestBody(TextOrPlain)
+        map["jdryxm"] = jdryList!!.joinToString(",") { it.xm }.toRequestBody(TextOrPlain)
+        map["terminate"] = (if (rb0.isChecked) 0 else 1).toString().toRequestBody(TextOrPlain)
         val addLotteryDelayParam =
             AddLotteryDelayParam(
                 lid = case.lid!!,
@@ -69,7 +78,7 @@ class JDFKAct : BaseAct() {
                 terminate = if (rb0.isChecked) 0 else 1
             )
         val operation = Operation.JDFK.cn
-        v1Api.addLotteryDelay(addLotteryDelayParam).observeOnMain(this)
+        v1Api.addLotteryDelay(map).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
                     mask.dismiss()
