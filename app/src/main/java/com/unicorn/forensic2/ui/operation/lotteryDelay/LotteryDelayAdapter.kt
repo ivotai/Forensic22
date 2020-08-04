@@ -14,9 +14,8 @@ class LotteryDelayAdapter : BaseQuickAdapter<LotteryDelay, KVHolder>(R.layout.it
             tvApplystate.text = item.applyState.toString()
             tvFee.text = item.fee.toString()
             tvJdryxm.text = item.jdryxm
-            tvTerminate.text = item.terminate.toString()
+            tvTerminate.text = if (item.terminate == 0) "否" else "是"
         }
-
     }
 
 }
