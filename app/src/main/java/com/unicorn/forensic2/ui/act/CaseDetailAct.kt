@@ -52,7 +52,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
                     Operation.JDFK -> Intent(this@CaseDetailAct, JDFKAct::class.java).apply {
-                        putExtra(Param, case.lid)
+                        putExtra(Param, case)
                     }.let { startActivity(it) }
                     Operation.AJBW, Operation.BATX -> ToastUtils.showShort("尚未实现")
                     Operation.BGPF_JDJGADMIN -> Intent(

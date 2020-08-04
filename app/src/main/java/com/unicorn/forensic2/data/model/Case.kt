@@ -59,7 +59,6 @@ import java.io.Serializable
 //    val zbrId: String
 //)
 
-
 data class Case(
     val jdNo: String,
     val caseId: String,
@@ -71,7 +70,9 @@ data class Case(
     val courtNameApply: String,
     val caseType: String,
     val courtNameAccept: String,
-    val lid: String?
+    val lid: String?,
+    val jgid: String,
+    val jdlbId: String
 ) : Serializable
 
 
