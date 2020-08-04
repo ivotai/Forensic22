@@ -18,7 +18,7 @@ class CaseAdapter : BaseQuickAdapter<Case, KVHolder>(R.layout.item_case) {
         helper.apply {
             tvJdNo.text = item.jdNo
             tvCourtNameApply.text = item.courtNameApply
-            tvCaseType.text = item.caseType
+            tvCaseType.text = item.caseTypeX
             tvCaseStatus.text = item.caseStatusX
             tvCaseNo.text = item.caseNo
             tvCourtNameAccept.text = item.courtNameAccept
