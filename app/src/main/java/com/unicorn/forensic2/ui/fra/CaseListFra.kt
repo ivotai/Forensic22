@@ -37,9 +37,8 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     }
 
     override fun bindIntent() {
-        super.bindIntent()
-
         caseType = CaseType.default
+        super.bindIntent()
 
         val data = CaseType.all.map { CaseTypeS(it) }
         data.forEach { it.isSelect = it.caseType == caseType }
