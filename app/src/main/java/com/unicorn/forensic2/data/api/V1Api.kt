@@ -400,7 +400,10 @@ interface V1Api {
     fun lotteryDelay(@Query("lid") lid: String): Single<List<LotteryDelay>>
 
     @GET("api/v1/jdJdry/list")
-    fun jdJdryList(@Query("jgid") jgid: String,@Query("jdlb") jdlbId: String): Single<List<JdrySimple>>
+    fun jdJdryList(
+        @Query("jgid") jgid: String,
+        @Query("jdlb") jdlbId: String
+    ): Single<List<JdrySimple>>
 
 //    @POST(" api/v1/jdLottery/addLotteryDelay")
 //    fun addLotteryDelay(@Body addLotteryDelayParam: AddLotteryDelayParam): Single<GeneralResponse>
@@ -410,5 +413,8 @@ interface V1Api {
     fun addLotteryDelay(
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>
     ): Single<GeneralResponse>
+
+    @GET("api/v1/app/backlog")
+    fun backlog(@Query("role") roleTag: String): Single<HashMap<String, String>>
 
 }

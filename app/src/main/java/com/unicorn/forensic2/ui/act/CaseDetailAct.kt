@@ -77,14 +77,10 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                         this@CaseDetailAct,
                         case, result.cn, 29, 30
                     )
-                    else -> ""
                 }
             }
         }
     }
-
-    //
-
 
     //
 

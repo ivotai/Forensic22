@@ -53,6 +53,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     override fun registerEvent() {
         RxBus.registerEvent(this, CaseType::class.java, Consumer {
             caseType = it
+            caseTypeSAdapter.notify1()
             loadFirstPage()
         })
         RxBus.registerEvent(this, QueryMapEvent::class.java, Consumer {
@@ -83,6 +84,8 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
             CaseType.CYHSP -> api.getShakeAgainApproval(page = page, queryMap = queryMap)
             CaseType.JASP -> api.getCloseApproval(page = page, queryMap = queryMap)
             CaseType.XASP -> api.getDestroyApproval(page = page, queryMap = queryMap)
+            // for 通知提醒和待审批
+            else -> api.getDestroyApproval(page = page, queryMap = queryMap)
         }
     }
 
