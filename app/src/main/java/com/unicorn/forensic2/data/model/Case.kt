@@ -71,7 +71,7 @@ data class Case(
     val courtNameApply: String,
     val caseType: String,
     val courtNameAccept: String,
-    val lid: String
+    val lid: String?
 ) : Serializable
 
 
