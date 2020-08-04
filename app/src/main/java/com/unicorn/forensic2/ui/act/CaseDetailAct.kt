@@ -50,6 +50,9 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     Operation.AJBW, Operation.BATX -> ToastUtils.showShort("无")
                     Operation.BGPF_SFJD -> showBGPF_SFJDDialog()
                     Operation.LASP -> showLASPDialog()
+                    Operation.CYHSP -> showCYHSPDialog()
+                    Operation.JASP -> showJASPDialog()
+                    Operation.XASP -> showXASPDialog()
                     else -> ""
                 }
             }
@@ -63,7 +66,6 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
             title(text = Operation.BGPF_SFJD.cn)
             positiveButton(text = "同意") {
                 jdTaskDoc(taskType = 21, operation = Operation.BGPF_SFJD.cn)
-
             }
             negativeButton(text = "不同意") {
                 jdTaskDoc(taskType = 22, operation = Operation.BGPF_SFJD.cn)
@@ -75,14 +77,50 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
         MaterialDialog(this).show {
             title(text = Operation.LASP.cn)
             positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 23, operation = Operation.BGPF_SFJD.cn)
-
+                jdTaskDoc(taskType = 23, operation = Operation.LASP.cn)
             }
             negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 24, operation = Operation.BGPF_SFJD.cn)
+                jdTaskDoc(taskType = 24, operation = Operation.LASP.cn)
             }
         }
     }
+
+    private fun showCYHSPDialog() {
+        MaterialDialog(this).show {
+            title(text = Operation.CYHSP.cn)
+            positiveButton(text = "同意") {
+                jdTaskDoc(taskType = 25, operation = Operation.CYHSP.cn)
+            }
+            negativeButton(text = "不同意") {
+                jdTaskDoc(taskType = 26, operation = Operation.CYHSP.cn)
+            }
+        }
+    }
+
+    private fun showJASPDialog() {
+        MaterialDialog(this).show {
+            title(text = Operation.JASP.cn)
+            positiveButton(text = "同意") {
+                jdTaskDoc(taskType = 27, operation = Operation.JASP.cn)
+            }
+            negativeButton(text = "不同意") {
+                jdTaskDoc(taskType = 28, operation = Operation.JASP.cn)
+            }
+        }
+    }
+
+    private fun showXASPDialog() {
+        MaterialDialog(this).show {
+            title(text = Operation.XASP.cn)
+            positiveButton(text = "同意") {
+                jdTaskDoc(taskType = 29, operation = Operation.XASP.cn)
+            }
+            negativeButton(text = "不同意") {
+                jdTaskDoc(taskType = 30, operation = Operation.XASP.cn)
+            }
+        }
+    }
+
 
     //
     private fun jdTaskDoc(taskType: Int, operation: String) {

@@ -12,12 +12,9 @@ enum class Operation(val cn: String) {
     JDBG("鉴定报告"),
     BGPF_SFJD("变更批复"),
     LASP("立案审批"),
-    TYCYH("同意重摇号"),
-    BHCYH("驳回重摇号"),
-    TYJA("同意结案"),
-    BHJA("驳回结案"),
-    TYXA("同意销案"),
-    BHXA("驳回销案"),
+    CYHSP("重摇要审批"),
+    JASP("结案审批"),
+    XASP("销案审批")
     ;
 
     companion object {
@@ -38,9 +35,9 @@ enum class Operation(val cn: String) {
                     }
                     Role.SfjdAdmin.en -> when (caseType) {
                         CaseType.LASP -> listOf(LASP)
-                        CaseType.CYHSP -> listOf(TYCYH, BHCYH)
-                        CaseType.JASP -> listOf(TYJA, BHJA)
-                        CaseType.XASP -> listOf(TYXA, BHXA)
+                        CaseType.CYHSP -> listOf(CYHSP)
+                        CaseType.JASP -> listOf(JASP)
+                        CaseType.XASP -> listOf(XASP)
                         else -> listOf()
                     }
                     Role.Bafg.en -> when (caseType) {
