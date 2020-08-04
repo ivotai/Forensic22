@@ -2,6 +2,8 @@ package com.unicorn.forensic2.ui.act
 
 import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.input.getInputField
+import com.afollestad.materialdialogs.input.input
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.app.*
@@ -47,12 +49,12 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     Operation.HF -> Intent(this@CaseDetailAct, HfAct::class.java).apply {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
-                    Operation.AJBW, Operation.BATX -> ToastUtils.showShort("无")
-                    Operation.BGPF_SFJD -> showBGPF_SFJDDialog()
-                    Operation.LASP -> showLASPDialog()
-                    Operation.CYHSP -> showCYHSPDialog()
-                    Operation.JASP -> showJASPDialog()
-                    Operation.XASP -> showXASPDialog()
+                    Operation.AJBW, Operation.BATX -> ToastUtils.showShort("尚未实现")
+                    Operation.BGPF_SFJD -> showJdTaskDocDialog(Operation.BGPF_SFJD.cn, 21, 22)
+                    Operation.LASP -> showJdTaskDocDialog(Operation.LASP.cn, 23, 24)
+                    Operation.CYHSP -> showJdTaskDocDialog(Operation.CYHSP.cn, 25, 26)
+                    Operation.JASP -> showJdTaskDocDialog(Operation.JASP.cn, 27, 28)
+                    Operation.XASP -> showJdTaskDocDialog(Operation.XASP.cn, 29, 30)
                     else -> ""
                 }
             }
@@ -61,72 +63,37 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
 
     //
 
-    private fun showBGPF_SFJDDialog() {
+    private fun showJdTaskDocDialog(operation: String, taskType1: Int, taskType2: Int) {
         MaterialDialog(this).show {
-            title(text = Operation.BGPF_SFJD.cn)
+            input(allowEmpty = true, hint = "输入备注")
+            title(text = operation)
             positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 21, operation = Operation.BGPF_SFJD.cn)
+                jdTaskDoc(
+                    taskType = taskType1,
+                    operation = operation,
+                    remark = it.getInputField().trimText()
+                )
             }
             negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 22, operation = Operation.BGPF_SFJD.cn)
+                jdTaskDoc(
+                    taskType = taskType2,
+                    operation = operation,
+                    remark = it.getInputField().trimText()
+                )
             }
         }
     }
-
-    private fun showLASPDialog() {
-        MaterialDialog(this).show {
-            title(text = Operation.LASP.cn)
-            positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 23, operation = Operation.LASP.cn)
-            }
-            negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 24, operation = Operation.LASP.cn)
-            }
-        }
-    }
-
-    private fun showCYHSPDialog() {
-        MaterialDialog(this).show {
-            title(text = Operation.CYHSP.cn)
-            positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 25, operation = Operation.CYHSP.cn)
-            }
-            negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 26, operation = Operation.CYHSP.cn)
-            }
-        }
-    }
-
-    private fun showJASPDialog() {
-        MaterialDialog(this).show {
-            title(text = Operation.JASP.cn)
-            positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 27, operation = Operation.JASP.cn)
-            }
-            negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 28, operation = Operation.JASP.cn)
-            }
-        }
-    }
-
-    private fun showXASPDialog() {
-        MaterialDialog(this).show {
-            title(text = Operation.XASP.cn)
-            positiveButton(text = "同意") {
-                jdTaskDoc(taskType = 29, operation = Operation.XASP.cn)
-            }
-            negativeButton(text = "不同意") {
-                jdTaskDoc(taskType = 30, operation = Operation.XASP.cn)
-            }
-        }
-    }
-
 
     //
-    private fun jdTaskDoc(taskType: Int, operation: String) {
+    private fun jdTaskDoc(taskType: Int, operation: String, remark: String = "") {
         val mask = DialogHelper.showMask(this)
         val jdTaskDocParam =
-            JdTaskDocParam(lid = case.lid, caseId = case.caseId, TaskType = taskType)
+            JdTaskDocParam(
+                lid = case.lid,
+                caseId = case.caseId,
+                taskType = taskType,
+                remark = remark
+            )
         v1Api.jdTaskDoc(jdTaskDocParam).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
@@ -144,7 +111,6 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                 }
             )
     }
-
 
     //
 
