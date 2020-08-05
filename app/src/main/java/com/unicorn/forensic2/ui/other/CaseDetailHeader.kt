@@ -45,6 +45,9 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             .getJdxx(case.caseId).observeOnMain(context as LifecycleOwner).subscribeBy(
                 onSuccess = {
                     jdxxAdapter.setNewData(it)
+                },
+                onError = {
+
                 }
             )
 
