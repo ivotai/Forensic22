@@ -68,7 +68,7 @@ data class Case(
     val dateClose: Long,
     val closeTypeDisplay: String,
     val courtNameApply: String,
-    val caseType: String?,
+    val caseType: String,
     val courtNameAccept: String,
     val lid: String?,
     val jgid: String,
@@ -80,24 +80,14 @@ data class Case(
 ) : Serializable {
 
     companion object {
-//        val map = HashMap<Int, String>().apply {
-//            this[-1] = "未知"
-//            this[10] = "新申请"
-//            this[11] = "退回初审"
-//            this[15] = "退回审判"
-//            this[20] = "待确认"
-//            this[30] = "待分案"
-//            this[50] = "案件办理"
-//            this[51] = "审批未通过"
-//            this[55] = "报告已提交"
-//            this[56] = "报告已审核"
-//            this[57] = "报告已退回"
-//            this[60] = "结案审批"
-//            this[62] = "销案审批"
-//            this[70] = "已结案"
-//            this[71] = "无法鉴定"
-//            this[80] = "已销案"
-//        }
+        val map = HashMap<Int, String>().apply {
+            this[1] = "鉴定委托"
+            this[2] = "保外就医审核"
+            this[3] = "技术咨询"
+            this[4] = "技术审核"
+            this[5] = "诉前鉴定"
+            this[9] = "其他"
+        }
 
         val map2 = HashMap<Int, String>().apply {
             this[1] = "内勤初审"
@@ -111,14 +101,16 @@ data class Case(
         }
     }
 
-    val caseStatusX: String
+    val caseStatusX: String?
         get() {
-            return (if (statusFlag == null) caseStatus else map2[statusFlag]) as String
+            return if (statusFlag == null) caseStatus else map2[statusFlag]
         }
 
     val caseTypeX: String
         get() {
-            return jdlbDisplay2 ?: ""
+            val char = caseType[0]
+            return if (char.isDigit()) map[Character.getNumericValue(char)] ?: ""
+            else caseType
         }
 
 }
