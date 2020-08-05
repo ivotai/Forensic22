@@ -11,7 +11,7 @@ class LotteryDelayAdapter : BaseQuickAdapter<LotteryDelay, KVHolder>(R.layout.it
     override fun convert(helper: KVHolder, item: LotteryDelay) {
         helper.apply {
             tvApplydttm.text = item.applyDttm.toDisplayFormat()
-            tvApplystate.text = item.applyState.toString()
+            tvApplystate.text = item.applyStateStr
             tvFee.text = item.fee.toString()
             tvJdryxm.text = item.jdryxm
             tvTerminate.text = if (item.terminate == 0) "否" else "是"

@@ -13,5 +13,20 @@ data class LotteryDelay(
     val jdryxm: String,
     val lastUpdateDate: Long,
     val lid: String,
-    val terminate: Int
-)
+    val terminate: Int,
+    val approveBy: String,
+    val approveDttm: Long,
+    val approveInfo: String
+) {
+    companion object {
+        val map = HashMap<Int, String>().apply {
+            this[1] = "机构确认"
+            this[0] = "新申请"
+            this[2] = "已批准"
+            this[3] = "已驳回"
+        }
+    }
+
+    val applyStateStr: String get() = map[applyState] ?: ""
+
+}
