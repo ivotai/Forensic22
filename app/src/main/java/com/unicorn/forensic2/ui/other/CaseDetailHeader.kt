@@ -9,6 +9,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.di.ComponentHolder
 import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.app.roleTag
 import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.ui.jdxx.JdxxAdapter
@@ -42,7 +43,8 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             addDefaultItemDecoration(1)
         }
         ComponentHolder.appComponent.v1Api()
-            .getJdxx(case.caseId).observeOnMain(context as LifecycleOwner).subscribeBy(
+            .getJdxx(caseId = case.caseId, roleTag = roleTag)
+            .observeOnMain(context as LifecycleOwner).subscribeBy(
                 onSuccess = {
                     jdxxAdapter.setNewData(it)
                 },
