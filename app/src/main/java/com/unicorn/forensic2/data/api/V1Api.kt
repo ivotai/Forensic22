@@ -10,6 +10,7 @@ import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
+import com.unicorn.forensic2.ui.operation.tztx.Tztx
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -420,5 +421,17 @@ interface V1Api {
 
     @GET("api/v1/app/backlog")
     fun backlog(@Query("role") roleTag: String): Single<HashMap<String, String>>
+
+    @GET("api/v1/notification/new")
+    fun notificationNew(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Tztx>>
+
+    @GET("api/v1/notification/old")
+    fun notificationOld(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize
+    ): Single<Page<Tztx>>
 
 }

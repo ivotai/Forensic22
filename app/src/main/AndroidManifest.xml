@@ -78,6 +78,7 @@
         <activity android:name=".ui.operation.lotteryDelay.LotteryDelayListAct" />
         <activity android:name=".ui.operation.jdfk.JdrySListAct" />
         <activity android:name=".ui.operation.jdbg.JDBGAct" />
+        <activity android:name=".ui.operation.tztx.TztxAct" />
         <activity
             android:name=".data.SimplePlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
