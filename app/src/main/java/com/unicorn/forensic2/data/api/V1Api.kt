@@ -153,7 +153,7 @@ interface V1Api {
     //
 
     @GET("api/v1/jdLottery/yhhf")
-    fun getJdxx(@Query("caseId") caseId: String): Single<List<Jdxx>>
+    fun getJdxx(@Query("caseId") caseId: String, @Query("role") roleTag: String): Single<List<Jdxx>>
 
     //
 
