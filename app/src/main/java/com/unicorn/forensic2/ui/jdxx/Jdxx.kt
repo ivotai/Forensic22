@@ -33,7 +33,7 @@ data class Jdxx(
     val dateStart: Long,
     val feeActual: Double,
     val fidyhhf: String?,
-    val fidjdbg:String?,
+    val fidjdbg: String?,
     val fidzbtz: UploadFile?,
     val idx: String,
     val isAccept: Int,
@@ -48,7 +48,6 @@ data class Jdxx(
     val jgid: String,
     val jgmc: String,
     val lid: String,
-    val lotteryStatus: String,
     val lotteryStatusDb: Int,
     val lotteryType: Int,
     val operaPerson: String,
@@ -58,5 +57,26 @@ data class Jdxx(
     val updateDttm: Long,
     val zbr: String,
     val zbrId: String
-)
+) {
+
+    companion object {
+        val map = HashMap<Int, String>().apply {
+            this[0] = "待预约"
+            this[5] = "已预约"
+            this[10] = "已摇号"
+            this[20] = "鉴定中"
+            this[21] = "委托书盖章申请"
+            this[22] = "委托书已盖章"
+            this[24] = "报告退回"
+            this[25] = "报告已提交"
+            this[28] = "报告已审核 "
+            this[30] = "已完成"
+            this[31] = "已拒绝"
+            this[32] = "已取消"
+        }
+    }
+
+    val lotteryStatusStr: String get() = map[lotteryStatusDb] ?: ""
+
+}
 

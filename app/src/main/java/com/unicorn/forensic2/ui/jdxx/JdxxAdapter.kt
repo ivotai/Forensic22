@@ -16,7 +16,7 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
 
     override fun convert(helper: KVHolder, item: Jdxx) {
         helper.apply {
-            tvLotteryStatus.text = item.lotteryStatus
+            tvLotteryStatus.text = item.lotteryStatusStr
             tvJdlb.text = item.jdlb
             tvDateLottery.text = item.dateLottery.toDisplayFormat()
             tvJgmc.text = item.jgmc
