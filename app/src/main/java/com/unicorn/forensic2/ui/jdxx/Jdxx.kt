@@ -56,7 +56,11 @@ data class Jdxx(
     val rollMode: Int,
     val updateDttm: Long,
     val zbr: String,
-    val zbrId: String
+    val zbrId: String,
+    val fee: Int,
+    val jdryxm: String,
+    val fidjfqd: String?,
+    val fidsfbz: String?
 ) {
 
     companion object {

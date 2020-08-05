@@ -20,9 +20,35 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
             tvJdlb.text = item.jdlb
             tvDateLottery.text = item.dateLottery.toDisplayFormat()
             tvJgmc.text = item.jgmc
+            tvFee.text = item.fee.toString()
+            tvJdryxm.text = item.jdryxm
+            tvJfqd.text = "查看缴费清单"
+            tvSfbz.text = "查看收费标准"
             tvZbtz.text = "查看中标通知"
             tvYhhf.text = "查看摇号回放"
             tvJdbg.text = "查看鉴定报告"
+
+            //
+
+            tvJfqd.safeClicks().subscribe {
+                if (item.fidjfqd != null) {
+                    val intent = Intent(context, PdfAct::class.java)
+                    intent.putExtra(Param, item.fidjfqd)
+                    context.startActivity(intent)
+                } else {
+                    ToastUtils.showShort("暂无文件")
+                }
+            }
+
+            tvSfbz.safeClicks().subscribe {
+                if (item.fidsfbz != null) {
+                    val intent = Intent(context, PdfAct::class.java)
+                    intent.putExtra(Param, item.fidsfbz)
+                    context.startActivity(intent)
+                } else {
+                    ToastUtils.showShort("暂无文件")
+                }
+            }
 
             //
 
