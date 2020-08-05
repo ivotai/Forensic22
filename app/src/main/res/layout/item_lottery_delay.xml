@@ -176,7 +176,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="o批复时间"
+        android:text=""
         android:textColor="@color/md_black"
         android:textSize="16dp"
         android:textStyle="bold"
