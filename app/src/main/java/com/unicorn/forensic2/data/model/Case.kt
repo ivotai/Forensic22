@@ -76,7 +76,10 @@ data class Case(
     val jdlbDisplay1: String?,
     val jdlbDisplay2: String?,
     val statusDb: Int?,
-    val statusFlag: Int?
+    val statusFlag: Int?,
+    val remark: String?,
+    val fidjdbg: String?,
+    val fidjdwd: String
 ) : Serializable {
 
     companion object {
