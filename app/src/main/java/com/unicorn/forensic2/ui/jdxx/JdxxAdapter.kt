@@ -1,14 +1,10 @@
 package com.unicorn.forensic2.ui.jdxx
 
-import android.content.Intent
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.toDisplayFormat
-import com.unicorn.forensic2.data.SimplePlayer
-import com.unicorn.forensic2.ui.act.PdfAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_jdxx.*
 
@@ -29,61 +25,29 @@ class JdxxAdapter : BaseQuickAdapter<Jdxx, KVHolder>(R.layout.item_jdxx) {
             tvJdbg.text = "查看鉴定报告"
 
             //
-
             tvJfqd.safeClicks().subscribe {
-                if (item.fidjfqd != null) {
-                    val intent = Intent(context, PdfAct::class.java)
-                    intent.putExtra(Param, item.fidjfqd)
-                    context.startActivity(intent)
-                } else {
-                    ToastUtils.showShort("暂无文件")
-                }
+                if (item.fidjfqdInfo == null) ToastUtils.showShort("暂无文件")
+                item.fidjfqdInfo?.open(context)
             }
 
             tvSfbz.safeClicks().subscribe {
-                if (item.fidsfbz != null) {
-                    val intent = Intent(context, PdfAct::class.java)
-                    intent.putExtra(Param, item.fidsfbz)
-                    context.startActivity(intent)
-                } else {
-                    ToastUtils.showShort("暂无文件")
-                }
+                if (item.fidsfbzInfo == null) ToastUtils.showShort("暂无文件")
+                item.fidsfbzInfo?.open(context)
             }
-
-            //
 
             tvZbtz.safeClicks().subscribe {
-                if (item.fidzbtz != null) {
-                    val intent = Intent(context, PdfAct::class.java)
-                    intent.putExtra(Param, item.fidzbtz.fileid)
-                    context.startActivity(intent)
-                } else {
-                    ToastUtils.showShort("暂无文件")
-                }
+                if (item.fidzbtz == null) ToastUtils.showShort("暂无文件")
+                item.fidzbtz?.open(context)
             }
-
-            //
 
             tvYhhf.safeClicks().subscribe {
-                if (item.fidyhhf != null) {
-                    val intent = Intent(context, SimplePlayer::class.java)
-                    intent.putExtra(Param, item.fidyhhf)
-                    context.startActivity(intent)
-
-                } else {
-                    ToastUtils.showShort("暂无文件")
-                }
+                if (item.fidyhhfInfo == null) ToastUtils.showShort("暂无文件")
+                item.fidyhhfInfo?.open(context)
             }
 
-            //
             tvJdbg.safeClicks().subscribe {
-                if (item.fidjdbg != null) {
-                    val intent = Intent(context, PdfAct::class.java)
-                    intent.putExtra(Param, item.fidjdbg)
-                    context.startActivity(intent)
-                } else {
-                    ToastUtils.showShort("暂无文件")
-                }
+                if (item.fidjdbgInfo == null) ToastUtils.showShort("暂无文件")
+                item.fidjdbgInfo?.open(context)
             }
         }
 

@@ -32,8 +32,8 @@ data class Jdxx(
     val dateSetperson: Long,
     val dateStart: Long,
     val feeActual: Double,
-    val fidyhhf: String?,
-    val fidjdbg: String?,
+    val fidyhhfInfo: UploadFile?,
+    val fidjdbgInfo: UploadFile?,
     val fidzbtz: UploadFile?,
     val idx: String,
     val isAccept: Int,
@@ -59,8 +59,8 @@ data class Jdxx(
     val zbrId: String,
     val fee: Int,
     val jdryxm: String,
-    val fidjfqd: String?,
-    val fidsfbz: String?
+    val fidjfqdInfo: UploadFile?,
+    val fidsfbzInfo: UploadFile?
 ) {
 
     companion object {
