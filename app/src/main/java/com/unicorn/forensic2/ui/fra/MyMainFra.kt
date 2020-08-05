@@ -58,10 +58,15 @@ class MyMainFra : BaseFra() {
 
     override fun bindIntent() {
         simpleAdapter.setNewData(MyMenu.all)
-        getHomeInfo()
+        backlog()
     }
 
-    private fun getHomeInfo() {
+    override fun onResume() {
+        super.onResume()
+        backlog()
+    }
+
+    private fun backlog() {
         api.backlog(roleTag = roleTag).observeOnMain(this).subscribeBy(
             onSuccess = { map ->
                 val list = ArrayList<Backlog>()
@@ -75,79 +80,6 @@ class MyMainFra : BaseFra() {
 
             }
         )
-//        api.getHomeInfo().observeOnMain(this)
-//            .subscribeBy(
-//                onSuccess = { homeInfo ->
-//                    with(homeInfo) {
-//                        when {
-//                            user.Admin -> {
-//                                tvLabel1.text = "机构注册"
-//                                tvNum1.text = jgzc
-//                                tvLabel2.text = "机构变更"
-//                                tvNum2.text = jgbg
-//                                tvLabel3.text = "专家注册"
-//                                tvNum3.text = zjzc
-//                            }
-//                            user.Pszj && user.JdjgAdmin -> {
-//                                tvLabel1.text = "中标通知"
-//                                tvNum1.text = zbtz
-//                                tvLabel2.text = "待鉴定"
-//                                tvNum2.text = djd
-//                                tvLabel3.text = "待评审"
-//                                tvNum3.text = dps
-////                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-////                                    Intent(context!!, JgCaseAct::class.java).apply {
-////                                        putExtra(Param, CaseType.ZBTZ)
-////                                    }.let { context!!.startActivity(it) }
-////                                }
-////                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
-////                                    Intent(context!!, JgCaseAct::class.java).apply {
-////                                        putExtra(Param, CaseType.DJD)
-////                                    }.let { context!!.startActivity(it) }
-////                                }
-//                                tvLabel3.safeClicks().mergeWith(tvNum3.safeClicks()).subscribe {
-//                                    Intent(context!!, ZjCaseAct::class.java).apply {
-//                                    }.let { context!!.startActivity(it) }
-//                                }
-//                            }
-//                            user.JdjgAdmin -> {
-//                                tvLabel1.text = "中标通知"
-//                                tvNum1.text = zbtz
-//                                tvLabel2.text = "待鉴定"
-//                                tvNum2.text = djd
-//                                tvLabel3.visibility = View.INVISIBLE
-//                                tvNum3.visibility = View.INVISIBLE
-////                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-////                                    Intent(context!!, JgCaseAct::class.java).apply {
-////                                        putExtra(Param, CaseType.ZBTZ)
-////                                    }.let { context!!.startActivity(it) }
-////                                }
-////                                tvLabel2.safeClicks().mergeWith(tvNum2.safeClicks()).subscribe {
-////                                    Intent(context!!, JgCaseAct::class.java).apply {
-////                                        putExtra(Param, CaseType.DJD)
-////                                    }.let { context!!.startActivity(it) }
-////                                }
-//                            }
-//                            user.Pszj -> {
-//                                tvLabel1.text = "待评审"
-//                                tvNum1.text = dps
-//                                tvLabel2.visibility = View.INVISIBLE
-//                                tvNum2.visibility = View.INVISIBLE
-//                                tvLabel3.visibility = View.INVISIBLE
-//                                tvNum3.visibility = View.INVISIBLE
-//                                tvLabel1.safeClicks().mergeWith(tvNum1.safeClicks()).subscribe {
-//                                    Intent(context!!, ZjCaseAct::class.java).apply {
-//                                    }.let { context!!.startActivity(it) }
-//                                }
-//                            }
-//                            else -> {
-//                            }
-//                        }
-//                    }
-//                },
-//                onError = {
-//                }
-//            )
     }
 
     private val colorPrimary by lazy { ContextCompat.getColor(context!!, R.color.colorPrimary) }
