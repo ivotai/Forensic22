@@ -99,7 +99,7 @@ class SimplePlayer : AppCompatActivity() {
 
     override fun onBackPressed() {
         //先返回正常状态
-        if (orientationUtils!!.screenType == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+        if (orientationUtils?.screenType == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             videoPlayer!!.fullscreenButton.performClick()
             return
         }

@@ -70,6 +70,9 @@ class MyMainFra : BaseFra() {
                     list.add(Backlog(caseType = caseType, count = it.value.toInt()))
                 }
                 backlogAdapter.setNewData(list)
+            },
+            onError = {
+
             }
         )
 //        api.getHomeInfo().observeOnMain(this)

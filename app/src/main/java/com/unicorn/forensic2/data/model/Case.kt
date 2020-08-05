@@ -68,42 +68,57 @@ data class Case(
     val dateClose: Long,
     val closeTypeDisplay: String,
     val courtNameApply: String,
-    val caseType: String,
+    val caseType: String?,
     val courtNameAccept: String,
     val lid: String?,
     val jgid: String,
     val jdlbId: String,
     val jdlbDisplay1: String?,
     val jdlbDisplay2: String?,
-    val statusDb: Int?
+    val statusDb: Int?,
+    val statusFlag: Int?
 ) : Serializable {
 
     companion object {
-        val map = HashMap<Int, String>().apply {
-            this[-1] = "未知"
-            this[10] = "新申请"
-            this[11] = "退回初审"
-            this[15] = "退回审判"
-            this[20] = "待确认"
-            this[30] = "待分案"
-            this[50] = "案件办理"
-            this[51] = "审批未通过"
-            this[55] = "报告已提交"
-            this[56] = "报告已审核"
-            this[57] = "报告已退回"
-            this[60] = "结案审批"
-            this[62] = "销案审批"
-            this[70] = "已结案"
-            this[71] = "无法鉴定"
-            this[80] = "已销案"
+//        val map = HashMap<Int, String>().apply {
+//            this[-1] = "未知"
+//            this[10] = "新申请"
+//            this[11] = "退回初审"
+//            this[15] = "退回审判"
+//            this[20] = "待确认"
+//            this[30] = "待分案"
+//            this[50] = "案件办理"
+//            this[51] = "审批未通过"
+//            this[55] = "报告已提交"
+//            this[56] = "报告已审核"
+//            this[57] = "报告已退回"
+//            this[60] = "结案审批"
+//            this[62] = "销案审批"
+//            this[70] = "已结案"
+//            this[71] = "无法鉴定"
+//            this[80] = "已销案"
+//        }
+
+        val map2 = HashMap<Int, String>().apply {
+            this[1] = "内勤初审"
+            this[2] = "立案审批"
+            this[3] = "待分案"
+            this[4] = "摇号"
+            this[5] = "案件办理"
+            this[6] = "结案审批"
+            this[7] = "已结案"
+            this[8] = "已销案"
         }
     }
-    
-    val caseStatusX get() = caseStatus ?: jdlbDisplay1 ?: jdlbDisplay2 ?: ""
+
+    val caseStatusX: String
+        get() {
+            return (if (statusFlag == null) caseStatus else map2[statusFlag]) as String
+        }
 
     val caseTypeX: String
         get() {
-            return if (statusDb == null) caseType else map[statusDb]!!
+            return jdlbDisplay2 ?: ""
         }
 
 }
