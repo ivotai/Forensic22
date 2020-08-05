@@ -18,7 +18,7 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.header_case_detail.view.*
 
 
-class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
+class CaseDetailHeader(context: Context,private val case: Case) : FrameLayout(context),
     LayoutContainer {
 
     override val containerView = this
@@ -42,6 +42,11 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
             jdxxAdapter.bindToRecyclerView(this)
             addDefaultItemDecoration(1)
         }
+
+        getJdxx()
+    }
+
+    fun getJdxx(){
         ComponentHolder.appComponent.v1Api()
             .getJdxx(caseId = case.caseId, roleTag = roleTag)
             .observeOnMain(context as LifecycleOwner).subscribeBy(
@@ -52,7 +57,6 @@ class CaseDetailHeader(context: Context, case: Case) : FrameLayout(context),
 
                 }
             )
-
     }
 
 }

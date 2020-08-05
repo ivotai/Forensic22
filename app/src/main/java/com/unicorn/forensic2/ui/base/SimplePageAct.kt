@@ -39,10 +39,15 @@ abstract class SimplePageAct<Model, K : BaseViewHolder> : BaseAct() {
     }
 
     override fun bindIntent() {
-        mSwipeRefreshLayout.setOnRefreshListener { loadFirstPage() }
+        mSwipeRefreshLayout.setOnRefreshListener {
+            loadFirstPage()
+            onRefresh()
+        }
         simpleAdapter.setOnLoadMoreListener({ loadNextPage() }, mRecyclerView)
         loadFirstPage()
     }
+
+    protected open fun onRefresh() {}
 
     protected fun loadFirstPage() {
         mSwipeRefreshLayout.isRefreshing = true

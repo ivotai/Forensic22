@@ -27,12 +27,14 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
 class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
+    lateinit var caseDetailHeader: CaseDetailHeader
 
     override fun initViews() {
         super.initViews()
         titleBar.setTitle("案件详情")
         mRecyclerView.addDefaultItemDecoration(1)
-        simpleAdapter.addHeaderView(CaseDetailHeader(this, case))
+        caseDetailHeader = CaseDetailHeader(this, case)
+        simpleAdapter.addHeaderView(caseDetailHeader)
     }
 
     override fun bindIntent() {
@@ -41,6 +43,10 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
         //
         if (Operation.all.isNotEmpty())
             titleBar.setOperation("操作").safeClicks().subscribe { showOperationDialog() }
+    }
+
+    override fun onRefresh() {
+        caseDetailHeader.getJdxx()
     }
 
     private fun showOperationDialog() {
