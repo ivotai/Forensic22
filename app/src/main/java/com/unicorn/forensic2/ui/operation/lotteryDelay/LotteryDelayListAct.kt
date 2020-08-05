@@ -27,19 +27,17 @@ class LotteryDelayListAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        if (case.lid != null) {
-            val mask = DialogHelper.showMask(this)
-            v1Api.lotteryDelay(lid = case.lid!!).observeOnMain(this)
-                .subscribeBy(
-                    onSuccess = {
-                        mask.dismiss()
-                        lotteryDelayAdapter.setNewData(it)
-                    },
-                    onError = {
-                        mask.dismiss()
-                    }
-                )
-        }
+        val mask = DialogHelper.showMask(this)
+        v1Api.lotteryDelay(lid = case.lidX).observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    mask.dismiss()
+                    lotteryDelayAdapter.setNewData(it)
+                },
+                onError = {
+                    mask.dismiss()
+                }
+            )
 
         if (roleTag == Role.Sfjd.en) {
             titleBar.setOperation("操作").safeClicks().subscribe {

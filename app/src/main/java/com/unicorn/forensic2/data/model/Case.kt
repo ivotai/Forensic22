@@ -113,6 +113,9 @@ data class Case(
             else caseType
         }
 
+    val lidX: String
+        get() = lid ?: caseId
+
 }
 
 
