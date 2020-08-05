@@ -74,12 +74,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
         android:text="o鉴定费用"
         android:textColor="@color/md_black"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lFee" />
     
@@ -99,20 +97,21 @@
         android:text="o鉴定人员"
         android:textColor="@color/md_grey_600"
         android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFee" />
 
     <TextView
         android:id="@+id/tvJdryxm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="o鉴定人员"
         android:textColor="@color/md_black"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lJdryxm"
         app:layout_constraintTop_toBottomOf="@+id/lJdryxm" />
 
     <TextView
@@ -123,8 +122,8 @@
         android:text="o是否中止"
         android:textColor="@color/md_grey_600"
         android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="@+id/tvJdryxm"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdryxm" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTerminate"
@@ -137,6 +136,75 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/lTerminate"
         app:layout_constraintTop_toBottomOf="@+id/lTerminate" />
+
+    <TextView
+        android:id="@+id/lApproveBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="o批复人"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/tvTerminate" />
+
+    <TextView
+        android:id="@+id/tvApproveBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="o批复人"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/lApproveBy" />
+
+    <TextView
+        android:id="@+id/lApproveDttm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="o批复时间"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tvApproveBy"
+        app:layout_constraintTop_toBottomOf="@+id/tvApproveBy" />
+
+    <TextView
+        android:id="@+id/tvApproveDttm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="o批复时间"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/lApproveDttm"
+        app:layout_constraintTop_toBottomOf="@+id/lApproveDttm" />
+
+    <TextView
+        android:id="@+id/lApproveInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="o批复意见"
+        android:textColor="@color/md_grey_600"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/tvApproveDttm" />
+
+    <TextView
+        android:id="@+id/tvApproveInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="o批复意见"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/lApproveInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

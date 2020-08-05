@@ -1,57 +1,50 @@
-{
-  "content": [
-    {
-      "@id": "1",
-      "caseId": "69a9a66c-d559-4e28-9ad1-d44504775caf",
-      "updateDttm": 1596591590000,
-      "plaintiff": "原告：赵秀莲；被告：榆林市第一医院",
-      "caseNo": "(2020)陕0802民初2601号",
-      "caseType": 1,
-      "jdlb0": "1",
-      "jdlb1": "2",
-      "jdlbDisplay1": "法医",
-      "jdlb2": "2",
-      "jdlbDisplay2": "法医类",
-      "isTrial": 1,
-      "isParty": 1,
-      "isAgain": 0,
-      "ay": "医疗损害责任纠纷",
-      "courtApply": "RA1",
-      "courtNameApply": "榆林市榆阳区人民法院",
-      "courtAccept": "RA0",
-      "courtNameAccept": "榆林市中级人民法院",
-      "dateApply": 1589990400000,
-      "closeTypeDisplay": "",
-      "dateRegister": 1596556800000,
-      "statusDb": 20,
-      "statusFlag": 2,
-      "workDays": 0,
-      "workDaysW": 0
-    }
-  ],
-  "pageable": {
-    "sort": {
-      "sorted": true,
-      "unsorted": false,
-      "empty": false
-    },
-    "pageNumber": 0,
-    "offset": "0",
-    "pageSize": 5,
-    "unpaged": false,
-    "paged": true
+[
+  {
+    "@id": "1",
+    "did": "d6ec9f01-b4d7-4816-b6c0-21af1905b655",
+    "caseId": "6f364e08-1a7f-41e2-8902-4ef3b9cdf69c",
+    "lid": "2aeb6caf-0c9c-470b-a162-65498cd82ac7",
+    "applyDttm": 1596510886000,
+    "delayTo": 1597939200000,
+    "applyState": 1,
+    "fee": 1232.0,
+    "terminate": 0,
+    "fidjfqd": "089ae775-7a6e-4906-bffb-cc545f08be15",
+    "fidsfbz": "23ad7f34-fc1f-4fd0-b79f-653ec9f79703",
+    "jdryid": "7e2523b5-6d73-4116-a148-ab30479dfc55",
+    "jdryxm": "金鑫",
+    "lastUpdateDate": 1596510886000
   },
-  "last": true,
-  "totalElements": "1",
-  "totalPages": 1,
-  "first": true,
-  "sort": {
-    "sorted": true,
-    "unsorted": false,
-    "empty": false
+  {
+    "@id": "2",
+    "did": "d79b970d-54d3-45b2-afa5-d55dd444162c",
+    "caseId": "6f364e08-1a7f-41e2-8902-4ef3b9cdf69c",
+    "lid": "2aeb6caf-0c9c-470b-a162-65498cd82ac7",
+    "applyDttm": 1596518347000,
+    "planFinish": 1597939200000,
+    "delayTo": 1597939200000,
+    "applyInfo": "biang",
+    "applyState": 0,
+    "fee": 2000.0,
+    "terminate": 0,
+    "fidjfqd": "089ae775-7a6e-4906-bffb-cc545f08be15",
+    "fidsfbz": "23ad7f34-fc1f-4fd0-b79f-653ec9f79703",
+    "jdryid": "7e2523b5-6d73-4116-a148-ab30479dfc55",
+    "jdryxm": "金鑫",
+    "lastUpdateDate": 1596518347000
   },
-  "size": 5,
-  "number": 0,
-  "numberOfElements": 1,
-  "empty": false
-}
+  {
+    "@id": "3",
+    "did": "af211b50-563c-47f4-af95-1701e1f35e50",
+    "caseId": "6f364e08-1a7f-41e2-8902-4ef3b9cdf69c",
+    "lid": "2aeb6caf-0c9c-470b-a162-65498cd82ac7",
+    "applyDttm": 1596598670000,
+    "delayTo": 1596643200000,
+    "applyState": 0,
+    "fee": 3000.0,
+    "terminate": 0,
+    "jdryid": "7e2523b5-6d73-4116-a148-ab30479dfc55",
+    "jdryxm": "金鑫",
+    "lastUpdateDate": 1596598670000
+  }
+]

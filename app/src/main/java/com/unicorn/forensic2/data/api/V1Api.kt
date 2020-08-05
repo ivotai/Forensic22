@@ -397,7 +397,11 @@ interface V1Api {
     fun jdTaskDoc(@Body jdTaskDocParam: JdTaskDocParam): Single<GeneralResponse>
 
     @GET("api/v1/jdLottery/lotteryDelay")
-    fun lotteryDelay(@Query("lid") lid: String): Single<List<LotteryDelay>>
+    fun lotteryDelay(
+        @Query("lid") lid: String?,
+        @Query("caseId") caseId: String
+    ): Single<List<LotteryDelay>>
+
 
     @GET("api/v1/jdJdry/list")
     fun jdJdryList(

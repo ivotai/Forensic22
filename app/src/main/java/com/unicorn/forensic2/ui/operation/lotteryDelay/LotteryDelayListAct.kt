@@ -28,7 +28,7 @@ class LotteryDelayListAct : BaseAct() {
 
     override fun bindIntent() {
         val mask = DialogHelper.showMask(this)
-        v1Api.lotteryDelay(lid = case.lidX).observeOnMain(this)
+        v1Api.lotteryDelay(lid = case.lid, caseId = case.caseId).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
                     mask.dismiss()
