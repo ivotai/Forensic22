@@ -14,6 +14,8 @@ import com.unicorn.forensic2.ui.base.SimplePageAct
 import io.reactivex.Single
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_remind_add.*
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 class CaseDemoPListAct : SimplePageAct<CaseDemo, KVHolder>() {
 
@@ -48,8 +50,10 @@ class CaseDemoPListAct : SimplePageAct<CaseDemo, KVHolder>() {
 
     private fun addCaseDemo(content: String, operation: String) {
         val mask = DialogHelper.showMask(this)
-        val param = AddCaseDemoParam(caseId = case.caseId, content = content)
-        v1Api.jdCaseMemo(param)
+        val map = HashMap<String, RequestBody>()
+        map["caseId"] = case.caseId.toRequestBody(TextOrPlain)
+        map["content"] = content.toRequestBody(TextOrPlain)
+        v1Api.jdCaseMemo(map)
             .observeOnMain(this)
             .subscribeBy(
                 onSuccess = {

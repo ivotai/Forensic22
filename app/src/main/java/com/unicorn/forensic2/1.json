@@ -1,7 +1,38 @@
 {
-  "caseId": "11397056-a7c7-45b0-9a48-79ee5cd62f0a",
-  "fromFlag": 3,
-  "jgId": "0ae3365f-c9fe-4f46-9eae-ddc6c1358b40",
-  "remark": "3",
-  "toFlag": 2
+  "content": [
+    {
+      "@id": "1",
+      "mid": "cf628a71-600c-41cf-9dda-03d70e49e5dd",
+      "caseId": "11397056-a7c7-45b0-9a48-79ee5cd62f0a",
+      "addDttm": 1596685172000,
+      "addUser": "史鹤祥",
+      "content": "测试",
+      "lastUpdateDate": 1596685172000
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": true,
+      "unsorted": false,
+      "empty": false
+    },
+    "pageNumber": 0,
+    "offset": "0",
+    "pageSize": 5,
+    "unpaged": false,
+    "paged": true
+  },
+  "last": true,
+  "totalElements": "1",
+  "totalPages": 1,
+  "first": true,
+  "sort": {
+    "sorted": true,
+    "unsorted": false,
+    "empty": false
+  },
+  "size": 5,
+  "number": 0,
+  "numberOfElements": 1,
+  "empty": false
 }
