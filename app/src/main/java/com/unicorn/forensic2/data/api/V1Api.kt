@@ -6,6 +6,7 @@ import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.ui.jdxx.Jdxx
+import com.unicorn.forensic2.ui.operation.caseDemo.AddCaseDemoParam
 import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemo
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
@@ -455,5 +456,8 @@ interface V1Api {
         @Query("caseId") caseId: String,
         @Query("pid") pid: String? = null
     ): Single<Page<CaseDemo>>
+
+    @POST("api/v1/jdCaseMemo")
+    fun jdCaseMemo(@Body addCaseDemoParam: AddCaseDemoParam):Single<GeneralResponse>
 
 }
