@@ -3,7 +3,6 @@ package com.unicorn.forensic2.ui.act
 import android.content.Intent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
-import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
@@ -16,6 +15,7 @@ import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
 import com.unicorn.forensic2.ui.operation.JdTaskDocHelper
+import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemoPListAct
 import com.unicorn.forensic2.ui.operation.hf.HfAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.operation.jdbg.JDBGAct
@@ -68,7 +68,9 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     Operation.BATX -> Intent(this@CaseDetailAct, RemindListAct::class.java).apply {
                         putExtra(Param, case)
                     }.let { startActivity(it) }
-                    Operation.AJBW -> ToastUtils.showShort("尚未实现")
+                    Operation.AJBW -> Intent(this@CaseDetailAct, CaseDemoPListAct::class.java).apply {
+                        putExtra(Param, case)
+                    }.let { startActivity(it) }
                     Operation.BGPF_JDJGADMIN, Operation.BGPF_SFJD -> Intent(
                         this@CaseDetailAct,
                         LotteryDelayListAct::class.java

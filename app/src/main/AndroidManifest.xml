@@ -81,6 +81,7 @@
         <activity android:name=".ui.operation.tztx.TztxAct" />
         <activity android:name=".ui.operation.remind.RemindListAct" />
         <activity android:name=".ui.operation.remind.AddRemindAct" />
+        <activity android:name=".ui.operation.caseDemo.CaseDemoPListAct" />
         <activity
             android:name=".data.SimplePlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"

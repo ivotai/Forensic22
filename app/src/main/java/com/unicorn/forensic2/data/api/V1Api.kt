@@ -6,6 +6,7 @@ import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.ui.jdxx.Jdxx
+import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemo
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
@@ -445,5 +446,14 @@ interface V1Api {
     @Multipart
     @POST("api/v1/jdRemind")
     fun jdRemind(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>): Single<GeneralResponse>
+
+
+    @GET(" api/v1/jdCaseMemo")
+    fun jdCaseMemo(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @Query("caseId") caseId: String,
+        @Query("pid") pid: String? = null
+    ): Single<Page<CaseDemo>>
 
 }
