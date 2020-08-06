@@ -21,13 +21,15 @@ import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.operation.jdbg.JDBGAct
 import com.unicorn.forensic2.ui.operation.jdfk.JDFKAct
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelayListAct
+import com.unicorn.forensic2.ui.operation.remind.RemindListAct
 import com.unicorn.forensic2.ui.other.CaseDetailHeader
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.ui_title_swipe_recycler.*
 
 class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
-    lateinit var caseDetailHeader: CaseDetailHeader
+
+    private lateinit var caseDetailHeader: CaseDetailHeader
 
     override fun initViews() {
         super.initViews()
@@ -51,7 +53,7 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
 
     private fun showOperationDialog() {
         MaterialDialog(this).show {
-            listItems(items = Operation.all.map { it.cn }) { dialog, index, text ->
+            listItems(items = Operation.all.map { it.cn }) { _, index, _ ->
                 val result = Operation.all[index]
                 when (result) {
                     Operation.HF -> Intent(this@CaseDetailAct, HfAct::class.java).apply {
@@ -63,7 +65,10 @@ class CaseDetailAct : SimplePageAct<CaseProcess, KVHolder>() {
                     Operation.JDBG -> Intent(this@CaseDetailAct, JDBGAct::class.java).apply {
                         putExtra(Param, case)
                     }.let { startActivity(it) }
-                    Operation.AJBW, Operation.BATX -> ToastUtils.showShort("尚未实现")
+                    Operation.BATX -> Intent(this@CaseDetailAct, RemindListAct::class.java).apply {
+                        putExtra(Param, case)
+                    }.let { startActivity(it) }
+                    Operation.AJBW -> ToastUtils.showShort("尚未实现")
                     Operation.BGPF_JDJGADMIN, Operation.BGPF_SFJD -> Intent(
                         this@CaseDetailAct,
                         LotteryDelayListAct::class.java

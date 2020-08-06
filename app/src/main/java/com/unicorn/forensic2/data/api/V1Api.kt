@@ -9,6 +9,7 @@ import com.unicorn.forensic2.ui.jdxx.Jdxx
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
+import com.unicorn.forensic2.ui.operation.remind.Remind
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
 import com.unicorn.forensic2.ui.operation.tztx.Tztx
 import io.reactivex.Single
@@ -433,5 +434,12 @@ interface V1Api {
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int = defaultPageSize
     ): Single<Page<Tztx>>
+
+    @GET("api/v1/jdRemind")
+    fun jdRemind(
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @Query("caseId") caseId: String
+    ): Single<Page<Remind>>
 
 }
