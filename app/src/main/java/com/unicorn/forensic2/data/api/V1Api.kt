@@ -442,4 +442,8 @@ interface V1Api {
         @Query("caseId") caseId: String
     ): Single<Page<Remind>>
 
+    @Multipart
+    @POST("api/v1/jdRemind")
+    fun jdRemind(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>): Single<GeneralResponse>
+
 }

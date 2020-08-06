@@ -12,11 +12,9 @@ class RemindAdapter : BaseQuickAdapter<Remind, KVHolder>(R.layout.item_remind) {
 
     override fun convert(helper: KVHolder, item: Remind) {
         helper.apply {
-            // todo
             tvRemindDttm.text = item.remindDttm.toDisplayFormat2()
-            tvFromFlag.text = item.fromFlag.toString()
-            tvToFlag.text = item.toFlag.toString()
-            tvAcceptDttm.text = item.acceptDttm.toDisplayFormat2()
+            tvFromFlag.text = item.fromFlagStr
+            tvToFlag.text = item.toFlagStr
             tvRemark.text = item.remark
         }
         helper.apply {
