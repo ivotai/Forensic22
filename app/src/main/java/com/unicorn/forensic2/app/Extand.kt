@@ -4,11 +4,15 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ToastUtils
 import com.jakewharton.rxbinding3.view.clicks
+import com.mikepenz.iconics.IconicsDrawable
+import com.mikepenz.iconics.typeface.IIcon
+import com.mikepenz.iconics.utils.colorRes
 import com.unicorn.forensic2.R
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import florent37.github.com.rxlifecycle.RxLifecycle.disposeOnDestroy
@@ -73,5 +77,14 @@ fun Long.toDisplayFormat2(): String {
 fun Long.toDisplayFormat(): String {
     if (this == 0L) return ""
     return this.toDateTime().toString(displayDateFormat)
+}
+
+fun ImageView.setIIcon(context: Context, iIcon: IIcon, colorResId: Int) {
+    IconicsDrawable(
+        context,
+        iIcon
+    ).apply {
+        colorRes = colorResId
+    }.let { this.setImageDrawable(it) }
 }
 

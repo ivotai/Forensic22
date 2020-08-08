@@ -2,15 +2,10 @@ package com.unicorn.forensic2.refactor.profile
 
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.mikepenz.iconics.IconicsDrawable
-import com.mikepenz.iconics.utils.colorRes
-import com.mikepenz.iconics.utils.sizeDp
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.startAct
-import com.unicorn.forensic2.app.user
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.LogoutEvent
+import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.refactor.icon.Light
 import com.unicorn.forensic2.ui.act.ExpertRegisterAct
 import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
@@ -26,21 +21,15 @@ class ProfileOperationAdapter :
     override fun convert(helper: KVHolder, item: ProfileOperation) {
         helper.apply {
             tvText.text = item.text
-            ivRight.setImageDrawable(
-                IconicsDrawable(
-                    context,
-                    Light.Icon.light_chevron_right
-                ).apply {
-                    colorRes = R.color.md_grey_500
-                    sizeDp = 12
-                })
+            ivIcon.setIIcon(context, item.iIcon, R.color.colorPrimary)
+            ivRight.setIIcon(context, Light.Icon.light_chevron_right, R.color.md_grey_300)
+
             root.safeClicks().subscribe {
                 when (item) {
-
                     ProfileOperation.ModifyPwd -> mContext.startAct(ModifyPwdAct::class.java)
                     ProfileOperation.PersonInfo -> mContext.startAct(PersonalInfoUpdateAct::class.java)
                     ProfileOperation.MyJdjg -> {
-                        if (user.JdjgAdmin)
+                        if (roleTag == Role.JdjgAdmin.en)
                             mContext.startAct(JdjgMyGuideAct::class.java)
                         else
                             ToastUtils.showShort("尚未注册机构")
