@@ -7,7 +7,6 @@ enum class CaseType(val cn: String, val key: String) : Serializable {
 
     TZTX("通知提醒", "tztx"),
     DPS("待评审", "dps"),
-
     ZBTZ("中标通知", "zbtz"),
     DJD("待鉴定", "djd"),
     YJD("已鉴定", "yjd"),
