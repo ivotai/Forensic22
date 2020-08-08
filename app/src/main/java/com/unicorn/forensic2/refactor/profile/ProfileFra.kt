@@ -27,7 +27,7 @@ class ProfileFra : BaseFra() {
     override fun initViews() {
 
         fun initRecyclerView() {
-            recyclerView.apply {
+            recyclerView3.apply {
                 layoutManager = LinearLayoutManager(context)
                 simpleAdapter.bindToRecyclerView(this)
                 HorizontalDividerItemDecoration.Builder(context)
@@ -40,7 +40,7 @@ class ProfileFra : BaseFra() {
 
         constraintLayout1.background = GradientDrawable(
             GradientDrawable.Orientation.TOP_BOTTOM,
-            intArrayOf(colorPrimary, blue300)
+            intArrayOf(blue600, blue300)
         )
 
         initRecyclerView()
@@ -77,8 +77,8 @@ class ProfileFra : BaseFra() {
         )
     }
 
-    private val colorPrimary by lazy { ContextCompat.getColor(context!!, R.color.colorPrimary) }
     private val blue300 by lazy { ContextCompat.getColor(context!!, R.color.md_blue_300) }
+    private val blue600 by lazy { ContextCompat.getColor(context!!, R.color.md_blue_600) }
 
     override val layoutId = R.layout.fra_profile
 
