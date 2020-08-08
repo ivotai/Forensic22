@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.unicorn.forensic2"
         minSdkVersion 21
-        targetSdkVersion 22
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
@@ -96,6 +96,9 @@ dependencies {
     implementation 'com.ljx.rxhttp:rxhttp:2.3.3'
     kapt 'com.ljx.rxhttp:rxhttp-compiler:2.3.3'
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+    implementation "com.mikepenz:iconics-core:5.0.3"
+    implementation "com.mikepenz:iconics-views:5.0.3"
+    implementation 'com.mikepenz:fontawesome-typeface:5.9.0.0-kotlin@aar'
 }
 
 androidExtensions {
