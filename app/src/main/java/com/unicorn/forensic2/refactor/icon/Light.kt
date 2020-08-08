@@ -9,7 +9,7 @@ import java.util.*
 object Light : ITypeface {
 
     override val fontRes: Int
-        get() = R.font._font_v
+        get() = R.font.light_font_v
 
     override val characters: Map<String, Char> by lazy {
         Icon.values().associate { it.name to it.character }
