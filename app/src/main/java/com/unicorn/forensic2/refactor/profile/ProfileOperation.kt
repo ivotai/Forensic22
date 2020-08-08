@@ -15,8 +15,8 @@ enum class ProfileOperation(
     companion object {
         val all
             get() = listOf(
-                ModifyPwd, PersonInfo, RegisterJdjg,
-                MyJdjg, RegisterExpert, Logout
+                ModifyPwd, PersonInfo, MyJdjg,
+                RegisterJdjg, RegisterExpert, Logout
             )
     }
 

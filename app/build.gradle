@@ -6,8 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'mtj-circle-plugin'
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -45,15 +43,6 @@ android {
     lintOptions {
         abortOnError false
     }
-}
-
-MtjCirclePluginConfig {
-    // 设置appkey
-    appkey = '824cca5714'
-    // 设置debug 开关，如果需要查看日志则打开开关，为避免影响性能建议上线前关闭（设置为false）
-    debug = false
-    // 默认启动此插件，如果开发者不需要可以禁用（设置为false）
-    enabled = true
 }
 
 dependencies {
@@ -97,8 +86,6 @@ dependencies {
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
     implementation 'com.afollestad.material-dialogs:datetime:3.3.0'
     implementation 'com.afollestad.material-dialogs:input:3.3.0'
-    implementation 'com.facebook.stetho:stetho:1.5.1'
-    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
     implementation 'com.zhy:okhttputils:2.6.2'
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
     implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0X'

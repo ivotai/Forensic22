@@ -1,6 +1,5 @@
 package com.unicorn.forensic2.app.di.module
 
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.unicorn.forensic2.app.V1
 import com.unicorn.forensic2.app.baseUrl
@@ -57,7 +56,6 @@ class NetworkModule {
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
-            .addNetworkInterceptor(StethoInterceptor())
             .build()
 
     @Named(V1)
