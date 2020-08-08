@@ -1,10 +1,7 @@
 package com.unicorn.forensic2.data.model
 
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Xtgg
-import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.roleTag
-import com.unicorn.forensic2.app.user
 
 enum class HomeMenu(val namez: String, val imgRes: Int) {
     JGCX("机构查询", R.mipmap.jgcx),
@@ -27,7 +24,7 @@ enum class HomeMenu(val namez: String, val imgRes: Int) {
                 Role.Normal.en -> listOf(JGCX, XTGG, TSJY, WDAJ)
                 Role.JdjgAdmin.en -> listOf(JGCX, XTGG, TSJY, WDAJ, TZTX, JGXX)
                 Role.Pszj.en -> listOf(JGXX, XTGG, TSJY, WDPS, TZTX, ZJXX)
-                Role.Bafg.en,
+                Role.Spry.en,
                 Role.Sfjd.en,
                 Role.SfjdAdmin.en -> listOf(JGCX, XTGG, WDAJ, TZTX, ZTBG)
                 else -> listOf(JGCX, XTGG)

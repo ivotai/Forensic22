@@ -25,7 +25,7 @@ enum class CaseType(val cn: String, val key: String) : Serializable {
         val all
             get() = when (roleTag) {
                 Role.JdjgAdmin.en -> listOf(ZBTZ, DJD, YJD, YJJ, YQX)
-                Role.Normal.en, Role.Sfjd.en, Role.Bafg.en -> listOf(CLOSE, UNCLOSE)
+                Role.Normal.en, Role.Sfjd.en, Role.Spry.en -> listOf(CLOSE, UNCLOSE)
                 Role.SfjdAdmin.en -> listOf(
                     LASP,
                    CYHSP,

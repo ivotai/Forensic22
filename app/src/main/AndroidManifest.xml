@@ -74,7 +74,6 @@
         <activity android:name=".ui.act.FyTreeAct" />
         <activity android:name=".ui.act.query.ShjlJdjgQueryAct" />
         <activity android:name=".ui.act.query.CaseQueryAct" />
-        <activity android:name=".ui.fra.ZjCaseAct" />
         <activity android:name=".ui.act.PdfAct" />
         <activity android:name=".ui.operation.hf.HfAct" />
         <activity android:name=".ui.operation.jdfk.JDFKAct" />

@@ -28,7 +28,7 @@ data class Remind(
 
         val currentFromFlag
             get() = when (roleTag) {
-                Role.Bafg.en -> 1
+                Role.Spry.en -> 1
                 Role.Sfjd.en -> 2
                 Role.JdjgAdmin.en -> 3
                 else -> 0
@@ -39,7 +39,7 @@ data class Remind(
 
         val currentToFlag
             get() = when (roleTag) {
-                Role.Bafg.en -> 2
+                Role.Spry.en -> 2
                 Role.JdjgAdmin.en -> 2
                 Role.Sfjd.en -> 1 // to 1,3
                 else -> 0

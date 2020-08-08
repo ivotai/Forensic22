@@ -4,9 +4,10 @@ enum class Role(val en: String, val cn: String) {
     Normal("Normal", "当事人"),
     JdjgAdmin("JdjgAdmin", "鉴定机构"),
     Pszj("Pszj", "评审专家"),
-    Bafg("Bafg", "办案法官"),
+    Spry("Spry", "审判人员"),
     Sfjd("Sfjd", "司技办案"),
-    SfjdAdmin("SfjdAdmin", "司技主管")
+    SfjdAdmin("SfjdAdmin", "司技主管"),
+    SfjdMixture("", "司技人员")
     ;
 
     companion object {

@@ -40,7 +40,7 @@ enum class Operation(val cn: String) {
                         CaseType.XASP -> listOf(XASP)
                         else -> listOf()
                     }
-                    Role.Bafg.en -> when (caseType) {
+                    Role.Spry.en -> when (caseType) {
                         CaseType.UNCLOSE -> listOf(AJBW, BATX)
                         CaseType.CLOSE -> listOf(AJBW)
                         else -> listOf()
