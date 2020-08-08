@@ -11,8 +11,6 @@ import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.roleTag
 import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.data.model.CaseType
-import com.unicorn.forensic2.data.model.MyMenu
-import com.unicorn.forensic2.ui.adapter.MyMenuAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
 import com.unicorn.forensic2.ui.my.Backlog
 import com.unicorn.forensic2.ui.my.BacklogAdapter
@@ -22,14 +20,12 @@ import kotlinx.android.synthetic.main.fra_profile.*
 
 class ProfileFra : BaseFra() {
 
-    private val simpleAdapter = MyMenuAdapter()
-
     override fun initViews() {
 
         fun initRecyclerView() {
             recyclerView3.apply {
                 layoutManager = LinearLayoutManager(context)
-                simpleAdapter.bindToRecyclerView(this)
+                profileOperationAdapter.bindToRecyclerView(this)
                 HorizontalDividerItemDecoration.Builder(context)
                     .colorResId(R.color.md_grey_300)
                     .margin(ConvertUtils.dp2px(16f), 0)
@@ -55,9 +51,10 @@ class ProfileFra : BaseFra() {
     }
 
     private val backlogAdapter = BacklogAdapter()
+    private val profileOperationAdapter = ProfileOperationAdapter()
 
     override fun bindIntent() {
-        simpleAdapter.setNewData(MyMenu.all)
+        profileOperationAdapter.setNewData(ProfileOperation.all)
         backlog()
     }
 
