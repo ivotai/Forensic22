@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.refactor.case
 
-enum class CaseSearchType(
+enum class SearchType(
     val cn: String
 ) {
 
@@ -10,7 +10,7 @@ enum class CaseSearchType(
     ;
 
     companion object {
-        val all get() = listOf(Ah, Year, Plaintiff)
+        val forCase get() = listOf(Ah, Year, Plaintiff)
     }
 
 }
