@@ -46,7 +46,7 @@ class ProfileFra : BaseFra() {
             layoutManager = LinearLayoutManager(context)
             profileOperationAdapter.bindToRecyclerView(this)
             HorizontalDividerItemDecoration.Builder(context)
-                .colorResId(R.color.md_grey_300)
+                .colorResId(R.color.md_grey_200)
                 .margin(ConvertUtils.dp2px(20f))
                 .size(1)
                 .build().let { this.addItemDecoration(it) }
@@ -71,9 +71,7 @@ class ProfileFra : BaseFra() {
                 }
                 backlogAdapter.setNewData(list)
             },
-            onError = {
-
-            }
+            onError = {}
         )
     }
 
