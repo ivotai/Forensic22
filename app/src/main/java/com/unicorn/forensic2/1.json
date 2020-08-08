@@ -1,14 +1,5 @@
 {
   "content": [
-    {
-      "@id": "1",
-      "mid": "cf628a71-600c-41cf-9dda-03d70e49e5dd",
-      "caseId": "11397056-a7c7-45b0-9a48-79ee5cd62f0a",
-      "addDttm": 1596685172000,
-      "addUser": "史鹤祥",
-      "content": "测试",
-      "lastUpdateDate": 1596685172000
-    }
   ],
   "pageable": {
     "sort": {
