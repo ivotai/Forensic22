@@ -22,6 +22,9 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
         super.initViews()
         mRecyclerView.setBackgroundColor(ContextCompat.getColor(context!!, R.color.md_grey_200))
         mRecyclerView.addItemDecoration(LinearSpanDecoration(ConvertUtils.dp2px(16f)))
+
+        simpleAdapter as CaseAdapter
+        simpleAdapter.caseType = caseType
     }
 
     override fun bindIntent() {
