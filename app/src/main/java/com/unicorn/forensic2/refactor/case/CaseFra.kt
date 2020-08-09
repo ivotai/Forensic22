@@ -43,7 +43,8 @@ class CaseFra : BaseFra() {
             val searchType = SearchType.forCase[position]
             onSearchTypeChange(searchType)
         }
-        tvSearchType.text = searchType.cn
+        onSearchTypeChange(SearchType.Ah)
+
         ivCaret.setIIcon(context!!, Solid.Icon.solid_caret_down, R.color.md_black)
 
         initVp()
@@ -92,6 +93,8 @@ class CaseFra : BaseFra() {
     private fun onSearchTypeChange(searchType: SearchType) {
         this.searchType = searchType
         tvSearchType.text = searchType.cn
+        etSearch.hint = searchType.hint
+        etSearch.setText("")
     }
 
     private var searchType = SearchType.Ah
