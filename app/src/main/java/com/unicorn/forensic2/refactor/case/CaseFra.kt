@@ -39,12 +39,12 @@ class CaseFra : BaseFra() {
             cornerRadius = ConvertUtils.dp2px(8f).toFloat()
         }
 
-        powerMenu = PowerMenuHelper.get(context!!, SearchType.forCase.map { PowerMenuItem(it.cn) })
+        powerMenu = PowerMenuHelper.get(context!!, CaseSearchType.all.map { PowerMenuItem(it.cn) })
         powerMenu.setOnMenuItemClickListener { position, _ ->
-            val searchType = SearchType.forCase[position]
+            val searchType = CaseSearchType.all[position]
             onSearchTypeChange(searchType)
         }
-        onSearchTypeChange(SearchType.Ah)
+        onSearchTypeChange(CaseSearchType.Ah)
 
         ivCaret.setIIcon(context!!, Solid.Icon.solid_caret_down, R.color.md_black)
 
@@ -91,10 +91,10 @@ class CaseFra : BaseFra() {
     }
 
 
-    private fun onSearchTypeChange(searchType: SearchType) {
-        this.searchType = searchType
-        tvSearchType.text = searchType.cn
-        etSearch.hint = searchType.hint
+    private fun onSearchTypeChange(caseSearchType: CaseSearchType) {
+        this.searchType = caseSearchType
+        tvSearchType.text = caseSearchType.cn
+        etSearch.hint = caseSearchType.hint
         etSearch.setText("")
     }
 
@@ -105,7 +105,7 @@ class CaseFra : BaseFra() {
         })
     }
 
-    private var searchType = SearchType.Ah
+    private var searchType = CaseSearchType.Ah
 
     override fun bindIntent() {
         tvSearchType.clicks().mergeWith(ivCaret.clicks())
