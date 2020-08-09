@@ -18,6 +18,7 @@ import com.unicorn.forensic2.app.trimText
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.refactor.icon.Solid
 import com.unicorn.forensic2.ui.base.BaseFra
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.fra_case.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
@@ -95,6 +96,13 @@ class CaseFra : BaseFra() {
         tvSearchType.text = searchType.cn
         etSearch.hint = searchType.hint
         etSearch.setText("")
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this,CaseType::class.java, Consumer {
+            val position = CaseType.all.indexOf(it)
+            viewPaper.currentItem=position
+        })
     }
 
     private var searchType = SearchType.Ah

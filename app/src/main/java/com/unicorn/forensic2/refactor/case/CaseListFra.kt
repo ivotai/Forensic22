@@ -1,15 +1,18 @@
 package com.unicorn.forensic2.refactor.case
 
+import androidx.core.content.ContextCompat
+import com.blankj.utilcode.util.ConvertUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.Page
-import com.unicorn.forensic2.ui.adapter.CaseAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageFra
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
+import com.unicorn.forensic2.ui.other.decoration.LinearSpanDecoration
 import io.reactivex.Single
 import io.reactivex.functions.Consumer
 
@@ -17,6 +20,8 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
+        mRecyclerView.setBackgroundColor(ContextCompat.getColor(context!!, R.color.md_grey_200))
+        mRecyclerView.addItemDecoration(LinearSpanDecoration(ConvertUtils.dp2px(16f)))
     }
 
     override fun bindIntent() {

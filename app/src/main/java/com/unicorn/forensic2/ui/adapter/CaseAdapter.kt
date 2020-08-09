@@ -10,9 +10,9 @@ import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.ui.act.CaseDetailAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.fra.CaseListFra
-import kotlinx.android.synthetic.main.item_case.*
+import kotlinx.android.synthetic.main.item_case2.*
 
-class CaseAdapter : BaseQuickAdapter<Case, KVHolder>(R.layout.item_case) {
+class CaseAdapter : BaseQuickAdapter<Case, KVHolder>(R.layout.item_case2) {
 
     override fun convert(helper: KVHolder, item: Case) {
         helper.apply {
