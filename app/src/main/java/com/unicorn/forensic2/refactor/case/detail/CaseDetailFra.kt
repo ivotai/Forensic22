@@ -26,6 +26,6 @@ class CaseDetailFra : BaseFra() {
 
     private val case by lazy { arguments!!.getSerializable(Param) as Case }
 
-    override val layoutId = R.layout.fra_case
+    override val layoutId = R.layout.fra_case_detail
 
 }
