@@ -3,6 +3,7 @@ package com.unicorn.forensic2.refactor.case
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.ConvertUtils
 import com.jakewharton.rxbinding3.view.clicks
@@ -17,6 +18,7 @@ import com.unicorn.forensic2.refactor.icon.Solid
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_case.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
+import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
@@ -60,24 +62,23 @@ class CaseFra : BaseFra() {
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val simplePagerTitleView: SimplePagerTitleView =
                     ColorTransitionPagerTitleView(context)
-                simplePagerTitleView.normalColor = Color.GRAY
-                simplePagerTitleView.selectedColor =
-                    ContextCompat.getColor(context!!, R.color.colorPrimary)
-                simplePagerTitleView.setText(list.get(index))
-                simplePagerTitleView.setOnClickListener { viewPaper.setCurrentItem(index) }
+                simplePagerTitleView.normalColor = Color.BLACK
+                simplePagerTitleView.selectedColor = colorPrimary
+                simplePagerTitleView.text = list[index]
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,14f)
+                simplePagerTitleView.setOnClickListener { viewPaper.currentItem = index }
                 return simplePagerTitleView
             }
 
             override fun getIndicator(context: Context): IPagerIndicator {
-                val linePagerIndicator = LinePagerIndicator(context)
-//                linePagerIndicator.mode = LinePagerIndicator.MODE_WRAP_CONTENT
-                linePagerIndicator.setColors(
-                    ContextCompat.getColor(
-                        context!!,
-                        R.color.colorPrimary
-                    )
-                )
-                return linePagerIndicator
+                val indicator = LinePagerIndicator(context)
+                indicator.mode = LinePagerIndicator.MODE_EXACTLY
+                indicator.lineHeight = UIUtil.dip2px(context, 4.0).toFloat()
+                indicator.lineWidth = UIUtil.dip2px(context, 12.0).toFloat()
+                indicator.roundRadius = UIUtil.dip2px(context, 4.0).toFloat()
+                indicator.yOffset = UIUtil.dip2px(context, 8.0).toFloat()
+                indicator.setColors(colorPrimary)
+                return indicator
             }
 
         }
@@ -106,6 +107,8 @@ class CaseFra : BaseFra() {
     }
 
     lateinit var powerMenu: PowerMenu
+
+    private val colorPrimary by lazy { ContextCompat.getColor(context!!,R.color.colorPrimary) }
 
     override val layoutId = R.layout.fra_case
 
