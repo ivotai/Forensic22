@@ -5,9 +5,7 @@ import java.io.Serializable
 
 enum class CaseType(val cn: String, val key: String) : Serializable {
 
-    TZTX("通知提醒", "tztx"),
-    DPS("待评审", "dps"),
-    ZBTZ("中标通知", "zbtz"),
+    ZBTZ("已中标", "zbtz"),
     DJD("待鉴定", "djd"),
     YJD("已鉴定", "yjd"),
     YJJ("已拒绝", "yjj"),
@@ -28,9 +26,9 @@ enum class CaseType(val cn: String, val key: String) : Serializable {
                 Role.Normal.en, Role.Sfjd.en, Role.Spry.en -> listOf(CLOSE, UNCLOSE)
                 Role.SfjdAdmin.en -> listOf(
                     LASP,
-                   CYHSP,
+                    CYHSP,
                     JASP,
-                   XASP
+                    XASP
                 )
                 else -> listOf(CLOSE, UNCLOSE)
             }

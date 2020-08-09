@@ -47,7 +47,8 @@ class CaseFra : BaseFra() {
 
     val list = CaseType.all.map { it.cn }
 
-    private fun initVp(){
+    private fun initVp() {
+        viewPaper.offscreenPageLimit = list.size - 1
         viewPaper.adapter = CasePagerAdapter(childFragmentManager)
         magicIndicator.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(context!!)
@@ -60,7 +61,8 @@ class CaseFra : BaseFra() {
                 val simplePagerTitleView: SimplePagerTitleView =
                     ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.normalColor = Color.GRAY
-                simplePagerTitleView.selectedColor = ContextCompat.getColor(context!!,R.color.colorPrimary)
+                simplePagerTitleView.selectedColor =
+                    ContextCompat.getColor(context!!, R.color.colorPrimary)
                 simplePagerTitleView.setText(list.get(index))
                 simplePagerTitleView.setOnClickListener { viewPaper.setCurrentItem(index) }
                 return simplePagerTitleView
@@ -69,7 +71,12 @@ class CaseFra : BaseFra() {
             override fun getIndicator(context: Context): IPagerIndicator {
                 val linePagerIndicator = LinePagerIndicator(context)
 //                linePagerIndicator.mode = LinePagerIndicator.MODE_WRAP_CONTENT
-                linePagerIndicator.setColors(ContextCompat.getColor(context!!,R.color.colorPrimary))
+                linePagerIndicator.setColors(
+                    ContextCompat.getColor(
+                        context!!,
+                        R.color.colorPrimary
+                    )
+                )
                 return linePagerIndicator
             }
 
