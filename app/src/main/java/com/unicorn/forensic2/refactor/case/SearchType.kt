@@ -1,12 +1,13 @@
 package com.unicorn.forensic2.refactor.case
 
 enum class SearchType(
-    val cn: String
+    val cn: String,
+    val en: String
 ) {
 
-    Ah("案号"),
-    Year("年度号"),
-    Plaintiff("当事人")
+    Ah("鉴定案号", "ah"),
+    Year("年度号", "year"),
+    Plaintiff("当事人", "plaintiff")
     ;
 
     companion object {

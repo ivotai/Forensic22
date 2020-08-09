@@ -3,7 +3,6 @@ package com.unicorn.forensic2.refactor.case
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.data.event.QueryMapEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.Page
@@ -25,7 +24,7 @@ class CaseListFra : SimplePageFra<Case, KVHolder>() {
     }
 
     override fun registerEvent() {
-        RxBus.registerEvent(this, QueryMapEvent::class.java, Consumer {
+        RxBus.registerEvent(this, CaseQueryEvent::class.java, Consumer {
             queryMap = it.queryMap
             loadFirstPage()
         })

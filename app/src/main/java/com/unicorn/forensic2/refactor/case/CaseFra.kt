@@ -10,7 +10,9 @@ import com.jakewharton.rxbinding3.view.clicks
 import com.skydoves.powermenu.PowerMenu
 import com.skydoves.powermenu.PowerMenuItem
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.helper.PowerMenuHelper
+import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.setIIcon
 import com.unicorn.forensic2.app.trimText
 import com.unicorn.forensic2.data.model.CaseType
@@ -47,16 +49,14 @@ class CaseFra : BaseFra() {
         initVp()
     }
 
-    val list = CaseType.all.map { it.cn }
-
     private fun initVp() {
-        viewPaper.offscreenPageLimit = list.size - 1
+        viewPaper.offscreenPageLimit = CaseType.all.size - 1
         viewPaper.adapter = CasePagerAdapter(childFragmentManager)
         magicIndicator.setBackgroundColor(Color.WHITE)
         val commonNavigator = CommonNavigator(context!!)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
-                return list.size
+                return  CaseType.all.size
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
@@ -64,8 +64,8 @@ class CaseFra : BaseFra() {
                     ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.normalColor = Color.BLACK
                 simplePagerTitleView.selectedColor = colorPrimary
-                simplePagerTitleView.text = list[index]
-                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,14f)
+                simplePagerTitleView.text = CaseType.all.map { it.cn }[index]
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14f)
                 simplePagerTitleView.setOnClickListener { viewPaper.currentItem = index }
                 return simplePagerTitleView
             }
@@ -88,10 +88,6 @@ class CaseFra : BaseFra() {
         ViewPagerHelper.bind(magicIndicator, viewPaper)
     }
 
-    private val queryMap
-        get() = HashMap<String, String>().apply {
-            this[searchType.cn] = etSearch.trimText()
-        }
 
     private fun onSearchTypeChange(searchType: SearchType) {
         this.searchType = searchType
@@ -101,14 +97,19 @@ class CaseFra : BaseFra() {
     private var searchType = SearchType.Ah
 
     override fun bindIntent() {
-
         tvSearchType.clicks().mergeWith(ivCaret.clicks())
             .subscribe { powerMenu.showAsDropDown(tvSearchType) }
+
+        tvSearch.safeClicks().subscribe {
+            CaseQueryEvent(queryMap = HashMap<String, Any>().apply {
+                this[searchType.en] = etSearch.trimText()
+            }).let { RxBus.post(it) }
+        }
     }
 
-    lateinit var powerMenu: PowerMenu
+    private lateinit var powerMenu: PowerMenu
 
-    private val colorPrimary by lazy { ContextCompat.getColor(context!!,R.color.colorPrimary) }
+    private val colorPrimary by lazy { ContextCompat.getColor(context!!, R.color.colorPrimary) }
 
     override val layoutId = R.layout.fra_case
 
