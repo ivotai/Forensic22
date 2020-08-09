@@ -115,8 +115,7 @@
                 android:textSize="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/lCourtNameApply"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lCourtNameApply"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="@+id/lCourtNameApply" />
 
             <TextView
                 android:id="@+id/lCaseType"
@@ -140,8 +139,7 @@
                 android:textSize="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/lCaseType"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lCaseType"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="@+id/lCaseType" />
 
             <TextView
                 android:id="@+id/lCourtNameAccept"
@@ -149,11 +147,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginBottom="16dp"
                 android:text="办案法院"
                 android:textColor="@color/md_grey_700"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lCaseType" />
 
@@ -167,8 +163,81 @@
                 android:textSize="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/lCourtNameAccept"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lCourtNameAccept"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="@+id/lCourtNameAccept" />
+
+            <TextView
+                android:id="@+id/lDateAccept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="立案日期"
+                android:textColor="@color/md_grey_700"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lCourtNameAccept" />
+
+            <TextView
+                android:id="@+id/tvDateAccept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="立案日期"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/lDateAccept"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lDateAccept" />
+
+            <TextView
+                android:id="@+id/lDateClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="结案日期"
+                android:textColor="@color/md_grey_700"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lDateAccept" />
+
+            <TextView
+                android:id="@+id/tvDateClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="尚未结案"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/lDateClose"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lDateClose" />
+
+            <TextView
+                android:id="@+id/lCloseTypeDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:text="结案方式"
+                android:textColor="@color/md_grey_700"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lDateClose" />
+
+            <TextView
+                android:id="@+id/tvCloseTypeDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="尚未结案"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/lCloseTypeDisplay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lCloseTypeDisplay" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
