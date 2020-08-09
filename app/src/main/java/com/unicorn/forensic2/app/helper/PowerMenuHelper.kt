@@ -14,9 +14,10 @@ object PowerMenuHelper {
     fun get(context: Context, itemList: List<PowerMenuItem>): PowerMenu {
         return PowerMenu.Builder(context)
             .addItemList(itemList)
-            .setAnimation(MenuAnimation.SHOWUP_TOP_LEFT) // Animation start point (TOP | LEFT).
+            .setAnimation(MenuAnimation.SHOWUP_TOP_LEFT)
             .setMenuRadius(10f)
             .setMenuShadow(10f)
+            .setTextSize(14)
             .setTextColor(ContextCompat.getColor(context, R.color.md_grey_800))
             .setTextGravity(Gravity.CENTER)
             .setSelectedTextColor(Color.WHITE)
