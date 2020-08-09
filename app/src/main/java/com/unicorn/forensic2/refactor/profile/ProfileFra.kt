@@ -9,7 +9,6 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.roleTag
 import com.unicorn.forensic2.app.user
-import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.ui.base.BaseFra
 import com.unicorn.forensic2.ui.my.Backlog
 import com.unicorn.forensic2.ui.my.BacklogAdapter
@@ -66,8 +65,9 @@ class ProfileFra : BaseFra() {
             onSuccess = { map ->
                 val list = ArrayList<Backlog>()
                 map.forEach {
-                    val caseType = CaseType.findByKey(it.key)
-                    list.add(Backlog(caseType = caseType, count = it.value.toInt()))
+                    val backlog = Backlog.findByKey(it.key)
+                    backlog.count = it.value.toInt()
+                    list.add(backlog)
                 }
                 backlogAdapter.setNewData(list)
             },

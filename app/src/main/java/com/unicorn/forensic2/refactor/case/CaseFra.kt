@@ -74,7 +74,9 @@ class CaseFra : BaseFra() {
             }
 
         }
+        commonNavigator.isAdjustMode = true
         magicIndicator.navigator = commonNavigator
+
         ViewPagerHelper.bind(magicIndicator, viewPaper)
     }
 
