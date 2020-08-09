@@ -25,40 +25,34 @@ class CaseDetailAct : BaseAct() {
         initVp()
     }
 
-    val list = CaseDetailType.all
-
     private fun initVp() {
+        viewPaper.offscreenPageLimit = CaseDetailType.all.size - 1
         viewPaper.adapter = CaseDetailPagerAdapter(supportFragmentManager, case)
         magicIndicator.background = GradientDrawable().apply {
-            setColor(Color.parseColor("#40000000"))
+            setColor(Color.parseColor("#1A000000"))
             cornerRadius = ConvertUtils.dp2px(8f).toFloat()
         }
-//        magicIndicator.setBackgroundResource(R.drawable.round_indicator_bg)
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
-                return list.size
+                return CaseDetailType.all.size
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val clipPagerTitleView = ClipPagerTitleView(context)
-                clipPagerTitleView.text = list.get(index).cn
+                clipPagerTitleView.text = CaseDetailType.all.get(index).cn
                 clipPagerTitleView.textColor = Color.WHITE
                 clipPagerTitleView.clipColor = colorPrimary
-                clipPagerTitleView.textSize = 16f
-                clipPagerTitleView.setOnClickListener { viewPaper.setCurrentItem(index) }
+                clipPagerTitleView.textSize = ConvertUtils.dp2px(14f).toFloat()
+                clipPagerTitleView.setOnClickListener { viewPaper.currentItem = index }
                 return clipPagerTitleView
             }
 
             override fun getIndicator(context: Context): IPagerIndicator {
                 val indicator = LinePagerIndicator(context)
-                val navigatorHeight = ConvertUtils.dp2px(48f)
-
-//                val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
-                val lineHeight = navigatorHeight
-                indicator.lineHeight = lineHeight.toFloat()
+                val navigatorHeight = ConvertUtils.dp2px(40f)
+                indicator.lineHeight = navigatorHeight.toFloat()
                 indicator.roundRadius = ConvertUtils.dp2px(8f).toFloat()
-//                indicator.yOffset = borderWidth
                 indicator.setColors(Color.WHITE)
                 return indicator
             }
