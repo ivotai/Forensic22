@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.data.model
 
-enum class Role(val en: String, val cn: String) {
+enum class Role(val roleTag: String, val cn: String) {
 
     Normal("Normal", "当事人"),
     JdjgAdmin("JdjgAdmin", "鉴定机构"),
@@ -11,9 +11,11 @@ enum class Role(val en: String, val cn: String) {
     ;
 
     companion object {
-        fun en2Cn(en: String): String {
-            return values().find { en == it.en }?.cn ?: ""
+
+        fun findByRoleTag(roleTag: String): Role {
+            return values().find { roleTag == it.roleTag }!!
         }
+
     }
 
 }

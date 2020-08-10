@@ -39,7 +39,7 @@ class LotteryDelayListAct : BaseAct() {
                 }
             )
 
-        if (roleTag == Role.Sfjd.en) {
+        if (role == Role.Sfjd) {
             titleBar.setOperation("操作").safeClicks().subscribe {
                 JdTaskDocHelper.showJdTaskDocDialog(
                     this@LotteryDelayListAct,

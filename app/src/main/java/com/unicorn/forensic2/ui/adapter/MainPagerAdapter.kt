@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.refactor.case.CaseFra
 import com.unicorn.forensic2.refactor.profile.ProfileFra
@@ -21,7 +21,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment = when (position) {
         0 -> HomeMainFra()
-        1 -> if (roleTag == Role.Pszj.en) WdpsFra() else CaseFra()
+        1 -> if (role == Role.Pszj) WdpsFra() else CaseFra()
         else -> ProfileFra()
     }
 

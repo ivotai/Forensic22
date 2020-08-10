@@ -1,7 +1,7 @@
 package com.unicorn.forensic2.data.model
 
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 
 enum class HomeMenu(val namez: String, val imgRes: Int) {
     JGCX("机构查询", R.mipmap.jgcx),
@@ -20,13 +20,13 @@ enum class HomeMenu(val namez: String, val imgRes: Int) {
 
     companion object {
         val all
-            get():List<HomeMenu> = when (roleTag) {
-                Role.Normal.en -> listOf(JGCX, XTGG, TSJY, WDAJ)
-                Role.JdjgAdmin.en -> listOf(JGCX, XTGG, TSJY, WDAJ, TZTX, JGXX)
-                Role.Pszj.en -> listOf(JGXX, XTGG, TSJY, WDPS, TZTX, ZJXX)
-                Role.Spry.en,
-                Role.Sfjd.en,
-                Role.SfjdAdmin.en -> listOf(JGCX, XTGG, WDAJ, TZTX, ZTBG)
+            get():List<HomeMenu> = when (role) {
+                Role.Normal -> listOf(JGCX, XTGG, TSJY, WDAJ)
+                Role.JdjgAdmin -> listOf(JGCX, XTGG, TSJY, WDAJ, TZTX, JGXX)
+                Role.Pszj -> listOf(JGXX, XTGG, TSJY, WDPS, TZTX, ZJXX)
+                Role.Spry,
+                Role.Sfjd,
+                Role.SfjdAdmin -> listOf(JGCX, XTGG, WDAJ, TZTX, ZTBG)
                 else -> listOf(JGCX, XTGG)
             }
     }

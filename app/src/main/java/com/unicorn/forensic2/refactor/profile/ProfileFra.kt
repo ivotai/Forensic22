@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.ui.base.BaseFra
 import com.unicorn.forensic2.ui.my.Backlog
@@ -61,7 +61,7 @@ class ProfileFra : BaseFra() {
     }
 
     private fun backlog() {
-        api.backlog(roleTag = roleTag).observeOnMain(this).subscribeBy(
+        api.backlog(roleTag = role!!.roleTag).observeOnMain(this).subscribeBy(
             onSuccess = { map ->
                 val list = ArrayList<Backlog>()
                 map.forEach {

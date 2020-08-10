@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.data.model
 
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 import java.io.Serializable
 
 enum class CaseType(val cn: String, val key: String) : Serializable {
@@ -21,10 +21,10 @@ enum class CaseType(val cn: String, val key: String) : Serializable {
     companion object {
 
         val all
-            get() = when (roleTag) {
-                Role.JdjgAdmin.en -> listOf(ZBTZ, DJD, YJD, YJJ, YQX)
-                Role.Normal.en, Role.Sfjd.en, Role.Spry.en -> listOf(CLOSE, UNCLOSE)
-                Role.SfjdAdmin.en -> listOf(
+            get() = when (role) {
+                Role.JdjgAdmin -> listOf(ZBTZ, DJD, YJD, YJJ, YQX)
+                Role.Normal, Role.Sfjd, Role.Spry -> listOf(CLOSE, UNCLOSE)
+                Role.SfjdAdmin -> listOf(
                     LASP,
                     CYHSP,
                     JASP,

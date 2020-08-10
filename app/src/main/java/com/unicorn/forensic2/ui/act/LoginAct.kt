@@ -9,6 +9,7 @@ import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.model.LoginInfo
 import com.unicorn.forensic2.data.model.Role
+import com.unicorn.forensic2.refactor.role.RoleWrapper
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_login.*
@@ -61,11 +62,13 @@ class LoginAct : BaseAct() {
     }
 
     private fun showRoleDialog() {
-        val ens = user.roles
+        val roleTags = user.roles
+        val roles = roleTags.map { Role.findByRoleTag(it) }
+        val roleWrappers = RoleWrapper.getRoleWrappers(roles)
 
         // 假如只有一个角色
-        if (ens.size == 1) {
-            user.roleTag = ens.first()
+        if (roleWrappers.size == 1) {
+            role = roleWrappers.first().role
             // 刷新登录状态
             RxBus.post(LoginStateChangeEvent())
             // 关闭登录界面
@@ -73,11 +76,11 @@ class LoginAct : BaseAct() {
             return
         }
 
-        val cns = ens.map { Role.en2Cn(it) }
+        val cns = roleWrappers.map { it.cn }
         MaterialDialog(this).show {
             title(text = "选择角色")
             listItems(items = cns) { _, index, _ ->
-                user.roleTag = ens[index]
+                role = roleWrappers[index].role
                 // 刷新登录状态
                 RxBus.post(LoginStateChangeEvent())
                 // 关闭登录界面

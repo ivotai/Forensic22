@@ -5,7 +5,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.event.SetCurrentItemEvent
@@ -74,7 +74,7 @@ class MainAct : BaseAct() {
                     newItem(
                         R.mipmap.casez,
                         R.mipmap.case_select,
-                        if (roleTag == Role.Pszj.en) "评审" else "案件"
+                        if (role == Role.Pszj) "评审" else "案件"
                     )
                 )
                 addItem(

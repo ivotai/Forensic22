@@ -10,6 +10,7 @@ import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.refactor.icon.Light
+import com.unicorn.forensic2.refactor.role.RoleWrapper
 import com.unicorn.forensic2.ui.act.ExpertRegisterAct
 import com.unicorn.forensic2.ui.act.JdjgMyGuideAct
 import com.unicorn.forensic2.ui.act.JdjgRegisterAct
@@ -34,7 +35,7 @@ class ProfileOperationAdapter :
                 ProfileOperation.ModifyPwd -> mContext.startAct(ModifyPwdAct::class.java)
                 ProfileOperation.PersonInfo -> mContext.startAct(PersonalInfoUpdateAct::class.java)
                 ProfileOperation.MyJdjg -> {
-                    if (roleTag == Role.JdjgAdmin.en)
+                    if (role == Role.JdjgAdmin)
                         mContext.startAct(JdjgMyGuideAct::class.java)
                     else
                         ToastUtils.showShort("尚未注册机构")
@@ -48,15 +49,15 @@ class ProfileOperationAdapter :
     }
 
     private fun showRoleDialog(){
-        val ens = user.roles
-        val cns = ens.map { Role.en2Cn(it) }
+        val roleTags = user.roles
+        val roles = roleTags.map { Role.findByRoleTag(it) }
+        val roleWrappers = RoleWrapper.getRoleWrappers(roles)
         MaterialDialog(mContext).show {
             title(text = "选择角色")
-            listItems(items = cns) { _, index, _ ->
-                user.roleTag = ens[index]
+            listItems(items = roleWrappers.map { it.cn }) { _, index, _ ->
+                role = roleWrappers[index].role
                 // 刷新登录状态
                 RxBus.post(LoginStateChangeEvent())
-                // 关闭登录界面
             }
         }
     }

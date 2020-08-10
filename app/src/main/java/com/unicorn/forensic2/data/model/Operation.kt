@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.data.model
 
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.ui.fra.CaseListFra
 
 enum class Operation(val cn: String) {
@@ -21,26 +21,26 @@ enum class Operation(val cn: String) {
         val all
             get():List<Operation> {
                 val caseType = CaseListFra.caseType
-                return when (roleTag) {
-                    Role.JdjgAdmin.en -> when (caseType) {
+                return when (role) {
+                    Role.JdjgAdmin -> when (caseType) {
                         CaseType.ZBTZ -> listOf(HF)
                         CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDBG)
                         CaseType.YJD -> listOf(AJBW)
                         else -> listOf()
                     }
-                    Role.Sfjd.en -> when (caseType) {
+                    Role.Sfjd -> when (caseType) {
                         CaseType.UNCLOSE -> listOf(AJBW, BATX, BGPF_SFJD)
                         CaseType.CLOSE -> listOf(AJBW)
                         else -> listOf()
                     }
-                    Role.SfjdAdmin.en -> when (caseType) {
+                    Role.SfjdAdmin -> when (caseType) {
                         CaseType.LASP -> listOf(LASP)
                         CaseType.CYHSP -> listOf(CYHSP)
                         CaseType.JASP -> listOf(JASP)
                         CaseType.XASP -> listOf(XASP)
                         else -> listOf()
                     }
-                    Role.Spry.en -> when (caseType) {
+                    Role.Spry -> when (caseType) {
                         CaseType.UNCLOSE -> listOf(AJBW, BATX)
                         CaseType.CLOSE -> listOf(AJBW)
                         else -> listOf()

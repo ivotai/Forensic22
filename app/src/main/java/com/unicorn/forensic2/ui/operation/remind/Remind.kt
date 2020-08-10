@@ -1,6 +1,6 @@
 package com.unicorn.forensic2.ui.operation.remind
 
-import com.unicorn.forensic2.app.roleTag
+import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.data.model.UploadFile
 import java.io.Serializable
@@ -27,10 +27,10 @@ data class Remind(
 
 
         val currentFromFlag
-            get() = when (roleTag) {
-                Role.Spry.en -> 1
-                Role.Sfjd.en -> 2
-                Role.JdjgAdmin.en -> 3
+            get() = when (role) {
+                Role.Spry -> 1
+                Role.Sfjd -> 2
+                Role.JdjgAdmin -> 3
                 else -> 0
             }
         //to也看身份，法官的，只能发给司技室，机构只能发给司技室
@@ -38,10 +38,10 @@ data class Remind(
 //       选另外两个
 
         val currentToFlag
-            get() = when (roleTag) {
-                Role.Spry.en -> 2
-                Role.JdjgAdmin.en -> 2
-                Role.Sfjd.en -> 1 // to 1,3
+            get() = when (role) {
+                Role.Spry -> 2
+                Role.JdjgAdmin -> 2
+                Role.Sfjd -> 1 // to 1,3
                 else -> 0
             }
 
