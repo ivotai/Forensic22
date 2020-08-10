@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.case
+package com.unicorn.forensic2.refactor.case1
 
 enum class CaseSearchType(
     val cn: String,

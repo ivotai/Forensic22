@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.case
+package com.unicorn.forensic2.refactor.case1
 
 import android.content.Intent
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -7,7 +7,7 @@ import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
-import com.unicorn.forensic2.refactor.case.detail.CaseDetailAct
+import com.unicorn.forensic2.refactor.case1.detail.CaseDetailAct
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_case.*
 

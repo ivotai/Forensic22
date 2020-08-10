@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.case.detail
+package com.unicorn.forensic2.refactor.case1.detail
 
 import android.content.Context
 import android.graphics.Color

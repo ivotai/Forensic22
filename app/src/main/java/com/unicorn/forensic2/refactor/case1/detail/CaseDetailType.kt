@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.case.detail
+package com.unicorn.forensic2.refactor.case1.detail
 
 enum class CaseDetailType(
     val cn: String

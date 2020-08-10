@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.data.model
+package com.unicorn.forensic2.refactor.case1.detail.process
 
 data class CaseProcess(
     val acceptDttm: Long,

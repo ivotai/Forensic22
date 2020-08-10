@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.case.detail
+package com.unicorn.forensic2.refactor.case1.detail
 
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param

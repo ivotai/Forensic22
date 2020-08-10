@@ -1,9 +1,8 @@
-package com.unicorn.forensic2.ui.adapter
+package com.unicorn.forensic2.refactor.case1.detail.process
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.toDisplayFormat
-import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.ui.base.KVHolder
 import kotlinx.android.synthetic.main.item_case_process.*
 

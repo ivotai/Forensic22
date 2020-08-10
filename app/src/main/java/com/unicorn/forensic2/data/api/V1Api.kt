@@ -5,6 +5,7 @@ import com.unicorn.forensic2.data.DsrCase
 import com.unicorn.forensic2.data.model.*
 import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
+import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcess
 import com.unicorn.forensic2.ui.jdxx.Jdxx
 import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemo
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam

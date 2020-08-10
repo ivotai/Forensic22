@@ -8,10 +8,10 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Case
-import com.unicorn.forensic2.data.model.CaseProcess
 import com.unicorn.forensic2.data.model.Operation
 import com.unicorn.forensic2.data.model.Page
-import com.unicorn.forensic2.ui.adapter.CaseProcessAdapter
+import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcess
+import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcessAdapter
 import com.unicorn.forensic2.ui.base.KVHolder
 import com.unicorn.forensic2.ui.base.SimplePageAct
 import com.unicorn.forensic2.ui.operation.JdTaskDocHelper
