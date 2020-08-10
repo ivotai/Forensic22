@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.jdxx
+package com.unicorn.forensic2.refactor.case1.detail.jdxx
 
 import com.unicorn.forensic2.data.model.UploadFile
 

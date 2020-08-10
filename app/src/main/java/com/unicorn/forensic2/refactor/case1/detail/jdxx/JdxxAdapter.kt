@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.jdxx
+package com.unicorn.forensic2.refactor.case1.detail.jdxx
 
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter

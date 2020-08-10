@@ -12,7 +12,7 @@ import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.data.model.Case
-import com.unicorn.forensic2.ui.jdxx.JdxxAdapter
+import com.unicorn.forensic2.refactor.case1.detail.jdxx.JdxxAdapter
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.header_case_detail.view.*
@@ -23,7 +23,8 @@ class CaseDetailHeader(context: Context,private val case: Case) : FrameLayout(co
 
     override val containerView = this
 
-    private val jdxxAdapter = JdxxAdapter()
+    private val jdxxAdapter =
+        JdxxAdapter()
 
     init {
         LayoutInflater.from(context).inflate(R.layout.header_case_detail, this, true)
