@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.app
+ package com.unicorn.forensic2.app
 
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.data.model.Dict
