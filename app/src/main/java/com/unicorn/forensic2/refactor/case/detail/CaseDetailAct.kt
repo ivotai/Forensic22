@@ -30,7 +30,7 @@ class CaseDetailAct : BaseAct() {
         viewPaper.adapter = CaseDetailPagerAdapter(supportFragmentManager, case)
         magicIndicator.background = GradientDrawable().apply {
             setColor(Color.parseColor("#1A000000"))
-            cornerRadius = ConvertUtils.dp2px(8f).toFloat()
+            cornerRadius = ConvertUtils.dp2px(20f).toFloat()
         }
         val commonNavigator = CommonNavigator(this)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -52,7 +52,7 @@ class CaseDetailAct : BaseAct() {
                 val indicator = LinePagerIndicator(context)
                 val navigatorHeight = ConvertUtils.dp2px(40f)
                 indicator.lineHeight = navigatorHeight.toFloat()
-                indicator.roundRadius = ConvertUtils.dp2px(8f).toFloat()
+                indicator.roundRadius = ConvertUtils.dp2px(20f).toFloat()
                 indicator.setColors(Color.WHITE)
                 return indicator
             }

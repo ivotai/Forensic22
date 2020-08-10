@@ -41,6 +41,7 @@ class MainAct : BaseAct() {
     override fun registerEvent() {
         RxBus.registerEvent(this, LogoutEvent::class.java, Consumer {
             isLogin = false
+            role = null
             RxBus.post(LoginStateChangeEvent())
         })
         RxBus.registerEvent(this, LoginStateChangeEvent::class.java, Consumer {
