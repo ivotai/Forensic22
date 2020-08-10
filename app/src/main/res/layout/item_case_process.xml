@@ -10,50 +10,62 @@
         android:id="@+id/tvHandleDttm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:text="处理时间"
-        android:textColor="@color/md_grey_700"
-        android:textSize="16dp"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.vipulasri.timelineview.TimelineView
         android:id="@+id/timelineView"
-        android:layout_width="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="24dp"
         app:endLineColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvHandleDttm"
         app:layout_constraintTop_toTopOf="parent"
-        app:lineWidth="2dp"
-        app:markerSize="20dp"
+        app:lineWidth="1dp"
+        app:markerSize="8dp"
         app:startLineColor="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:text="处理状态"
         android:textColor="@color/md_grey_700"
         android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvRemark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/tvRemark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="end"
+        android:text="备注"
+        android:textColor="@color/md_grey_500"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvStatus"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="备注"
-        android:textColor="@color/md_grey_700"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

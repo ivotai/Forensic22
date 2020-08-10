@@ -1,8 +1,8 @@
 package com.unicorn.forensic2.refactor.case1.detail.process
 
+import android.graphics.Color
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.app.Param
-import com.unicorn.forensic2.app.addDefaultItemDecoration
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.Page
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -13,15 +13,12 @@ class CaseProcessListFra : SimplePageFra<CaseProcess, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
-        mRecyclerView.addDefaultItemDecoration(1)
-//        mRecyclerView.setBackgroundColor(ContextCompat.getColor(context!!, R.color.md_grey_200))
-//        mRecyclerView.addItemDecoration(LinearSpanDecoration(ConvertUtils.dp2px(16f)))
+        mRecyclerView.setBackgroundColor(Color.WHITE)
     }
 
     override fun bindIntent() {
         super.bindIntent()
     }
-
 
     override val simpleAdapter: BaseQuickAdapter<CaseProcess, KVHolder> = CaseProcessAdapter()
 

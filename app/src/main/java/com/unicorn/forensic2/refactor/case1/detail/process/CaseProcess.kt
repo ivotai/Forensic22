@@ -10,7 +10,7 @@ data class CaseProcess(
     val idx: Int,
     val isLast: Int,
     val processId: String,
-    val remark: String,
+    val remark: String?,
     val statusDb: Int
 ) {
     val status: String
