@@ -2,46 +2,31 @@
   "content": [
     {
       "@id": "1",
-      "processId": "5d01a838-a859-4a03-a88f-e56beaaa5f35",
-      "caseId": "2d2799bd-2b73-4d85-8109-c0f31c500cd0",
-      "idx": 2,
-      "statusDb": 20,
-      "acceptDttm": 1587692819000,
-      "handlerId": "370501086",
-      "handler": "邢东升",
-      "handleDttm": 1587865640000,
+      "processId": "3bc039a1-906b-42f6-bfce-e3287103063b",
+      "caseId": "eaaf2e24-490f-4ec9-92df-488aa5478217",
+      "idx": 8,
+      "statusDb": 50,
+      "acceptDttm": 1596630404000,
+      "handlerId": "370501336",
+      "handler": "张超",
+      "handleDttm": 1596630426000,
+      "remark": "预结案日期被设置为：2020-08-05",
       "isLast": 1,
-      "action": "ACCEPT"
+      "action": "SETENDDATE"
     },
     {
       "@id": "2",
-      "processId": "37896158-ad63-4190-973b-e9c3af26f3a0",
-      "caseId": "2d2799bd-2b73-4d85-8109-c0f31c500cd0",
-      "idx": 5,
+      "processId": "f1c0f991-0669-4223-90b2-1471e94eafde",
+      "caseId": "eaaf2e24-490f-4ec9-92df-488aa5478217",
+      "idx": 9,
       "statusDb": 50,
-      "process": "3198ff39-29e9-4662-aa1f-c1280fd2a30d",
-      "acceptDttm": 1587956179000,
+      "acceptDttm": 1596630426000,
       "handlerId": "370501336",
       "handler": "张超",
-      "handleDttm": 1587956179000,
-      "remark": "摇号申请：鉴定类别为法医临床",
+      "handleDttm": 1596631791000,
+      "remark": "提交鉴定报告",
       "isLast": 1,
-      "action": "NEWLOTTERY"
-    },
-    {
-      "@id": "3",
-      "processId": "7c86b80f-b334-439a-bd3c-e012f911b7a3",
-      "caseId": "2d2799bd-2b73-4d85-8109-c0f31c500cd0",
-      "idx": 6,
-      "statusDb": 50,
-      "process": "3198ff39-29e9-4662-aa1f-c1280fd2a30d",
-      "acceptDttm": 1588035119000,
-      "handlerId": "370501490",
-      "handler": "白璇",
-      "handleDttm": 1588035119000,
-      "remark": "摇号：鉴定类别为法医临床，中标机构为陕西榆林高科法医司法鉴定所",
-      "isLast": 1,
-      "action": "ROLL"
+      "action": "SUBMIT_REPORT"
     }
   ],
   "pageable": {
@@ -50,23 +35,23 @@
       "unsorted": false,
       "empty": false
     },
-    "pageNumber": 0,
-    "offset": "0",
+    "pageNumber": 1,
+    "offset": "5",
     "pageSize": 5,
     "unpaged": false,
     "paged": true
   },
   "last": true,
-  "totalElements": "3",
-  "totalPages": 1,
-  "first": true,
+  "totalElements": "7",
+  "totalPages": 2,
+  "first": false,
   "sort": {
     "sorted": true,
     "unsorted": false,
     "empty": false
   },
   "size": 5,
-  "number": 0,
-  "numberOfElements": 3,
+  "number": 1,
+  "numberOfElements": 2,
   "empty": false
 }

@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.adapter
+package com.unicorn.forensic2.refactor.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -11,12 +11,8 @@ import com.unicorn.forensic2.refactor.home.HomeFra
 import com.unicorn.forensic2.refactor.profile.ProfileFra
 import com.unicorn.forensic2.ui.fra.WdpsFra
 
-@Suppress("DEPRECATION")
-class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
-
-    companion object {
-        val titles: List<String> get() = if (!isLogin) listOf("首页") else listOf("首页", "案件/评审", "我的")
-    }
+class MainPagerAdapter(fm: FragmentManager) :
+    FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment = when (position) {
         0 -> HomeFra()
@@ -24,6 +20,10 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         else -> ProfileFra()
     }
 
-    override fun getCount(): Int = titles.size
+    override fun getCount(): Int = if (isLogin) 3 else 1
+
+    override fun getItemPosition(`object`: Any): Int {
+        return POSITION_NONE
+    }
 
 }

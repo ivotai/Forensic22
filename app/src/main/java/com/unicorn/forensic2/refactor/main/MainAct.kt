@@ -1,7 +1,6 @@
-package com.unicorn.forensic2.ui.act
+package com.unicorn.forensic2.refactor.main
 
 import androidx.core.content.ContextCompat
-import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.isLogin
@@ -10,7 +9,6 @@ import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.event.LogoutEvent
 import com.unicorn.forensic2.data.event.SetCurrentItemEvent
 import com.unicorn.forensic2.data.model.Role
-import com.unicorn.forensic2.ui.adapter.MainPagerAdapter
 import com.unicorn.forensic2.ui.base.BaseAct
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.act_main.*
@@ -18,23 +16,14 @@ import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 
 class MainAct : BaseAct() {
 
-    private var mExitTime: Long = 0
-
-    override fun onBackPressed() {
-        if (System.currentTimeMillis() - mExitTime < 2000) {
-            super.onBackPressed()
-        } else {
-            mExitTime = System.currentTimeMillis()
-            ToastUtils.showShort("再按一次退出")
-        }
-    }
-
     private lateinit var mainPagerAdapter: MainPagerAdapter
 
     override fun initViews() {
-        mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
+        mainPagerAdapter = MainPagerAdapter(
+            supportFragmentManager
+        )
         viewPaper.adapter = mainPagerAdapter
-        viewPaper.offscreenPageLimit = mainPagerAdapter.count - 1
+//        viewPaper.offscreenPageLimit = mainPagerAdapter.count - 1
         notifyTabs()
     }
 
