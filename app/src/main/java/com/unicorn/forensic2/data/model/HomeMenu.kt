@@ -11,8 +11,6 @@ enum class HomeMenu(val namez: String, val imgRes: Int) {
     WDPS("我的评审", R.mipmap.wdaj),   // todo 替换图标
     TZTX("通知提醒", R.mipmap.jdyh),   // todo 替换图标
     JGXX("机构信息", R.mipmap.jgxx),
-
-    //    AJXX("案件信息", R.mipmap.ajxx),
     ZJXX("专家信息", R.mipmap.zjxx),
     PSXX("评审信息", R.mipmap.psxx),
     ZTBG("专题报告", R.mipmap.psxx),    // todo 专题报告

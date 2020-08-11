@@ -8,8 +8,8 @@ import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.refactor.case1.CaseFra
+import com.unicorn.forensic2.refactor.home.HomeFra
 import com.unicorn.forensic2.refactor.profile.ProfileFra
-import com.unicorn.forensic2.ui.fra.HomeMainFra
 import com.unicorn.forensic2.ui.fra.WdpsFra
 
 @Suppress("DEPRECATION")
@@ -20,7 +20,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     }
 
     override fun getItem(position: Int): Fragment = when (position) {
-        0 -> HomeMainFra()
+        0 -> HomeFra()
         1 -> if (role == Role.Pszj) WdpsFra() else CaseFra()
         else -> ProfileFra()
     }
