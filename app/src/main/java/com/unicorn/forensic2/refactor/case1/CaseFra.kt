@@ -4,8 +4,10 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.util.TypedValue
+import android.view.inputmethod.EditorInfo
 import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.ConvertUtils
+import com.blankj.utilcode.util.KeyboardUtils
 import com.jakewharton.rxbinding3.view.clicks
 import com.skydoves.powermenu.PowerMenu
 import com.skydoves.powermenu.PowerMenuItem
@@ -48,7 +50,7 @@ class CaseFra : BaseFra() {
 
         ivCaret.setIIcon(context!!, Solid.Icon.solid_caret_down, R.color.md_black)
         viewPaper.offscreenPageLimit = CaseType.all.size - 1
-        casePagerAdapter= CasePagerAdapter(childFragmentManager)
+        casePagerAdapter = CasePagerAdapter(childFragmentManager)
         viewPaper.adapter = casePagerAdapter
         magicIndicator.setBackgroundColor(Color.WHITE)
         initVp()
@@ -60,7 +62,7 @@ class CaseFra : BaseFra() {
 
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
-                return  CaseType.all.size
+                return CaseType.all.size
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
@@ -101,9 +103,9 @@ class CaseFra : BaseFra() {
     }
 
     override fun registerEvent() {
-        RxBus.registerEvent(this,CaseType::class.java, Consumer {
+        RxBus.registerEvent(this, CaseType::class.java, Consumer {
             val position = CaseType.all.indexOf(it)
-            viewPaper.currentItem=position
+            viewPaper.currentItem = position
         })
 
         RxBus.registerEvent(this, CasePagerChangeEvent::class.java, Consumer {
@@ -123,12 +125,26 @@ class CaseFra : BaseFra() {
                 this[searchType.en] = etSearch.trimText()
             }).let { RxBus.post(it) }
         }
+
+        etSearch.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                KeyboardUtils.hideSoftInput(activity!!)
+                //实现自己的搜索逻辑
+                CaseQueryEvent(queryMap = HashMap<String, Any>().apply {
+                    this[searchType.en] = etSearch.trimText()
+                }).let { RxBus.post(it) }
+
+              return@setOnEditorActionListener true
+            }
+            return@setOnEditorActionListener false
+        }
     }
 
-    private lateinit var powerMenu: PowerMenu
 
-    private val colorPrimary by lazy { ContextCompat.getColor(context!!, R.color.colorPrimary) }
+private lateinit var powerMenu: PowerMenu
 
-    override val layoutId = R.layout.fra_case
+private val colorPrimary by lazy { ContextCompat.getColor(context!!, R.color.colorPrimary) }
+
+override val layoutId = R.layout.fra_case
 
 }

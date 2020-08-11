@@ -48,6 +48,7 @@
             android:layout_marginEnd="8dp"
             android:background="@null"
             android:hint="输入查询内容"
+            android:imeOptions="actionSearch"
             android:inputType="text"
             android:textColor="@color/md_black"
             android:textSize="16dp"
