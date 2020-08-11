@@ -20,6 +20,11 @@ class CaseProcessListFra : SimplePageFra<CaseProcess, KVHolder>() {
         super.bindIntent()
     }
 
+    override fun totalElements(totalElements: Int) {
+        simpleAdapter as CaseProcessAdapter
+        simpleAdapter.totalElements = totalElements
+    }
+
     override val simpleAdapter: BaseQuickAdapter<CaseProcess, KVHolder> = CaseProcessAdapter()
 
     override fun loadPage(page: Int): Single<Page<CaseProcess>> =

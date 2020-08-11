@@ -53,11 +53,17 @@ abstract class SimplePageFra<Model, K : BaseViewHolder> : BaseFra() {
                     mSwipeRefreshLayout.isRefreshing = false
                     simpleAdapter.setNewData(it.content)
                     checkIsLoadAll(it)
+
+                    totalElements(it.totalElements.toInt())
                 },
                 onError = {
                     mSwipeRefreshLayout.isRefreshing = false
                 }
             )
+    }
+
+    protected open fun totalElements(totalElements: Int) {
+
     }
 
     private fun loadNextPage() {
