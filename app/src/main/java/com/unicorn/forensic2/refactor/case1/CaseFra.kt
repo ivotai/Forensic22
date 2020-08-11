@@ -56,8 +56,8 @@ class CaseFra : BaseFra() {
 
     private lateinit var casePagerAdapter: CasePagerAdapter
     private fun initVp() {
-
         val commonNavigator = CommonNavigator(context!!)
+
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
                 return  CaseType.all.size

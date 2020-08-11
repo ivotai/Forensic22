@@ -3,9 +3,9 @@ package com.unicorn.forensic2.refactor.home
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.event.SetCurrentItemEvent
 import com.unicorn.forensic2.data.model.Role
-import com.unicorn.forensic2.refactor.case1.CasePagerChangeEvent
 import com.unicorn.forensic2.ui.act.*
 import com.unicorn.forensic2.ui.act.list.PsxxListAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -34,14 +34,14 @@ class HomeOperationAdapter :
                     HomeOperation.SPSX -> {
                         if (role == Role.Sfjd) {
                             role = Role.SfjdAdmin
-                            RxBus.post(CasePagerChangeEvent())
+                            RxBus.post(LoginStateChangeEvent())
                         }
                         RxBus.post(SetCurrentItemEvent())
                     }
                     HomeOperation.WDAJ -> {
                         if (role == Role.SfjdAdmin) {
                             role = Role.Sfjd
-                            RxBus.post(CasePagerChangeEvent())
+                            RxBus.post(LoginStateChangeEvent())
                         }
                         RxBus.post(SetCurrentItemEvent())
                     }

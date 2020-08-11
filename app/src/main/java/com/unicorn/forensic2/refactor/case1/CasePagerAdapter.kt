@@ -8,8 +8,10 @@ import androidx.viewpager.widget.PagerAdapter
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.data.model.CaseType
 
-@Suppress("DEPRECATION")
-class CasePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class CasePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(
+    fm,
+    BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+) {
 
     override fun getItem(position: Int): Fragment = CaseListFra().apply {
         val bundle = Bundle()
