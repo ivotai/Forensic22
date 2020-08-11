@@ -19,6 +19,7 @@ class HomeFra : BaseFra() {
 
         fun initRvHomeMenu() {
             recyclerView.apply {
+
                 layoutManager = GridLayoutManager(context!!, 3)
                 simpleAdapter.bindToRecyclerView(this)
             }

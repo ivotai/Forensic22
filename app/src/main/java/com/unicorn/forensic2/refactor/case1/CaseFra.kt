@@ -47,14 +47,16 @@ class CaseFra : BaseFra() {
         onSearchTypeChange(CaseSearchType.Ah)
 
         ivCaret.setIIcon(context!!, Solid.Icon.solid_caret_down, R.color.md_black)
-
+        viewPaper.offscreenPageLimit = CaseType.all.size - 1
+        casePagerAdapter= CasePagerAdapter(childFragmentManager)
+        viewPaper.adapter = casePagerAdapter
+        magicIndicator.setBackgroundColor(Color.WHITE)
         initVp()
     }
 
+    private lateinit var casePagerAdapter: CasePagerAdapter
     private fun initVp() {
-        viewPaper.offscreenPageLimit = CaseType.all.size - 1
-        viewPaper.adapter = CasePagerAdapter(childFragmentManager)
-        magicIndicator.setBackgroundColor(Color.WHITE)
+
         val commonNavigator = CommonNavigator(context!!)
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
             override fun getCount(): Int {
@@ -102,6 +104,11 @@ class CaseFra : BaseFra() {
         RxBus.registerEvent(this,CaseType::class.java, Consumer {
             val position = CaseType.all.indexOf(it)
             viewPaper.currentItem=position
+        })
+
+        RxBus.registerEvent(this, CasePagerChangeEvent::class.java, Consumer {
+            casePagerAdapter.notifyDataSetChanged()
+            initVp()
         })
     }
 

@@ -29,6 +29,7 @@ class JdjgPublicListAct : SimplePageAct<Jdjg, KVHolder>() {
         super.bindIntent()
         titleBar.setOperation("搜索").safeClicks()
             .subscribe { startAct(JdjgPublicQueryAct::class.java) }
+        startAct(JdjgPublicQueryAct::class.java)
     }
 
     override val simpleAdapter: BaseQuickAdapter<Jdjg, KVHolder> = JdjgPublicAdapter()

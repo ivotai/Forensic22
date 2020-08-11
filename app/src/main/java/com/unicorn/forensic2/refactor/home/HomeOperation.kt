@@ -38,7 +38,7 @@ enum class HomeOperation(val namez: String, val icon: IIcon) {
                         list.add(SPSX)
                     list.add(TZTX)
                     list.add(ZTBG)
-                    list
+                     list
                 }
                 else -> listOf(JGCX, XTGG)
             }

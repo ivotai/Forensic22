@@ -5,6 +5,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.SetCurrentItemEvent
 import com.unicorn.forensic2.data.model.Role
+import com.unicorn.forensic2.refactor.case1.CasePagerChangeEvent
 import com.unicorn.forensic2.ui.act.*
 import com.unicorn.forensic2.ui.act.list.PsxxListAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -31,13 +32,17 @@ class HomeOperationAdapter :
                     HomeOperation.ZJXX -> mContext.startAct(ExpertGuideAct::class.java)
                     HomeOperation.WDPS -> RxBus.post(SetCurrentItemEvent())
                     HomeOperation.SPSX -> {
-                        if (role == Role.Sfjd)
+                        if (role == Role.Sfjd) {
                             role = Role.SfjdAdmin
+                            RxBus.post(CasePagerChangeEvent())
+                        }
                         RxBus.post(SetCurrentItemEvent())
                     }
                     HomeOperation.WDAJ -> {
-                        if (role == Role.SfjdAdmin)
+                        if (role == Role.SfjdAdmin) {
                             role = Role.Sfjd
+                            RxBus.post(CasePagerChangeEvent())
+                        }
                         RxBus.post(SetCurrentItemEvent())
                     }
                     else -> {
