@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.profile
+package com.unicorn.forensic2.refactor.main.profile
 
 import android.graphics.drawable.GradientDrawable
 import androidx.core.content.ContextCompat

@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.profile
+package com.unicorn.forensic2.refactor.main.profile
 
 import com.mikepenz.iconics.typeface.IIcon
 import com.unicorn.forensic2.app.role

@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.home
+package com.unicorn.forensic2.refactor.main.home
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R

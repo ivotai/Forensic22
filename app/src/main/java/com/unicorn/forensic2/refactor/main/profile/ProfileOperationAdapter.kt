@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.profile
+package com.unicorn.forensic2.refactor.main.profile
 
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems

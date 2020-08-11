@@ -7,8 +7,8 @@ import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.refactor.case1.CaseFra
-import com.unicorn.forensic2.refactor.home.HomeFra
-import com.unicorn.forensic2.refactor.profile.ProfileFra
+import com.unicorn.forensic2.refactor.main.home.HomeFra
+import com.unicorn.forensic2.refactor.main.profile.ProfileFra
 import com.unicorn.forensic2.ui.fra.WdpsFra
 
 class MainPagerAdapter(fm: FragmentManager) :
