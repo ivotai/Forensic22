@@ -4,6 +4,7 @@ import com.kaopiz.kprogresshud.KProgressHUD
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.baseUrl
+import com.unicorn.forensic2.data.model.UploadFile
 import com.unicorn.forensic2.ui.base.BaseAct
 import com.zhy.http.okhttp.OkHttpUtils
 import com.zhy.http.okhttp.callback.FileCallBack
@@ -12,6 +13,10 @@ import okhttp3.Call
 import java.io.File
 
 class PdfAct : BaseAct() {
+
+    override fun initViews() {
+        titleBar.setTitle(uploadFile.filename)
+    }
 
     override fun bindIntent() {
         super.bindIntent()
@@ -27,7 +32,7 @@ class PdfAct : BaseAct() {
             .show()
 //        val pdfId = uploadFile.fileid
 //        val pdfName = uploadFile.filename
-        val pdfUrl = "${baseUrl}sysFileinfo/download/$pdfId"
+        val pdfUrl = "${baseUrl}sysFileinfo/download/${uploadFile.fileid}"
         OkHttpUtils
             .get()
             .url(pdfUrl)
@@ -55,5 +60,6 @@ class PdfAct : BaseAct() {
 
     override val layoutId = R.layout.act_pdf
 
-    private val pdfId by lazy { intent.getSerializableExtra(Param) as String }
+    private val uploadFile by lazy { intent.getSerializableExtra(Param) as UploadFile }
+
 }
