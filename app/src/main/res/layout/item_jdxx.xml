@@ -2,11 +2,122 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:background="@color/md_white"
+    android:layout_height="wrap_content"
     tools:ignore="ContentDescription,HardcodedText,SpUsage">
+
+    <TextView
+        android:id="@+id/lJgmc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="中标机构"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvJgmc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="中标机构"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lJgmc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lJgmc" />
+
+    <TextView
+        android:id="@+id/lZbtz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="中标通知"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lJgmc" />
+
+    <TextView
+        android:id="@+id/tvZbtz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="中标通知"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lZbtz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lZbtz"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/lDateLottery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="摇号日期"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lZbtz" />
+
+    <TextView
+        android:id="@+id/tvDateLottery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="摇号日期"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lDateLottery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lDateLottery"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/lYhhf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="摇号回放"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lDateLottery" />
+
+    <TextView
+        android:id="@+id/tvYhhf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="摇号回放"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lYhhf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lYhhf"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/md_grey_300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lYhhf" />
 
     <TextView
         android:id="@+id/lLotteryStatus"
@@ -14,264 +125,173 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="鉴定状态："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
+        android:text="摇号状态"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lJdlb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="鉴定类别："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lLotteryStatus"
-        app:layout_constraintTop_toBottomOf="@+id/lLotteryStatus" />
-
-    <TextView
-        android:id="@+id/lDateLottery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="摇号日期："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lJdlb"
-        app:layout_constraintTop_toBottomOf="@+id/lJdlb" />
-
-    <TextView
-        android:id="@+id/lZbtz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="中标通知："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lJgmc"
-        app:layout_constraintTop_toBottomOf="@+id/lSfbz" />
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
     <TextView
         android:id="@+id/tvLotteryStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="案件状态："
-        android:gravity="end"
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
+        android:text="摇号状态"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lLotteryStatus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lLotteryStatus" />
+        app:layout_constraintTop_toTopOf="@+id/lLotteryStatus"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/lJdlb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="鉴定类别"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lLotteryStatus" />
 
     <TextView
         android:id="@+id/tvJdlb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="鉴定类别："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
+        android:text="鉴定类别"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lJdlb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLotteryStatus" />
-
-    <TextView
-        android:id="@+id/tvDateLottery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="摇号日期："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdlb" />
-
-    <TextView
-        android:id="@+id/lJgmc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="中标机构："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lDateLottery"
-        app:layout_constraintTop_toBottomOf="@+id/lDateLottery" />
-
-    <TextView
-        android:id="@+id/tvJgmc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="中标机构："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lJgmc" />
-
-    <TextView
-        android:id="@+id/lFee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="鉴定费用："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lJgmc"
-        app:layout_constraintTop_toBottomOf="@+id/lJgmc" />
-
-    <TextView
-        android:id="@+id/tvFee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="鉴定费用："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvJgmc"
-        app:layout_constraintTop_toBottomOf="@+id/tvJgmc" />
+        app:layout_constraintTop_toTopOf="@+id/lJdlb"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/lJdryxm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="鉴定人员："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lFee"
-        app:layout_constraintTop_toBottomOf="@+id/lFee" />
+        android:text="鉴定人员"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lJdlb" />
 
     <TextView
         android:id="@+id/tvJdryxm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="鉴定人员："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvFee"
-        app:layout_constraintTop_toBottomOf="@+id/tvFee" />
+        android:layout_marginEnd="16dp"
+        android:text="鉴定人员"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lJdryxm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lJdryxm"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/lQfqd"
+        android:id="@+id/lJdbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="缴费清单："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lJdryxm"
+        android:text="鉴定报告"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lJdryxm" />
-
-    <TextView
-        android:id="@+id/tvJfqd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="缴费清单："
-        android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvJdryxm"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdryxm" />
-
-    <TextView
-        android:id="@+id/lSfbz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="收费标准："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lQfqd"
-        app:layout_constraintTop_toBottomOf="@+id/lQfqd" />
-
-    <TextView
-        android:id="@+id/tvSfbz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="收费标准："
-        android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvJdryxm"
-        app:layout_constraintTop_toBottomOf="@+id/tvJfqd" />
-
-    <TextView
-        android:id="@+id/tvZbtz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="中标通知："
-        android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSfbz" />
-
-    <TextView
-        android:id="@+id/tvYhhf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="摇号回放："
-        android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lYhhf" />
-
-    <TextView
-        android:id="@+id/lYhhf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="摇号回放："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lZbtz"
-        app:layout_constraintTop_toBottomOf="@+id/lZbtz" />
 
     <TextView
         android:id="@+id/tvJdbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="end"
-        android:text="鉴定报告："
+        android:text="鉴定报告"
         android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lJdbg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lJdbg" />
 
     <TextView
-        android:id="@+id/lJdbg"
+        android:id="@+id/lFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="鉴定报告："
-        android:textColor="@color/md_black"
-        android:textSize="17dp"
-        app:layout_constraintStart_toStartOf="@+id/lZbtz"
-        app:layout_constraintTop_toBottomOf="@+id/lYhhf" />
+        android:text="鉴定费用"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lJdbg" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+    <TextView
+        android:id="@+id/tvFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        android:layout_marginEnd="16dp"
+        android:text="鉴定费用"
+        android:textColor="@color/md_black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lFee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lFee" />
+
+    <TextView
+        android:id="@+id/lJfqd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="缴费清单"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lFee" />
+
+    <TextView
+        android:id="@+id/tvJfqd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="缴费清单"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lJfqd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lJfqd" />
+
+    <TextView
+        android:id="@+id/lSfbz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="收费标准"
+        android:textColor="@color/md_grey_700"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lJfqd" />
+
+    <TextView
+        android:id="@+id/tvSfbz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="收费标准"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lSfbz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lSfbz" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

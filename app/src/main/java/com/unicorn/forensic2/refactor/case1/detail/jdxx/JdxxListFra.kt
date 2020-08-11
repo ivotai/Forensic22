@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.refactor.case1.detail.jdxx
 
+import android.graphics.Color
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.Param
@@ -20,6 +21,7 @@ class JdxxListFra : BaseFra() {
             layoutManager = LinearLayoutManager(context!!)
             simpleAdapter.bindToRecyclerView(this)
             addDefaultItemDecoration(1)
+            setBackgroundColor(Color.WHITE)
         }
     }
 
@@ -28,7 +30,7 @@ class JdxxListFra : BaseFra() {
         swipeRefreshLayout.setOnRefreshListener { getJdxx() }
     }
 
-    private fun getJdxx(){
+    private fun getJdxx() {
         api.getJdxx(caseId = case.caseId, roleTag = role!!.roleTag).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
