@@ -14,7 +14,7 @@ import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
 import com.unicorn.forensic2.ui.operation.remind.Remind
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
-import com.unicorn.forensic2.ui.operation.tztx.Tztx
+import com.unicorn.forensic2.refactor.tztx.Tztx
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

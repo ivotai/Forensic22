@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.operation.tztx
+package com.unicorn.forensic2.refactor.tztx
 
 data class Tztx(
     val id: String,
@@ -18,4 +18,17 @@ data class Notification(
     val msg: String,
     val nid: String,
     val notifytype: Int
-)
+) {
+
+    val notifytypeStr get() = map[notifytype]
+
+    companion object {
+        val map = HashMap<Int, String>().apply {
+            this[1] = "机构提醒"
+            this[2] = "当事人提醒"
+            this[3] = "摇号提醒"
+            this[4] = "办案提醒"
+        }
+    }
+
+}

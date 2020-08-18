@@ -10,7 +10,7 @@ import com.unicorn.forensic2.refactor.stat.StatAct
 import com.unicorn.forensic2.ui.act.*
 import com.unicorn.forensic2.ui.act.list.PsxxListAct
 import com.unicorn.forensic2.ui.base.KVHolder
-import com.unicorn.forensic2.ui.operation.tztx.TztxAct
+import com.unicorn.forensic2.refactor.tztx.TztxAct
 import kotlinx.android.synthetic.main.item_home_menu.*
 
 class HomeOperationAdapter :

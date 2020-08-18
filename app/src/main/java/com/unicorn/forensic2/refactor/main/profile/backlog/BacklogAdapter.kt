@@ -7,7 +7,7 @@ import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.data.event.SetCurrentItemEvent
 import com.unicorn.forensic2.ui.base.KVHolder
-import com.unicorn.forensic2.ui.operation.tztx.TztxAct
+import com.unicorn.forensic2.refactor.tztx.TztxAct
 import kotlinx.android.synthetic.main.item_backlog.*
 
 class BacklogAdapter : BaseQuickAdapter<Backlog, KVHolder>(R.layout.item_backlog) {

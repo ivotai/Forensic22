@@ -80,7 +80,7 @@
         <activity android:name=".ui.operation.lotteryDelay.LotteryDelayListAct" />
         <activity android:name=".ui.operation.jdfk.JdrySListAct" />
         <activity android:name=".ui.operation.jdbg.JDBGAct" />
-        <activity android:name=".ui.operation.tztx.TztxAct" />
+        <activity android:name="com.unicorn.forensic2.refactor.tztx.TztxAct" />
         <activity android:name=".ui.operation.remind.RemindListAct" />
         <activity android:name=".ui.operation.remind.AddRemindAct" />
         <activity android:name=".ui.operation.caseDemo.CaseDemoPListAct" />
