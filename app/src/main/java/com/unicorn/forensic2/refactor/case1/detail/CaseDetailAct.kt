@@ -18,7 +18,7 @@ import com.unicorn.forensic2.data.model.CaseOperation
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.ui.base.BaseAct
 import com.unicorn.forensic2.ui.operation.JdTaskDocHelper
-import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemoPListAct
+import com.unicorn.forensic2.refactor.caseDemo.CaseDemoPListAct
 import com.unicorn.forensic2.ui.operation.hf.HfAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.operation.jdbg.JDBGAct

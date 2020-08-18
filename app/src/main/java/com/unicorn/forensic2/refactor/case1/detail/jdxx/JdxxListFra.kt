@@ -23,6 +23,7 @@ class JdxxListFra : BaseFra() {
             addDefaultItemDecoration(1)
             setBackgroundColor(Color.WHITE)
         }
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary)
     }
 
     override fun bindIntent() {

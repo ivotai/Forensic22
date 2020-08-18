@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.operation.caseDemo
+package com.unicorn.forensic2.refactor.caseDemo
 
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.getInputField
@@ -42,7 +42,7 @@ class CaseDemoPListAct : SimplePageAct<CaseDemo, KVHolder>() {
         MaterialDialog(this).show {
             input(allowEmpty = false, hint = "输入备忘内容")
             title(text = operation)
-            positiveButton(text = "同意") {
+            positiveButton(text = "确定") {
                 addCaseDemo(content = it.getInputField().trimText(), operation = operation)
             }
         }

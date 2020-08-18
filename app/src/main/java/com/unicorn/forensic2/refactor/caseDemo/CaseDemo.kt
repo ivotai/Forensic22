@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.operation.caseDemo
+package com.unicorn.forensic2.refactor.caseDemo
 
 data class CaseDemo(
     val addDttm: Long,

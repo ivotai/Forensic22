@@ -8,7 +8,7 @@ import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.refactor.case1.detail.jdxx.Jdxx
 import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcess
 import com.unicorn.forensic2.refactor.main.profile.backlog.Backlog
-import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemo
+import com.unicorn.forensic2.refactor.caseDemo.CaseDemo
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
