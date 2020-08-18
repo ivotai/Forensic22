@@ -446,6 +446,12 @@ interface V1Api {
 
     @Multipart
     @POST("api/v1/jdCaseMemo")
-    fun jdCaseMemo(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>):Single<GeneralResponse>
+    fun jdCaseMemo(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>): Single<GeneralResponse>
+
+    @GET("app/jdCase/sjcStatistics")
+    fun stat(
+        @Query("beginDate") beginDate: String,
+        @Query("endDate") endDate: String
+    ): Single<Any>
 
 }
