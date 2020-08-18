@@ -5,31 +5,149 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvBeginDate"
-        android:layout_width="wrap_content"
+    <com.unicorn.forensic2.ui.other.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="开始日期"
-        android:textColor="@color/md_black"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/tvEndDate"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tvBeginDate"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/md_blue_50"
+        android:gravity="center"
+        android:text="开始日期"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvEndDate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <TextView
         android:id="@+id/tvEndDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/md_blue_50"
+        android:gravity="center"
         android:text="结束日期"
-        android:textColor="@color/md_black"
-        android:textSize="16dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvBeginDate"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/tvBeginDate" />
 
+    <TextView
+        android:id="@+id/tvDqmc"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/md_grey_100"
+        android:gravity="center"
+        android:text="法院"
+        app:layout_constraintHorizontal_weight="1.5"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvJc"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBeginDate" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvJc"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@color/md_grey_100"
+        android:gravity="center"
+        android:text="旧存"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvXs"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvDqmc"
+        app:layout_constraintTop_toTopOf="@+id/tvDqmc" />
+
+    <TextView
+        android:id="@+id/tvXs"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@color/md_grey_100"
+        android:gravity="center"
+        android:text="新收"
+        app:layout_constraintHorizontal_weight="1"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvJa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvJc"
+        app:layout_constraintTop_toTopOf="@+id/tvJc" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvJa"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@color/md_grey_100"
+        android:gravity="center"
+        android:text="结案"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvWj"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvXs"
+        app:layout_constraintTop_toTopOf="@+id/tvXs" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvWj"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@color/md_grey_100"
+        android:gravity="center"
+        android:text="未结"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvJal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvJa"
+        app:layout_constraintTop_toTopOf="@+id/tvJa" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvJal"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/md_grey_100"
+        android:gravity="center"
+        android:text="结案率"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvWj"
+        app:layout_constraintTop_toTopOf="@+id/tvWj" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvXs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

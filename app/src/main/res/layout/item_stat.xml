@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvDqmc"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="法院"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvJc"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvJc"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="旧存"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvXs"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvDqmc"
+        app:layout_constraintTop_toTopOf="@+id/tvDqmc" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvXs"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="新收"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvJa"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvJc"
+        app:layout_constraintTop_toTopOf="@+id/tvDqmc" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvJa"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="结案"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvWj"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvXs"
+        app:layout_constraintTop_toTopOf="@+id/tvDqmc" />
+
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/tvWj"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="未结"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvJal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvJa"
+        app:layout_constraintTop_toTopOf="@+id/tvDqmc" />
+
+    <TextView
+        android:id="@+id/tvJal"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="结案率"
+        android:textColor="@color/md_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/tvWj"
+        app:layout_constraintTop_toTopOf="@+id/tvDqmc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
