@@ -6,6 +6,7 @@ import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
 import com.unicorn.forensic2.data.event.SetCurrentItemEvent
 import com.unicorn.forensic2.data.model.Role
+import com.unicorn.forensic2.refactor.stat.StatAct
 import com.unicorn.forensic2.ui.act.*
 import com.unicorn.forensic2.ui.act.list.PsxxListAct
 import com.unicorn.forensic2.ui.base.KVHolder
@@ -45,6 +46,7 @@ class HomeOperationAdapter :
                         }
                         RxBus.post(SetCurrentItemEvent())
                     }
+                    HomeOperation.SJCTX -> mContext.startAct(StatAct::class.java)
                     else -> {
                     }
                 }

@@ -19,6 +19,7 @@ enum class HomeOperation(val namez: String, val icon: IIcon) {
     ZJXX("专家信息", Light.Icon.light_accessible_icon),
     PSXX("评审信息", Light.Icon.light_accessible_icon),
     ZTBG("专题报告", Light.Icon.light_accessible_icon),
+    SJCTX("收结存统计", Light.Icon.light_accessible_icon),
     ;
 
     companion object {
@@ -27,7 +28,7 @@ enum class HomeOperation(val namez: String, val icon: IIcon) {
                 Role.Normal -> listOf(JGCX, XTGG, TSJY, WDAJ)
                 Role.JdjgAdmin -> listOf(JGCX, XTGG, TSJY, WDAJ, TZTX, JGXX)
                 Role.Pszj -> listOf(JGXX, XTGG, TSJY, WDPS, TZTX, ZJXX)
-                Role.Spry -> listOf(JGCX, XTGG, WDAJ, TZTX, ZTBG)
+                Role.Spry -> listOf(JGCX, XTGG, WDAJ, TZTX, ZTBG,SJCTX)
                 Role.Sfjd, Role.SfjdAdmin -> {
                     val list = ArrayList<HomeOperation>()
                     list.add(JGCX)
@@ -38,7 +39,8 @@ enum class HomeOperation(val namez: String, val icon: IIcon) {
                         list.add(SPSX)
                     list.add(TZTX)
                     list.add(ZTBG)
-                     list
+                    list.add(SJCTX)
+                    list
                 }
                 else -> listOf(JGCX, XTGG)
             }

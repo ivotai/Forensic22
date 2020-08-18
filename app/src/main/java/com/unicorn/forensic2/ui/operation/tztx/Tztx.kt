@@ -14,6 +14,7 @@ data class Notification(
     val addtime: Long,
     val adduserid: String,
     val attachedkey: String,
+    val caseNo: String,
     val msg: String,
     val nid: String,
     val notifytype: Int

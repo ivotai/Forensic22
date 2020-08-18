@@ -85,6 +85,7 @@
         <activity android:name=".ui.operation.remind.AddRemindAct" />
         <activity android:name=".ui.operation.caseDemo.CaseDemoPListAct" />
         <activity android:name=".refactor.case1.detail.CaseDetailAct"/>
+        <activity android:name=".refactor.stat.StatAct"/>
         <activity
             android:name=".data.SimplePlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
