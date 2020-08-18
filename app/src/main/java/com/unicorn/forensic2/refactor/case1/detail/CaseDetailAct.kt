@@ -62,10 +62,14 @@ class CaseDetailAct : BaseAct() {
         ViewPagerHelper.bind(magicIndicator, viewPaper)
     }
 
-    override val layoutId = R.layout.act_case_detail
+    override fun bindIntent() {
+    }
+
 
     private val case by lazy { intent.getSerializableExtra(Param) as Case }
 
     private val colorPrimary by lazy { ContextCompat.getColor(this, R.color.colorPrimary) }
+
+    override val layoutId = R.layout.act_case_detail
 
 }
