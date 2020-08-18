@@ -3,7 +3,8 @@ package com.unicorn.forensic2.refactor.case1
 import android.content.Intent
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.Param
+import com.unicorn.forensic2.app.Case
+import com.unicorn.forensic2.app.CaseType
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
@@ -25,10 +26,13 @@ class CaseAdapter : BaseQuickAdapter<Case, KVHolder>(R.layout.item_case) {
             tvCourtNameAccept.text = item.courtNameAccept
         }
         helper.root.safeClicks().subscribe {
-            if (caseType in listOf(CaseType.YJJ, CaseType.YQX)) return@subscribe
+            if (caseType in listOf(com.unicorn.forensic2.data.model.CaseType.YJJ,
+                    com.unicorn.forensic2.data.model.CaseType.YQX
+                )) return@subscribe
 
             Intent(mContext, CaseDetailAct::class.java).apply {
-                putExtra(Param, item)
+                putExtra(Case, item)
+                putExtra(CaseType, caseType)
             }.let { mContext.startActivity(it) }
         }
     }

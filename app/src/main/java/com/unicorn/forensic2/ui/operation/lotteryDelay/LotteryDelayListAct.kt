@@ -5,7 +5,7 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.model.Case
-import com.unicorn.forensic2.data.model.Operation
+import com.unicorn.forensic2.data.model.CaseOperation
 import com.unicorn.forensic2.data.model.Role
 import com.unicorn.forensic2.ui.base.BaseAct
 import com.unicorn.forensic2.ui.operation.JdTaskDocHelper
@@ -18,7 +18,7 @@ class LotteryDelayListAct : BaseAct() {
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle(Operation.BGPF_JDJGADMIN.cn)
+        titleBar.setTitle(CaseOperation.BGPF_JDJGADMIN.cn)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@LotteryDelayListAct)
             lotteryDelayAdapter.bindToRecyclerView(this)
@@ -44,7 +44,7 @@ class LotteryDelayListAct : BaseAct() {
                 JdTaskDocHelper.showJdTaskDocDialog(
                     this@LotteryDelayListAct,
                     case,
-                    Operation.BGPF_SFJD.cn,
+                    CaseOperation.BGPF_SFJD.cn,
                     21,
                     22
                 )

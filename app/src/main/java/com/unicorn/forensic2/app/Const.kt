@@ -1,4 +1,4 @@
- package com.unicorn.forensic2.app
+package com.unicorn.forensic2.app
 
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.data.model.Dict
@@ -15,6 +15,8 @@ const val Jdjg = "Jdjg "
 const val JdjgId = "JdjgId"
 const val TsjyId = "TsjyId"
 const val Param = "Param"
+const val Case = "Case"
+const val CaseType = "CaseType"
 const val V1 = "V1"
 val TextOrPlain = "text/plain".toMediaType()
 
@@ -47,21 +49,21 @@ val zjlxList = listOf(
 )
 
 val shjgList = listOf(
-    Dict("0","待审核"),
-    Dict("1","审核通过"),
-    Dict("2","审核不通过"),
-    Dict("3","待公示"),
-    Dict("4","公示中"),
-    Dict("5","公示通过"),
-    Dict("6","公示不通过"),
-    Dict("8","暂停")
+    Dict("0", "待审核"),
+    Dict("1", "审核通过"),
+    Dict("2", "审核不通过"),
+    Dict("3", "待公示"),
+    Dict("4", "公示中"),
+    Dict("5", "公示通过"),
+    Dict("6", "公示不通过"),
+    Dict("8", "暂停")
 )
 
 val ajlxList = listOf(
-    Dict("1","鉴定委托"),
-    Dict("2","保外就医审核"),
-    Dict("3","技术咨询"),
-    Dict("4","技术审核"),
-    Dict("5","诉前鉴定"),
-    Dict("9","其他")
+    Dict("1", "鉴定委托"),
+    Dict("2", "保外就医审核"),
+    Dict("3", "技术咨询"),
+    Dict("4", "技术审核"),
+    Dict("5", "诉前鉴定"),
+    Dict("9", "其他")
 )
