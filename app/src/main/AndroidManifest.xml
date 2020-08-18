@@ -84,7 +84,7 @@
         <activity android:name=".ui.operation.remind.RemindListAct" />
         <activity android:name=".ui.operation.remind.AddRemindAct" />
         <activity android:name="com.unicorn.forensic2.refactor.caseDemo.CaseDemoPListAct" />
-        <activity android:name=".refactor.caseDemo.CaseDemoListAct" />
+        <activity android:name=".refactor.caseDemo.CaseDemoCListAct" />
         <activity android:name=".refactor.case1.detail.CaseDetailAct" />
         <activity android:name=".refactor.stat.StatAct" />
         <activity

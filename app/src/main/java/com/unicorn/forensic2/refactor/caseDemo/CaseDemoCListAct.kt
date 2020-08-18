@@ -16,12 +16,13 @@ import kotlinx.android.synthetic.main.act_remind_add.*
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
-class CaseDemoListAct : SimplePageAct<CaseDemo, KVHolder>() {
+class CaseDemoCListAct : SimplePageAct<CaseDemo, KVHolder>() {
 
     override fun initViews() {
         super.initViews()
         titleBar.setTitle("案件备忘")
         mRecyclerView.addDefaultItemDecoration(1)
+        simpleAdapter.addHeaderView(CaseDemoHeader(this, caseDemo))
     }
 
     override fun bindIntent() {

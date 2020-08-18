@@ -21,7 +21,7 @@ class CaseDemoPAdapter : BaseQuickAdapter<CaseDemo, KVHolder>(R.layout.item_case
             tvContent.text = item.content
         }
         helper.root.safeClicks().subscribe {
-            Intent(mContext,CaseDemoListAct::class.java).apply {
+            Intent(mContext,CaseDemoCListAct::class.java).apply {
                 putExtra(Param,item)
             }.let { mContext.startActivity(it) }
         }
