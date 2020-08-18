@@ -1,17 +1,15 @@
-package com.unicorn.forensic2.ui.my
+package com.unicorn.forensic2.refactor.main.profile.backlog
 
 import com.unicorn.forensic2.data.model.CaseType
 import java.io.Serializable
 
-enum class Backlog(
+enum class BacklogKey(
     val key: String,
-    val caseType: CaseType? = null,
-    val cn: String? = null,
-    var count: Int = 0
+    val caseType: CaseType? = null
 ) : Serializable {
 
-    tztx("tztx", cn = "通知提醒"),
-    dps("dps", cn = "待评审"),
+    tztx("tztx"),
+    dps("dps"),
     zbtz("zbtz", CaseType.ZBTZ),
     djd("djd", CaseType.DJD),
     yjd("yjd", CaseType.YJD),
@@ -26,11 +24,9 @@ enum class Backlog(
     ;
 
     companion object {
-        fun findByKey(key: String): Backlog {
+        fun findByKey(key: String): BacklogKey {
             return values().find { it.key == key }!!
         }
     }
-
-    val cnX get() = caseType?.cn ?: cn
 
 }

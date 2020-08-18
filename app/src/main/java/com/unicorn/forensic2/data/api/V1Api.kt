@@ -7,6 +7,7 @@ import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.refactor.case1.detail.jdxx.Jdxx
 import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcess
+import com.unicorn.forensic2.refactor.main.profile.backlog.Backlog
 import com.unicorn.forensic2.ui.operation.caseDemo.CaseDemo
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
@@ -409,7 +410,7 @@ interface V1Api {
     ): Single<GeneralResponse>
 
     @GET("api/v1/app/backlog")
-    fun backlog(@Query("role") roleTag: String): Single<HashMap<String, String>>
+    fun backlog(@Query("role") roleTag: String): Single<List<Backlog>>
 
     @GET("api/v1/notification/new")
     fun notificationNew(

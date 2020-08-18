@@ -9,9 +9,8 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.app.user
+import com.unicorn.forensic2.refactor.main.profile.backlog.BacklogAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
-import com.unicorn.forensic2.ui.my.Backlog
-import com.unicorn.forensic2.ui.my.BacklogAdapter
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import com.yqritc.recyclerviewflexibledivider.VerticalDividerItemDecoration
 import io.reactivex.rxkotlin.subscribeBy
@@ -52,7 +51,8 @@ class ProfileFra : BaseFra() {
         }
     }
 
-    private val backlogAdapter = BacklogAdapter()
+    private val backlogAdapter =
+        BacklogAdapter()
     private val profileOperationAdapter = ProfileOperationAdapter()
 
     override fun bindIntent() {
@@ -62,14 +62,14 @@ class ProfileFra : BaseFra() {
 
     private fun backlog() {
         api.backlog(roleTag = role!!.roleTag).observeOnMain(this).subscribeBy(
-            onSuccess = { map ->
-                val list = ArrayList<Backlog>()
-                map.forEach {
-                    val backlog = Backlog.findByKey(it.key)
-                    backlog.count = it.value.toInt()
-                    list.add(backlog)
-                }
-                backlogAdapter.setNewData(list)
+            onSuccess = {
+//                val list = ArrayList<Backlog>()
+//                map.forEach {
+//                    val backlog = Backlog.findByKey(it.key)
+//                    backlog.count = it.value.toInt()
+//                    list.add(backlog)
+//                }
+                backlogAdapter.setNewData(it)
             },
             onError = {}
         )

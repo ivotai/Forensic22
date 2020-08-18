@@ -1,57 +1,7 @@
-{
-  "content": [
-    {
-      "@id": "1",
-      "processId": "3bc039a1-906b-42f6-bfce-e3287103063b",
-      "caseId": "eaaf2e24-490f-4ec9-92df-488aa5478217",
-      "idx": 8,
-      "statusDb": 50,
-      "acceptDttm": 1596630404000,
-      "handlerId": "370501336",
-      "handler": "张超",
-      "handleDttm": 1596630426000,
-      "remark": "预结案日期被设置为：2020-08-05",
-      "isLast": 1,
-      "action": "SETENDDATE"
-    },
-    {
-      "@id": "2",
-      "processId": "f1c0f991-0669-4223-90b2-1471e94eafde",
-      "caseId": "eaaf2e24-490f-4ec9-92df-488aa5478217",
-      "idx": 9,
-      "statusDb": 50,
-      "acceptDttm": 1596630426000,
-      "handlerId": "370501336",
-      "handler": "张超",
-      "handleDttm": 1596631791000,
-      "remark": "提交鉴定报告",
-      "isLast": 1,
-      "action": "SUBMIT_REPORT"
-    }
-  ],
-  "pageable": {
-    "sort": {
-      "sorted": true,
-      "unsorted": false,
-      "empty": false
-    },
-    "pageNumber": 1,
-    "offset": "5",
-    "pageSize": 5,
-    "unpaged": false,
-    "paged": true
-  },
-  "last": true,
-  "totalElements": "7",
-  "totalPages": 2,
-  "first": false,
-  "sort": {
-    "sorted": true,
-    "unsorted": false,
-    "empty": false
-  },
-  "size": 5,
-  "number": 1,
-  "numberOfElements": 2,
-  "empty": false
-}
+[
+  {
+    "name": "未结案件",
+    "key": "wjaj",
+    "value": "9"
+  }
+]

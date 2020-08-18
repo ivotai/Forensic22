@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.ui.my
+package com.unicorn.forensic2.refactor.main.profile.backlog
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.unicorn.forensic2.R
@@ -14,16 +14,16 @@ class BacklogAdapter : BaseQuickAdapter<Backlog, KVHolder>(R.layout.item_backlog
 
     override fun convert(helper: KVHolder, item: Backlog) {
         helper.apply {
-            tvCount.text = item.count.toString()
-            tvCaseType.text = item.cnX
+            tvCount.text = item.value
+            tvCaseType.text = item.name
         }
         helper.apply {
             root.safeClicks().subscribe {
-                when (item) {
-                    Backlog.tztx -> context.startAct(TztxAct::class.java)
-                    Backlog.dps -> RxBus.post(SetCurrentItemEvent())
+                when (val backlogKey = BacklogKey.findByKey(item.key)) {
+                    BacklogKey.tztx -> context.startAct(TztxAct::class.java)
+                    BacklogKey.dps -> RxBus.post(SetCurrentItemEvent())
                     else -> {
-                        RxBus.post(item.caseType!!)
+                        RxBus.post(backlogKey.caseType!!)
                         RxBus.post(SetCurrentItemEvent())
                     }
                 }
