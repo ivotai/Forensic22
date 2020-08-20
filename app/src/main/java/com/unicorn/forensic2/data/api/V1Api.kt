@@ -9,6 +9,7 @@ import com.unicorn.forensic2.refactor.case1.detail.jdxx.Jdxx
 import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcess
 import com.unicorn.forensic2.refactor.caseDemo.CaseDemo
 import com.unicorn.forensic2.refactor.main.profile.backlog.Backlog
+import com.unicorn.forensic2.refactor.stat.Stat
 import com.unicorn.forensic2.refactor.tztx.Tztx
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
@@ -452,6 +453,6 @@ interface V1Api {
     fun stat(
         @Query("beginDate") beginDate: String,
         @Query("endDate") endDate: String
-    ): Single<Any>
+    ): Single<List<Stat>>
 
 }

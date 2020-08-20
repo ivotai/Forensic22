@@ -22,7 +22,7 @@ class StatAdapter : BaseQuickAdapter<Stat, KVHolder>(R.layout.item_stat) {
         helper.apply {
             tvDqmc.text =item.dqmc
             tvJc.text = item.jz.toString()
-            tvXs.text = item.sz.toString()
+            tvXs.text = item.sa.toString()
             tvJa.text = item.ja.toString()
             tvWj.text = item.jy.toString()
             tvJal.text = "${item.jal}%"
