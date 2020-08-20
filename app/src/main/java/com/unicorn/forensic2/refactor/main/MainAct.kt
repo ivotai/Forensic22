@@ -23,7 +23,7 @@ class MainAct : BaseAct() {
             supportFragmentManager
         )
         viewPaper.adapter = mainPagerAdapter
-        viewPaper.offscreenPageLimit = mainPagerAdapter.count - 1
+        viewPaper.offscreenPageLimit = 3
         notifyTabs()
     }
 

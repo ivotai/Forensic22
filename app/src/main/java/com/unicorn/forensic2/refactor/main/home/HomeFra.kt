@@ -14,10 +14,10 @@ class HomeFra : BaseFra() {
 
     override fun initViews() {
         tvUsername.text = if (isLogin) "欢迎您，${user.username}" else "请登录"
-            recyclerView.apply {
-                layoutManager = GridLayoutManager(context!!, 3)
-                simpleAdapter.bindToRecyclerView(this)
-            }
+        recyclerView.apply {
+            layoutManager = GridLayoutManager(context!!, 3)
+            simpleAdapter.bindToRecyclerView(this)
+        }
     }
 
     private val simpleAdapter = HomeOperationAdapter()

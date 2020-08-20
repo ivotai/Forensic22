@@ -127,12 +127,12 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
 
         Fragment fragment = getItem(position);
         if (DEBUG) Log.v(TAG, "Adding item #" + position + ": f=" + fragment);
-        if (mSavedState.size() > position) {
-            Fragment.SavedState fss = mSavedState.get(position);
-            if (fss != null) {
-                fragment.setInitialSavedState(fss);
-            }
-        }
+//        if (mSavedState.size() > position) {
+//            Fragment.SavedState fss = mSavedState.get(position);
+//            if (fss != null) {
+//                fragment.setInitialSavedState(fss);
+//            }
+//        }
         while (mFragments.size() <= position) {
             mFragments.add(null);
         }
