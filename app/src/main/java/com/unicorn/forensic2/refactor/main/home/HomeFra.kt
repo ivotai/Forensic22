@@ -1,6 +1,5 @@
 package com.unicorn.forensic2.refactor.main.home
 
-import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.isLogin
@@ -15,16 +14,10 @@ class HomeFra : BaseFra() {
 
     override fun initViews() {
         tvUsername.text = if (isLogin) "欢迎您，${user.username}" else "请登录"
-        rtvIdentity.visibility = if (isLogin) View.VISIBLE else View.GONE
-
-        fun initRvHomeMenu() {
             recyclerView.apply {
-
                 layoutManager = GridLayoutManager(context!!, 3)
                 simpleAdapter.bindToRecyclerView(this)
             }
-        }
-        initRvHomeMenu()
     }
 
     private val simpleAdapter = HomeOperationAdapter()

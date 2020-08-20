@@ -1,23 +1,31 @@
 package com.unicorn.forensic2.refactor.stat
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.datetime.datePicker
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.displayDateFormat
 import com.unicorn.forensic2.app.observeOnMain
+import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.toDisplayFormat
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_stat.*
 import org.joda.time.DateTime
 
 class StatAct : BaseAct() {
 
+    private var beginDate = DateTime().withDayOfMonth(1).toString(displayDateFormat)
 
-    private val beginDate = DateTime().withDayOfMonth(1).minusMonths(7)
-
-    private val endDate = DateTime().withDayOfMonth(1)
+    private var endDate = DateTime().toString(displayDateFormat)
 
     val simpleAdapter = StatAdapter()
 
     override fun initViews() {
+        titleBar.setTitle("收结存统计")
+        tvBeginDate.text = "开始日期 $beginDate"
+        tvEndDate.text = "结束日期 $endDate"
+
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@StatAct)
             simpleAdapter.bindToRecyclerView(this)
@@ -25,16 +33,40 @@ class StatAct : BaseAct() {
     }
 
     override fun bindIntent() {
-        titleBar.setTitle("收结存统计")
-        tvBeginDate.text = "开始日期 ${beginDate.toString(displayDateFormat)}"
-        tvEndDate.text = "结束日期 ${endDate.toString(displayDateFormat)}"
-        simpleAdapter.setNewData(getData())
+        tvBeginDate.safeClicks().subscribe {
+            MaterialDialog(this).show {
+                datePicker { _, date ->
+                    beginDate = date.time.time.toDisplayFormat()
+                    this@StatAct.tvBeginDate.text = "开始日期 $beginDate"
+                    getStat()
+                }
+            }
+        }
 
+        tvEndDate.safeClicks().subscribe {
+            MaterialDialog(this).show {
+                datePicker { _, date ->
+                    endDate = date.time.time.toDisplayFormat()
+                    this@StatAct.tvEndDate.text = "结束日期 $endDate"
+                    getStat()
+                }
+            }
+        }
+
+        getStat()
+    }
+
+    private fun getStat(){
         v1Api.stat(
-            beginDate = beginDate.toString(displayDateFormat),
-            endDate = endDate.toString(displayDateFormat)
+            beginDate = beginDate,
+            endDate = endDate
         ).observeOnMain(this)
-            .subscribe()
+            .subscribeBy (
+                onSuccess = {
+                    //          simpleAdapter.setNewData(getData())
+                },
+                onError = {}
+            )
     }
 
     private fun getData(): List<Stat> {
