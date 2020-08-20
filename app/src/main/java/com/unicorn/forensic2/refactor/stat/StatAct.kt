@@ -3,18 +3,17 @@ package com.unicorn.forensic2.refactor.stat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.displayDateFormat
+import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.ui.base.BaseAct
 import kotlinx.android.synthetic.main.act_stat.*
 import org.joda.time.DateTime
-import org.joda.time.LocalDate
 
 class StatAct : BaseAct() {
 
-    val localDate = LocalDate.now().dayOfMonth().withMinimumValue()
 
-    val beginDate = DateTime().withDayOfMonth(1)
+    private val beginDate = DateTime().withDayOfMonth(1).minusMonths(7)
 
-    val endDate = DateTime()
+    private val endDate = DateTime().withDayOfMonth(1)
 
     val simpleAdapter = StatAdapter()
 
@@ -30,6 +29,12 @@ class StatAct : BaseAct() {
         tvBeginDate.text = "开始日期 ${beginDate.toString(displayDateFormat)}"
         tvEndDate.text = "结束日期 ${endDate.toString(displayDateFormat)}"
         simpleAdapter.setNewData(getData())
+
+        v1Api.stat(
+            beginDate = beginDate.toString(displayDateFormat),
+            endDate = endDate.toString(displayDateFormat)
+        ).observeOnMain(this)
+            .subscribe()
     }
 
     private fun getData(): List<Stat> {

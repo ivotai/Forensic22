@@ -7,14 +7,14 @@ import com.unicorn.forensic2.data.model.param.*
 import com.unicorn.forensic2.data.model.response.GeneralResponse
 import com.unicorn.forensic2.refactor.case1.detail.jdxx.Jdxx
 import com.unicorn.forensic2.refactor.case1.detail.process.CaseProcess
-import com.unicorn.forensic2.refactor.main.profile.backlog.Backlog
 import com.unicorn.forensic2.refactor.caseDemo.CaseDemo
+import com.unicorn.forensic2.refactor.main.profile.backlog.Backlog
+import com.unicorn.forensic2.refactor.tztx.Tztx
 import com.unicorn.forensic2.ui.operation.hf.ReplyParam
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
 import com.unicorn.forensic2.ui.operation.remind.Remind
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
-import com.unicorn.forensic2.refactor.tztx.Tztx
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -448,7 +448,7 @@ interface V1Api {
     @POST("api/v1/jdCaseMemo")
     fun jdCaseMemo(@PartMap map: Map<String, @JvmSuppressWildcards RequestBody>): Single<GeneralResponse>
 
-    @GET("app/jdCase/sjcStatistics")
+    @GET("api/v1/app/jdCase/sjcStatistics")
     fun stat(
         @Query("beginDate") beginDate: String,
         @Query("endDate") endDate: String
