@@ -35,7 +35,8 @@ class AddRemindAct : BaseAct() {
         map["remark"] = etRemark.trimText().toRequestBody(TextOrPlain)
         map["toFlag"] = "2".toRequestBody(TextOrPlain)
         map["caseId"] = case.caseId.toRequestBody(TextOrPlain)
-        map["jgId"] = case.jgid.toRequestBody(TextOrPlain)
+        if (case.jgid != null)
+            map["jgId"] = case.jgid!!.toRequestBody(TextOrPlain)
         v1Api.jdRemind(map).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
