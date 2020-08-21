@@ -71,7 +71,7 @@ data class Case(
     val caseType: String,
     val courtNameAccept: String,
     val lid: String?,
-    val jgid: String,
+    val jgid: String?,
     val jdlbId: String,
     val jdlbDisplay1: String?,
     val jdlbDisplay2: String?,
