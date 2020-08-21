@@ -397,7 +397,7 @@ interface V1Api {
 
     @GET("api/v1/jdJdry/list")
     fun jdJdryList(
-        @Query("jgid") jgid: String,
+        @Query("jgid") jgid: String?,
         @Query("jdlb") jdlbId: String
     ): Single<List<JdrySimple>>
 
