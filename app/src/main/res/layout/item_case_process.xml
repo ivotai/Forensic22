@@ -10,23 +10,22 @@
         android:id="@+id/tvHandleDttm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginEnd="16dp"
         android:text="处理时间"
         android:textColor="@color/md_black"
         android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timelineView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.vipulasri.timelineview.TimelineView
         android:id="@+id/timelineView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="24dp"
         app:endLineColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvHandleDttm"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="parent"
         app:lineWidth="1dp"
         app:markerSize="8dp"
@@ -67,5 +66,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
