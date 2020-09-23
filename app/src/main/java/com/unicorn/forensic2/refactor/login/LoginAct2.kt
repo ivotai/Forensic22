@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.act_login2.*
 class LoginAct2 : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle("登录")
         initViewPager2()
     }
 
@@ -42,7 +41,7 @@ class LoginAct2 : BaseAct() {
 
     override val layoutId = R.layout.act_login2
 
-    private val unCheckedColor = ColorUtils.getColor(R.color.md_grey_600)
-    private val checkedColor = ColorUtils.getColor(R.color.colorPrimary)
+    private val unCheckedColor = ColorUtils.getColor(R.color.md_blue_300)
+    private val checkedColor = ColorUtils.getColor(R.color.white)
 
 }
