@@ -1,4 +1,4 @@
-package com.unicorn.forensic2.refactor.login
+package com.unicorn.forensic2.refactor.login.fy
 
 data class Fy(
     val czbz: String,
