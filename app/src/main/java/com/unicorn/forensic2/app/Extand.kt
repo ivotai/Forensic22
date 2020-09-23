@@ -6,6 +6,7 @@ import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ToastUtils
@@ -47,6 +48,10 @@ fun RecyclerView.addDefaultItemDecoration(size: Int) {
 
 fun Context.startAct(actClass: Class<*>) {
     this.startActivity(Intent(this, actClass))
+}
+
+fun Fragment.startAct(actClass: Class<*>) {
+    this.context?.startAct(actClass)
 }
 
 fun Context.toActAndFinish(actClass: Class<*>) {
