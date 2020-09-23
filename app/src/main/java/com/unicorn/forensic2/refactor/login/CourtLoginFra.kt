@@ -41,8 +41,7 @@ class CourtLoginFra : BaseFra() {
                 )
             )
         }
-
-        getFy()
+        etCourt.safeClicks().subscribe { getFy() }
     }
 
     override val layoutId = R.layout.fra_court_login

@@ -46,7 +46,8 @@ class LoginAct2 : BaseAct() {
         val mask = DialogHelper.showMask(this)
         v1Api.login(
             username = loginEvent.username,
-            password = loginEvent.password
+            password = loginEvent.password,
+            court = loginEvent.court
         ).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
