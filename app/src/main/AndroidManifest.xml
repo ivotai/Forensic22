@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.act.LoginAct" />
+        <activity android:name=".refactor.login.LoginAct2" />
         <activity android:name=".ui.act.JdjgPublicListAct" />
         <activity android:name=".ui.act.JdjgPublicDetailAct" />
         <activity android:name=".ui.act.XtggListAct" />

@@ -455,4 +455,10 @@ interface V1Api {
         @Query("endDate") endDate: String
     ): Single<List<Stat>>
 
+
+    //
+
+    @GET("sfjdwww/category/fy")
+    fun getFy(): Single<Any>
+
 }

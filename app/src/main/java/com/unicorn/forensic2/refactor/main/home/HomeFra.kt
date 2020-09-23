@@ -6,7 +6,7 @@ import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.startAct
 import com.unicorn.forensic2.app.user
-import com.unicorn.forensic2.ui.act.LoginAct
+import com.unicorn.forensic2.refactor.login.LoginAct2
 import com.unicorn.forensic2.ui.base.BaseFra
 import kotlinx.android.synthetic.main.fra_home.*
 
@@ -25,7 +25,7 @@ class HomeFra : BaseFra() {
     override fun bindIntent() {
         simpleAdapter.setNewData(HomeOperation.all)
 
-        tvUsername.safeClicks().subscribe { if (!isLogin) activity?.startAct(LoginAct::class.java) }
+        tvUsername.safeClicks().subscribe { if (!isLogin) activity?.startAct(LoginAct2::class.java) }
     }
 
     override val layoutId = R.layout.fra_home
