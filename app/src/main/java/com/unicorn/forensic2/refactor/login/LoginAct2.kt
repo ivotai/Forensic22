@@ -47,7 +47,8 @@ class LoginAct2 : BaseAct() {
         v1Api.login(
             username = loginEvent.username,
             password = loginEvent.password,
-            court = loginEvent.court
+            court = loginEvent.court,
+            path = if (loginEvent.court == null) "account" else "courtAccount"
         ).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {

@@ -26,11 +26,12 @@ interface V1Api {
 
     // 登录接口要这么写，不理解其中奥妙
     @FormUrlEncoded
-    @POST("login/account")
+    @POST("login/{path}")
     fun login(
         @Field("username") username: String,
         @Field("password") password: String,
-        @Field("court") court: String = ""
+        @Field("court") court: String? = null,
+        @Path(value = "path") path: String
     ): Single<LoginResult>
 
 
