@@ -1,117 +1,19 @@
 {
-  "content": [
-    {
-      "@id": "1",
-      "id": "3A0808B4-5CEF-449A-A46C-3AFFF05DBC35",
-      "nid": "8d784a9e-0ee3-44ba-b802-b7c371508409",
-      "notification": {
-        "@id": "2",
-        "nid": "8d784a9e-0ee3-44ba-b802-b7c371508409",
-        "notifytype": 3,
-        "msg": "陕西省高级人民法院审判的省监委与涉嫌行贿罪一案（(2020)陕司鉴协1号），已进入司法鉴定程序。2020年9月9日，依法定程序确定西安康胜会计师事务所有限责任公司为本案鉴定机构。特此通知。",
-        "attachedkey": "a9dca152-0e29-4fc0-ae77-29fee56f39d9",
-        "addtime": 1599634243000,
-        "adduserid": "360001294",
-        "caseNo": "(2020)陕鉴8号"
-      },
-      "uid": "360001478",
-      "sendtime": 1599634249000,
-      "readtime": 1599796412904
-    },
-    {
-      "@id": "3",
-      "id": "35CE9F89-5727-4DCE-85E8-4637D7289D84",
-      "nid": "da07dbce-280d-4eb7-bc25-24a85bc26643",
-      "notification": {
-        "@id": "4",
-        "nid": "da07dbce-280d-4eb7-bc25-24a85bc26643",
-        "notifytype": 3,
-        "msg": "陕西省高级人民法院审判的省监委与涉嫌行贿罪一案（(2020)陕司鉴协1号），已进入司法鉴定程序。2020年9月9日，依法定程序确定陕西方正会计师事务所有限责任公司为本案鉴定机构。特此通知。",
-        "attachedkey": "a4f2cd8c-fe94-46c2-906a-92255a2e5696",
-        "addtime": 1599634013000,
-        "adduserid": "360001294",
-        "caseNo": "(2020)陕鉴8号"
-      },
-      "uid": "360001478",
-      "sendtime": 1599634017000,
-      "readtime": 1599796412908
-    },
-    {
-      "@id": "5",
-      "id": "9367B130-AE35-47AD-A9F0-B67CB40311B8",
-      "nid": "8b1b9a6b-53ca-4d9e-bd82-6d04e01eea66",
-      "notification": {
-        "@id": "6",
-        "nid": "8b1b9a6b-53ca-4d9e-bd82-6d04e01eea66",
-        "notifytype": 2,
-        "msg": "陕西省高级人民法院审判的省监委与涉嫌行贿罪一案（(2020)陕司鉴协1号），已进入司法鉴定程序。2020年9月9日，依法定程序确定陕西方正会计师事务所有限责任公司为本案鉴定机构。特此通知。",
-        "attachedkey": "3a2a9c29-0e63-4d0b-a2bd-1e8dfc6f6a32",
-        "addtime": 1599634013000,
-        "adduserid": "360001294"
-      },
-      "uid": "360001478",
-      "sendtime": 1599634017000,
-      "readtime": 1599796412910
-    },
-    {
-      "@id": "7",
-      "id": "10CF4929-22BF-45D9-9CE1-2AFCA2AA0C5A",
-      "nid": "109aee5c-f8c0-49bd-a419-e8a779af750f",
-      "notification": {
-        "@id": "8",
-        "nid": "109aee5c-f8c0-49bd-a419-e8a779af750f",
-        "notifytype": 3,
-        "msg": "陕西省高级人民法院审判的省监委与涉嫌行贿罪一案（(2020)陕司鉴协1号），已进入司法鉴定程序。2020年9月9日，依法定程序确定西安长兴会计师事务所有限责任公司为本案鉴定机构。特此通知。",
-        "attachedkey": "db5c0cee-3c1d-415d-a9fd-5a7642a73966",
-        "addtime": 1599633881000,
-        "adduserid": "360001294",
-        "caseNo": "(2020)陕鉴8号"
-      },
-      "uid": "360001478",
-      "sendtime": 1599633884000,
-      "readtime": 1599796412913
-    },
-    {
-      "@id": "9",
-      "id": "5A81D6A8-7888-40DA-BD36-7B24153DF18C",
-      "nid": "611211b4-648f-4db4-848c-f924b0c722c1",
-      "notification": {
-        "@id": "10",
-        "nid": "611211b4-648f-4db4-848c-f924b0c722c1",
-        "notifytype": 2,
-        "msg": "陕西省高级人民法院审判的省监委与涉嫌行贿罪一案（(2020)陕司鉴协1号），我院受理后，定于2020年9月9日10时37分在陕西省高级人民法院司法技术室选择鉴定机构。控制疫情期间，摇号结果将以短信形式发送给您。具体信息可咨询当地承办法院。",
-        "attachedkey": "3a2a9c29-0e63-4d0b-a2bd-1e8dfc6f6a32",
-        "addtime": 1599633008000,
-        "adduserid": "360001756"
-      },
-      "uid": "360001478",
-      "sendtime": 1599633023000,
-      "readtime": 1599796412916
-    }
-  ],
-  "pageable": {
-    "sort": {
-      "sorted": true,
-      "unsorted": false,
-      "empty": false
-    },
-    "pageNumber": 0,
-    "offset": "0",
-    "pageSize": 5,
-    "unpaged": false,
-    "paged": true
-  },
-  "last": false,
-  "totalElements": "101",
-  "totalPages": 21,
-  "first": true,
-  "sort": {
-    "sorted": true,
-    "unsorted": false,
-    "empty": false
-  },
-  "size": 5,
-  "number": 0,
-  "numberOfElements": 5,
-  "empty": false
+  "@id": "1",
+  "dm": "R00",
+  "dmms": "陕西省高级人民法院",
+  "gfdm": 3600,
+  "xssx": "R00",
+  "qybz": 1,
+  "czbz": "GF2004-000-180",
+  "sm": "",
+  "fyjc": "陕",
+  "sjdm": "0",
+  "fydz": "陕",
+  "fyjb": 2,
+  "qzh": "",
+  "spip": "154.0.21.89",
+  "fymc": "陕西高院",
+  "lxdh": "029-85558509",
+  "dqmc": "陕西高院"
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,4 +12,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="用户登录"
+        android:textSize="16dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/tvCourtLogin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <View
+        android:id="@+id/vUserLogin"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tvUserLogin"
+        app:layout_constraintStart_toStartOf="@+id/tvUserLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserLogin" />
+
+    <TextView
+        android:id="@+id/tvCourtLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="法院登录"
+        android:textSize="16dp"
+        android:textColor="@color/md_grey_600"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUserLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvUserLogin"
+        app:layout_constraintTop_toTopOf="@+id/tvUserLogin"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/vCourtLogin"
+        android:layout_width="40dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/md_grey_600"
+        app:layout_constraintBottom_toBottomOf="@+id/vUserLogin"
+        app:layout_constraintEnd_toEndOf="@+id/tvCourtLogin"
+        app:layout_constraintStart_toStartOf="@+id/tvCourtLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvCourtLogin" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vUserLogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

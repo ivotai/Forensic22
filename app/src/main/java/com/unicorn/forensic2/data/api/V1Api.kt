@@ -458,7 +458,7 @@ interface V1Api {
 
     //
 
-    @GET("sfjdwww/category/fy")
-    fun getFy(): Single<Any>
+    @GET("category/fy")
+    fun getFy(): Single<List<Fy>>
 
 }
