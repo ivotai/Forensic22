@@ -8,7 +8,6 @@ import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.safeClicks
 import com.unicorn.forensic2.app.trimText
-import com.unicorn.forensic2.data.model.Fy
 import com.unicorn.forensic2.data.model.LoginInfo
 import com.unicorn.forensic2.ui.base.BaseFra
 import io.reactivex.rxkotlin.subscribeBy
@@ -16,12 +15,18 @@ import kotlinx.android.synthetic.main.fra_court_login.*
 
 class CourtLoginFra : BaseFra() {
 
-    private var fy: Fy? = null
+    private var dm: String = ""
+    private var dmms: String = ""
 
     override fun initViews() {
         fun restoreLoginInfo() = with(LoginInfo) {
-            etUsername.setText(username)
-            etPassword.setText(password)
+            if (isCourtLogin) {
+                etUsername.setText(username)
+                etPassword.setText(password)
+                etCourt.text = dm
+                this@CourtLoginFra.dm = dm
+                this@CourtLoginFra.dmms = dmms
+            }
         }
         restoreLoginInfo()
     }
@@ -30,8 +35,10 @@ class CourtLoginFra : BaseFra() {
         api.getFy().observeOnMain(this).subscribeBy {
             MaterialDialog(requireContext()).show {
                 listItems(items = it.map { it.dmms }) { _, index, _ ->
-                    fy = it[index]
-                    this@CourtLoginFra.etCourt.setText(fy?.dmms ?: "")
+                    val fy = it[index]
+                    dm = fy.dm
+                    dmms = fy.dmms
+                    this@CourtLoginFra.etCourt.text = dmms
                 }
             }
         }
@@ -39,7 +46,7 @@ class CourtLoginFra : BaseFra() {
 
     override fun bindIntent() {
         rtvLogin.safeClicks().subscribe {
-            if (fy == null) {
+            if (dm.isEmpty()) {
                 ToastUtils.showShort("请选择法院")
                 return@subscribe
             }
@@ -47,7 +54,8 @@ class CourtLoginFra : BaseFra() {
                 LoginEvent(
                     username = etUsername.trimText(),
                     password = etPassword.trimText(),
-                    court = fy?.dm
+                    dm = dm,
+                    dmms = dmms
                 )
             )
         }

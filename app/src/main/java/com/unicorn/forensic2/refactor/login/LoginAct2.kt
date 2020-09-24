@@ -29,6 +29,8 @@ class LoginAct2 : BaseAct() {
             offscreenPageLimit = LoginFragmentStateAdapter.titles.size - 1
             adapter = LoginFragmentStateAdapter(this@LoginAct2)
         }
+
+        if (LoginInfo.isCourtLogin) clickCourtLogin() else clickUserLogin()
     }
 
     override fun registerEvent() {
@@ -38,17 +40,19 @@ class LoginAct2 : BaseAct() {
     }
 
     private fun login(loginEvent: LoginEvent) {
-        fun storeLoginInfo(username: String, password: String) {
-            LoginInfo.username = username
-            LoginInfo.password = password
+        fun storeLoginInfo(loginEvent: LoginEvent) {
+            LoginInfo.username = loginEvent.username
+            LoginInfo.password = loginEvent.password
+            LoginInfo.dm = loginEvent.dm
+            LoginInfo.dmms = loginEvent.dmms
         }
 
         val mask = DialogHelper.showMask(this)
         v1Api.login(
             username = loginEvent.username,
             password = loginEvent.password,
-            court = loginEvent.court,
-            path = if (loginEvent.court == null) "account" else "courtAccount"
+            court = loginEvent.dm,
+            path = if (loginEvent.isCourtLogin) "courtAccount" else "account"
         ).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
@@ -59,7 +63,7 @@ class LoginAct2 : BaseAct() {
                     }
                     isLogin = true
                     loginResult = it
-                    storeLoginInfo(loginEvent.username, loginEvent.password)
+                    storeLoginInfo(loginEvent)
 
                     showRoleDialog()
                 },
@@ -99,20 +103,24 @@ class LoginAct2 : BaseAct() {
     }
 
     override fun bindIntent() {
-        tvUserLogin.clicks().subscribe {
-            viewPager2.setCurrentItem(0, false)
-            tvUserLogin.setTextColor(checkedColor)
-            vUserLogin.setBackgroundColor(checkedColor)
-            tvCourtLogin.setTextColor(unCheckedColor)
-            vCourtLogin.setBackgroundColor(unCheckedColor)
-        }
-        tvCourtLogin.clicks().subscribe {
-            viewPager2.setCurrentItem(1, false)
-            tvCourtLogin.setTextColor(checkedColor)
-            vCourtLogin.setBackgroundColor(checkedColor)
-            tvUserLogin.setTextColor(unCheckedColor)
-            vUserLogin.setBackgroundColor(unCheckedColor)
-        }
+        tvUserLogin.clicks().subscribe { clickUserLogin() }
+        tvCourtLogin.clicks().subscribe { clickCourtLogin() }
+    }
+
+    private fun clickUserLogin() {
+        viewPager2.setCurrentItem(0, false)
+        tvUserLogin.setTextColor(checkedColor)
+        vUserLogin.setBackgroundColor(checkedColor)
+        tvCourtLogin.setTextColor(unCheckedColor)
+        vCourtLogin.setBackgroundColor(unCheckedColor)
+    }
+
+    private fun clickCourtLogin() {
+        viewPager2.setCurrentItem(1, false)
+        tvCourtLogin.setTextColor(checkedColor)
+        vCourtLogin.setBackgroundColor(checkedColor)
+        tvUserLogin.setTextColor(unCheckedColor)
+        vUserLogin.setBackgroundColor(unCheckedColor)
     }
 
     override val layoutId = R.layout.act_login2

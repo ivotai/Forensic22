@@ -15,8 +15,10 @@ class LoginFra : BaseFra() {
 
     override fun initViews() {
         fun restoreLoginInfo() = with(LoginInfo) {
-            etUsername.setText(username)
-            etPassword.setText(password)
+            if (!isCourtLogin) {
+                etUsername.setText(username)
+                etPassword.setText(password)
+            }
         }
         restoreLoginInfo()
     }
