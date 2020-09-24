@@ -16,6 +16,9 @@ enum class Role(val roleTag: String, val cn: String) {
             return values().find { roleTag == it.roleTag }!!
         }
 
+        val all get() = listOf(Normal, JdjgAdmin, Pszj, Spry, Sfjd, SfjdAdmin)
+
+        val roleTags = all.map { it.roleTag }
     }
 
 }

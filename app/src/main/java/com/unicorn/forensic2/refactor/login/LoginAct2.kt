@@ -61,6 +61,21 @@ class LoginAct2 : BaseAct() {
                         ToastUtils.showShort("登录失败")
                         return@subscribeBy
                     }
+
+                    // 验证所有角色的合法性
+                    val roleTags = it.user.roles
+                    var result = true
+                    for (roleTag in roleTags) {
+                        if (!Role.roleTags.contains(roleTag)) {
+                            result = false
+                            break
+                        }
+                    }
+                    if (!result) {
+                        ToastUtils.showShort("登录失败")
+                        return@subscribeBy
+                    }
+
                     isLogin = true
                     loginResult = it
                     storeLoginInfo(loginEvent)

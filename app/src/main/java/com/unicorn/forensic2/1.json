@@ -1,19 +1,23 @@
 {
-  "@id": "1",
-  "dm": "R00",
-  "dmms": "陕西省高级人民法院",
-  "gfdm": 3600,
-  "xssx": "R00",
-  "qybz": 1,
-  "czbz": "GF2004-000-180",
-  "sm": "",
-  "fyjc": "陕",
-  "sjdm": "0",
-  "fydz": "陕",
-  "fyjb": 2,
-  "qzh": "",
-  "spip": "154.0.21.89",
-  "fymc": "陕西高院",
-  "lxdh": "029-85558509",
-  "dqmc": "陕西高院"
+  "success": true,
+  "session": "NjQxMmNhYzMtNzAyYi00YjMyLTkzNDItNDk1YmU3YzEzNDc5",
+  "user": {
+    "JdjgAdmin": false,
+    "Root": false,
+    "SfjdAdmin": false,
+    "roles": [
+      "Admin",
+      "Bafg"
+    ],
+    "Sfjd": false,
+    "Normal": false,
+    "Admin": true,
+    "realName": true,
+    "Jdjg": false,
+    "roleTag": "Admin",
+    "Pszj": false,
+    "id": 2020,
+    "username": "司法鉴定-管理员",
+    "Bafg": true
+  }
 }
