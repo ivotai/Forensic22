@@ -4,12 +4,12 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.RxBus
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
-import com.unicorn.forensic2.app.trimText
+import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.data.model.LoginInfo
+import com.unicorn.forensic2.data.model.TreeResult2
+import com.unicorn.forensic2.ui.act.FyTreeAct
 import com.unicorn.forensic2.ui.base.BaseFra
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.fra_court_login.*
 
@@ -23,7 +23,7 @@ class CourtLoginFra : BaseFra() {
             if (isCourtLogin) {
                 etUsername.setText(username)
                 etPassword.setText(password)
-                etCourt.text = dm
+                etCourt.text = dmms
                 this@CourtLoginFra.dm = dm
                 this@CourtLoginFra.dmms = dmms
             }
@@ -59,7 +59,15 @@ class CourtLoginFra : BaseFra() {
                 )
             )
         }
-        etCourt.safeClicks().subscribe { getFy() }
+        etCourt.safeClicks().subscribe { startAct(FyTreeAct::class.java) }
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this, TreeResult2::class.java, Consumer {
+            dm = it.fy.dm
+            dmms = it.fy.dmms
+            this@CourtLoginFra.etCourt.text = dmms
+        })
     }
 
     override val layoutId = R.layout.fra_court_login
