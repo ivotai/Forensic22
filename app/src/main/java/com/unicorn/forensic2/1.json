@@ -1,23 +1,114 @@
 {
-  "success": true,
-  "session": "NjQxMmNhYzMtNzAyYi00YjMyLTkzNDItNDk1YmU3YzEzNDc5",
-  "user": {
-    "JdjgAdmin": false,
-    "Root": false,
-    "SfjdAdmin": false,
-    "roles": [
-      "Admin",
-      "Bafg"
-    ],
-    "Sfjd": false,
-    "Normal": false,
-    "Admin": true,
-    "realName": true,
-    "Jdjg": false,
-    "roleTag": "Admin",
-    "Pszj": false,
-    "id": 2020,
-    "username": "司法鉴定-管理员",
-    "Bafg": true
-  }
+  "content": [
+    {
+      "@id": "1",
+      "caseId": "b1aa2179-40af-484a-a623-25fbdccc830b",
+      "jdNo": "(2020)陕鉴13号",
+      "caseNo": "撒大大",
+      "caseType": 1,
+      "jdlbDisplay1": "测绘",
+      "jdlbDisplay2": "测绘",
+      "courtNameApply": "陕西省高级人民法院",
+      "courtNameAccept": "陕西省高级人民法院",
+      "dateApply": 1600876800000,
+      "dateAccept": 1600876800000,
+      "closeTypeDisplay": "",
+      "statusDb": 50,
+      "statusFlag": 5,
+      "lid": "16af6e78-79b6-4ad6-970d-2952d462b84c"
+    },
+    {
+      "@id": "2",
+      "caseId": "a509dd13-493d-464c-af65-661af546a24d",
+      "jdNo": "(2020)陕鉴11号",
+      "caseNo": "(2020)陕破1号",
+      "caseType": 1,
+      "jdlbDisplay1": "法医类",
+      "jdlbDisplay2": "法医类",
+      "courtNameApply": "陕西省高级人民法院",
+      "courtNameAccept": "陕西省高级人民法院",
+      "dateApply": 1600704000000,
+      "dateAccept": 1600704000000,
+      "closeTypeDisplay": "",
+      "statusDb": 50,
+      "statusFlag": 5,
+      "lid": "d691c446-ba21-4654-ac98-743d6361b355"
+    },
+    {
+      "@id": "3",
+      "caseId": "a509dd13-493d-464c-af65-661af546a24d",
+      "jdNo": "(2020)陕鉴11号",
+      "caseNo": "(2020)陕破1号",
+      "caseType": 1,
+      "jdlbDisplay1": "法医类",
+      "jdlbDisplay2": "法医类",
+      "courtNameApply": "陕西省高级人民法院",
+      "courtNameAccept": "陕西省高级人民法院",
+      "dateApply": 1600704000000,
+      "dateAccept": 1600704000000,
+      "closeTypeDisplay": "",
+      "statusDb": 50,
+      "statusFlag": 5,
+      "lid": "15de109e-eb8f-40cc-bec5-6c60cc64f33b"
+    },
+    {
+      "@id": "4",
+      "caseId": "3a2a9c29-0e63-4d0b-a2bd-1e8dfc6f6a32",
+      "jdNo": "(2020)陕鉴8号",
+      "caseNo": "(2020)陕司鉴协1号",
+      "caseType": 1,
+      "jdlbDisplay1": "会计审计",
+      "jdlbDisplay2": "会计审计",
+      "courtNameApply": "陕西省高级人民法院",
+      "courtNameAccept": "陕西省高级人民法院",
+      "dateApply": 1599580800000,
+      "dateAccept": 1599580800000,
+      "closeTypeDisplay": "",
+      "statusDb": 50,
+      "statusFlag": 5,
+      "lid": "8488ad81-61e8-4956-93bd-b09af29a8db3"
+    },
+    {
+      "@id": "5",
+      "caseId": "3a2a9c29-0e63-4d0b-a2bd-1e8dfc6f6a32",
+      "jdNo": "(2020)陕鉴8号",
+      "caseNo": "(2020)陕司鉴协1号",
+      "caseType": 1,
+      "jdlbDisplay1": "会计审计",
+      "jdlbDisplay2": "会计审计",
+      "courtNameApply": "陕西省高级人民法院",
+      "courtNameAccept": "陕西省高级人民法院",
+      "dateApply": 1599580800000,
+      "dateAccept": 1599580800000,
+      "closeTypeDisplay": "",
+      "statusDb": 50,
+      "statusFlag": 5,
+      "lid": "1c24e287-c20a-4d7d-ad57-bce41cb9e585"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "pageNumber": 0,
+    "offset": "0",
+    "pageSize": 5,
+    "unpaged": false,
+    "paged": true
+  },
+  "last": false,
+  "totalElements": "24",
+  "totalPages": 5,
+  "first": true,
+  "sort": {
+    "sorted": false,
+    "unsorted": true,
+    "empty": true
+  },
+  "size": 5,
+  "number": 0,
+  "numberOfElements": 5,
+  "empty": false
 }

@@ -15,12 +15,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic__ionicons_svg_ios_arrow_back" />
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/iivBack"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:iiv_icon="far-chevron-left"
+            app:iiv_size="18dp"
+            app:iiv_color="@color/white" />
 
     </FrameLayout>
 

@@ -18,7 +18,7 @@ class LotteryDelayListAct : BaseAct() {
 
     override fun initViews() {
         super.initViews()
-        titleBar.setTitle(CaseOperation.BGPF_JDJGADMIN.cn)
+        titleBar.setTitle(CaseOperation.BGPF_JDJGADMIN.cn)  // or BGPF_SFJD
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@LotteryDelayListAct)
             lotteryDelayAdapter.bindToRecyclerView(this)
