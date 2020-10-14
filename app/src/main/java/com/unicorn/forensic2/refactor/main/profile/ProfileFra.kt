@@ -6,13 +6,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ConvertUtils
 import com.unicorn.forensic2.R
+import com.unicorn.forensic2.app.RxBus
 import com.unicorn.forensic2.app.observeOnMain
 import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.app.user
 import com.unicorn.forensic2.refactor.main.profile.backlog.BacklogAdapter
 import com.unicorn.forensic2.ui.base.BaseFra
+import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import com.yqritc.recyclerviewflexibledivider.VerticalDividerItemDecoration
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.fra_profile.*
 
@@ -73,6 +76,12 @@ class ProfileFra : BaseFra() {
             },
             onError = {}
         )
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this, RefreshCaseEvent::class.java, Consumer {
+            backlog()
+        })
     }
 
     private val blue300 by lazy { ContextCompat.getColor(context!!, R.color.md_blue_300) }
