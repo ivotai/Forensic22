@@ -25,14 +25,14 @@ class JdryMyEditAct : BaseAct() {
 
     override fun bindIntent() {
         fun initEditParam() = with(jdry) {
-            jdryMyEditParam =JdryMyEditParam(
+            jdryMyEditParam = JdryMyEditParam(
                 objectId = jdryid,
                 xm = xm,
                 zjlx = zjlx,
                 zjhm = zjhm,
                 zczyh = zczyh,
                 grzc = grzc,
-                mphone = mphone,
+                mphone = mphone ?: "",
                 jdlbId = jdlbId,
                 zyzsyxq = zyzsyxq.toDisplayFormat(),
                 fidzczs = fidzczs,
@@ -41,14 +41,14 @@ class JdryMyEditAct : BaseAct() {
         }
         initEditParam()
 
-        fun display() = with(jdryMyEditParam){
+        fun display() = with(jdryMyEditParam) {
             etXm.setText(xm)
             tvZjlx.text = zjlxList.find { it.id == zjlx }?.name
             etZjhm.setText(zjhm)
             etZczyh.setText(zczyh)
             etGrzc.setText(grzc)
-            tvJdlb.text=jdry.jdlb
-            tvZyzsyxq.text= zyzsyxq
+            tvJdlb.text = jdry.jdlb
+            tvZyzsyxq.text = zyzsyxq
             etMPhone.setText(mphone)
         }
         display()
@@ -125,7 +125,7 @@ class JdryMyEditAct : BaseAct() {
         })
     }
 
-    private lateinit var jdryMyEditParam:JdryMyEditParam
+    private lateinit var jdryMyEditParam: JdryMyEditParam
 
     private val jdry by lazy { intent.getSerializableExtra(Param) as Jdry }
 

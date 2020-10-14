@@ -53,7 +53,7 @@ data class Jdry(
     val jdlbId: String,
     val jdryid: String,
     val jgid: String,
-    val mphone: String,
+    val mphone: String?,
     val xm: String,
     val zczyh: String,
     val zjhm: String,
