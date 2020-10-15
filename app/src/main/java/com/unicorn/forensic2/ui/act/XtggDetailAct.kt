@@ -14,7 +14,8 @@ class XtggDetailAct : BaseAct() {
 
     override fun bindIntent() {
         val xtgg = intent.getSerializableExtra(Xtgg) as Xtgg
-        webView.loadData(xtgg.html, "text/html; charset=UTF-8", null)
+        webView.loadDataWithBaseURL(null, xtgg.html, "text/html", "utf-8", null);
+//        webView.loadData(xtgg.html, "text/html; charset=UTF-8", null)
     }
 
     override val layoutId = R.layout.ui_title_webview
