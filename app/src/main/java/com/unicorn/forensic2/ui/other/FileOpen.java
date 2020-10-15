@@ -36,7 +36,7 @@ public class FileOpen {
         String fName = file.getName();
         //获取后缀名前的分隔符"."在fName中的位置。
         int dotIndex = fName.lastIndexOf(".");
-        if (dotIndex > 0) {
+        if (dotIndex >= 0) {
             //获取文件的后缀名
             String end = fName.substring(dotIndex, fName.length()).toLowerCase(Locale.getDefault());
             //在MIME和文件类型的匹配表中找到对应的MIME类型。

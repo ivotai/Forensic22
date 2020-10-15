@@ -9,7 +9,7 @@ import com.unicorn.forensic2.app.Param
 import com.unicorn.forensic2.app.baseUrl
 import com.unicorn.forensic2.data.SimplePlayer
 import com.unicorn.forensic2.ui.act.PdfAct
-import com.unicorn.forensic2.ui.other.FileOpen
+import com.unicorn.forensic2.ui.other.FileUtils2
 import com.zhy.http.okhttp.OkHttpUtils
 import com.zhy.http.okhttp.callback.FileCallBack
 import okhttp3.Call
@@ -60,10 +60,11 @@ data class UploadFile(
             .get()
             .url(pdfUrl)
             .build()
-            .execute(object : FileCallBack(context.cacheDir.path, ".$extension") {
+            .execute(object : FileCallBack(context.cacheDir.path, "1.$extension") {
                 override fun onResponse(response: File, id: Int) {
                     progressMask.dismiss()
-                    FileOpen.openFile(context,response)
+                    FileUtils2.openFile(context,response)
+//                    FileOpen.openFile(context,response)
                 }
 
                 override fun inProgress(progress: Float, total: Long, id: Int) {
