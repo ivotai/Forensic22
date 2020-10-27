@@ -14,6 +14,14 @@ class JDBGAct : BaseAct() {
         titleBar.setTitle("鉴定报告")
 
         tvRemark.text = case.remark
+
+        case.jdLotteryTime?.run {
+            tvDaysAppraisal.text = daysAppraisal.toString()
+            tvDaysPay.text = daysPay.toString()
+            tvDaysClearfee.text = daysClearfee.toString()
+            tvDaysCheck.text = daysCheck.toString()
+            tvDaysEvidence.text = daysEvidence.toString()
+        }
     }
 
     override fun bindIntent() {

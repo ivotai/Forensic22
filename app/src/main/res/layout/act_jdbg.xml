@@ -67,6 +67,127 @@
         app:layout_constraintTop_toBottomOf="@+id/tvJdbg" />
 
     <TextView
+        android:id="@+id/lDaysAppraisal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="鉴定所用时效(天)"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lJdwd" />
+
+    <TextView
+        android:id="@+id/tvDaysAppraisal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJdwd" />
+
+    <TextView
+        android:id="@+id/lDaysPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="收到费用所用时效(天)"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lDaysAppraisal" />
+
+    <TextView
+        android:id="@+id/tvDaysPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDaysAppraisal" />
+
+    <TextView
+        android:id="@+id/lDaysClearfee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="报价所用时效(天)"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lDaysPay" />
+
+    <TextView
+        android:id="@+id/tvDaysClearfee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDaysPay" />
+
+    <TextView
+        android:id="@+id/lDaysCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="查勘所用时效(天)"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lDaysClearfee" />
+
+    <TextView
+        android:id="@+id/tvDaysCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDaysClearfee" />
+
+    <TextView
+        android:id="@+id/lDaysEvidence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="补充证据所用时效(天)"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lDaysCheck" />
+
+    <TextView
+        android:id="@+id/tvDaysEvidence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDaysCheck" />
+
+    <TextView
         android:id="@+id/lRemark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +197,7 @@
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lJdwd" />
+        app:layout_constraintTop_toBottomOf="@+id/lDaysEvidence" />
 
     <TextView
         android:id="@+id/tvRemark"
@@ -85,10 +206,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="end"
-        android:text="备注"
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdwd" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDaysEvidence" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
