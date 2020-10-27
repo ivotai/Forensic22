@@ -42,7 +42,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:background="@null"
-                android:hint="发送方"
+                android:hint="请选择发送方"
                 android:textColor="@color/md_black"
                 android:textColorHint="@color/md_black"
                 android:textSize="18dp" />
