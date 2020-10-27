@@ -16,18 +16,19 @@ enum class HomeOperation(val namez: String, val iconRes: Int) {
     TZTX("通知提醒", R.mipmap.tztx),
     JGXX("机构信息", R.mipmap.jgxx),
     ZJXX("专家信息", R.mipmap.zjxx),
-//    PSXX("评审信息", R.mipmap.psxx),
+
+    //    PSXX("评审信息", R.mipmap.psxx),
     ZTBG("专题报告", R.mipmap.ztbg),
-    SJCTX("收结存统计",R.mipmap.sjctx),
+    SJCTX("收结存统计", R.mipmap.sjctx),
     ;
 
     companion object {
         val all
             get():List<HomeOperation> = when (role) {
-                Role.Normal -> listOf(JGCX, XTGG, TSJY, WDAJ)
+                Role.Normal -> listOf(JGCX, XTGG, TSJY, WDAJ, TZTX)
                 Role.JdjgAdmin -> listOf(JGCX, XTGG, TSJY, WDAJ, TZTX, JGXX)
                 Role.Pszj -> listOf(JGXX, XTGG, TSJY, WDPS, TZTX, ZJXX)
-                Role.Spry -> listOf(JGCX, XTGG, WDAJ, TZTX, ZTBG,SJCTX)
+                Role.Spry -> listOf(JGCX, XTGG, WDAJ, TZTX, SJCTX)
                 Role.Sfjd, Role.SfjdAdmin -> {
                     val list = ArrayList<HomeOperation>()
                     list.add(JGCX)
@@ -37,7 +38,7 @@ enum class HomeOperation(val namez: String, val iconRes: Int) {
                     if (Role.SfjdAdmin in RoleWrapper.SfjdMixture.roles)
                         list.add(SPSX)
                     list.add(TZTX)
-                    list.add(ZTBG)
+//                    list.add(ZTBG)
                     list.add(SJCTX)
                     list
                 }
