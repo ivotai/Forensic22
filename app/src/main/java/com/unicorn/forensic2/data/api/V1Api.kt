@@ -202,7 +202,8 @@ interface V1Api {
     @GET("public/xtggList")
     fun getXtggList(
         @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int = defaultPageSize
+        @Query("pageSize") pageSize: Int = defaultPageSize,
+        @Query("dataflag") vararg dataFlag: Int = intArrayOf(2, 3)
     ): Single<Page<Xtgg>>
 
 
