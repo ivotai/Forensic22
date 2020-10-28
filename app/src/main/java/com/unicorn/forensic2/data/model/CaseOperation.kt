@@ -31,10 +31,10 @@ enum class CaseOperation(val cn: String) {
                 else -> listOf()
             }
             Role.SfjdAdmin -> when (caseType) {
-                CaseType.LASP -> listOf(CaseType.LASP)
-                CaseType.CYHSP -> listOf(CaseType.CYHSP)
-                CaseType.JASP -> listOf(CaseType.JASP)
-                CaseType.XASP -> listOf(CaseType.XASP)
+                CaseType.LASP -> listOf(LASP)
+                CaseType.CYHSP -> listOf(CYHSP)
+                CaseType.JASP -> listOf(JASP)
+                CaseType.XASP -> listOf(XASP)
                 else -> listOf()
             }
             Role.Spry -> when (caseType) {
