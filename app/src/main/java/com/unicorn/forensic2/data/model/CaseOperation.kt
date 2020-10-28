@@ -9,6 +9,7 @@ enum class CaseOperation(val cn: String) {
     JDFK("鉴定反馈"),
     BGPF_JDJGADMIN("变更批复"),
     JDBG("鉴定报告"),
+    JDFY("鉴定费用"),
     BGPF_SFJD("变更批复"),
     LASP("立案审批"),
     CYHSP("重摇要审批"),
@@ -20,8 +21,8 @@ enum class CaseOperation(val cn: String) {
         fun all(caseType: CaseType) = when (role) {
             Role.JdjgAdmin -> when (caseType) {
                 CaseType.ZBTZ -> listOf(HF)
-                CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDBG)
-                CaseType.YJD -> listOf(AJBW)
+                CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDFY, JDBG)
+                CaseType.YJD -> listOf(AJBW, JDFY, JDBG)
                 else -> listOf()
             }
             Role.Sfjd -> when (caseType) {
@@ -30,10 +31,10 @@ enum class CaseOperation(val cn: String) {
                 else -> listOf()
             }
             Role.SfjdAdmin -> when (caseType) {
-                CaseType.LASP -> listOf(LASP)
-                CaseType.CYHSP -> listOf(CYHSP)
-                CaseType.JASP -> listOf(JASP)
-                CaseType.XASP -> listOf(XASP)
+                CaseType.LASP -> listOf(CaseType.LASP)
+                CaseType.CYHSP -> listOf(CaseType.CYHSP)
+                CaseType.JASP -> listOf(CaseType.JASP)
+                CaseType.XASP -> listOf(CaseType.XASP)
                 else -> listOf()
             }
             Role.Spry -> when (caseType) {
