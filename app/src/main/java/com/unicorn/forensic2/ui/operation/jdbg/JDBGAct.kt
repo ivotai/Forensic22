@@ -26,7 +26,8 @@ class JDBGAct : BaseAct() {
 
     override fun initViews() {
         titleBar.setTitle("鉴定报告")
-
+        case.fidjdbgInfo?.let { tvJdbg.text = "鉴定报告" }
+        case.fidjdwdInfo?.let { tvJdwd.text = "其他材料" }
         case.jdLotteryTime?.run {
             tvDaysAppraisal.setText(daysAppraisal.toString())
             tvDaysPay.setText(daysPay.toString())
@@ -42,10 +43,26 @@ class JDBGAct : BaseAct() {
     private var fid_jdwd: File? = null
 
     override fun bindIntent() {
-        // 查看是都能做的
-
         tvJdbg.safeClicks().subscribe { case.fidjdbgInfo?.open(this) }
         tvJdwd.safeClicks().subscribe { case.fidjdwdInfo?.open(this) }
+
+        // 已鉴定 不允许编辑
+        if (caseType == CaseType.YJD){
+            tvDaysAppraisal.isEnabled = false
+            tvDaysPay.isEnabled = false
+            tvDaysClearfee.isEnabled = false
+            tvDaysCheck.isEnabled = false
+            tvDaysEvidence.isEnabled = false
+            tvReportNo.isEnabled = false
+            tvRemark.isEnabled = false
+            tvDaysAppraisal.hint = ""
+            tvDaysPay.hint = ""
+            tvDaysClearfee.hint = ""
+            tvDaysCheck.hint = ""
+            tvDaysEvidence.hint = ""
+            tvReportNo.hint = ""
+            tvRemark.hint = ""
+        }
 
         // 假如是已鉴定什么都不能保存
         if (caseType == CaseType.YJD) return
@@ -89,6 +106,7 @@ class JDBGAct : BaseAct() {
             MaterialDialog(this@JDBGAct).show {
                 fileChooser(context = this@JDBGAct, initialDirectory = initialFolder) { _, file ->
                     fid_jdbg = file
+                    this@JDBGAct.tvJdbg.text = file.name
                 }
             }
         }
@@ -97,6 +115,7 @@ class JDBGAct : BaseAct() {
             MaterialDialog(this@JDBGAct).show {
                 fileChooser(context = this@JDBGAct, initialDirectory = initialFolder) { _, file ->
                     fid_jdwd = file
+                    this@JDBGAct.tvJdwd.text = file.name
                 }
             }
         }
@@ -105,7 +124,7 @@ class JDBGAct : BaseAct() {
     private fun save() {
         val map = HashMap<String, RequestBody>()
         // 缺少了 lid 好像还保存错误...
-        case.lid?.let {   map["lid"] = it.toRequestBody(TextOrPlain) }
+        case.lid?.let { map["lid"] = it.toRequestBody(TextOrPlain) }
         map["reportNo"] = tvReportNo.trimText().toRequestBody(TextOrPlain)
         map["remark"] = tvRemark.trimText().toRequestBody(TextOrPlain)
         val jdLotteryTime = JdLotteryTime(

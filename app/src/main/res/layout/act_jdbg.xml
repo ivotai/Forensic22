@@ -21,16 +21,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="鉴定报告"
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+        app:layout_constraintTop_toTopOf="@+id/tvJdbg" />
 
     <TextView
         android:id="@+id/tvJdbg"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -39,6 +38,7 @@
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toStartOf="@+id/upJdbg"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/titleBar" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="end"
-        android:text="上传"
+        android:text="选择"
         android:textColor="@color/colorPrimary"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvJdbg"
@@ -59,16 +59,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="其他材料"
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lJdbg" />
+        app:layout_constraintTop_toTopOf="@+id/tvJdwd" />
 
     <TextView
         android:id="@+id/tvJdwd"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -77,6 +76,7 @@
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toStartOf="@+id/upJdwd"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvJdbg" />
 
     <TextView
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="end"
-        android:text="上传"
+        android:text="选择"
         android:textColor="@color/colorPrimary"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvJdwd"
@@ -97,12 +97,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="鉴定所用时效(天)"
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lJdwd" />
+        app:layout_constraintTop_toTopOf="@+id/tvDaysAppraisal" />
 
     <EditText
         android:id="@+id/tvDaysAppraisal"
