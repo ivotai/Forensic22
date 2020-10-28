@@ -33,13 +33,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="end"
+        android:text="暂无文件"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toStartOf="@+id/upJdbg"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <TextView
+        android:id="@+id/upJdbg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="end"
-        android:text="查看鉴定报告"
+        android:text="上传"
         android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdbg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+        app:layout_constraintTop_toTopOf="@+id/tvJdbg" />
 
     <TextView
         android:id="@+id/lJdwd"
@@ -58,13 +71,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="end"
+        android:text="暂无文件"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toStartOf="@+id/upJdwd"
+        app:layout_constraintTop_toBottomOf="@+id/tvJdbg" />
+
+    <TextView
+        android:id="@+id/upJdwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="end"
-        android:text="查看其他材料"
+        android:text="上传"
         android:textColor="@color/colorPrimary"
-        android:textSize="17dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJdwd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJdbg" />
+        app:layout_constraintTop_toTopOf="@+id/tvJdwd" />
 
     <TextView
         android:id="@+id/lDaysAppraisal"
@@ -78,17 +104,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lJdwd" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvDaysAppraisal"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@null"
         android:gravity="end"
+        android:hint="请输入鉴定所用时效"
+        android:inputType="numberSigned"
         android:text=""
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvJdwd" />
 
     <TextView
@@ -103,16 +133,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lDaysAppraisal" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvDaysPay"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@null"
         android:gravity="end"
+        android:hint="请输入收到费用所用时效"
+        android:inputType="numberSigned"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvDaysAppraisal" />
 
     <TextView
@@ -127,16 +161,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lDaysPay" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvDaysClearfee"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@null"
         android:gravity="end"
+        android:hint="请输入报价所用时效"
+        android:inputType="numberSigned"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvDaysPay" />
 
     <TextView
@@ -151,16 +189,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lDaysClearfee" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvDaysCheck"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@null"
         android:gravity="end"
+        android:hint="请输入查勘所用时效"
+        android:inputType="numberSigned"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvDaysClearfee" />
 
     <TextView
@@ -175,16 +217,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lDaysCheck" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvDaysEvidence"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@null"
         android:gravity="end"
+        android:hint="请输入补充证据所用时效"
+        android:inputType="numberSigned"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvDaysCheck" />
 
     <TextView
@@ -199,16 +245,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lDaysEvidence" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvRemark"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@null"
         android:gravity="end"
+        android:hint="请输入备注"
+        android:inputType="text"
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/tvDaysEvidence" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
