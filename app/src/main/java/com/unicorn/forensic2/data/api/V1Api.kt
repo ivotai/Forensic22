@@ -464,4 +464,11 @@ interface V1Api {
     @GET("category/fy")
     fun getFy(): Single<List<Fy>>
 
+    @Multipart
+    @POST("api/v1/jdLottery/submitResult")
+    fun jdLotterySubmitResult(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part?
+    ): Single<GeneralResponse>
+
 }

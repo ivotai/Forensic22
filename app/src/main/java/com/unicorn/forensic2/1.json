@@ -1,12 +1,336 @@
 {
-  "@id": "4",
-  "lid": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
-  "caseId": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
-  "daysAppraisal": 1,
-  "daysPay": 2,
-  "daysClearfee": 3,
-  "daysCheck": 4,
-  "daysEvidence": 5,
-  "lastUpdateDate": 1602840732000,
-  "deleted": 0
-}
+  "content": [
+    {
+      "@id": "1",
+      "caseId": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
+      "lid": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 20,
+      "lotteryStatus": "鉴定中",
+      "updateDttm": 1597982231000,
+      "jdNo": "(2020)陕08鉴778号",
+      "caseTypeDb": 1,
+      "caseType": "鉴定委托",
+      "isParty": true,
+      "isAgain": false,
+      "isTrial": true,
+      "isAccept": 1,
+      "caseSource": "司技系统",
+      "plaintiff": "原告：俞江旺，居民身份证：61272519651011041X，手机号码：13379125852，\r\n被告：段青飞，居民身份证：612725199001052235，手机号码：13488034154，\r\n被告：中国人寿财产保险股份有限公司靖边支公司，组织机构代码：，手机号码：18682900351，\r\n",
+      "caseNo": "(2020)陕0824民初1588号",
+      "courtApply": "RA5",
+      "courtNameApply": "靖边县人民法院",
+      "courtAccept": "RA0",
+      "courtNameAccept": "榆林市中级人民法院",
+      "courtLxdhAccept": "0912-3260929",
+      "bafg": "牛怀玉",
+      "bafgId": "371001014",
+      "zbr": "任玲玲",
+      "zbrId": "370501555",
+      "ay": "机动车交通事故责任纠纷",
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 2,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所",
+      "planFinish": 1601481600000,
+      "fee": 1000.0,
+      "reasonAppoint": "",
+      "dateApply": 1596988800000,
+      "dateRegister": 1596988800000,
+      "dateAccept": 1597628222000,
+      "dateSetperson": 1597680000000,
+      "dateLottery": 1597939200000,
+      "dateReply": 1602518400000,
+      "dateStart": 1597939200000,
+      "operaPerson": "邢东升",
+      "jdryid": "1576",
+      "jdryxm": "师建军",
+      "remark": "1233",
+      "fidjfqd": "cdc4c8b2-68eb-4f43-88a6-83c3f64b7d03",
+      "fidjfqdInfo": {
+        "@id": "2",
+        "fileid": "cdc4c8b2-68eb-4f43-88a6-83c3f64b7d03",
+        "filetype": "缴费清单",
+        "attachedkey1": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
+        "attachedkey2": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
+        "filename": "缴费清单_cdc4c8b2-68eb-4f43-88a6-83c3f64b7d03.docx",
+        "filesavepath": "RA5/2020/(2020)陕08鉴778号/缴费清单_cdc4c8b2-68eb-4f43-88a6-83c3f64b7d03.docx",
+        "uploadby": "师建军",
+        "uploadat": 1603850304000
+      },
+      "fidsfbz": "b27e3492-cb59-41a2-b15d-f01434601345",
+      "reportNo": "6",
+      "fidsfbzInfo": {
+        "@id": "3",
+        "fileid": "b27e3492-cb59-41a2-b15d-f01434601345",
+        "filetype": "收费标准",
+        "attachedkey1": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
+        "attachedkey2": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
+        "filename": "收费标准_b27e3492-cb59-41a2-b15d-f01434601345.docx",
+        "filesavepath": "RA5/2020/(2020)陕08鉴778号/收费标准_b27e3492-cb59-41a2-b15d-f01434601345.docx",
+        "uploadby": "师建军",
+        "uploadat": 1603850304000
+      },
+      "fidjdbg": "d94de306-f880-4a50-baf4-abe518410db9",
+      "fidjdbgInfo": {
+        "@id": "4",
+        "fileid": "d94de306-f880-4a50-baf4-abe518410db9",
+        "filetype": "鉴定报告",
+        "attachedkey1": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
+        "attachedkey2": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
+        "filename": "鉴定报告_d94de306-f880-4a50-baf4-abe518410db9.xlsx",
+        "filesavepath": "RA5/2020/(2020)陕08鉴778号/鉴定报告_d94de306-f880-4a50-baf4-abe518410db9.xlsx",
+        "uploadby": "师建军",
+        "uploadat": 1602840781000
+      },
+      "fidjdwd": "4b1fe270-daf6-426a-9859-533f50ff1e2f",
+      "fidjdwdInfo": {
+        "@id": "5",
+        "fileid": "4b1fe270-daf6-426a-9859-533f50ff1e2f",
+        "filetype": "鉴定文档",
+        "attachedkey1": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
+        "attachedkey2": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
+        "filename": "鉴定文档_4b1fe270-daf6-426a-9859-533f50ff1e2f.xlsx",
+        "filesavepath": "RA5/2020/(2020)陕08鉴778号/鉴定文档_4b1fe270-daf6-426a-9859-533f50ff1e2f.xlsx",
+        "uploadby": "师建军",
+        "uploadat": 1602840781000
+      },
+      "jdLotteryTime": {
+        "@id": "6",
+        "lid": "e992a8e3-da11-4dbd-a62d-857cfa85a145",
+        "caseId": "39957f25-ceaf-4ac7-b5c3-29b26404c6d1",
+        "daysAppraisal": 1,
+        "daysPay": 2,
+        "daysClearfee": 3,
+        "daysCheck": 4,
+        "daysEvidence": 5,
+        "lastUpdateDate": 1602840732000,
+        "deleted": 0
+      }
+    },
+    {
+      "@id": "7",
+      "caseId": "6aabda59-a279-4206-b6a6-f6b4776dba56",
+      "lid": "ad959b90-d353-4e5c-a5d8-f0824ed67828",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 20,
+      "lotteryStatus": "鉴定中",
+      "updateDttm": 1589417429000,
+      "jdNo": "(2020)陕08鉴409"
+      :
+      "0912-3260929",
+      "bafg": "白萍",
+      "bafgId": "370601189",
+      "zbr": "张超",
+      "zbrId": "370501336",
+      "ay": "机动车交通事故责任纠纷",
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 3,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所",
+      "reasonAppoint": "",
+      "dateApply": 1587830400000,
+      "dateRegister": 1587830400000,
+      "dateAccept": 1589019453000,
+      "dateSetperson": 1589212800000,
+      "dateLottery": 1589385600000,
+      "dateReply": 1602518400000,
+      "dateStart": 1589385600000,
+      "operaPerson": "白璇"
+    },
+    {
+      "@id": "8",
+      "caseId": "9965056d-4f41-4439-8ddd-70b862a07504",
+      "lid": "8eba2f3b-90a1-4917-960b-eff4b214fbbf",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 20,
+      "lotteryStatus": "鉴定中",
+      "updateDttm": 1589416199000,
+      "jdNo": "(2020)陕08鉴386号",
+      "caseTypeDb": 1,
+      "caseType": "鉴定委托",
+      "isParty": true,
+      "isAgain": false,
+      "isTrial": true,
+      "isAccept": 1,
+      "caseSource": "审判系统",
+      "plaintiff": "原告：李登峰，居民身份证：612726197112170055，手机号码：17730798088，\r\n被告：赵海宏，居民身份证：61272619821223273X，手机号码：15291209290，\r\n被告：中国大地财产保险股份有限公司榆林中心支公司定边县支公司，组织机构代码：91610825667995819P，手机号码：15909121172，\r\n",
+      "caseNo": "(2020)陕0825民初2349号",
+      "courtApply": "RA6",
+      "courtNameApply": "定边县人民法院",
+      "courtAccept": "RA0",
+      "courtNameAccept": "榆林市中级人民法院",
+      "courtLxdhAccept": "0912-3260929",
+      "bafg": "李占强",
+      "bafgId": "371101015",
+      "zbr": "马慧",
+      "zbrId": "370501556",
+      "ay": "机动车交通事故责任纠纷",
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 3,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所",
+      "reasonAppoint": "",
+      "dateApply": 1588089600000,
+      "dateRegister": 1588089600000,
+      "dateAccept": 1589018879000,
+      "dateSetperson": 1589212800000,
+      "dateLottery": 1589385600000,
+      "dateReply": 1602604800000,
+      "dateStart": 1589385600000,
+      "operaPerson": "白璇"
+    },
+    {
+      "@id": "9",
+      "caseId": "d0033543-ccd8-45c4-b96e-5482adc9926f",
+      "lid": "c8d4ec06-76a7-4739-9ba6-e1ee0dd1f6cb",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 20,
+      "lotteryStatus": "鉴定中",
+      "updateDttm": 1589416199000,
+      "jdNo": "(2020)陕08鉴375号",
+      "caseTypeDb": 1,
+      "caseType": "鉴定委托",
+      "isParty": true,
+      "isAgain": false,
+      "isTrial": true,
+      "isAccept": 1,
+      "caseSource": "司技系统",
+      "plaintiff": "原告：惠广君，居民身份证：612726196312102714，手机号码：13891265573，\r\n原告：惠勋，居民身份证：612726198404102710，手机号码：13259343728，\r\n被告：高亚军，居民身份证：612726198807153037，手机号码：18729923772，\r\n被告：定边县腾翔出租汽车有限责任公司，组织机构代码：916108250619124093，手机号码：0912-4510077，\r\n被告：中国人民财产保险股份有限公司定边支公司，组织机构代码：91610825224120183D，手机号码：17792110652，\r\n",
+      "caseNo": "(2020)陕0825民初1464号",
+      "courtApply": "RA6",
+      "courtNameApply": "定边县人民法院",
+      "courtAccept": "RA0",
+      "courtNameAccept": "榆林市中级人民法院",
+      "courtLxdhAccept": "0912-3260929",
+      "bafg": "李占强",
+      "bafgId": "371101015",
+      "zbr": "高晓明",
+      "zbrId": "370501087",
+      "ay": "机动车交通事故责任纠纷",
+      "closeTypeDisplay": "",
+      "jdlbId": "4",
+      "jdlb": "法医临床",
+      "jdlbId0": 1,
+      "jdlb0": "法医",
+      "lotteryType": 1,
+      "rollMode": 3,
+      "jgid": "106",
+      "jgmc": "陕西榆林高科法医司法鉴定所",
+      "reasonAppoint": "",
+      "dateApply": 1589212800000,
+      "dateRegister": 1589212800000,
+      "dateAccept": 1589269643000,
+      "dateSetperson": 1589212800000,
+      "dateLottery": 1589385600000,
+      "dateReply": 1602604800000,
+      "dateStart": 1589385600000,
+      "operaPerson": "白璇"
+    },
+    {
+      "@id": "10",
+      "caseId": "2562c154-20ed-44e0-9b21-91bdc67897e5",
+      "lid": "0f068925-042b-4ee7-bf14-0317e7718dd9",
+      "idx": "1",
+      "caseStatusDb": 50,
+      "caseStatus": "案件办理",
+      "caseNodeDb": 5,
+      "caseNode": "案件办理",
+      "lotteryStatusDb": 20,
+      "lotteryStatus": "鉴定中",
+      "u0000,"
+      dateRegister
+      ":1587571200000,"
+      dateAccept
+      ":1589019059000,"
+      dateSetperson
+      ":1589212800000,"
+      dateLottery
+      ":1589385600000,"
+      dateReply
+      ":1602691200000,"
+      dateStart
+      ":1589385600000,"
+      operaPerson
+      ":"
+      白璇
+      "}],"
+      pageable
+      ":{"
+      sort
+      ":{"
+      sorted
+      ":true,"
+      unsorted
+      ":false,"
+      empty
+      ":false},"
+      pageNumber
+      ":0,"
+      offset
+      ":"
+      0
+      ","
+      pageSize
+      ":5,"
+      unpaged
+      ":false,"
+      paged
+      ":true},"
+      last
+      ":false,"
+      totalElements
+      ":"
+      29
+      ","
+      totalPages
+      ":6,"
+      first
+      ":true,"
+      sort
+      ":{"
+      sorted
+      ":true,"
+      unsorted
+      ":false,"
+      empty
+      ":false},"
+      size
+      ":5,"
+      number
+      ":0,"
+      numberOfElements
+      ":5,"
+      empty
+      ":false}

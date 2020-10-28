@@ -9,7 +9,5 @@ data class JdLotteryTime(
     val daysClearfee: Int,
     val daysEvidence: Int,
     val daysPay: Int,
-    val deleted: Int,
-    val lastUpdateDate: Long,
-    val lid: String
+    val lid: String?
 ): Serializable

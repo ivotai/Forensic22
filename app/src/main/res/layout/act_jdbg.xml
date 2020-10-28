@@ -234,6 +234,34 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDaysCheck" />
 
     <TextView
+        android:id="@+id/lReportNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="报告编号"
+        android:textColor="@color/md_black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lDaysEvidence" />
+
+    <EditText
+        android:id="@+id/tvReportNo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:gravity="end"
+        android:hint="请输入报告编号"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/tvDaysEvidence" />
+
+    <TextView
         android:id="@+id/lRemark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -243,7 +271,7 @@
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lDaysEvidence" />
+        app:layout_constraintTop_toBottomOf="@+id/lReportNo" />
 
     <EditText
         android:id="@+id/tvRemark"
@@ -258,8 +286,9 @@
         android:textColor="@color/md_black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/tvDaysEvidence" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReportNo" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
