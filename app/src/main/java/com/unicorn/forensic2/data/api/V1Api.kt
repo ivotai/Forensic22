@@ -471,4 +471,13 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
+
+
+    @Multipart
+    @POST("api/v1/jdLottery/addLotteryDelay")
+    fun jdLotteryAddLotteryDelay(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part vararg parts: MultipartBody.Part?
+    ): Single<GeneralResponse>
+
 }
