@@ -3,11 +3,15 @@ package com.unicorn.forensic2.ui.operation.jdbg
 import android.os.Environment.getExternalStorageDirectory
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.files.fileChooser
+import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
 import com.google.gson.Gson
+import com.luck.picture.lib.entity.LocalMedia
+import com.luck.picture.lib.listener.OnResultCallbackListener
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
+import com.unicorn.forensic2.app.helper.PictureHelper
 import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
@@ -47,7 +51,7 @@ class JDBGAct : BaseAct() {
         tvJdwd.safeClicks().subscribe { case.fidjdwdInfo?.open(this) }
 
         // 已鉴定 不允许编辑
-        if (caseType == CaseType.YJD){
+        if (caseType == CaseType.YJD) {
             tvDaysAppraisal.isEnabled = false
             tvDaysPay.isEnabled = false
             tvDaysClearfee.isEnabled = false
@@ -102,20 +106,66 @@ class JDBGAct : BaseAct() {
             save()
         }
         upJdbg.safeClicks().subscribe {
-            val initialFolder = File(getExternalStorageDirectory(), "Download")
-            MaterialDialog(this@JDBGAct).show {
-                fileChooser(context = this@JDBGAct, initialDirectory = initialFolder) { _, file ->
-                    fid_jdbg = file
-                    this@JDBGAct.tvJdbg.text = file.name
+            MaterialDialog(this).show {
+                listItems(items = listOf("相册", "文件管理")) { dialog, index, text ->
+                    if (index == 0) {
+                        PictureHelper.selectPicture(
+                            this@JDBGAct,
+                            object : OnResultCallbackListener {
+                                override fun onResult(result: MutableList<LocalMedia>) {
+                                    val realPath = PictureHelper.getPath(result)
+                                    fid_jdbg = File(realPath)
+                                    this@JDBGAct.tvJdbg.text = File(realPath).name
+                                }
+
+                                override fun onCancel() {
+                                }
+                            })
+                    }
+                    if (index == 1) {
+                        val initialFolder = File(getExternalStorageDirectory(), "Download")
+                        MaterialDialog(this@JDBGAct).show {
+                            fileChooser(
+                                context = this@JDBGAct,
+                                initialDirectory = initialFolder
+                            ) { _, file ->
+                                fid_jdbg = file
+                                this@JDBGAct.tvJdbg.text = file.name
+                            }
+                        }
+                    }
                 }
             }
         }
         upJdwd.safeClicks().subscribe {
-            val initialFolder = File(getExternalStorageDirectory(), "Download")
-            MaterialDialog(this@JDBGAct).show {
-                fileChooser(context = this@JDBGAct, initialDirectory = initialFolder) { _, file ->
-                    fid_jdwd = file
-                    this@JDBGAct.tvJdwd.text = file.name
+            MaterialDialog(this).show {
+                listItems(items = listOf("相册", "文件管理")) { dialog, index, text ->
+                    if (index == 0) {
+                        PictureHelper.selectPicture(
+                            this@JDBGAct,
+                            object : OnResultCallbackListener {
+                                override fun onResult(result: MutableList<LocalMedia>) {
+                                    val realPath = PictureHelper.getPath(result)
+                                    fid_jdwd = File(realPath)
+                                    this@JDBGAct.tvJdwd.text = File(realPath).name
+                                }
+
+                                override fun onCancel() {
+                                }
+                            })
+                    }
+                    if (index == 1) {
+                        val initialFolder = File(getExternalStorageDirectory(), "Download")
+                        MaterialDialog(this@JDBGAct).show {
+                            fileChooser(
+                                context = this@JDBGAct,
+                                initialDirectory = initialFolder
+                            ) { _, file ->
+                                fid_jdwd = file
+                                this@JDBGAct.tvJdwd.text = file.name
+                            }
+                        }
+                    }
                 }
             }
         }
