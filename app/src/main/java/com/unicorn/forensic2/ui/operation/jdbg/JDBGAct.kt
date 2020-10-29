@@ -12,11 +12,11 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
-import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.data.model.CaseType
 import com.unicorn.forensic2.data.model.JdLotteryTime
 import com.unicorn.forensic2.ui.base.BaseAct
+import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_jdbg.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -209,7 +209,7 @@ class JDBGAct : BaseAct() {
                     }
                     ToastUtils.showShort("保存成功")
                     finish()
-                    RxBus.post(RefreshEvent())
+                    RxBus.post(RefreshCaseEvent())
                 },
                 onError = {
                     mask.dismiss()

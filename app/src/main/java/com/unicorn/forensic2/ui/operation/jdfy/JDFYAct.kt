@@ -2,20 +2,23 @@ package com.unicorn.forensic2.ui.operation.jdfy
 
 import android.content.Intent
 import android.os.Environment
+import android.view.View
+import android.widget.RadioButton
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.datetime.datePicker
 import com.afollestad.materialdialogs.files.fileChooser
 import com.afollestad.materialdialogs.list.listItems
 import com.blankj.utilcode.util.ToastUtils
+import com.jakewharton.rxbinding3.widget.checkedChanges
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.listener.OnResultCallbackListener
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.app.helper.PictureHelper
-import com.unicorn.forensic2.data.event.RefreshEvent
 import com.unicorn.forensic2.data.model.Case
 import com.unicorn.forensic2.ui.base.BaseAct
+import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySListAct
 import com.unicorn.forensic2.ui.operation.jdfk.JdrySelectEvent
 import io.reactivex.functions.Consumer
@@ -36,9 +39,21 @@ class JDFYAct : BaseAct() {
         case.fidsfbzInfo?.let { tvSfbz.text = "收费标准" }
         case.fidjfqdInfo?.let { tvJfqd.text = "缴费通知书" }
 
+        jdryid = case.jdryid
+        jdryxm = case.jdryxm
+        tvJdry.text = jdryxm
+
         // 其他值初始化
         tvFee.setText(case.fee?.toString() ?: "0")
         case.planFinish?.let { tvDelayTo.text = DateTime(it).toString("yyyy-MM-dd") }
+
+        // 不可见
+        if (case.fee == null){
+            lApplyInfo.visibility = View.GONE
+            tvApplyInfo.visibility = View.GONE
+        }
+        lRemark.visibility = View.GONE
+        tvRemark.visibility = View.GONE
     }
 
     private var fid_sfbz: File? = null
@@ -47,6 +62,12 @@ class JDFYAct : BaseAct() {
     private var jdryid = ""
 
     override fun bindIntent() {
+        rgTerminate.checkedChanges().subscribe {
+            val radioButton = rgTerminate.findViewById<RadioButton>(it)
+            val flag = radioButton.text == "是"
+            lRemark.visibility = if (flag) View.VISIBLE else View.GONE
+            tvRemark.visibility = if (flag) View.VISIBLE else View.GONE
+        }
         tvSfbz.safeClicks().subscribe { case.fidsfbzInfo?.open(this) }
         tvJfqd.safeClicks().subscribe { case.fidjdwdInfo?.open(this) }
         tvDelayTo.safeClicks().subscribe {
@@ -64,11 +85,11 @@ class JDFYAct : BaseAct() {
         }
         titleBar.setOperation("保存").safeClicks().subscribe {
             if (fid_sfbz == null) {
-                ToastUtils.showShort("收费标准")
+                ToastUtils.showShort("请选择收费标准")
                 return@subscribe
             }
             if (fid_jfqd == null) {
-                ToastUtils.showShort("缴费通知书")
+                ToastUtils.showShort("请选择缴费通知书")
                 return@subscribe
             }
             if (tvFee.isEmpty()) {
@@ -195,7 +216,7 @@ class JDFYAct : BaseAct() {
                     }
                     ToastUtils.showShort("保存成功")
                     finish()
-                    RxBus.post(RefreshEvent())
+                    RxBus.post(RefreshCaseEvent())
                 },
                 onError = {
                     mask.dismiss()

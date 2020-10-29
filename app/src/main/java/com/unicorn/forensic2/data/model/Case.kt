@@ -85,7 +85,9 @@ data class Case(
     val fidjfqdInfo: UploadFile?,
     val reportNo: String,
     val fee: Int?,
-    val planFinish: Long?
+    val planFinish: Long?,
+    var jdryid:String,
+    var jdryxm:String
 ) : Serializable {
 
     companion object {
