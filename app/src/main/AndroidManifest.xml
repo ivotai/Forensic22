@@ -88,6 +88,7 @@
         <activity android:name=".refactor.caseDemo.CaseDemoCListAct" />
         <activity android:name=".refactor.case1.detail.CaseDetailAct" />
         <activity android:name=".refactor.stat.StatAct" />
+        <activity android:name=".ui.operation.jdfy.JDFYAct" />
         <activity
             android:name=".data.SimplePlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"

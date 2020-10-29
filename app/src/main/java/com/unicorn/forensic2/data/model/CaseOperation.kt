@@ -22,7 +22,7 @@ enum class CaseOperation(val cn: String) {
             Role.JdjgAdmin -> when (caseType) {
                 CaseType.ZBTZ -> listOf(HF)
                 CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDFY, JDBG)
-                CaseType.YJD -> listOf(AJBW, JDFY, JDBG)
+                CaseType.YJD -> listOf(AJBW, JDBG)
                 else -> listOf()
             }
             Role.Sfjd -> when (caseType) {
