@@ -3,6 +3,7 @@ package com.unicorn.forensic2.refactor.main
 import androidx.core.content.ContextCompat
 import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.RxBus
+import com.unicorn.forensic2.app.helper.UpdateHelper
 import com.unicorn.forensic2.app.isLogin
 import com.unicorn.forensic2.app.role
 import com.unicorn.forensic2.data.event.LoginStateChangeEvent
@@ -25,6 +26,8 @@ class MainAct : BaseAct() {
         viewPaper.adapter = mainPagerAdapter
         viewPaper.offscreenPageLimit = 3
         notifyTabs()
+
+        UpdateHelper.checkVersion(this)
     }
 
     override fun registerEvent() {

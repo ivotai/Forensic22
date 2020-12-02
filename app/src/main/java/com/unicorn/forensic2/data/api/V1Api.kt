@@ -16,6 +16,7 @@ import com.unicorn.forensic2.ui.operation.jdfk.JdrySimple
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelay
 import com.unicorn.forensic2.ui.operation.remind.Remind
 import com.unicorn.forensic2.ui.operation.taskDoc.JdTaskDocParam
+import io.reactivex.Observable
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -471,13 +472,16 @@ interface V1Api {
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
 
-
-
     @Multipart
     @POST("api/v1/jdLottery/addLotteryDelay")
     fun jdLotteryAddLotteryDelay(
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
         @Part vararg parts: MultipartBody.Part?
     ): Single<GeneralResponse>
+
+    @GET(value = "public/checkUpdate")
+    fun checkUpdate(
+        @Query("versionName") versionName: String
+    ): Observable<CheckUpdateResponse>
 
 }
