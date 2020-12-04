@@ -1,5 +1,6 @@
 package com.unicorn.forensic2.app.helper
 
+import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.AppUtils
 import com.kaopiz.kprogresshud.KProgressHUD
@@ -48,10 +49,11 @@ object UpdateHelper {
 //            .addHeader(Cookie, "$SESSION=$session")
             .build()
             .execute(object : FileCallBack(
-                activity.cacheDir.path,
+                activity.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)?.path,
                 "Forensic.apk"
             ) {
                 override fun onResponse(response: File, id: Int) {
+//                    val file = File(activity.cacheDir,"Forensic.apk")
                     mask.dismiss()
                     AppUtils.installApp(response)
                 }
