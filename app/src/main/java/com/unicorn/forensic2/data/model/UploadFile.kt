@@ -2,6 +2,7 @@ package com.unicorn.forensic2.data.model
 
 import android.content.Context
 import android.content.Intent
+import android.os.Environment
 import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.kaopiz.kprogresshud.KProgressHUD
@@ -60,7 +61,7 @@ data class UploadFile(
             .get()
             .url(pdfUrl)
             .build()
-            .execute(object : FileCallBack(context.cacheDir.path, "1.$extension") {
+            .execute(object : FileCallBack(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)?.path, "1.$extension") {
                 override fun onResponse(response: File, id: Int) {
                     progressMask.dismiss()
                     FileUtils2.openFile(context,response)
