@@ -84,6 +84,16 @@ class JDFYAct : BaseAct() {
             }.let { startActivity(it) }
         }
         titleBar.setOperation("保存").safeClicks().subscribe {
+            // 如果退案的话
+            if (rbAccept.isChecked){
+                if (tvRemark.isEmpty()) {
+                    ToastUtils.showShort("退案原因不能为空")
+                    return@subscribe
+                }
+                simpleSave()
+                return@subscribe
+            }
+
             if (fid_sfbz == null) {
                 ToastUtils.showShort("请选择收费标准")
                 return@subscribe
@@ -180,6 +190,34 @@ class JDFYAct : BaseAct() {
             jdryxm = event.jdryList.joinToString { it.xm }
             tvJdry.text = jdryxm
         })
+    }
+
+    private fun simpleSave() {
+        val map = HashMap<String, RequestBody>()
+        // 缺少了 lid 好像还保存错误...
+        case.lid?.let { map["lid"] = it.toRequestBody(TextOrPlain) }
+        val terminate = if (rbAccept.isChecked) 1 else 0
+        map["terminate"] = terminate.toString().toRequestBody(TextOrPlain)
+        map["remark"] = tvRemark.trimText().toRequestBody(TextOrPlain)
+        val mask = DialogHelper.showMask(this)
+        v1Api.jdLotteryAddLotteryDelay(map)
+            .observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    mask.dismiss()
+                    if (!it.success) {
+                        ToastUtils.showShort("保存失败")
+                        return@subscribeBy
+                    }
+                    ToastUtils.showShort("保存成功")
+                    finish()
+                    RxBus.post(RefreshCaseEvent())
+                },
+                onError = {
+                    mask.dismiss()
+                    ToastUtils.showShort("保存失败")
+                }
+            )
     }
 
     private fun save() {

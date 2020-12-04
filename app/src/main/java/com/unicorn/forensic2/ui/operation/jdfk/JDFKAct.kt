@@ -8,7 +8,6 @@ import com.unicorn.forensic2.R
 import com.unicorn.forensic2.app.*
 import com.unicorn.forensic2.app.helper.DialogHelper
 import com.unicorn.forensic2.data.model.Case
-import com.unicorn.forensic2.data.model.CaseOperation
 import com.unicorn.forensic2.ui.base.BaseAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import io.reactivex.functions.Consumer
@@ -20,7 +19,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 class JDFKAct : BaseAct() {
 
     override fun initViews() {
-        titleBar.setTitle(CaseOperation.JDFK.cn)
+//        titleBar.setTitle(CaseOperation.JDFK.cn)
+        titleBar.setTitle("")
     }
 
     override fun bindIntent() {
@@ -77,7 +77,8 @@ class JDFKAct : BaseAct() {
                 jdryxm = jdryList!!.map { it.xm },
                 terminate = if (rb0.isChecked) 0 else 1
             )
-        val operation = CaseOperation.JDFK.cn
+//        val operation = CaseOperation.JDFK.cn
+        val operation =" CaseOperation.JDFK.cn"
         v1Api.addLotteryDelay(map).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {
