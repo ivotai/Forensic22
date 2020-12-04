@@ -22,7 +22,6 @@ import com.unicorn.forensic2.ui.operation.JdTaskDocHelper
 import com.unicorn.forensic2.ui.operation.hf.HfAct
 import com.unicorn.forensic2.ui.operation.hf.RefreshCaseEvent
 import com.unicorn.forensic2.ui.operation.jdbg.JDBGAct
-import com.unicorn.forensic2.ui.operation.jdfk.JDFKAct
 import com.unicorn.forensic2.ui.operation.jdfy.JDFYAct
 import com.unicorn.forensic2.ui.operation.lotteryDelay.LotteryDelayListAct
 import com.unicorn.forensic2.ui.operation.remind.RemindListAct
@@ -99,9 +98,9 @@ class CaseDetailAct : BaseAct() {
                     CaseOperation.HF -> Intent(this@CaseDetailAct, HfAct::class.java).apply {
                         putExtra(Param, case.lid)
                     }.let { startActivity(it) }
-                    CaseOperation.JDFK -> Intent(this@CaseDetailAct, JDFKAct::class.java).apply {
-                        putExtra(Param, case)
-                    }.let { startActivity(it) }
+//                    CaseOperation.JDFK -> Intent(this@CaseDetailAct, JDFKAct::class.java).apply {
+//                        putExtra(Param, case)
+//                    }.let { startActivity(it) }
                     CaseOperation.JDBG -> Intent(this@CaseDetailAct, JDBGAct::class.java).apply {
                         putExtra(Param, case)
                         putExtra(com.unicorn.forensic2.app.CaseType, caseType)
