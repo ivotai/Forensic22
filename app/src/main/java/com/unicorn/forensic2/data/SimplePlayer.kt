@@ -39,7 +39,7 @@ class SimplePlayer : AppCompatActivity() {
             .get()
             .url(url)
             .build()
-            .execute(object : FileCallBack(cacheDir.path, ".pdf") {
+            .execute(object : FileCallBack(cacheDir.path, ".mp4") {
                 override fun onResponse(response: File, id: Int) {
                     progressMask.dismiss()
                     init(file = response)
