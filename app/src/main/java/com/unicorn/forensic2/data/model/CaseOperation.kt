@@ -6,7 +6,7 @@ enum class CaseOperation(val cn: String) {
     HF("回复"),             // 受理不受理
     AJBW("案件备忘"),       // 暂时不做
     BATX("办案提醒"),       // 暂时不做
-    JDFK("鉴定反馈"),
+//    JDFK("鉴定反馈"),
     BGPF_JDJGADMIN("变更批复"),
     JDBG("鉴定报告"),
     JDFY("鉴定费用"),
@@ -21,7 +21,8 @@ enum class CaseOperation(val cn: String) {
         fun all(caseType: CaseType) = when (role) {
             Role.JdjgAdmin -> when (caseType) {
                 CaseType.ZBTZ -> listOf(HF)
-                CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDFY, JDBG)
+//                CaseType.DJD -> listOf(AJBW, BATX, JDFK, BGPF_JDJGADMIN, JDFY, JDBG)
+                CaseType.DJD -> listOf(AJBW, BATX, BGPF_JDJGADMIN, JDFY, JDBG)
                 CaseType.YJD -> listOf(AJBW, JDBG)
                 else -> listOf()
             }
