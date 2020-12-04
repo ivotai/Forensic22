@@ -20,14 +20,16 @@
 
     <TextView
         android:id="@+id/tvJgmc"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="o机构名称"
         android:textColor="@color/md_black"
         android:textSize="16dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lJgmc" />
 
