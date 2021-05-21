@@ -20,6 +20,7 @@ import io.reactivex.Observable
 import io.reactivex.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.http.*
 
 
@@ -34,6 +35,15 @@ interface V1Api {
         @Field("court") court: String? = null,
         @Path(value = "path") path: String
     ): Single<LoginResult>
+
+    @FormUrlEncoded
+    @POST("login/{path}")
+    fun loginSilently(
+        @Field("username") username: String,
+        @Field("password") password: String,
+        @Field("court") court: String? = null,
+        @Path(value = "path") path: String
+    ): Call<LoginResult>
 
 
     // 注册
@@ -456,7 +466,8 @@ interface V1Api {
     @GET("api/v1/app/jdCase/sjcStatistics")
     fun stat(
         @Query("beginDate") beginDate: String,
-        @Query("endDate") endDate: String
+        @Query("endDate") endDate: String,
+        @Query("fydm") fydm: String
     ): Single<List<Stat>>
 
 

@@ -4,10 +4,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.datetime.datePicker
 import com.unicorn.forensic2.R
-import com.unicorn.forensic2.app.displayDateFormat
-import com.unicorn.forensic2.app.observeOnMain
-import com.unicorn.forensic2.app.safeClicks
+import com.unicorn.forensic2.app.*
+import com.unicorn.forensic2.data.model.LoginInfo
+import com.unicorn.forensic2.data.model.TreeResult2
+import com.unicorn.forensic2.ui.act.FyTreeAct
 import com.unicorn.forensic2.ui.base.BaseAct
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_stat.*
 import org.joda.time.DateTime
@@ -19,6 +21,8 @@ class StatAct : BaseAct() {
     private var beginDate = DateTime().withDayOfMonth(1)
 
     private var endDate = DateTime()
+
+    private var dm: String = LoginInfo.dm
 
     val simpleAdapter = StatAdapter()
 
@@ -58,13 +62,23 @@ class StatAct : BaseAct() {
             }
         }
 
+        titleBar.setOperation("法院").safeClicks().subscribe { startAct(FyTreeAct::class.java) }
+
         getStat()
+    }
+
+    override fun registerEvent() {
+        RxBus.registerEvent(this, TreeResult2::class.java, Consumer {
+            dm = it.fy.dm
+            getStat()
+        })
     }
 
     private fun getStat() {
         v1Api.stat(
             beginDate = beginDate.toString(displayDateFormat),
-            endDate = endDate.toString(displayDateFormat)
+            endDate = endDate.toString(displayDateFormat),
+            fydm = dm
         ).observeOnMain(this)
             .subscribeBy(
                 onSuccess = {

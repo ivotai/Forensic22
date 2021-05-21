@@ -19,7 +19,7 @@ class CaseDetailFra : BaseFra() {
             tvCourtNameAccept.text = courtNameAccept
             tvDateAccept.text = dateAccept.toDisplayFormat2()
             tvDateClose.text = dateClose.toDisplayFormat2("尚未结案")
-            tvCloseTypeDisplay.text = if (closeTypeDisplay.isEmpty()) "尚未结案" else closeTypeDisplay
+            tvCloseTypeDisplay.text = if (closeTypeDisplay == null || closeTypeDisplay.isEmpty()) "尚未结案" else closeTypeDisplay
         }
     }
 

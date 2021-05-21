@@ -34,6 +34,12 @@ class NetworkModule {
                 if (flag) chain.proceed(chain.request())
                 else NetworkHelper.proceedRequestWithSession(chain)
             }
+            .addInterceptor { chain ->
+                val response = chain.proceed(chain.request())
+                if (response.code != 401) return@addInterceptor response
+                // 401 表示 session 过期
+                NetworkHelper.proceedRequestWithNewSession(chain)
+            }
 //            .addInterceptor { chain ->
 //                // 非空检测，虽然不是很必要
 //                val response = chain.proceed(chain.request())
